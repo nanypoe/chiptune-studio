@@ -32,6 +32,10 @@ El Estudio conserva la sesión automáticamente en el almacenamiento local del
 navegador. Los dos módulos funcionan en el cliente; no se envían archivos a un
 servidor propio.
 
+El pie de página incluye el crédito de autoría y la licencia MIT, junto con
+enlaces al perfil y al repositorio de GitHub. La licencia completa está en
+[LICENSE](./LICENSE).
+
 ## Componer en el Estudio
 
 1. Pulsa **Canción nueva** o **Cargar demo**.
