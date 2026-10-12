@@ -9,6 +9,22 @@
   <script src="apps/studio/studio.js" defer></script>
 </head>
 <body>
+  <div id="metronomeVisual" aria-hidden="true">
+    <svg class="metronome-icon" viewBox="0 0 64 64">
+      <path class="metronome-body" d="M18 54 24 12h16l6 42z"/>
+      <path class="metronome-base" d="M14 56h36"/>
+      <path class="metronome-mark" d="m25 22 5 1m-6 7 5 1m-6 7 5 1"/>
+      <g id="metronomeArm">
+        <path class="metronome-arm" d="M32 49V14"/>
+        <circle class="metronome-weight" cx="32" cy="25" r="3.5"/>
+        <circle class="metronome-pivot" cx="32" cy="49" r="3"/>
+      </g>
+    </svg>
+    <div class="metronome-readout">
+      <strong id="metronomeTempo">120 BPM</strong>
+      <span class="metronome-beats"><i></i><i></i><i></i><i></i></span>
+    </div>
+  </div>
   <header class="row panel">
     <h1>CHIPTUNE STUDIO</h1>
     <label>Título <input id="title" maxlength="80" aria-label="Título de la canción"></label>

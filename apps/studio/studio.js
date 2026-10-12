@@ -453,6 +453,7 @@ let playing=false,timer,nextT,cur,queue=[],ended=false,endAt=0,playbackLoop=null
 let rendering=false;
 function metronomeClick(t,accent){
   const level=+$('#metronomeVolume').value;
+  animateMetronome(t,accent);
   if(level<=0)return;
   const osc=ctx.createOscillator(),gain=ctx.createGain();
   osc.type='triangle';osc.frequency.setValueAtTime(accent?1760:1180,t);
@@ -460,11 +461,27 @@ function metronomeClick(t,accent){
   gain.gain.exponentialRampToValueAtTime(.0001,t+.045);
   osc.connect(gain).connect(bus);osc.start(t);osc.stop(t+.05);
 }
+function updateMetronomeVisibility(){
+  $('#metronomeVisual').classList.toggle('is-visible',playing&&$('#metronome').checked);
+}
+function animateMetronome(t,accent){
+  const visual=$('#metronomeVisual'),arm=$('#metronomeArm'),beat=Math.floor(cur/4)%4;
+  visual.classList.toggle('is-accent',accent);
+  visual.querySelectorAll('.metronome-beats i').forEach((dot,index)=>dot.classList.toggle('is-current',index===beat));
+  const duration=60/song.bpm*1000,startAngle=beat%2===0?-24:24,endAngle=-startAngle;
+  arm.getAnimations().forEach(animation=>animation.cancel());
+  arm.style.transform=`rotate(${startAngle}deg)`;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){arm.style.transform=`rotate(${endAngle}deg)`;return}
+  arm.animate(
+    [{transform:`rotate(${startAngle}deg)`},{transform:`rotate(${endAngle}deg)`}],
+    {duration,delay:Math.max(0,(t-ctx.currentTime)*1000),easing:'ease-in-out',fill:'forwards'}
+  );
+}
 function play(loop=null,record=false){if(rendering)return;
   initAudio();stop();newBus();cur=0;nextT=ctx.currentTime+.08;queue=[];ended=false;playing=true;
   playbackLoop=loop;loopRecording=record;
   if(playbackLoop)cur=playbackLoop.start;
-  playOriginTime=nextT;renderKeyboard();timer=setInterval(tick,25);$('#play').classList.add('on');$('#play').textContent='❚❚';$('#ph').style.display='block';requestAnimationFrame(frame);
+  playOriginTime=nextT;renderKeyboard();updateMetronomeVisibility();timer=setInterval(tick,25);$('#play').classList.add('on');$('#play').textContent='❚❚';$('#ph').style.display='block';requestAnimationFrame(frame);
   updateLoopControls();
 }
 function startLoop(record){
@@ -507,6 +524,7 @@ function tick(){
 function stop(){
   const wasLooping=!!playbackLoop;
   clearInterval(timer);if(bus)newBus();playing=false;playbackLoop=null;loopRecording=false;
+  updateMetronomeVisibility();$('#metronomeVisual').classList.remove('is-accent');$('#metronomeArm').getAnimations().forEach(animation=>animation.cancel());
   if(wasLooping)$('#keyboardRecord').checked=false;
   $('#play').classList.remove('on');$('#play').textContent='▶';$('#ph').style.display='none';
   if($('#keyboardView'))renderKeyboard();
@@ -680,11 +698,12 @@ function setBars(n){
 }
 $('#barP').onclick=()=>setBars(song.bars+1);$('#barM').onclick=()=>setBars(song.bars-1);
 $('#dup').onclick=()=>{if(song.bars>32)return msg('Máximo 64 compases.');const T=total();for(const t of song.tracks)t.notes.push(...t.notes.map(n=>({...n,step:n.step+T})));song.bars*=2;refresh()};
-$('#bpm').onchange=e=>{song.bpm=clamp(+e.target.value||120,40,240);e.target.value=song.bpm};
+$('#bpm').onchange=e=>{song.bpm=clamp(+e.target.value||120,40,240);e.target.value=song.bpm;$('#metronomeTempo').textContent=`${song.bpm} BPM`};
 $('#title').oninput=e=>song.title=e.target.value;
 $('#vol').oninput=e=>{if(master)master.gain.value=+e.target.value};
 $('#rev').oninput=e=>{if(wet)wet.gain.value=+e.target.value};
 $('#metronomeVolume').addEventListener('input',e=>e.target.title=`Nivel del metrónomo: ${Math.round(+e.target.value*100)}%`);
+$('#metronome').addEventListener('change',updateMetronomeVisibility);
 $('#root').innerHTML=NAMES.map((n,i)=>`<option value="${i}">${n}</option>`).join('');$('#root').value=9;
 $('#root').onchange=$('#scale').onchange=draw;
 $('#lens').innerHTML=[[1,'1/16'],[2,'1/8'],[4,'1/4'],[8,'1/2'],[16,'1']].map(([n,l])=>`<button data-l="${n}">${l}</button>`).join('');
@@ -779,6 +798,6 @@ $('#clear').onclick=()=>{if(!confirm('¿Borrar la canción actual y empezar una 
 const KEY='chiptune-studio-autosave-v1';let lastSaved='',restored=false;
 try{const r=localStorage.getItem(KEY);if(r){song=norm(JSON.parse(r));delete song._bad;restored=true}}catch(e){}
 if(!song)song=demo();
-refresh();if(restored)msg('Recuperé tu última sesión (autoguardado).');
+refresh();$('#metronomeTempo').textContent=`${song.bpm} BPM`;if(restored)msg('Recuperé tu última sesión (autoguardado).');
 function autosave(){try{const t=JSON.stringify(song);if(t!==lastSaved){localStorage.setItem(KEY,t);lastSaved=t;$('#saved').textContent='✓ Autoguardado '+new Date().toLocaleTimeString()}}catch(e){$('#saved').textContent='Autoguardado no disponible en este modo'}}
 setInterval(autosave,1500);addEventListener('pagehide',autosave);document.addEventListener('visibilitychange',()=>{if(document.hidden)autosave()});

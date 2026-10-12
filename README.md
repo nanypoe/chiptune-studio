@@ -51,7 +51,9 @@ enlaces al perfil y al repositorio de GitHub. La licencia completa está en
 5. Pulsa **Reproducir** para escuchar. **Repetir** activa el loop de toda la
    canción. El metrónomo se puede activar antes o durante la reproducción;
    marca negras y acentúa el primer pulso de cada compás. **Nivel metrónomo**
-   ajusta el nivel del pulso; también lo afecta el volumen general.
+   ajusta el nivel del pulso; también lo afecta el volumen general. Al
+   activarlo durante la reproducción aparece un metrónomo visual flotante que
+   oscila con cada pulso y muestra el tempo y el tiempo actual del compás.
 6. Selecciona una nota para editar sus efectos en el panel bajo el piano roll.
    El ajuste de esa nota pasa a ser el predeterminado para las notas nuevas de
    la misma pista; las notas ya creadas conservan sus propios efectos.
