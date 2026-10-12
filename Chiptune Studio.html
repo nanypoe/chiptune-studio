@@ -9,20 +9,28 @@
   <script src="apps/studio/studio.js" defer></script>
 </head>
 <body>
-  <div id="metronomeVisual" aria-hidden="true">
-    <svg class="metronome-icon" viewBox="0 0 64 64">
-      <path class="metronome-body" d="M18 54 24 12h16l6 42z"/>
-      <path class="metronome-base" d="M14 56h36"/>
-      <path class="metronome-mark" d="m25 22 5 1m-6 7 5 1m-6 7 5 1"/>
-      <g id="metronomeArm">
-        <path class="metronome-arm" d="M32 49V14"/>
-        <circle class="metronome-weight" cx="32" cy="25" r="3.5"/>
-        <circle class="metronome-pivot" cx="32" cy="49" r="3"/>
-      </g>
-    </svg>
-    <div class="metronome-readout">
-      <strong id="metronomeTempo">120 BPM</strong>
-      <span class="metronome-beats"><i></i><i></i><i></i><i></i></span>
+  <div id="metronomeVisual" role="group" aria-label="Metrónomo y controles de loop">
+    <div class="metronome-top">
+      <svg class="metronome-icon" viewBox="0 0 64 64" aria-hidden="true">
+        <path class="metronome-body" d="M18 54 24 12h16l6 42z"/>
+        <path class="metronome-base" d="M14 56h36"/>
+        <path class="metronome-mark" d="m25 22 5 1m-6 7 5 1m-6 7 5 1"/>
+        <g id="metronomeArm">
+          <path class="metronome-arm" d="M32 49V14"/>
+          <circle class="metronome-weight" cx="32" cy="25" r="3.5"/>
+          <circle class="metronome-pivot" cx="32" cy="49" r="3"/>
+        </g>
+      </svg>
+      <div class="metronome-readout">
+        <strong id="metronomeTempo">120 BPM</strong>
+        <span class="metronome-beats"><i></i><i></i><i></i><i></i></span>
+      </div>
+    </div>
+    <div id="metronomeLoopControls" class="metronome-loop-controls" aria-label="Accesos rápidos de loop">
+      <button type="button" data-loop-action="play" title="Reproducir loop · Alt+Mayús+L" aria-label="Reproducir loop">▶ Loop</button>
+      <button type="button" data-loop-action="stop" title="Detener loop · Alt+Mayús+S" aria-label="Detener loop" disabled>■ Detener</button>
+      <button type="button" data-loop-action="record" title="Grabar loop · Alt+Mayús+R" aria-label="Grabar loop" aria-pressed="false">● Grabar</button>
+      <button type="button" data-loop-action="stop-recording" title="Detener grabación · Alt+Mayús+X" aria-label="Detener grabación" disabled>■ Fin toma</button>
     </div>
   </div>
   <header class="row panel">
@@ -72,13 +80,8 @@
         <label>Iniciar en compás
           <input id="loopStartBar" type="number" min="1" max="64" value="1" aria-label="Compás inicial del loop">
         </label>
-        <label>Duración del loop
-          <select id="loopBars" aria-label="Duración del loop en compases">
-            <option value="1" selected>1 compás</option>
-            <option value="2">2 compases</option>
-            <option value="4">4 compases</option>
-            <option value="8">8 compases</option>
-          </select>
+        <label>Duración del loop (compases)
+          <input id="loopBars" type="number" min="1" max="64" step="1" value="1" aria-label="Duración del loop en compases">
         </label>
         <button id="loopPlay" type="button">▶ Reproducir loop</button>
         <button id="loopRecord" class="record-button" type="button" aria-pressed="false">● Grabar loop</button>
@@ -86,7 +89,7 @@
         <button id="loopStop" type="button" disabled>■ Detener loop</button>
         <label class="loop-overdub"><input id="loopOverdub" type="checkbox" checked> Conservar y superponer tomas</label>
       </div>
-      <p class="loop-help">«Grabar loop» inicia una toma desde el compás elegido. Toca desde Teclado tocable o con clic en las teclas del piano roll; «Detener grabación» conserva la toma y deja sonar el loop.</p>
+      <p class="loop-help">«Grabar loop» inicia una toma desde el compás elegido. Toca desde Teclado tocable o con clic en las teclas del piano roll; «Detener grabación» conserva la toma y deja sonar el loop. El loop activa temporalmente el metrónomo y restaura su estado anterior al detenerse. Atajos: Alt+Mayús+L (reproducir), Alt+Mayús+R (grabar), Alt+Mayús+X (detener grabación) y Alt+Mayús+S (detener loop).</p>
     </section>
     <div class="row view-tabs" id="editorTabs" role="tablist" aria-label="Modo de composición">
       <button id="tabRoll" type="button" role="tab" aria-controls="rollView" aria-selected="true">Piano roll</button>
@@ -99,6 +102,11 @@
         <strong>Duración:</strong>
         <div id="lens" role="group" aria-label="Seleccionar duración de nota"></div>
         <span class="hint">Clic en espacio vacío para crear · clic en nota para seleccionarla · arrastra para mover o cambiar duración · Mayús+clic cambia velocidad</span>
+      </div>
+      <div id="drumReferenceControls" class="row drum-reference-controls" hidden>
+        <label for="drumReferenceTrack">Pista guía bajo la batería</label>
+        <select id="drumReferenceTrack" aria-label="Pista guía visible debajo de la batería"></select>
+        <span class="hint">Vista de referencia; sus notas no se pueden editar desde la pista de batería.</span>
       </div>
       <section id="noteFxPanel" class="note-fx" aria-labelledby="noteFxTitle">
         <div class="note-fx-heading">

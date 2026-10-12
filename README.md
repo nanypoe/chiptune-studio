@@ -66,12 +66,24 @@ táctil o teclado de computadora. Los atajos del teclado físico se muestran
 junto al instrumento; Mayús permite apilar notas simultáneas.
 
 En **Loop de práctica y grabación**, selecciona el compás inicial y una
-duración de 1, 2, 4 u 8 compases. **Reproducir loop** practica esa sección;
+duración de compases entre 1 y la longitud de la canción; también se admiten
+duraciones impares. **Reproducir loop** practica esa sección;
 **Grabar loop** inicia una toma sincronizada. Toca desde el teclado tocable o
 desde las teclas del piano roll. **Detener grabación** finaliza la toma sin
 parar el loop. **Conservar y superponer tomas** mantiene las notas anteriores;
 desactívalo para reemplazar las notas de la pista seleccionada dentro del
-rango.
+rango. Iniciar o grabar un loop activa automáticamente el metrónomo solo para
+el loop; al detenerlo, restaura el estado previo del metrónomo. El botón
+principal de reproducción no lo activa automáticamente. Mientras suena, el
+metrónomo flotante incluye accesos rápidos para reproducir/grabar y detener el
+loop o la toma. También puedes usar Alt+Mayús+L (reproducir),
+Alt+Mayús+R (grabar), Alt+Mayús+X (detener grabación) y Alt+Mayús+S (detener
+loop); los atajos no se activan al escribir en un campo.
+
+Al seleccionar una pista de batería en el piano roll, elige otra pista en
+**Pista guía bajo la batería** para mostrar sus notas en una zona atenuada
+debajo de las filas de percusión. La guía es visual y no altera ni permite
+editar las notas de esa pista.
 
 ### Instrumentos y efectos
 

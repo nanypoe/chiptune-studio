@@ -74,7 +74,7 @@ ARREGLO Y CARÁCTER
 VALIDACIÓN ANTES DE RESPONDER
 Comprueba que el JSON parsea, que format/version sean correctos, todos los instrumentos y pitches son válidos, cada efecto está entre 0 y 1, hay como máximo 10 pistas y ninguna nota supera bars*16. No devuelvas ejemplos o notas fuera del esquema solicitado.`;
 
-let song, sel=0, L=2, CW=24, RH=16, KW=58, lastSel=-1, selectedNote=null;
+let song, sel=0, L=2, CW=24, RH=16, KW=58, lastSel=-1, selectedNote=null,drumReferenceTrack=null,drumReferenceChosen=false;
 const mk=(name,instrument,notes=[],volume=.8)=>({name,instrument,volume,pan:INST[instrument].p||0,mute:false,notes,fxPreset:{}});
 function cleanFx(fx){
   if(!fx||typeof fx!=='object'||Array.isArray(fx))return undefined;
@@ -334,11 +334,26 @@ function keyboardStepLabel(step){
   return `Compás ${Math.floor(step/16)+1} · paso ${step%16+1}`;
 }
 function selectedLoopRange(){
-  const bars=+$('#loopBars').value,startBar=clamp(Math.floor(+$('#loopStartBar').value||1),1,song.bars);
+  const bars=clamp(Math.floor(+$('#loopBars').value||1),1,song.bars),startBar=clamp(Math.floor(+$('#loopStartBar').value||1),1,song.bars);
   $('#loopStartBar').max=song.bars;
   $('#loopStartBar').value=startBar;
+  $('#loopBars').max=song.bars;
+  $('#loopBars').value=bars;
   const start=(startBar-1)*16,end=Math.min(total(),start+bars*16);
   return{start,end,bars:Math.ceil((end-start)/16),limited:end-start<bars*16};
+}
+function renderDrumReferenceControls(){
+  const controls=$('#drumReferenceControls'),select=$('#drumReferenceTrack');
+  if(song.tracks[sel].instrument!=='drums'){controls.hidden=true;return}
+  controls.hidden=false;
+  const candidates=song.tracks.map((track,index)=>({track,index})).filter(({track,index})=>index!==sel&&track.instrument!=='drums');
+  if(!drumReferenceChosen||(drumReferenceTrack&&!candidates.some(({track})=>track===drumReferenceTrack))){
+    drumReferenceTrack=candidates[0]?.track??null;
+    drumReferenceChosen=true;
+  }
+  select.replaceChildren(new Option('Sin pista guía',''),...candidates.map(({track,index})=>new Option(`${index+1}. ${track.name}`,String(index))));
+  select.value=String(song.tracks.indexOf(drumReferenceTrack));
+  if(!drumReferenceTrack)select.value='';
 }
 function renderLoopTimeline(){
   const {start,end,bars}=selectedLoopRange(),steps=end-start,timeline=$('#loopTimeline');
@@ -372,10 +387,15 @@ function updateLoopControls(){
   $('#loopRecord').disabled=playing&&(!loopActive||loopRecording);
   $('#loopStopRecording').disabled=!loopActive||!loopRecording;
   $('#loopStop').disabled=!loopActive;
+  $('#metronomeLoopControls [data-loop-action="play"]').disabled=playing;
+  $('#metronomeLoopControls [data-loop-action="record"]').disabled=playing&&(!loopActive||loopRecording);
+  $('#metronomeLoopControls [data-loop-action="stop-recording"]').disabled=!loopActive||!loopRecording;
+  $('#metronomeLoopControls [data-loop-action="stop"]').disabled=!loopActive;
   $('#loopStartBar').disabled=loopActive;
   $('#loopBars').disabled=loopActive;
   $('#loopOverdub').disabled=loopActive;
   $('#loopRecord').setAttribute('aria-pressed',String(loopRecording));
+  $('#metronomeLoopControls [data-loop-action="record"]').setAttribute('aria-pressed',String(loopRecording));
   $('#loopStatus').textContent=loopActive
     ? loopRecording?'Grabando toma · el loop sigue en reproducción.':'Loop en reproducción · pulsa «Grabar loop» para otra toma.'
     : range.limited?`Loop limitado a ${range.bars} compás(es), hasta el final de la canción.`:'Elige el compás y la duración del loop.';
@@ -477,6 +497,18 @@ $('#loopPlay').addEventListener('click',()=>startLoop(false));
 $('#loopRecord').addEventListener('click',()=>startLoop(true));
 $('#loopStopRecording').addEventListener('click',stopLoopRecording);
 $('#loopStop').addEventListener('click',stop);
+$('#metronomeLoopControls').addEventListener('click',e=>{
+  const action=e.target.closest('[data-loop-action]')?.dataset.loopAction;
+  const control={play:'#loopPlay',stop:'#loopStop',record:'#loopRecord','stop-recording':'#loopStopRecording'}[action];
+  if(control)$(control).click();
+});
+document.addEventListener('keydown',e=>{
+  if(!e.altKey||!e.shiftKey||e.ctrlKey||e.metaKey||e.repeat||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
+  const control={KeyL:'#loopPlay',KeyS:'#loopStop',KeyR:'#loopRecord',KeyX:'#loopStopRecording'}[e.code];
+  if(!control)return;
+  e.preventDefault();
+  $(control).click();
+});
 $('#loopOverdub').addEventListener('change',()=>$('#loopStatus').textContent=$('#loopOverdub').checked?'Las tomas nuevas se superponen sin borrar las anteriores.':'La próxima toma reemplazará las notas de la pista elegida dentro del loop.');
 $('#root').addEventListener('change',renderKeyboard);
 $('#scale').addEventListener('change',renderKeyboard);
@@ -506,6 +538,7 @@ document.addEventListener('keydown',e=>{
 
 /* ===== REPRODUCCIÓN ===== */
 let playing=false,timer,nextT,cur,queue=[],ended=false,endAt=0,playbackLoop=null,loopRecording=false,playOriginTime=0;
+let restoreLoopMetronome=false,loopMetronomeBefore=false;
 let rendering=false;
 function metronomeClick(t,accent){
   const level=+$('#metronomeVolume').value;
@@ -541,6 +574,12 @@ function play(loop=null,record=false){if(rendering)return;
   updateLoopControls();
 }
 function startLoop(record){
+  if(!(playing&&playbackLoop)){
+    loopMetronomeBefore=$('#metronome').checked;
+    restoreLoopMetronome=true;
+    $('#metronome').checked=true;
+    updateMetronomeVisibility();
+  }
   const range=selectedLoopRange();
   if(playing&&playbackLoop){
     if(!record||loopRecording)return;
@@ -580,6 +619,8 @@ function tick(){
 function stop(){
   const wasLooping=!!playbackLoop;
   clearInterval(timer);stopVoiceSources();clearVoiceOutputs();if(bus)newBus();playing=false;playbackLoop=null;loopRecording=false;
+  if(wasLooping&&restoreLoopMetronome)$('#metronome').checked=loopMetronomeBefore;
+  if(wasLooping)restoreLoopMetronome=false;
   updateMetronomeVisibility();$('#metronomeVisual').classList.remove('is-accent');$('#metronomeArm').getAnimations().forEach(animation=>animation.cancel());
   if(wasLooping)$('#keyboardRecord').checked=false;
   $('#play').classList.remove('on');$('#play').textContent='▶';$('#ph').style.display='none';
@@ -611,7 +652,7 @@ function rowsOf(tr){
   const r=[];for(let m=hi;m>=lo;m--)r.push({p:nameOf(m),m,l:nameOf(m),black:NAMES[m%12].includes('#')});return r;
 }
 function draw(){
-  const tr=song.tracks[sel],rows=rowsOf(tr),H=rows.length*RH,Wd=total()*CW,cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
+  const tr=song.tracks[sel],rows=rowsOf(tr),reference=tr.instrument==='drums'?drumReferenceTrack:null,referenceRows=reference?rowsOf(reference):[],rowHeight=rows.length*RH,H=(rows.length+referenceRows.length)*RH,Wd=total()*CW,cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
   const root=+$('#root').value,sc=$('#scale').value.split(',').map(Number),col=INST[tr.instrument].c;
   const g=$('#grid'),k=$('#keys');if(g.width!==Wd)g.width=Wd;if(g.height!==H)g.height=H;if(k.width!==KW)k.width=KW;if(k.height!==H)k.height=H;$('#ph').style.height=H+'px';
   const c=g.getContext('2d'),kc=k.getContext('2d');
@@ -626,6 +667,27 @@ function draw(){
     if(!drum&&r.m%12===0){kc.fillStyle=col;kc.fillRect(KW-4,y,4,RH)}
     kc.fillStyle='#0003';kc.fillRect(0,y+RH-1,KW,1);
   });
+  if(reference){
+    const referenceColor=INST[reference.instrument].c;
+    c.fillStyle=v('--rowb');c.fillRect(0,rowHeight,Wd,referenceRows.length*RH);
+    referenceRows.forEach((r,i)=>{
+      const y=rowHeight+i*RH,ins=sc.includes(((r.m-root)%12+12)%12);
+      c.fillStyle=r.black?v('--rowb'):ins?v('--scale'):v('--row');c.fillRect(0,y,Wd,RH);
+      if(ins){c.fillStyle=referenceColor+'12';c.fillRect(0,y,Wd,RH)}
+      if(r.m%12===0){c.fillStyle=v('--line');c.fillRect(0,y+RH-1,Wd,1)}
+      kc.fillStyle=r.black?'#1b1b26':'#ecedf5';kc.fillRect(0,y,KW,RH);
+      kc.fillStyle=r.black?'#9aa':'#333';kc.font='10px ui-monospace,monospace';kc.textBaseline='middle';kc.fillText(r.l,6,y+RH/2);
+      if(r.m%12===0){kc.fillStyle=referenceColor;kc.fillRect(KW-4,y,4,RH)}
+      kc.fillStyle='#0003';kc.fillRect(0,y+RH-1,KW,1);
+    });
+    c.strokeStyle=referenceColor+'99';c.lineWidth=2;c.beginPath();c.moveTo(0,rowHeight+.5);c.lineTo(Wd,rowHeight+.5);c.stroke();
+    for(const note of reference.notes){
+      const row=referenceRows.findIndex(item=>item.p===note.pitch);if(row<0)continue;
+      const y=rowHeight+row*RH;
+      c.globalAlpha=.34;c.fillStyle=referenceColor;c.fillRect(note.step*CW+1,y+2,note.len*CW-2,RH-4);c.globalAlpha=1;
+      if(note.len*CW>30){c.fillStyle=v('--tx');c.globalAlpha=.75;c.font='bold 9px ui-monospace,monospace';c.fillText(note.pitch,note.step*CW+4,y+RH/2);c.globalAlpha=1}
+    }
+  }
   const loopRange=selectedLoopRange();
   c.fillStyle='rgba(104,240,220,.07)';
   c.fillRect(loopRange.start*CW,0,(loopRange.end-loopRange.start)*CW,H);
@@ -725,6 +787,7 @@ function renderTabs(){
     b.textContent=(tr.mute?'🔇 ':'')+tr.name;b.onclick=()=>{sel=i;refresh()};t.appendChild(b)});
   const s=document.createElement('select');s.innerHTML='<option value="">＋ Añadir pista…</option>'+instOpts();
   s.onchange=()=>{if(!s.value||song.tracks.length>=10)return;song.tracks.push(mk(INST[s.value].n.split(' (')[0],s.value));sel=song.tracks.length-1;refresh()};t.appendChild(s);
+  renderDrumReferenceControls();
 }
 function renderSettings(){
   const tr=song.tracks[sel],p=$('#settings');
@@ -748,6 +811,12 @@ function refresh(){
   renderTabs();renderSettings();draw();renderNoteFx();renderKeyboard();renderLoopTimeline();
   if(sel!==lastSel){lastSel=sel;focusRoll()}
 }
+$('#drumReferenceTrack').addEventListener('change',e=>{
+  const index=e.target.value===''?-1:+e.target.value;
+  drumReferenceTrack=index<0?null:song.tracks[index];
+  drumReferenceChosen=true;
+  draw();
+});
 function focusRoll(){const tr=song.tracks[sel],rows=rowsOf(tr),ys=tr.notes.map(n=>rows.findIndex(r=>r.p===n.pitch)).filter(i=>i>=0);$('#scroll').scrollTop=Math.max(0,(ys.length?Math.min(...ys):Math.floor(rows.length/3))*RH-40)}
 function setBars(n){
   song.bars=clamp(n,1,64);for(const t of song.tracks)t.notes=t.notes.filter(x=>x.step<total()).map(x=>({...x,len:Math.min(x.len,total()-x.step)}));refresh();
@@ -759,7 +828,10 @@ $('#title').oninput=e=>song.title=e.target.value;
 $('#vol').oninput=e=>{if(master)master.gain.value=+e.target.value};
 $('#rev').oninput=e=>{if(wet)wet.gain.value=+e.target.value};
 $('#metronomeVolume').addEventListener('input',e=>e.target.title=`Nivel del metrónomo: ${Math.round(+e.target.value*100)}%`);
-$('#metronome').addEventListener('change',updateMetronomeVisibility);
+$('#metronome').addEventListener('change',()=>{
+  if(playing&&playbackLoop)restoreLoopMetronome=false;
+  updateMetronomeVisibility();
+});
 $('#root').innerHTML=NAMES.map((n,i)=>`<option value="${i}">${n}</option>`).join('');$('#root').value=9;
 $('#root').onchange=$('#scale').onchange=draw;
 $('#lens').innerHTML=[[1,'1/16'],[2,'1/8'],[4,'1/4'],[8,'1/2'],[16,'1']].map(([n,l])=>`<button data-l="${n}">${l}</button>`).join('');

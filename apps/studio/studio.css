@@ -43,8 +43,9 @@ label{color:var(--mut);display:flex;gap:6px;align-items:center}
 .metronome-toggle{padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--row)}
 .metronome-toggle:has(input:checked){border-color:var(--acc);color:var(--tx);background:var(--scale)}
 .metronome-volume input[type=range]{width:72px}
-#metronomeVisual{position:fixed;z-index:10;top:12px;left:50%;display:flex;align-items:center;gap:9px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--panel) 92%,transparent);box-shadow:0 6px 24px #0004;opacity:0;visibility:hidden;transform:translate(-50%,-8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
+#metronomeVisual{position:fixed;z-index:10;top:12px;left:50%;display:grid;justify-items:center;gap:5px;max-width:calc(100vw - 16px);padding:7px 10px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--panel) 94%,transparent);box-shadow:0 6px 24px #0004;opacity:0;visibility:hidden;transform:translate(-50%,-8px);transition:opacity .18s ease,transform .18s ease,visibility .18s;pointer-events:none}
 #metronomeVisual.is-visible{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.metronome-top{display:flex;align-items:center;justify-content:center;gap:9px}
 .metronome-icon{width:38px;height:38px;overflow:visible}
 .metronome-body{fill:var(--scale);stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round}
 .metronome-base,.metronome-arm{fill:none;stroke:var(--acc);stroke-width:3;stroke-linecap:round}
@@ -57,6 +58,14 @@ label{color:var(--mut);display:flex;gap:6px;align-items:center}
 .metronome-beats i{width:5px;height:5px;border-radius:50%;background:var(--line);transition:background .08s,box-shadow .08s}
 .metronome-beats i.is-current{background:var(--acc);box-shadow:0 0 7px var(--acc)}
 #metronomeVisual.is-accent .metronome-pivot{fill:#ff5d8f}
+.metronome-loop-controls{display:flex;justify-content:center;gap:4px;pointer-events:auto}
+.metronome-loop-controls button{min-height:27px;padding:3px 7px;font-size:11px;line-height:1.2;white-space:nowrap}
+.metronome-loop-controls button:disabled{opacity:.4;cursor:not-allowed}
+.metronome-loop-controls [data-loop-action=record]{border-color:#ff5d8f;color:#ff9ab7}
+.metronome-loop-controls [data-loop-action=stop-recording]{color:#ff9ab7}
+.drum-reference-controls{gap:8px;padding:6px 9px;border:1px solid var(--line);border-radius:7px;background:var(--row)}
+.drum-reference-controls label{color:var(--tx)}
+.drum-reference-controls select{max-width:min(250px,60vw)}
 @media(prefers-reduced-motion:reduce){#metronomeVisual{transition:none}}
 .note-fx-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px}
 .note-fx-control{display:grid;grid-template-columns:minmax(75px,auto) 1fr;align-items:center;gap:6px;padding:5px 7px;border:1px solid var(--line);border-radius:6px}
