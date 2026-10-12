@@ -112,6 +112,8 @@ function demo(){
 
 /* ===== AUDIO ===== */
 let ctx,master,bus,noiseBuf,waves={},G=new WeakMap(),wet,reverbIR=null;
+const activeVoiceOutputs=new Map();
+const activeVoiceSources=new Set();
 function chain(){ // maestro -> directo + sala (reverb suave)
   master=ctx.createGain();master.gain.value=+$('#vol').value;master.connect(ctx.destination);
   const len=Math.floor(ctx.sampleRate*1.4);reverbIR=ctx.createBuffer(2,len,ctx.sampleRate);
@@ -125,6 +127,31 @@ function initAudio(){
   if(ctx.state==='suspended')ctx.resume();
 }
 function newBus(){if(bus)bus.disconnect();bus=ctx.createGain();bus.connect(master);G=new WeakMap()}
+function releaseVoiceOutput(output){
+  const timer=activeVoiceOutputs.get(output);
+  if(timer!==undefined)clearTimeout(timer);
+  activeVoiceOutputs.delete(output);
+  output.disconnect();
+}
+function clearVoiceOutputs(){
+  for(const output of activeVoiceOutputs.keys())releaseVoiceOutput(output);
+}
+function startVoiceSource(source,t,stopAt,onended){
+  if(!rendering){
+    activeVoiceSources.add(source);
+    source.onended=()=>{
+      activeVoiceSources.delete(source);
+      source.disconnect();
+      onended?.();
+    };
+  }
+  source.start(t);
+  if(stopAt!==undefined)source.stop(stopAt);
+}
+function stopVoiceSources(){
+  for(const source of activeVoiceSources){source.stop();source.disconnect()}
+  activeVoiceSources.clear();
+}
 const W=d=>waves[d]||(waves[d]=(()=>{const N=40,re=new Float32Array(N),im=new Float32Array(N);for(let n=1;n<N;n++)re[n]=2/(n*Math.PI)*Math.sin(n*Math.PI*d);return ctx.createPeriodicWave(re,im)})());
 function trackOut(tr){
   let g=G.get(tr);if(!g){g=ctx.createGain();g._p=ctx.createStereoPanner();g.connect(g._p);g._p.connect(bus);G.set(tr,g)}
@@ -135,27 +162,27 @@ function tone(w,f,t,dur,v,dest){
   typeof w==='number'?o.setPeriodicWave(W(w)):o.type=w;
   o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.004);
   g.gain.linearRampToValueAtTime(v*.75,t+Math.min(dur,.15));g.gain.setTargetAtTime(0,e,.025);
-  o.connect(g).connect(dest);o.start(t);o.stop(e+.25);
+  o.connect(g).connect(dest);startVoiceSource(o,t,e+.25);
 }
 function noise(hp,d,v,t,dest){
   const s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();
   s.buffer=noiseBuf;f.type='highpass';f.frequency.value=hp;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);
-  s.connect(f).connect(g).connect(dest);s.start(t);s.stop(t+d+.02);
+  s.connect(f).connect(g).connect(dest);startVoiceSource(s,t,t+d+.02);
 }
 function nb(t,dest,hz,q,d,v){ // ráfaga de ruido filtrado: soplo, golpe de martillo, púa, palmada
   const s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();
   s.buffer=noiseBuf;f.type='bandpass';f.frequency.value=Math.min(hz,18000);f.Q.value=q;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0005,t+d);
-  s.connect(f).connect(g).connect(dest);s.start(t);s.stop(t+d+.02);
+  s.connect(f).connect(g).connect(dest);startVoiceSource(s,t,t+d+.02);
 }
 function voice(P,f,t,dur,v,dest){
   const g=ctx.createGain(),src=ctx.createGain(),a=Math.min(P.A,dur*.8),vol=v*P.a,te=P.ring?t+a+P.D:t+Math.min(a+P.D,dur),end=P.ring?Math.max(t+dur,te):t+dur;
   let lg=null,filter=null;
-  if(P.vib){const l=ctx.createOscillator();lg=ctx.createGain();l.frequency.value=P.vib[0];lg.gain.setValueAtTime(0,t);lg.gain.linearRampToValueAtTime(P.vib[1],t+P.vib[2]+.25);l.connect(lg);l.start(t);l.stop(end+P.R+.1)}
+  if(P.vib){const l=ctx.createOscillator();lg=ctx.createGain();l.frequency.value=P.vib[0];lg.gain.setValueAtTime(0,t);lg.gain.linearRampToValueAtTime(P.vib[1],t+P.vib[2]+.25);l.connect(lg);startVoiceSource(l,t,end+P.R+.1)}
   for(const o of P.o){
     const x=ctx.createOscillator(),og=ctx.createGain();
     typeof o.w==='number'?x.setPeriodicWave(W(o.w)):x.type=o.w;
     x.frequency.value=f*(o.m||1);x.detune.value=o.d||0;og.gain.value=o.g??1;if(lg)lg.connect(x.detune);
-    x.connect(og).connect(src);x.start(t);x.stop(end+P.R+.1);
+    x.connect(og).connect(src);startVoiceSource(x,t,end+P.R+.1);
   }
   if(P.fm)for(const[hz,q,gn]of P.fm){const b=ctx.createBiquadFilter(),bg=ctx.createGain();b.type='bandpass';b.frequency.value=hz;b.Q.value=q;bg.gain.value=gn;src.connect(b).connect(bg).connect(g)}
   else if(P.fl){filter=ctx.createBiquadFilter();filter.type='lowpass';filter.Q.value=P.fl[3];filter.frequency.setValueAtTime(Math.min(f*P.fl[0],16000),t);filter.frequency.exponentialRampToValueAtTime(Math.min(f*P.fl[1],16000),t+P.fl[2]);src.connect(filter).connect(g)}
@@ -165,7 +192,7 @@ function voice(P,f,t,dur,v,dest){
     l.frequency.value=P.lfo[0];mod.gain.value=base*(high-low)/2;
     filter.frequency.cancelScheduledValues(t);
     filter.frequency.setValueAtTime(Math.max(20,base*(high+low)/2),t);
-    l.connect(mod).connect(filter.frequency);l.start(t);l.stop(end+P.R+.1);
+    l.connect(mod).connect(filter.frequency);startVoiceSource(l,t,end+P.R+.1);
   }
   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+a);g.gain.linearRampToValueAtTime(vol*P.S,te);g.gain.setTargetAtTime(0,end,P.R/3);
   g.connect(dest);
@@ -184,12 +211,12 @@ function noteEffects(input,fx,t,dur,dest){
     if(id==='tremolo'){
       const amp=ctx.createGain(),lfo=ctx.createOscillator(),depth=ctx.createGain();
       amp.gain.value=1-amount*.4;depth.gain.value=amount*.4;lfo.frequency.value=4+amount*8;
-      current.connect(amp);lfo.connect(depth).connect(amp.gain);lfo.start(t);lfo.stop(t+dur+.2);current=amp;
+      current.connect(amp);lfo.connect(depth).connect(amp.gain);startVoiceSource(lfo,t,t+dur+.2);current=amp;
     }else if(id==='wah'){
       const filter=ctx.createBiquadFilter(),lfo=ctx.createOscillator(),depth=ctx.createGain();
       filter.type='bandpass';filter.Q.value=2+amount*8;filter.frequency.value=900+amount*1200;
       lfo.frequency.value=1.5+amount*4;depth.gain.value=(900+amount*1200)*.7;lfo.connect(depth).connect(filter.frequency);
-      current.connect(filter);lfo.start(t);lfo.stop(t+dur+.2);current=filter;
+      current.connect(filter);startVoiceSource(lfo,t,t+dur+.2);current=filter;
     }else if(id==='compressor'){
       const compressor=ctx.createDynamicsCompressor();
       compressor.threshold.value=-18-amount*24;compressor.knee.value=18;compressor.ratio.value=1+amount*11;
@@ -200,7 +227,7 @@ function noteEffects(input,fx,t,dur,dest){
         filters.reduce((node,filter)=>node.connect(filter),inputNode);
         const lfo=ctx.createOscillator(),depth=ctx.createGain();lfo.frequency.value=.25+amount*1.8;depth.gain.value=200+amount*700;
         for(const filter of filters)lfo.connect(depth).connect(filter.frequency);
-        lfo.start(t);lfo.stop(t+dur+.2);return filters.at(-1);
+        startVoiceSource(lfo,t,t+dur+.2);return filters.at(-1);
       });
     }else if(id==='chorus'||id==='flanger'){
       mix(amount,inputNode=>{
@@ -208,7 +235,7 @@ function noteEffects(input,fx,t,dur,dest){
         const chorus=id==='chorus';delay.delayTime.value=chorus?.018:.003;
         lfo.frequency.value=chorus?.25+amount*1.5:.15+amount*4;
         depth.gain.value=(chorus?.004:.0025)*amount;lfo.connect(depth).connect(delay.delayTime);
-        inputNode.connect(delay);lfo.start(t);lfo.stop(t+dur+.2);return delay;
+        inputNode.connect(delay);startVoiceSource(lfo,t,t+dur+.2);return delay;
       });
     }else if(id==='delay'){
       mix(amount,inputNode=>{
@@ -245,7 +272,7 @@ function noteEffects(input,fx,t,dur,dest){
 function drum(k,t,dest,v=1){
   if(k==='kick'||k==='tom'){const tm=k==='tom',o=ctx.createOscillator(),g=ctx.createGain();
     o.frequency.setValueAtTime(tm?230:160,t);o.frequency.exponentialRampToValueAtTime(tm?110:42,t+(tm?.18:.1));
-    g.gain.setValueAtTime((tm?.6:.9)*v,t);g.gain.exponentialRampToValueAtTime(.001,t+(tm?.35:.28));o.connect(g).connect(dest);o.start(t);o.stop(t+.4)}
+    g.gain.setValueAtTime((tm?.6:.9)*v,t);g.gain.exponentialRampToValueAtTime(.001,t+(tm?.35:.28));o.connect(g).connect(dest);startVoiceSource(o,t,t+.4)}
   else if(k==='snare'){noise(1500,.16,.35*v,t,dest);tone('triangle',190,t,.06,.25*v,dest)}
   else if(k==='clap'){for(let i=0;i<3;i++)nb(t+i*.011,dest,1400,1,i===2?.18:.03,.5*v)}
   else if(k==='hat')noise(7500,.05,.18*v,t,dest);
@@ -253,14 +280,43 @@ function drum(k,t,dest,v=1){
   else if(k==='crash')noise(5000,.95,.22*v,t,dest);
 }
 function hit(tr,pitch,t,dur,dest,vel=1,fx=null){
-  if(tr.instrument==='drums'){
-    if(!fx||!Object.keys(fx).length)return drum(pitch,t,dest,vel);
-    const source=ctx.createGain();drum(pitch,t,source,vel);noteEffects(source,fx,t,dur,dest);return;
+  const effects=fx&&Object.keys(fx).length?fx:null;
+  if(rendering){
+    if(tr.instrument==='drums'){
+      if(!effects)return drum(pitch,t,dest,vel);
+      const source=ctx.createGain();drum(pitch,t,source,vel);noteEffects(source,effects,t,dur,dest);return;
+    }
+    if(effects){
+      const source=ctx.createGain();voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,source);
+      noteEffects(source,effects,t,dur,dest);
+    }else voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,dest);
+    return;
   }
-  if(fx&&Object.keys(fx).length){
-    const source=ctx.createGain();voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,source);
-    noteEffects(source,fx,t,dur,dest);
-  }else voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,dest);
+  const output=ctx.createGain();
+  output.connect(dest);
+  let tail=dur;
+  if(tr.instrument==='drums')tail=Math.max(tail,1);
+  else{
+    const patch=INST[tr.instrument].P;
+    tail=Math.max(tail,patch.ring?patch.A+patch.D:0)+patch.R+.2;
+  }
+  if(effects?.delay)tail+=3*60/song.bpm+.1;
+  if(effects?.reverb)tail+=1.4;
+  const timer=setTimeout(()=>releaseVoiceOutput(output),Math.max(0,(t+tail-ctx.currentTime)*1000));
+  activeVoiceOutputs.set(output,timer);
+  try{
+    if(tr.instrument==='drums'){
+      if(!effects)return drum(pitch,t,output,vel);
+      const source=ctx.createGain();drum(pitch,t,source,vel);noteEffects(source,effects,t,dur,output);return;
+    }
+    if(effects){
+      const source=ctx.createGain();voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,source);
+      noteEffects(source,effects,t,dur,output);
+    }else voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,output);
+  }catch(error){
+    releaseVoiceOutput(output);
+    throw error;
+  }
 }
 function preview(pitch,fx=song.tracks[sel].fxPreset){if(rendering)return;initAudio();const tr=song.tracks[sel];hit(tr,pitch,ctx.currentTime+.01,.3,trackOut(tr),1,fx)}
 function instOpts(){const gr={};for(const[k,v]of Object.entries(INST))(gr[v.g]=gr[v.g]||[]).push(`<option value="${k}">${v.n}</option>`);return Object.entries(gr).map(([g,o])=>`<optgroup label="${g}">${o.join('')}</optgroup>`).join('')}
@@ -459,7 +515,7 @@ function metronomeClick(t,accent){
   osc.type='triangle';osc.frequency.setValueAtTime(accent?1760:1180,t);
   gain.gain.setValueAtTime(.0001,t);gain.gain.exponentialRampToValueAtTime((accent?.24:.15)*level,t+.002);
   gain.gain.exponentialRampToValueAtTime(.0001,t+.045);
-  osc.connect(gain).connect(bus);osc.start(t);osc.stop(t+.05);
+  osc.connect(gain).connect(bus);startVoiceSource(osc,t,t+.05,()=>gain.disconnect());
 }
 function updateMetronomeVisibility(){
   $('#metronomeVisual').classList.toggle('is-visible',playing&&$('#metronome').checked);
@@ -523,7 +579,7 @@ function tick(){
 }
 function stop(){
   const wasLooping=!!playbackLoop;
-  clearInterval(timer);if(bus)newBus();playing=false;playbackLoop=null;loopRecording=false;
+  clearInterval(timer);stopVoiceSources();clearVoiceOutputs();if(bus)newBus();playing=false;playbackLoop=null;loopRecording=false;
   updateMetronomeVisibility();$('#metronomeVisual').classList.remove('is-accent');$('#metronomeArm').getAnimations().forEach(animation=>animation.cancel());
   if(wasLooping)$('#keyboardRecord').checked=false;
   $('#play').classList.remove('on');$('#play').textContent='▶';$('#ph').style.display='none';
