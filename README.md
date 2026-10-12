@@ -52,8 +52,9 @@ enlaces al perfil y al repositorio de GitHub. La licencia completa está en
    canción. El metrónomo se puede activar antes o durante la reproducción;
    marca negras y acentúa el primer pulso de cada compás. **Nivel metrónomo**
    ajusta el nivel del pulso; también lo afecta el volumen general.
-6. Selecciona una nota para editar sus efectos individuales en el panel de
-   efectos que aparece bajo el piano roll.
+6. Selecciona una nota para editar sus efectos en el panel bajo el piano roll.
+   El ajuste de esa nota pasa a ser el predeterminado para las notas nuevas de
+   la misma pista; las notas ya creadas conservan sus propios efectos.
 
 ### Teclado tocable y loops
 
@@ -86,8 +87,9 @@ El catálogo incluye seis familias para crear arreglos con roles distintos:
 Los instrumentos se generan con síntesis Web Audio; nombres como guitarra,
 flauta o cuerdas describen emulaciones estilizadas, no grabaciones acústicas.
 Cada nota puede usar **trémolo, chorus, flanger, phaser, wah, compresor,
-overdrive, fuzz, bitcrusher, delay** y **reverb**. Ajusta los controles de la
-nota seleccionada; los efectos no utilizados no se guardan.
+overdrive, fuzz, bitcrusher, delay** y **reverb**. Ajusta los controles de una
+nota para cambiar el preajuste de nuevas notas de esa pista. Las notas
+existentes no cambian y los efectos desactivados no se guardan en la nota.
 
 ## Audio a canción
 
@@ -136,6 +138,7 @@ canción usa esta estructura:
       "instrument": "pulse25",
       "volume": 0.8,
       "pan": 0,
+      "fxPreset": { "delay": 0.25 },
       "notes": [
         {
           "step": 0,
@@ -151,7 +154,11 @@ canción usa esta estructura:
 ```
 
 `step` y `len` se expresan en pasos de semicorchea; `pitch` sigue la
-convención de octava del Estudio. `vel`, `pan`, `mute` y `fx` son opcionales.
+convención de octava del Estudio. `vel`, `pan`, `mute`, `fxPreset` y `fx` son
+opcionales. `fxPreset` define los efectos que heredarán las notas nuevas de la
+pista; `fx` conserva los efectos particulares de cada nota. Si una canción
+anterior no tiene `fxPreset`, el Estudio toma como preajuste los efectos de la
+última nota de la pista.
 Las versiones anteriores sin `fx` siguen siendo compatibles.
 
 ## Accesibilidad y uso

@@ -47,14 +47,14 @@ const GUIDE=`GUÍA PARA IA · CHIPTUNE STUDIO · JSON v1
 Crea, arregla o adapta una canción para Chiptune Studio. Devuelve ÚNICAMENTE un objeto JSON válido: sin Markdown, comentarios ni explicaciones. No inventes campos ni instrumentos. Si el usuario proporciona una canción de origen, conserva su identidad (melodía, armonía, ritmo y tempo) salvo que pida explícitamente cambiarlos; si es una creación nueva, sigue su género, intención y duración.
 
 FORMATO
-{"format":"chiptune-studio","version":1,"title":"Título","bpm":120,"bars":4,"tracks":[{"name":"Melodía","instrument":"pulse25","volume":0.8,"pan":0,"notes":[{"step":0,"len":2,"pitch":"E5","vel":0.8,"fx":{"delay":0.25}}]}]}
+{"format":"chiptune-studio","version":1,"title":"Título","bpm":120,"bars":4,"tracks":[{"name":"Melodía","instrument":"pulse25","volume":0.8,"pan":0,"fxPreset":{"delay":0.25},"notes":[{"step":0,"len":2,"pitch":"E5","vel":0.8,"fx":{"delay":0.25}}]}]}
 
 REGLAS TÉCNICAS
-- bpm: 40–240; bars: 1–64; máximo 10 pistas; volume: 0–1; pan: −1 a 1; mute: booleano opcional.
+- bpm: 40–240; bars: 1–64; máximo 10 pistas; volume: 0–1; pan: −1 a 1; mute: booleano opcional; fxPreset por pista (opcional): efectos predeterminados para las notas nuevas, con valores 0–1.
 - Cada compás tiene 16 pasos: step 0 inicia el primer compás y el 2.º inicia en 16. len: 1=semicorchea, 2=corchea, 4=negra, 8=blanca, 16=redonda. En cada nota, step >= 0, len >= 1 y step+len <= bars*16.
 - pitch: nombre A–G, alteración opcional # o b y una cifra de octava: C4, F#3, Bb5. Usa una sola cifra, sin octavas negativas ni dobles alteraciones. El editor normaliza bemoles a sostenidos.
 - vel (opcional): 0.1–1; úsala para acentos y notas fantasma.
-- fx (opcional por nota): valores 0–1; sólo incluye efectos que tengan intención musical.
+- fx por nota (opcional): valores 0–1; sólo incluye efectos que tengan intención musical. Las notas nuevas heredan fxPreset; editar los efectos de una nota actualiza el preajuste de su pista sin modificar las notas existentes.
 - En pistas drums, pitch sólo puede ser kick, snare, clap, hat, openhat, tom o crash.
 
 INSTRUMENTOS DISPONIBLES (usa exactamente el identificador)
@@ -75,7 +75,23 @@ VALIDACIÓN ANTES DE RESPONDER
 Comprueba que el JSON parsea, que format/version sean correctos, todos los instrumentos y pitches son válidos, cada efecto está entre 0 y 1, hay como máximo 10 pistas y ninguna nota supera bars*16. No devuelvas ejemplos o notas fuera del esquema solicitado.`;
 
 let song, sel=0, L=2, CW=24, RH=16, KW=58, lastSel=-1, selectedNote=null;
-const mk=(name,instrument,notes=[],volume=.8)=>({name,instrument,volume,pan:INST[instrument].p||0,mute:false,notes});
+const mk=(name,instrument,notes=[],volume=.8)=>({name,instrument,volume,pan:INST[instrument].p||0,mute:false,notes,fxPreset:{}});
+function cleanFx(fx){
+  if(!fx||typeof fx!=='object'||Array.isArray(fx))return undefined;
+  const clean={};
+  for(const {id} of FX){const value=Number(fx[id]);if(Number.isFinite(value)&&value>0)clean[id]=clamp(value,0,1)}
+  return clean;
+}
+function noteWithTrackFx(tr,note){
+  note.fx={...tr.fxPreset};
+  if(!Object.keys(note.fx).length)delete note.fx;
+  return note;
+}
+function setNoteFx(tr,note,fx){
+  note.fx={...fx};
+  if(!Object.keys(note.fx).length)delete note.fx;
+  tr.fxPreset={...fx};
+}
 const total=()=>song.bars*16;
 
 function demo(){
@@ -246,7 +262,7 @@ function hit(tr,pitch,t,dur,dest,vel=1,fx=null){
     noteEffects(source,fx,t,dur,dest);
   }else voice(INST[tr.instrument].P,hz(midiOf(pitch)),t,dur,vel,dest);
 }
-function preview(pitch){if(rendering)return;initAudio();const tr=song.tracks[sel];hit(tr,pitch,ctx.currentTime+.01,.3,trackOut(tr))}
+function preview(pitch,fx=song.tracks[sel].fxPreset){if(rendering)return;initAudio();const tr=song.tracks[sel];hit(tr,pitch,ctx.currentTime+.01,.3,trackOut(tr),1,fx)}
 function instOpts(){const gr={};for(const[k,v]of Object.entries(INST))(gr[v.g]=gr[v.g]||[]).push(`<option value="${k}">${v.n}</option>`);return Object.entries(gr).map(([g,o])=>`<optgroup label="${g}">${o.join('')}</optgroup>`).join('')}
 
 /* ===== TECLADO TOCABLE ===== */
@@ -347,7 +363,7 @@ function playKeyboardPitch(pitch,stack=false){
   if(rendering)return;
   const tr=song.tracks[sel],length=tr.instrument==='drums'?1:+$('#keyboardLength').value;
   initAudio();
-  hit(tr,pitch,ctx.currentTime+.015,(60/song.bpm/4)*length,trackOut(tr),1);
+  hit(tr,pitch,ctx.currentTime+.015,(60/song.bpm/4)*length,trackOut(tr),1,tr.fxPreset);
   if(!$('#keyboardRecord').checked)return;
   const step=playing?Math.max(0,Math.min(Math.floor(currentPlaybackPosition()??cur-1),total())):clamp(+$('#keyboardStep').value||0,0,total());
   const range=playbackLoop,recordEnd=range?.end??total();
@@ -355,7 +371,7 @@ function playKeyboardPitch(pitch,stack=false){
     $('#keyboardStatus').textContent='La canción está llena. Añade compases para seguir grabando.';
     return;
   }
-  const note={step,len:Math.min(length,recordEnd-step),pitch};
+  const note=noteWithTrackFx(tr,{step,len:Math.min(length,recordEnd-step),pitch});
   tr.notes.push(note);
   if(!playing&&!stack)$('#keyboardStep').value=Math.min(total(),step+note.len);
   $('#keyboardStatus').textContent=`Grabada ${pitch} · ${keyboardStepLabel(step)}${stack?' (acorde)':''}`;
@@ -555,10 +571,10 @@ function renderNoteFx(){
   const tr=song.tracks[sel],note=tr.notes.includes(selectedNote)?selectedNote:null,controls=$('#noteFxControls');
   $('#deleteNote').disabled=!note;
   if(!note){
-    selectedNote=null;$('#noteFxStatus').textContent='Selecciona una nota del piano roll para editar sus efectos.';
-    controls.innerHTML='<span class="hint">Los efectos se guardan y se reproducen solo en esa nota.</span>';return;
+    selectedNote=null;$('#noteFxStatus').textContent='Selecciona una nota; su ajuste será el predeterminado para las notas nuevas de esta pista.';
+    controls.innerHTML='<span class="hint">Las notas nuevas heredan el ajuste actual; las notas existentes no cambian.</span>';return;
   }
-  $('#noteFxStatus').textContent=`${note.pitch} · ${keyboardStepLabel(note.step)} · ${note.len} paso(s)`;
+  $('#noteFxStatus').textContent=`${note.pitch} · ${keyboardStepLabel(note.step)} · ${note.len} paso(s) · Su ajuste será el predeterminado para las notas nuevas de esta pista.`;
   controls.innerHTML=FX.map(({id,name,hint})=>{
     const value=note.fx?.[id]??0,active=value>0;
     return `<div class="note-fx-control">
@@ -568,17 +584,17 @@ function renderNoteFx(){
     </div>`;
   }).join('');
   controls.querySelectorAll('[data-fx]').forEach(input=>input.addEventListener('change',()=>{
-    note.fx={...note.fx};
     const id=input.dataset.fx;
-    if(input.checked)note.fx[id]=.5;else delete note.fx[id];
-    if(!Object.keys(note.fx).length)delete note.fx;
+    const fx={...note.fx};
+    if(input.checked)fx[id]=.5;else delete fx[id];
+    setNoteFx(tr,note,fx);
     renderNoteFx();draw();
   }));
   controls.querySelectorAll('[data-fx-level]').forEach(input=>input.addEventListener('input',()=>{
     const id=input.dataset.fxLevel,value=+input.value;
-    note.fx={...note.fx,[id]:value};
-    if(!value)delete note.fx[id];
-    if(!Object.keys(note.fx).length)delete note.fx;
+    const fx={...note.fx,[id]:value};
+    if(!value)delete fx[id];
+    setNoteFx(tr,note,fx);
     const toggle=controls.querySelector(`[data-fx="${id}"]`);toggle.checked=value>0;
     input.disabled=value===0;
     controls.querySelector(`[data-fx-output="${id}"]`).textContent=`${Math.round(value*100)}%`;
@@ -598,11 +614,11 @@ const hitAt=(tr,rows,e)=>{const r=rows[Math.floor(e.offsetY/RH)],st=Math.floor(e
 const nearEdge=(n,e)=>n.step*CW+n.len*CW-e.offsetX<EDGE;
 grid.addEventListener('pointerdown',e=>{
   const tr=song.tracks[sel],rows=rowsOf(tr),h=hitAt(tr,rows,e);if(!h)return;
-  if(h.n&&e.shiftKey){const c=[1,.7,.45],i=(c.indexOf(h.n.vel??1)+1)%3;i?h.n.vel=c[i]:delete h.n.vel;preview(h.r.p);draw();return}
+  if(h.n&&e.shiftKey){const c=[1,.7,.45],i=(c.indexOf(h.n.vel??1)+1)%3;i?h.n.vel=c[i]:delete h.n.vel;preview(h.r.p,h.n.fx);draw();return}
   selectedNote=h.n||null;renderNoteFx();draw();
   grid.setPointerCapture(e.pointerId);
   if(h.n)drag={n:h.n,mode:nearEdge(h.n,e)?'size':'move',x0:e.offsetX,y0:Math.floor(e.offsetY/RH),step0:h.n.step,moved:false,fresh:false,rows};
-  else{const n={step:h.s,len:Math.min(L,total()-h.s),pitch:h.r.p};tr.notes.push(n);selectedNote=n;renderNoteFx();preview(n.pitch);drag={n,mode:'size',x0:e.offsetX,y0:0,moved:false,fresh:true,rows};draw()}
+  else{const n=noteWithTrackFx(tr,{step:h.s,len:Math.min(L,total()-h.s),pitch:h.r.p});tr.notes.push(n);selectedNote=n;renderNoteFx();preview(n.pitch,n.fx);drag={n,mode:'size',x0:e.offsetX,y0:0,moved:false,fresh:true,rows};draw()}
 });
 grid.addEventListener('pointermove',e=>{
   if(!drag){const tr=song.tracks[sel],h=hitAt(tr,rowsOf(tr),e);grid.style.cursor=h&&h.n?(nearEdge(h.n,e)?'ew-resize':'grab'):'crosshair';return}
@@ -612,7 +628,7 @@ grid.addEventListener('pointermove',e=>{
   if(drag.mode==='size')n.len=clamp(Math.floor(e.offsetX/CW)-n.step+1,1,total()-n.step);
   else{
     n.step=clamp(drag.step0+Math.round((e.offsetX-drag.x0)/CW),0,total()-n.len);
-    const r=drag.rows[row];if(r.p!==n.pitch){n.pitch=r.p;preview(r.p)}
+    const r=drag.rows[row];if(r.p!==n.pitch){n.pitch=r.p;preview(r.p,n.fx)}
   }
   grid.style.cursor=drag.mode==='size'?'ew-resize':'grabbing';draw();
 });
@@ -693,13 +709,11 @@ function norm(o){
       if(ins==='drums'){p=String(p).toLowerCase();if(!DR.includes(p)){bad++;return}}
       else{const m=midiOf(String(p));if(m==null){bad++;return}p=nameOf(m)}
       const st=Math.max(0,Math.floor(+n.step||0)),len=Math.max(1,Math.floor(+n.len||1));const vl=n.vel==null?1:clamp(+n.vel||1,.1,1),nt={step:st,len,pitch:p};if(vl<1)nt.vel=+vl.toFixed(2);
-      if(n.fx&&typeof n.fx==='object'&&!Array.isArray(n.fx)){
-        const fx={};for(const {id} of FX){const value=Number(n.fx[id]);if(Number.isFinite(value)&&value>0)fx[id]=clamp(value,0,1)}
-        if(Object.keys(fx).length)nt.fx=fx;
-      }
+      const fx=cleanFx(n.fx);if(fx&&Object.keys(fx).length)nt.fx=fx;
       notes.push(nt);end=Math.max(end,st+len);
     });
-    s.tracks.push({name:String(t.name||INST[ins].n),instrument:ins,volume:clamp(t.volume??.8,0,1),pan:clamp(+t.pan||0,-1,1),mute:!!t.mute,notes});
+    const fxPreset=cleanFx(t.fxPreset)??cleanFx(notes.at(-1)?.fx)??{};
+    s.tracks.push({name:String(t.name||INST[ins].n),instrument:ins,volume:clamp(t.volume??.8,0,1),pan:clamp(+t.pan||0,-1,1),mute:!!t.mute,notes,fxPreset});
   });
   if(!s.tracks.length)throw Error('no hay pistas');
   s.bars=clamp(Math.max(Math.floor(+o.bars||1),Math.ceil(end/16)),1,64);
