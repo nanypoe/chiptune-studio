@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1020">
+  <title>Estudio · Chiptune Studio</title>
+  <link rel="stylesheet" href="apps/studio/studio.css">
+  <script src="apps/studio/studio.js" defer></script>
+</head>
+<body>
+  <header class="row panel">
+    <h1>CHIPTUNE STUDIO</h1>
+    <label>Título <input id="title" maxlength="80" aria-label="Título de la canción"></label>
+    <label>Tempo <input id="bpm" type="number" min="40" max="240" value="120" aria-label="Tempo en pulsos por minuto"> BPM</label>
+    <span class="mono">Compases: <strong id="bars">4</strong></span>
+    <button id="barM" type="button" aria-label="Quitar un compás">−</button>
+    <button id="barP" type="button" aria-label="Añadir un compás">+</button>
+    <button id="dup" type="button">Duplicar sección</button>
+    <span id="saved" class="mono" aria-live="polite"></span>
+  </header>
+
+  <section class="row panel" aria-label="Controles de reproducción">
+    <button id="play" class="big" type="button" aria-label="Reproducir">▶</button>
+    <button id="stop" class="big" type="button" aria-label="Detener">■</button>
+    <label><input id="loop" type="checkbox" checked> Repetir</label>
+    <label class="metronome-toggle" title="Pulso de negra con acento en el primer tiempo"><input id="metronome" type="checkbox"> Metrónomo</label>
+    <label class="metronome-volume" title="Nivel del pulso del metrónomo">Nivel metrónomo <input id="metronomeVolume" type="range" min="0" max="1" step=".01" value=".8" aria-label="Nivel de volumen del metrónomo"></label>
+    <label>Volumen <input id="vol" type="range" min="0" max="1" step=".01" value=".7"></label>
+    <label>Reverb <input id="rev" type="range" min="0" max=".8" step=".01" value=".15"></label>
+    <label>Tonalidad <select id="root" aria-label="Tónica"></select></label>
+    <label>Escala
+      <select id="scale" aria-label="Escala">
+        <option value="0,2,4,5,7,9,11">Mayor</option>
+        <option value="0,2,3,5,7,8,10" selected>Menor natural</option>
+        <option value="0,2,3,5,7,9,11">Menor armónica</option>
+        <option value="0,2,4,7,9">Pentatónica mayor</option>
+        <option value="0,3,5,7,10">Pentatónica menor</option>
+        <option value="0,2,4,6,8,10">Tonos enteros</option>
+        <option value="0,1,2,3,4,5,6,7,8,9,10,11">Cromática</option>
+      </select>
+    </label>
+    <span id="msg" role="status" aria-live="polite"></span>
+  </section>
+
+  <section class="panel">
+    <section id="loopBox" class="loop-box" aria-labelledby="loopTitle">
+      <div class="loop-heading">
+        <div>
+          <strong id="loopTitle">Loop de práctica y grabación</strong>
+          <span id="loopStatus" class="mono" role="status" aria-live="polite">Elige el compás y la duración del loop.</span>
+        </div>
+        <div id="loopTimeline" class="loop-timeline" role="img" aria-label="Posición dentro del loop"></div>
+      </div>
+      <div class="row loop-controls">
+        <label>Iniciar en compás
+          <input id="loopStartBar" type="number" min="1" max="64" value="1" aria-label="Compás inicial del loop">
+        </label>
+        <label>Duración del loop
+          <select id="loopBars" aria-label="Duración del loop en compases">
+            <option value="1" selected>1 compás</option>
+            <option value="2">2 compases</option>
+            <option value="4">4 compases</option>
+            <option value="8">8 compases</option>
+          </select>
+        </label>
+        <button id="loopPlay" type="button">▶ Reproducir loop</button>
+        <button id="loopRecord" class="record-button" type="button" aria-pressed="false">● Grabar loop</button>
+        <button id="loopStopRecording" type="button" disabled>■ Detener grabación</button>
+        <button id="loopStop" type="button" disabled>■ Detener loop</button>
+        <label class="loop-overdub"><input id="loopOverdub" type="checkbox" checked> Conservar y superponer tomas</label>
+      </div>
+      <p class="loop-help">«Grabar loop» inicia una toma desde el compás elegido. Toca desde Teclado tocable o con clic en las teclas del piano roll; «Detener grabación» conserva la toma y deja sonar el loop.</p>
+    </section>
+    <div class="row view-tabs" id="editorTabs" role="tablist" aria-label="Modo de composición">
+      <button id="tabRoll" type="button" role="tab" aria-controls="rollView" aria-selected="true">Piano roll</button>
+      <button id="tabKeyboard" type="button" role="tab" aria-controls="keyboardView" aria-selected="false">Teclado tocable</button>
+    </div>
+    <div id="rollView" role="tabpanel" aria-labelledby="tabRoll">
+      <div class="row" id="tabs" role="tablist" aria-label="Pistas"></div>
+      <div class="row" id="settings" aria-label="Ajustes de pista"></div>
+      <div class="row" aria-label="Duración de notas">
+        <strong>Duración:</strong>
+        <div id="lens" role="group" aria-label="Seleccionar duración de nota"></div>
+        <span class="hint">Clic en espacio vacío para crear · clic en nota para seleccionarla · arrastra para mover o cambiar duración · Mayús+clic cambia velocidad</span>
+      </div>
+      <section id="noteFxPanel" class="note-fx" aria-labelledby="noteFxTitle">
+        <div class="note-fx-heading">
+          <strong id="noteFxTitle">Efectos de la nota</strong>
+          <span id="noteFxStatus" class="hint" aria-live="polite">Selecciona una nota del piano roll para editar sus efectos.</span>
+          <button id="deleteNote" class="delete-note" type="button" disabled>Eliminar nota</button>
+        </div>
+        <div id="noteFxControls" class="note-fx-controls"></div>
+      </section>
+      <div id="scroll" aria-label="Piano roll; usa el desplazamiento horizontal y vertical">
+        <div id="wrap">
+          <canvas id="keys" aria-label="Teclado y notas"></canvas>
+          <div style="position:relative">
+            <canvas id="grid" aria-label="Rejilla de composición"></canvas>
+            <div id="ph" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="keyboardView" role="tabpanel" aria-labelledby="tabKeyboard" hidden>
+      <p class="keyboard-intro">Toca con el ratón, la pantalla táctil o el teclado de tu computadora. Activa «Grabar al tocar» para añadir cada nota a la pista seleccionada.</p>
+      <div class="row keyboard-controls" aria-label="Controles del teclado tocable">
+        <label>Pista <select id="keyboardTrack" aria-label="Pista para tocar y grabar"></select></label>
+        <label>Instrumento <select id="keyboardInstrument" aria-label="Instrumento del teclado tocable"></select></label>
+        <button id="keyboardAddTrack" type="button">＋ Nueva pista</button>
+        <label>Octava inicial
+          <select id="keyboardOctave" aria-label="Octava inicial">
+            <option value="1">Grave · C1</option>
+            <option value="2">C2</option>
+            <option value="3">C3</option>
+            <option value="4" selected>Media · C4</option>
+            <option value="5">C5</option>
+            <option value="6">C6</option>
+            <option value="7">Aguda · C7</option>
+          </select>
+        </label>
+        <label>Duración
+          <select id="keyboardLength" aria-label="Duración de la nota grabada">
+            <option value="1">1/16 · 1 paso</option>
+            <option value="2" selected>1/8 · 2 pasos</option>
+            <option value="4">1/4 · 4 pasos</option>
+            <option value="8">1/2 · 8 pasos</option>
+            <option value="16">1 compás · 16 pasos</option>
+          </select>
+        </label>
+      </div>
+      <div class="row keyboard-record-controls">
+        <label class="record-toggle"><input id="keyboardRecord" type="checkbox"> Grabar al tocar</label>
+        <label>Posición <input id="keyboardStep" type="number" min="0" max="63" value="0" aria-label="Posición de grabación en pasos"></label>
+        <span id="keyboardPosition" class="mono" aria-live="polite">Compás 1 · paso 1</span>
+        <span class="hint">Durante la reproducción, las notas se ajustan al paso que suena; en pausa, la posición avanza al grabar.</span>
+      </div>
+      <div id="keyboardKeys" class="keyboard-keys" role="group" aria-label="Teclado de dos octavas"></div>
+      <p id="keyboardHint" class="keyboard-hint">Atajos: fila A–J y K–; para notas naturales y sostenidas.</p>
+      <div id="drumPads" class="drum-pads" role="group" aria-label="Pads de batería" hidden></div>
+      <p id="keyboardStatus" class="keyboard-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="row" aria-label="Importar y exportar">
+      <button id="demo" type="button">Cargar demo</button>
+      <button id="clear" type="button">Canción nueva</button>
+      <label>Importar archivo <input id="file" type="file" accept=".json,.js,application/json,text/javascript"></label>
+      <button id="iText" type="button">Importar texto</button>
+      <button id="guide" type="button">Guía para IA</button>
+      <button id="xJson" type="button">Descargar JSON</button>
+      <button id="xJs" type="button">Descargar JS</button>
+      <button id="xWav" type="button">Exportar WAV</button>
+      <button id="copy" type="button">Copiar texto</button>
+      <button id="clearBox" type="button">Limpiar cuadro</button>
+    </div>
+    <label for="out">JSON de canción o guía para IA</label>
+    <textarea id="out" spellcheck="false" aria-label="JSON de canción o guía para IA"></textarea>
+    <p class="hint">Pulsa «Guía para IA» para preparar las instrucciones; después copia el texto y pégalo en la IA que prefieras.</p>
+  </section>
+</body>
+</html>

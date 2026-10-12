@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e18">
+  <title>Chiptune Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="app-header">
+      <a class="brand" href="#studio" aria-label="Chiptune Studio, inicio">
+        <span class="brand-mark" aria-hidden="true">♫</span>
+        <span>
+          <strong>Chiptune Studio</strong>
+          <small>Composición y conversión musical</small>
+        </span>
+      </a>
+      <span class="app-version">HERRAMIENTAS MUSICALES</span>
+    </header>
+
+    <nav class="app-tabs" role="tablist" aria-label="Herramientas">
+      <button id="tab-studio" class="app-tab" type="button" role="tab"
+        aria-controls="panel-studio" aria-selected="true" tabindex="0" data-app-tab="studio">
+        <span aria-hidden="true">♫</span>
+        <span><strong>Estudio</strong><small>Componer y editar</small></span>
+      </button>
+      <button id="tab-audio2ct" class="app-tab" type="button" role="tab"
+        aria-controls="panel-audio2ct" aria-selected="false" tabindex="-1" data-app-tab="audio2ct">
+        <span aria-hidden="true">⇢</span>
+        <span><strong>Audio a canción</strong><small>Convertir audio o MIDI</small></span>
+      </button>
+    </nav>
+
+    <section class="workspace" aria-label="Área de trabajo">
+      <div id="panel-studio" class="app-panel is-active" role="tabpanel"
+        aria-labelledby="tab-studio" data-app-panel="studio">
+        <iframe src="Chiptune%20Studio.html" title="Chiptune Studio: editor de canciones"></iframe>
+      </div>
+      <div id="panel-audio2ct" class="app-panel" role="tabpanel"
+        aria-labelledby="tab-audio2ct" aria-hidden="true" data-app-panel="audio2ct">
+        <iframe src="Audio2CT.html" title="Audio2CT: conversor de audio y MIDI"></iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

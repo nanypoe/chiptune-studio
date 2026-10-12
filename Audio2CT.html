@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e18">
+  <title>Audio a canción · Chiptune Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="apps/audio2ct/audio2ct.css">
+  <script src="apps/audio2ct/audio2ct.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <span class="logo-icon" aria-hidden="true">♫</span>
+      <div><h1>Audio a canción</h1><span class="sub">Transcribe · ajusta · lleva al estudio</span></div>
+    </div>
+    <div class="header-actions">
+      <span id="enginePill" class="engine-pill">Cargando motor…</span>
+      <span id="globalStatus" class="status-badge idle" role="status" aria-live="polite">Esperando audio o MIDI</span>
+      <button id="btnOpenLog" class="btn" type="button">Registro</button>
+    </div>
+  </header>
+
+  <section id="dropzone" class="dropzone" aria-label="Seleccionar archivo de audio o MIDI">
+    <input id="fileInput" type="file" accept="audio/*,.mid,.midi,audio/midi" aria-label="Seleccionar archivo de audio o MIDI">
+    <div class="dropzone-content">
+      <span class="dropzone-icon" aria-hidden="true">↑</span>
+      <span class="dropzone-text">Arrastra audio o MIDI aquí, o selecciona un archivo</span>
+      <span class="dropzone-hint">Audio: WAV, MP3, FLAC, OGG · MIDI: .mid, .midi</span>
+    </div>
+  </section>
+  <div id="dropzoneMini" class="dropzone-mini" style="display:none">
+    <span class="file-icon" aria-hidden="true">♫</span>
+    <span id="loadedFileName" class="file-name"></span>
+    <span id="loadedFileMeta" class="file-meta"></span>
+    <span class="file-meta">Selecciona aquí para cambiar</span>
+    <input id="fileInputMini" type="file" accept="audio/*,.mid,.midi,audio/midi" aria-label="Cambiar archivo de audio o MIDI">
+  </div>
+
+  <section id="paramsPanel" class="panel" style="display:none">
+    <div class="panel-header"><span class="panel-title-text">1 · Ajustes de análisis</span></div>
+    <div class="controls-grid analysis-controls">
+      <label class="control-group" for="startSec">Inicio (s)<input id="startSec" type="number" min="0" step=".1" value="0"></label>
+      <label class="control-group" for="durSec">Duración (s)<input id="durSec" type="number" min="1" step="1" value="60"></label>
+      <label class="control-group" for="bpmInput">Tempo (BPM)<input id="bpmInput" type="number" min="40" max="240" step=".1" value="120"></label>
+      <label class="control-group" for="offsetMs">Desfase (ms)<input id="offsetMs" type="number" min="0" step="1" value="0"></label>
+      <button id="btnDetectTempo" class="btn" type="button">Detectar tempo</button>
+    </div>
+    <details>
+      <summary>Detección y pistas (avanzado)</summary>
+      <div class="controls-grid">
+        <label class="range-control" for="sensNotes"><span>Sensibilidad de notas</span><input id="sensNotes" type="range" min="0" max="1" step=".01" value=".5"><output id="sensNotesVal">0.50</output></label>
+        <label class="range-control" for="onsetThr"><span>Umbral de ataque</span><input id="onsetThr" type="range" min=".05" max=".9" step=".01" value=".3"><output id="onsetThrVal">0.30</output></label>
+        <label class="range-control" for="sensDrums"><span>Sensibilidad de batería</span><input id="sensDrums" type="range" min="0" max="1" step=".01" value=".5"><output id="sensDrumsVal">0.50</output></label>
+        <label class="range-control" for="maxPoly"><span>Máx. notas simultáneas</span><input id="maxPoly" type="range" min="1" max="8" step="1" value="4"><output id="maxPolyVal">4</output></label>
+        <label class="control-group" for="maxTracks">Máx. pistas<input id="maxTracks" type="number" min="1" max="10" step="1" value="10"></label>
+      </div>
+      <p class="dropzone-hint">Por defecto se analiza el audio completo. Más sensibilidad recupera notas suaves, pero puede añadir falsos positivos. Escucha y compara antes de exportar.</p>
+    </details>
+    <div class="controls-row" aria-label="Pistas a generar">
+      <span>Incluir:</span>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkBass" type="checkbox" checked><span class="dot"></span>Bajo</div>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkMelody" type="checkbox" checked><span class="dot"></span>Melodía</div>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkHarmony" type="checkbox" checked><span class="dot"></span>Armonía</div>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkHigh" type="checkbox" checked><span class="dot"></span>Agudos</div>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkDrums" type="checkbox" checked><span class="dot"></span>Batería</div>
+      <div class="checkbox-pill active" role="switch" tabindex="0" aria-checked="true"><input id="chkAuto" type="checkbox" checked><span class="dot"></span>Instrumentos sugeridos</div>
+    </div>
+    <div class="controls-row">
+      <button id="btnAnalyze" class="btn primary" type="button">Analizar / actualizar</button>
+      <button id="btnPlayOriginal" class="btn" type="button" disabled>Escuchar original</button>
+      <button id="btnPlayTranscription" class="btn" type="button" disabled>Escuchar chiptune</button>
+      <button id="btnStop" class="btn" type="button" disabled>Detener</button>
+      <label class="control-group" for="masterVol">Volumen <input id="masterVol" type="range" min="0" max="1" step=".01" value=".7"></label>
+      <label class="control-group" for="reverbAmt">Reverb <input id="reverbAmt" type="range" min="0" max="1" step=".01" value=".15"></label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header"><span class="panel-title-text">2 · Vista previa y pistas</span><span id="trackCount">Sin pistas</span></div>
+    <div class="visualizer-container">
+      <div class="spectrum-box"><canvas id="spectrumCanvas" aria-label="Visualizador de espectro de audio"></canvas><span class="spectrum-overlay">ESPECTRO</span></div>
+      <div id="rollBox" class="roll-box" aria-label="Vista previa de notas">
+        <canvas id="rollCanvas"></canvas>
+        <div id="playhead" class="playhead" aria-hidden="true"></div>
+        <span id="rollOverlay" class="roll-overlay">Carga audio o MIDI para comenzar</span>
+      </div>
+    </div>
+    <div id="tracksPanel" style="display:none">
+      <div class="panel-header">Ajustar instrumentos, volumen y paneo</div>
+      <div id="tracksList" class="tracks-grid"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header"><span class="panel-title-text">3 · Revisar y exportar canción</span></div>
+    <div class="controls-row">
+      <button id="btnCopyJson" class="btn" type="button" disabled>Copiar JSON</button>
+      <button id="btnDownloadJson" class="btn" type="button" disabled>Descargar JSON</button>
+      <button id="btnSendToStudio" class="btn accent2" type="button" disabled>Abrir en Estudio</button>
+      <button id="btnImportJson" class="btn" type="button">Validar / cargar JSON</button>
+      <button id="btnClearJson" class="btn" type="button">Limpiar</button>
+    </div>
+    <textarea id="jsonOutput" spellcheck="false" aria-label="JSON de canción editable" placeholder="El JSON de la transcripción aparecerá aquí. Puedes corregirlo y después cargarlo en el Estudio."></textarea>
+  </section>
+
+  <div id="loadingOverlay" class="loading-overlay" role="status" aria-live="polite">
+    <div class="loading-spinner" aria-hidden="true"></div>
+    <div id="loadingText" class="loading-text">Procesando…</div>
+    <div id="loadingProgressWrap" class="progress-bar-mini" style="display:none"><div id="loadingProgress"></div></div>
+  </div>
+
+  <div id="modalLog" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="logTitle">
+    <section class="modal">
+      <header class="modal-header"><h2 id="logTitle">Registro de procesamiento</h2><button class="modal-close btn" type="button" data-close="modalLog" aria-label="Cerrar">×</button></header>
+      <div class="modal-body"><div id="logList" class="log-list" aria-live="polite"></div></div>
+      <footer class="modal-footer"><button id="btnClearLog" class="btn" type="button">Vaciar registro</button></footer>
+    </section>
+  </div>
+</body>
+</html>
