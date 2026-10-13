@@ -26,11 +26,17 @@
         <span class="metronome-beats"><i></i><i></i><i></i><i></i></span>
       </div>
     </div>
+    <span id="metronomeLoopStatus" class="metronome-loop-status" role="status" aria-live="polite"></span>
+    <div id="loopWidgetTimeline"></div>
+    <div id="loopWidgetOptions"></div>
     <div id="metronomeLoopControls" class="metronome-loop-controls" aria-label="Accesos rápidos de loop">
       <button type="button" data-loop-action="play" title="Reproducir loop · Alt+Mayús+L" aria-label="Reproducir loop">▶ Loop</button>
-      <button type="button" data-loop-action="stop" title="Detener loop · Alt+Mayús+S" aria-label="Detener loop" disabled>■ Detener</button>
       <button type="button" data-loop-action="record" title="Grabar loop · Alt+Mayús+R" aria-label="Grabar loop" aria-pressed="false">● Grabar</button>
-      <button type="button" data-loop-action="stop-recording" title="Detener grabación · Alt+Mayús+X" aria-label="Detener grabación" disabled>■ Fin toma</button>
+      <button type="button" data-loop-action="stop-recording" title="Detener grabación · Alt+Mayús+X" aria-label="Detener grabación" disabled>■ Toma</button>
+      <button type="button" data-loop-action="pause" title="Pausar loop; conserva el widget y permite editar sus límites" aria-label="Pausar loop" disabled>Ⅱ Pausa</button>
+      <button type="button" data-loop-action="stop" title="Detener y cerrar el widget del loop · Alt+Mayús+S" aria-label="Detener y cerrar loop" disabled>■ Cerrar</button>
+      <button type="button" data-loop-action="play-all" aria-label="Reproducir toda la canción">▶ Canción</button>
+      <button type="button" data-loop-action="stop-all" aria-label="Detener reproducción">■ Detener</button>
     </div>
   </div>
   <header class="row panel">
@@ -72,67 +78,83 @@
       <div class="loop-heading">
         <div>
           <strong id="loopTitle">Loop de práctica y grabación</strong>
-          <span id="loopStatus" class="mono" role="status" aria-live="polite">Elige el compás y la duración del loop.</span>
         </div>
-        <div id="loopTimeline" class="loop-timeline" role="img" aria-label="Posición dentro del loop"></div>
       </div>
       <div class="row loop-controls">
-        <label>Iniciar en compás
+        <span hidden data-loop-home="start"></span>
+        <label id="loopStartControl">Iniciar en compás
           <input id="loopStartBar" type="number" min="1" max="64" value="1" aria-label="Compás inicial del loop">
         </label>
-        <label>Duración del loop (compases)
+        <span hidden data-loop-home="bars"></span>
+        <label id="loopBarsControl">Duración (compases)
           <input id="loopBars" type="number" min="1" max="64" step="1" value="1" aria-label="Duración del loop en compases">
         </label>
         <button id="loopPlay" type="button">▶ Reproducir loop</button>
         <button id="loopRecord" class="record-button" type="button" aria-pressed="false">● Grabar loop</button>
         <button id="loopStopRecording" type="button" disabled>■ Detener grabación</button>
-        <button id="loopStop" type="button" disabled>■ Detener loop</button>
-        <label class="loop-overdub"><input id="loopOverdub" type="checkbox" checked> Conservar y superponer tomas</label>
+        <button id="loopStop" type="button" disabled>■ Detener y cerrar</button>
+        <span hidden data-loop-home="overdub"></span>
+        <label id="loopOverdubControl" class="loop-overdub"><input id="loopOverdub" type="checkbox" checked> Conservar y superponer tomas</label>
+        <span hidden data-loop-home="timeline"></span>
+        <div id="loopTimeline" class="loop-timeline" role="img" aria-label="Posición dentro del loop"></div>
       </div>
-      <p class="loop-help">«Grabar loop» inicia una toma desde el compás elegido. Toca desde Teclado tocable o con clic en las teclas del piano roll; «Detener grabación» conserva la toma y deja sonar el loop. El loop activa temporalmente el metrónomo y restaura su estado anterior al detenerse. Atajos: Alt+Mayús+L (reproducir), Alt+Mayús+R (grabar), Alt+Mayús+X (detener grabación) y Alt+Mayús+S (detener loop).</p>
+      <p class="loop-help">«Grabar loop» inicia una toma desde el compás elegido. Toca desde el teclado tocable o el piano roll; «Detener grabación» conserva la toma y deja sonar el loop. «Pausar» conserva el widget para ajustar compás y duración; «Detener y cerrar» termina el loop y cierra el widget. El metrónomo restaura su estado anterior al detener el loop. Atajos: Alt+Mayús+L (reproducir), Alt+Mayús+R (grabar), Alt+Mayús+X (detener grabación) y Alt+Mayús+S (detener y cerrar).</p>
     </section>
-    <div class="row view-tabs" id="editorTabs" role="tablist" aria-label="Modo de composición">
-      <button id="tabRoll" type="button" role="tab" aria-controls="rollView" aria-selected="true">Piano roll</button>
-      <button id="tabKeyboard" type="button" role="tab" aria-controls="keyboardView" aria-selected="false">Teclado tocable</button>
-    </div>
-    <div id="rollView" role="tabpanel" aria-labelledby="tabRoll">
-      <div class="row" id="tabs" role="tablist" aria-label="Pistas"></div>
-      <div class="row" id="settings" aria-label="Ajustes de pista"></div>
-      <div class="row" aria-label="Duración de notas">
-        <strong>Duración:</strong>
-        <div id="lens" role="group" aria-label="Seleccionar duración de nota"></div>
-        <span class="hint">Clic en espacio vacío para crear · clic en nota para seleccionarla · arrastra para mover o cambiar duración · Mayús+clic cambia velocidad</span>
+    <section id="editorLayout" aria-label="Editor de pistas">
+      <div id="editorToolsRow">
+        <aside id="trackTools" class="editor-rail" aria-label="Pistas y herramientas">
+          <div id="tabs" class="track-tabs" role="group" aria-label="Pistas"></div>
+          <div id="settings" class="track-settings" aria-label="Ajustes de pista"></div>
+          <section class="rail-section" aria-label="Duración y sección">
+            <strong>Duración de nota</strong>
+            <div id="lens" role="group" aria-label="Seleccionar duración de nota"></div>
+            <span class="hint">Clic para crear; arrastra para mover o cambiar duración.</span>
+            <label for="rollSection">Sección visible</label>
+            <select id="rollSection" aria-label="Sección visible del piano roll"></select>
+            <div class="roll-zoom-controls">
+              <button id="rollZoomOut" type="button" aria-label="Mostrar más compases">−</button>
+              <span id="rollZoomLabel" class="mono">1 compás</span>
+              <button id="rollZoomIn" type="button" aria-label="Mostrar menos compases">+</button>
+            </div>
+            <div class="roll-zoom-controls">
+              <button id="noteZoomOut" type="button" aria-label="Mostrar menos notas">−</button>
+              <span id="noteZoomLabel" class="mono">14 notas</span>
+              <button id="noteZoomIn" type="button" aria-label="Mostrar más notas">+</button>
+            </div>
+          </section>
+        </aside>
+        <aside id="noteFxPanel" class="editor-rail fx-rail" aria-labelledby="noteFxTitle">
+          <div class="note-fx-heading">
+            <strong id="noteFxTitle">Efectos de la nota</strong>
+            <span id="noteFxStatus" class="hint" aria-live="polite">Selecciona una nota para editar sus efectos.</span>
+            <button id="deleteNote" class="delete-note" type="button" disabled>Eliminar nota</button>
+          </div>
+          <div id="noteFxControls" class="note-fx-controls"></div>
+        </aside>
       </div>
-      <div id="drumReferenceControls" class="row drum-reference-controls" hidden>
-        <label for="drumReferenceTrack">Pista guía bajo la batería</label>
-        <select id="drumReferenceTrack" aria-label="Pista guía visible debajo de la batería"></select>
-        <span class="hint">Vista de referencia; sus notas no se pueden editar desde la pista de batería.</span>
-      </div>
-      <section id="noteFxPanel" class="note-fx" aria-labelledby="noteFxTitle">
-        <div class="note-fx-heading">
-          <strong id="noteFxTitle">Efectos de la nota</strong>
-          <span id="noteFxStatus" class="hint" aria-live="polite">Selecciona una nota; su ajuste será el predeterminado para las notas nuevas de esta pista.</span>
-          <button id="deleteNote" class="delete-note" type="button" disabled>Eliminar nota</button>
-        </div>
-        <div id="noteFxControls" class="note-fx-controls"></div>
-      </section>
-      <div id="scroll" aria-label="Piano roll; usa el desplazamiento horizontal y vertical">
-        <div id="wrap">
-          <canvas id="keys" aria-label="Teclado y notas"></canvas>
-          <div style="position:relative">
-            <canvas id="grid" aria-label="Rejilla de composición"></canvas>
-            <div id="ph" aria-hidden="true"></div>
+      <main id="rollWorkspace">
+        <div id="scroll" aria-label="Piano roll; usa el desplazamiento horizontal y vertical">
+          <div id="wrap">
+            <canvas id="keys" aria-label="Teclado y notas"></canvas>
+            <div style="position:relative">
+              <canvas id="grid" aria-label="Rejilla de composición"></canvas>
+              <div id="ph" aria-hidden="true"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div id="keyboardView" role="tabpanel" aria-labelledby="tabKeyboard" hidden>
-      <p class="keyboard-intro">Toca con el ratón, la pantalla táctil o el teclado de tu computadora. Activa «Grabar al tocar» para añadir cada nota a la pista seleccionada.</p>
-      <div class="row keyboard-controls" aria-label="Controles del teclado tocable">
-        <label>Pista <select id="keyboardTrack" aria-label="Pista para tocar y grabar"></select></label>
-        <label>Instrumento <select id="keyboardInstrument" aria-label="Instrumento del teclado tocable"></select></label>
-        <button id="keyboardAddTrack" type="button">＋ Nueva pista</button>
-        <label>Octava inicial
+        <p id="rollHint" class="hint">Clic en espacio vacío para crear · clic en nota para seleccionarla · arrastra para mover o cambiar duración · Mayús+clic cambia velocidad</p>
+      </main>
+      <section id="keyboardView" aria-label="Teclado tocable">
+        <div class="keyboard-surface">
+          <div class="keyboard-instrument">
+            <div id="keyboardKeys" class="keyboard-keys" role="group" aria-label="Teclado de dos octavas"></div>
+            <div id="drumPads" class="drum-pads" role="group" aria-label="Pads de batería" hidden></div>
+          </div>
+          <div class="keyboard-settings" aria-label="Ajustes del teclado tocable">
+          <label title="Pista activa" aria-label="Pista activa"><span class="keyboard-control-icon" aria-hidden="true">▤</span><select id="keyboardTrack" aria-label="Pista para tocar y grabar"></select></label>
+          <label title="Instrumento de la pista" aria-label="Instrumento de la pista"><span class="keyboard-control-icon" aria-hidden="true">◈</span><select id="keyboardInstrument" aria-label="Instrumento del teclado tocable"></select></label>
+          <button id="keyboardAddTrack" type="button" title="Crear una pista nueva" aria-label="Crear pista"><span class="keyboard-control-icon" aria-hidden="true">＋</span></button>
+          <label title="Primera octava visible" aria-label="Primera octava visible"><span class="keyboard-control-icon" aria-hidden="true">↕</span>
           <select id="keyboardOctave" aria-label="Octava inicial">
             <option value="1">Grave · C1</option>
             <option value="2">C2</option>
@@ -142,8 +164,8 @@
             <option value="6">C6</option>
             <option value="7">Aguda · C7</option>
           </select>
-        </label>
-        <label>Duración
+          </label>
+          <label title="Duración de las notas tocadas" aria-label="Duración de las notas"><span class="keyboard-control-icon" aria-hidden="true">◷</span>
           <select id="keyboardLength" aria-label="Duración de la nota grabada">
             <option value="1">1/16 · 1 paso</option>
             <option value="2" selected>1/8 · 2 pasos</option>
@@ -151,19 +173,18 @@
             <option value="8">1/2 · 8 pasos</option>
             <option value="16">1 compás · 16 pasos</option>
           </select>
-        </label>
-      </div>
-      <div class="row keyboard-record-controls">
-        <label class="record-toggle"><input id="keyboardRecord" type="checkbox"> Grabar al tocar</label>
-        <label>Posición <input id="keyboardStep" type="number" min="0" max="63" value="0" aria-label="Posición de grabación en pasos"></label>
-        <span id="keyboardPosition" class="mono" aria-live="polite">Compás 1 · paso 1</span>
-        <span class="hint">Durante la reproducción, las notas se ajustan al paso que suena; en pausa, la posición avanza al grabar.</span>
-      </div>
-      <div id="keyboardKeys" class="keyboard-keys" role="group" aria-label="Teclado de dos octavas"></div>
-      <p id="keyboardHint" class="keyboard-hint">Atajos: fila A–J y K–; para notas naturales y sostenidas.</p>
-      <div id="drumPads" class="drum-pads" role="group" aria-label="Pads de batería" hidden></div>
-      <p id="keyboardStatus" class="keyboard-status" role="status" aria-live="polite"></p>
-    </div>
+          </label>
+          <label class="record-toggle" title="Guardar las notas que toques" aria-label="Grabar al tocar"><input id="keyboardRecord" type="checkbox"><span class="keyboard-control-icon" aria-hidden="true">●</span></label>
+          <label title="Posición de grabación" aria-label="Posición de grabación"><span class="keyboard-control-icon" aria-hidden="true">⌖</span><input id="keyboardStep" type="number" min="0" max="63" value="0" aria-label="Posición de grabación en pasos"></label>
+          <span id="keyboardPosition" class="mono" aria-live="polite" title="Compás y paso actual">Compás 1 · paso 1</span>
+          </div>
+        </div>
+        <p class="keyboard-intro">Toca una tecla o pad para escuchar. Activa «Grabar al tocar» para guardar cada nota.</p>
+        <p id="keyboardHint" class="keyboard-hint">Atajos: fila A–J y K–; para notas naturales y sostenidas.</p>
+        <p class="hint keyboard-position-help">Durante la reproducción, las notas se ajustan al paso que suena; en pausa, la posición avanza al grabar.</p>
+        <p id="keyboardStatus" class="keyboard-status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
   </section>
 
   <section class="panel">

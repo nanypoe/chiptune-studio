@@ -42,25 +42,30 @@ enlaces al perfil y al repositorio de GitHub. La licencia completa está en
 2. Define el título, tempo, tonalidad y escala. El tempo admitido es de 40 a
    240 BPM.
 3. Añade o selecciona una pista, elige su instrumento y ajusta volumen, paneo
-   o silencio.
+   o silencio. Las herramientas de pista y los efectos de la nota seleccionada
+   están lado a lado encima del piano roll; el teclado tocable está debajo.
 4. En **Piano roll**, haz clic en una celda vacía para crear una nota. Arrastra
    una nota para moverla y arrastra su borde derecho para cambiar su duración.
    Haz clic en una nota para seleccionarla; usa **Eliminar nota** o
    **Suprimir/Backspace** para borrarla. Mayús+clic alterna su nivel de
-   velocidad entre acentuado, normal y nota fantasma.
+   velocidad entre acentuado, normal y nota fantasma. El zoom horizontal
+   muestra de uno a cuatro compases; el selector permite cambiar de sección a
+   lo largo de canciones de hasta 64 compases. El zoom vertical muestra 14
+   filas de nota de forma predeterminada y permite ampliarlo hasta 21;
+   desplázate para llegar a otros registros.
 5. Pulsa **Reproducir** para escuchar. **Repetir** activa el loop de toda la
    canción. El metrónomo se puede activar antes o durante la reproducción;
    marca negras y acentúa el primer pulso de cada compás. **Nivel metrónomo**
    ajusta el nivel del pulso; también lo afecta el volumen general. Al
    activarlo durante la reproducción aparece un metrónomo visual flotante que
    oscila con cada pulso y muestra el tempo y el tiempo actual del compás.
-6. Selecciona una nota para editar sus efectos en el panel bajo el piano roll.
-   El ajuste de esa nota pasa a ser el predeterminado para las notas nuevas de
-   la misma pista; las notas ya creadas conservan sus propios efectos.
+6. Selecciona una nota para editar sus efectos en el panel derecho. El ajuste
+   de esa nota pasa a ser el predeterminado para las notas nuevas de la misma
+   pista; las notas ya creadas conservan sus propios efectos.
 
 ### Teclado tocable y loops
 
-La vista **Teclado tocable** ofrece un teclado en pantalla y pads de batería.
+La sección **Teclado tocable** ofrece un teclado en pantalla y pads de batería.
 Elige pista/instrumento, octava, escala y duración, y toca con ratón, pantalla
 táctil o teclado de computadora. Los atajos del teclado físico se muestran
 junto al instrumento; Mayús permite apilar notas simultáneas.
@@ -74,16 +79,22 @@ parar el loop. **Conservar y superponer tomas** mantiene las notas anteriores;
 desactívalo para reemplazar las notas de la pista seleccionada dentro del
 rango. Iniciar o grabar un loop activa automáticamente el metrónomo solo para
 el loop; al detenerlo, restaura el estado previo del metrónomo. El botón
-principal de reproducción no lo activa automáticamente. Mientras suena, el
-metrónomo flotante incluye accesos rápidos para reproducir/grabar y detener el
-loop o la toma. También puedes usar Alt+Mayús+L (reproducir),
+principal de reproducción no lo activa automáticamente. Mientras suena un
+loop, el panel de configuración se oculta y sus opciones, duración, posición y
+progreso pasan al widget compacto de la esquina superior. **Pausar** conserva
+el widget y habilita el cambio de compás inicial y duración; **Seguir** retoma
+el loop con esa selección. **Detener y cerrar** termina el loop y cierra el
+widget. El widget también ofrece controles para reproducir o detener toda la
+canción.
+Puedes usar Alt+Mayús+L (reproducir),
 Alt+Mayús+R (grabar), Alt+Mayús+X (detener grabación) y Alt+Mayús+S (detener
 loop); los atajos no se activan al escribir en un campo.
 
-Al seleccionar una pista de batería en el piano roll, elige otra pista en
-**Pista guía bajo la batería** para mostrar sus notas en una zona atenuada
-debajo de las filas de percusión. La guía es visual y no altera ni permite
-editar las notas de esa pista.
+El piano del **Teclado tocable** ocupa las cuatro quintas partes de su fila; los
+controles compactos con iconos están en la columna restante, y las instrucciones
+quedan debajo. Si tocas una nota sin activar **Grabar al tocar**, aparece
+brevemente en el roll como guía visual y se desvanece sin guardarse en la
+canción.
 
 ### Instrumentos y efectos
 

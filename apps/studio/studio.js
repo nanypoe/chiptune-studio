@@ -30,17 +30,17 @@ const INST={
  drums:{n:'Batería',g:'Percusión',c:'#9aa3c7',p:0}
 };
 const FX=[
- {id:'tremolo',name:'Trémolo',hint:'Volumen rítmico'},
- {id:'chorus',name:'Chorus',hint:'Anchura y desafinación'},
- {id:'flanger',name:'Flanger',hint:'Barrido metálico'},
- {id:'phaser',name:'Phaser',hint:'Barrido de fase'},
- {id:'wah',name:'Wah',hint:'Filtro expresivo'},
- {id:'compressor',name:'Compresor',hint:'Control de dinámica'},
- {id:'drive',name:'Overdrive',hint:'Saturación cálida'},
- {id:'fuzz',name:'Fuzz',hint:'Distorsión intensa'},
- {id:'bitcrush',name:'Bitcrusher',hint:'Resolución retro'},
- {id:'delay',name:'Delay',hint:'Ecos rítmicos'},
- {id:'reverb',name:'Reverb',hint:'Espacio reverberante'}
+ {id:'tremolo',name:'Trémolo',hint:'Volumen rítmico',icon:'∿'},
+ {id:'chorus',name:'Chorus',hint:'Anchura y desafinación',icon:'◉'},
+ {id:'flanger',name:'Flanger',hint:'Barrido metálico',icon:'↝'},
+ {id:'phaser',name:'Phaser',hint:'Barrido de fase',icon:'◌'},
+ {id:'wah',name:'Wah',hint:'Filtro expresivo',icon:'⌁'},
+ {id:'compressor',name:'Compresor',hint:'Control de dinámica',icon:'▥'},
+ {id:'drive',name:'Overdrive',hint:'Saturación cálida',icon:'▲'},
+ {id:'fuzz',name:'Fuzz',hint:'Distorsión intensa',icon:'✹'},
+ {id:'bitcrush',name:'Bitcrusher',hint:'Resolución retro',icon:'▦'},
+ {id:'delay',name:'Delay',hint:'Ecos rítmicos',icon:'↗'},
+ {id:'reverb',name:'Reverb',hint:'Espacio reverberante',icon:'◌'}
 ];
 const GUIDE=`GUÍA PARA IA · CHIPTUNE STUDIO · JSON v1
 
@@ -74,7 +74,9 @@ ARREGLO Y CARÁCTER
 VALIDACIÓN ANTES DE RESPONDER
 Comprueba que el JSON parsea, que format/version sean correctos, todos los instrumentos y pitches son válidos, cada efecto está entre 0 y 1, hay como máximo 10 pistas y ninguna nota supera bars*16. No devuelvas ejemplos o notas fuera del esquema solicitado.`;
 
-let song, sel=0, L=2, CW=24, RH=16, KW=58, lastSel=-1, selectedNote=null,drumReferenceTrack=null,drumReferenceChosen=false;
+let song, sel=0, L=2, CW=24, RH=16, KW=58, lastSel=-1, selectedNote=null;
+let rollPage=0,rollZoomBars=1,visiblePitchRows=14,previewAnimationFrame=0;
+const previewNotes=new Map();
 const mk=(name,instrument,notes=[],volume=.8)=>({name,instrument,volume,pan:INST[instrument].p||0,mute:false,notes,fxPreset:{}});
 function cleanFx(fx){
   if(!fx||typeof fx!=='object'||Array.isArray(fx))return undefined;
@@ -342,27 +344,57 @@ function selectedLoopRange(){
   const start=(startBar-1)*16,end=Math.min(total(),start+bars*16);
   return{start,end,bars:Math.ceil((end-start)/16),limited:end-start<bars*16};
 }
-function renderDrumReferenceControls(){
-  const controls=$('#drumReferenceControls'),select=$('#drumReferenceTrack');
-  if(song.tracks[sel].instrument!=='drums'){controls.hidden=true;return}
-  controls.hidden=false;
-  const candidates=song.tracks.map((track,index)=>({track,index})).filter(({track,index})=>index!==sel&&track.instrument!=='drums');
-  if(!drumReferenceChosen||(drumReferenceTrack&&!candidates.some(({track})=>track===drumReferenceTrack))){
-    drumReferenceTrack=candidates[0]?.track??null;
-    drumReferenceChosen=true;
-  }
-  select.replaceChildren(new Option('Sin pista guía',''),...candidates.map(({track,index})=>new Option(`${index+1}. ${track.name}`,String(index))));
-  select.value=String(song.tracks.indexOf(drumReferenceTrack));
-  if(!drumReferenceTrack)select.value='';
-}
 function renderLoopTimeline(){
   const {start,end,bars}=selectedLoopRange(),steps=end-start,timeline=$('#loopTimeline');
   timeline.style.setProperty('--loop-steps',steps);
   timeline.innerHTML=Array.from({length:steps},(_,i)=>`<span class="loop-step${i%16===0?' bar-start':''}" data-step="${start+i}" aria-hidden="true"></span>`).join('');
   timeline.setAttribute('aria-label',`Loop desde el compás ${Math.floor(start/16)+1} por ${bars} compás(es)`);
+  rollZoomBars=clamp(rollZoomBars,1,4);
+  rollPage=clamp(rollPage,0,Math.ceil(song.bars/rollZoomBars)-1);
+  renderRollSections();
+  updateRollViewport();
   updateLoopControls();
 }
+function renderRollSections(){
+  const select=$('#rollSection'),pages=Math.ceil(song.bars/rollZoomBars),current=clamp(rollPage,0,pages-1);
+  rollPage=current;
+  select.replaceChildren(...Array.from({length:pages},(_,page)=>{
+    const first=page*rollZoomBars+1,last=Math.min(song.bars,first+rollZoomBars-1);
+    return new Option(first===last?`Compás ${first}`:`Compases ${first}–${last}`,String(page));
+  }));
+  select.value=String(current);
+  $('#rollZoomLabel').textContent=`${rollZoomBars} ${rollZoomBars===1?'compás':'compases'}`;
+  $('#noteZoomLabel').textContent=`${visiblePitchRows} notas`;
+}
+function updateRollViewport(){
+  const scroll=$('#scroll');
+  if(!scroll)return;
+  const visibleSteps=Math.min(rollZoomBars*16,total()-(rollPage*rollZoomBars*16));
+  if(visibleSteps<=0)return;
+  RH=Math.max(8,Math.round(224/visiblePitchRows));
+  CW=Math.max(4,Math.floor(Math.max(1,scroll.clientWidth-KW-2)/visibleSteps));
+  scroll.style.setProperty('--roll-height','226px');
+  draw();
+}
+function setLoopWidgetActive(active){
+  const loopNodes=[
+    ['loopStartControl','options','start'],
+    ['loopBarsControl','options','bars'],
+    ['loopOverdubControl','options','overdub'],
+    ['loopTimeline','timeline','timeline']
+  ];
+  for(const [id,target,home] of loopNodes){
+    const node=$(`#${id}`);
+    if(active)$('#'+(target==='timeline'?'loopWidgetTimeline':'loopWidgetOptions')).append(node);
+    else{
+      const anchor=$(`[data-loop-home="${home}"]`);
+      anchor.parentNode.insertBefore(node,anchor);
+    }
+  }
+  $('#loopBox').hidden=active;
+}
 function currentPlaybackPosition(){
+  if(pausedLoop&&playbackLoop)return pausedLoopStep;
   if(!playing||!ctx)return null;
   const stepDuration=60/song.bpm/4,elapsed=Math.max(0,ctx.currentTime-playOriginTime),offset=elapsed/stepDuration;
   if(playbackLoop){
@@ -377,27 +409,38 @@ function updateLoopProgress(){
   const start=playbackLoop?.start??selectedLoopRange().start;
   const index=position===null?-1:Math.floor(position-start);
   for(const step of timeline.children)step.classList.toggle('playing',+step.dataset.step===start+index);
-  timeline.classList.toggle('is-playing',position!==null);
+  timeline.classList.toggle('is-playing',position!==null&&playing);
 }
 function updateLoopControls(){
   const loopActive=playing&&!!playbackLoop;
+  const loopOpen=loopActive||pausedLoop;
   const range=selectedLoopRange();
   $('#loopBox')?.classList.toggle('is-recording',loopRecording);
   $('#loopPlay').disabled=playing;
   $('#loopRecord').disabled=playing&&(!loopActive||loopRecording);
   $('#loopStopRecording').disabled=!loopActive||!loopRecording;
-  $('#loopStop').disabled=!loopActive;
+  $('#loopStop').disabled=!loopOpen;
   $('#metronomeLoopControls [data-loop-action="play"]').disabled=playing;
   $('#metronomeLoopControls [data-loop-action="record"]').disabled=playing&&(!loopActive||loopRecording);
   $('#metronomeLoopControls [data-loop-action="stop-recording"]').disabled=!loopActive||!loopRecording;
   $('#metronomeLoopControls [data-loop-action="stop"]').disabled=!loopActive;
+  $('#metronomeLoopControls [data-loop-action="play-all"]').disabled=playing&&!loopActive;
+  $('#metronomeLoopControls [data-loop-action="stop-all"]').disabled=!playing;
   $('#loopStartBar').disabled=loopActive;
   $('#loopBars').disabled=loopActive;
   $('#loopOverdub').disabled=loopActive;
+  const pauseButton=$('#metronomeLoopControls [data-loop-action="pause"]');
+  pauseButton.disabled=!loopOpen;
+  pauseButton.textContent=pausedLoop?'▶ Seguir':'Ⅱ Pausa';
+  pauseButton.title=pausedLoop?'Reanudar loop con la configuración actual':'Pausar loop y editar su inicio o duración';
+  pauseButton.setAttribute('aria-label',pausedLoop?'Reanudar loop':'Pausar loop');
+  $('#metronomeVisual').classList.toggle('is-paused',pausedLoop);
   $('#loopRecord').setAttribute('aria-pressed',String(loopRecording));
   $('#metronomeLoopControls [data-loop-action="record"]').setAttribute('aria-pressed',String(loopRecording));
-  $('#loopStatus').textContent=loopActive
-    ? loopRecording?'Grabando toma · el loop sigue en reproducción.':'Loop en reproducción · pulsa «Grabar loop» para otra toma.'
+  $('#metronomeLoopStatus').textContent=pausedLoop
+    ? 'Loop pausado · ajusta inicio/duración y pulsa «Seguir».'
+    : loopActive
+    ? loopRecording?'Grabando toma · el loop sigue en reproducción.':'Loop en reproducción · pausa para cambiar inicio o duración.'
     : range.limited?`Loop limitado a ${range.bars} compás(es), hasta el final de la canción.`:'Elige el compás y la duración del loop.';
   updateLoopProgress();
 }
@@ -438,10 +481,15 @@ function renderKeyboard(){
 function playKeyboardPitch(pitch,stack=false){
   if(rendering)return;
   const tr=song.tracks[sel],length=tr.instrument==='drums'?1:+$('#keyboardLength').value;
+  const recording=$('#keyboardRecord').checked;
+  const step=playing?Math.max(0,Math.min(Math.floor(currentPlaybackPosition()??cur-1),total())):clamp(+$('#keyboardStep').value||0,0,total());
   initAudio();
   hit(tr,pitch,ctx.currentTime+.015,(60/song.bpm/4)*length,trackOut(tr),1,tr.fxPreset);
-  if(!$('#keyboardRecord').checked)return;
-  const step=playing?Math.max(0,Math.min(Math.floor(currentPlaybackPosition()??cur-1),total())):clamp(+$('#keyboardStep').value||0,0,total());
+  if(!recording){
+    showKeyboardPreview(step,pitch);
+    $('#keyboardStatus').textContent=`Previsualización ${pitch} · ${keyboardStepLabel(step)}; activa «Grabar al tocar» para conservarla.`;
+    return;
+  }
   const range=playbackLoop,recordEnd=range?.end??total();
   if(step>=recordEnd){
     $('#keyboardStatus').textContent='La canción está llena. Añade compases para seguir grabando.';
@@ -491,15 +539,34 @@ $('#keyboardStep').addEventListener('input',e=>{
 $('#keyboardRecord').addEventListener('change',()=>{
   if(playbackLoop&&loopRecording&&!$('#keyboardRecord').checked)stopLoopRecording();
 });
-$('#loopStartBar').addEventListener('change',renderLoopTimeline);
-$('#loopBars').addEventListener('change',renderLoopTimeline);
+$('#loopStartBar').addEventListener('change',()=>{
+  const range=selectedLoopRange();
+  rollPage=Math.floor((+$('#loopStartBar').value-1)/rollZoomBars);
+  if(pausedLoop){playbackLoop=range;pausedLoopStep=range.start}
+  renderLoopTimeline();
+});
+$('#loopBars').addEventListener('change',()=>{
+  selectedLoopRange();
+  rollZoomBars=clamp(+$('#loopBars').value||1,1,4);
+  rollPage=Math.floor((+$('#loopStartBar').value-1)/rollZoomBars);
+  if(pausedLoop){playbackLoop=selectedLoopRange();pausedLoopStep=playbackLoop.start}
+  renderLoopTimeline();
+});
 $('#loopPlay').addEventListener('click',()=>startLoop(false));
 $('#loopRecord').addEventListener('click',()=>startLoop(true));
 $('#loopStopRecording').addEventListener('click',stopLoopRecording);
 $('#loopStop').addEventListener('click',stop);
 $('#metronomeLoopControls').addEventListener('click',e=>{
   const action=e.target.closest('[data-loop-action]')?.dataset.loopAction;
-  const control={play:'#loopPlay',stop:'#loopStop',record:'#loopRecord','stop-recording':'#loopStopRecording'}[action];
+  if(action==='pause'){pausedLoop?resumeLoop():pauseLoop();return}
+  if(action==='play-all'){
+    if(playbackLoop)stop();
+    if(!playing)play();
+    return;
+  }
+  if(action==='play'&&pausedLoop){resumeLoop();return}
+  if(action==='record'&&pausedLoop){resumeLoop(true);return}
+  const control={play:'#loopPlay',stop:'#loopStop',record:'#loopRecord','stop-recording':'#loopStopRecording','stop-all':'#stop'}[action];
   if(control)$(control).click();
 });
 document.addEventListener('keydown',e=>{
@@ -509,19 +576,35 @@ document.addEventListener('keydown',e=>{
   e.preventDefault();
   $(control).click();
 });
-$('#loopOverdub').addEventListener('change',()=>$('#loopStatus').textContent=$('#loopOverdub').checked?'Las tomas nuevas se superponen sin borrar las anteriores.':'La próxima toma reemplazará las notas de la pista elegida dentro del loop.');
+$('#loopOverdub').addEventListener('change',()=>$('#metronomeLoopStatus').textContent=$('#loopOverdub').checked?'Las tomas nuevas se superponen sin borrar las anteriores.':'La próxima toma reemplazará las notas de la pista elegida dentro del loop.');
+$('#rollSection').addEventListener('change',e=>{
+  rollPage=+e.target.value;
+  updateRollViewport();
+});
+$('#rollZoomOut').addEventListener('click',()=>{
+  const anchorBar=rollPage*rollZoomBars+1;
+  rollZoomBars=clamp(rollZoomBars+1,1,4);
+  rollPage=Math.floor((anchorBar-1)/rollZoomBars);
+  renderRollSections();updateRollViewport();
+});
+$('#rollZoomIn').addEventListener('click',()=>{
+  const anchorBar=rollPage*rollZoomBars+1;
+  rollZoomBars=clamp(rollZoomBars-1,1,4);
+  rollPage=Math.floor((anchorBar-1)/rollZoomBars);
+  renderRollSections();updateRollViewport();
+});
+$('#noteZoomOut').addEventListener('click',()=>{
+  const center=$('#scroll').scrollTop+$('#scroll').clientHeight/2;
+  visiblePitchRows=clamp(visiblePitchRows-1,14,21);renderRollSections();updateRollViewport();
+  $('#scroll').scrollTop=Math.max(0,center-$('#scroll').clientHeight/2);
+});
+$('#noteZoomIn').addEventListener('click',()=>{
+  const center=$('#scroll').scrollTop+$('#scroll').clientHeight/2;
+  visiblePitchRows=clamp(visiblePitchRows+1,14,21);renderRollSections();updateRollViewport();
+  $('#scroll').scrollTop=Math.max(0,center-$('#scroll').clientHeight/2);
+});
 $('#root').addEventListener('change',renderKeyboard);
 $('#scale').addEventListener('change',renderKeyboard);
-$('#editorTabs').addEventListener('click',e=>{
-  const tab=e.target.closest('[role="tab"]');
-  if(!tab)return;
-  const keyboard=tab.id==='tabKeyboard';
-  $('#rollView').hidden=keyboard;
-  $('#keyboardView').hidden=!keyboard;
-  $('#tabRoll').setAttribute('aria-selected',String(!keyboard));
-  $('#tabKeyboard').setAttribute('aria-selected',String(keyboard));
-  if(keyboard)renderKeyboard();
-});
 document.addEventListener('keydown',e=>{
   const keyboardVisible=$('#keyboardView')&&!$('#keyboardView').hidden,loopCapture=playing&&!!playbackLoop&&loopRecording;
   if((!keyboardVisible&&!loopCapture)||e.repeat||e.ctrlKey||e.metaKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||document.activeElement.closest('button')&&!document.activeElement.closest('#keyboardKeys,#drumPads'))return;
@@ -539,6 +622,7 @@ document.addEventListener('keydown',e=>{
 /* ===== REPRODUCCIÓN ===== */
 let playing=false,timer,nextT,cur,queue=[],ended=false,endAt=0,playbackLoop=null,loopRecording=false,playOriginTime=0;
 let restoreLoopMetronome=false,loopMetronomeBefore=false;
+let pausedLoop=false,pausedLoopStep=0;
 let rendering=false;
 function metronomeClick(t,accent){
   const level=+$('#metronomeVolume').value;
@@ -551,7 +635,7 @@ function metronomeClick(t,accent){
   osc.connect(gain).connect(bus);startVoiceSource(osc,t,t+.05,()=>gain.disconnect());
 }
 function updateMetronomeVisibility(){
-  $('#metronomeVisual').classList.toggle('is-visible',playing&&$('#metronome').checked);
+  $('#metronomeVisual').classList.toggle('is-visible',(playing||pausedLoop)&&($('#metronome').checked||!!playbackLoop));
 }
 function animateMetronome(t,accent){
   const visual=$('#metronomeVisual'),arm=$('#metronomeArm'),beat=Math.floor(cur/4)%4;
@@ -567,13 +651,15 @@ function animateMetronome(t,accent){
   );
 }
 function play(loop=null,record=false){if(rendering)return;
-  initAudio();stop();newBus();cur=0;nextT=ctx.currentTime+.08;queue=[];ended=false;playing=true;
+  initAudio();stop();newBus();cur=0;nextT=ctx.currentTime+.08;queue=[];ended=false;playing=true;pausedLoop=false;
   playbackLoop=loop;loopRecording=record;
-  if(playbackLoop)cur=playbackLoop.start;
+  if(playbackLoop){cur=playbackLoop.start;rollPage=Math.floor(playbackLoop.start/(rollZoomBars*16));renderRollSections();updateRollViewport()}
+  setLoopWidgetActive(!!playbackLoop);
   playOriginTime=nextT;renderKeyboard();updateMetronomeVisibility();timer=setInterval(tick,25);$('#play').classList.add('on');$('#play').textContent='❚❚';$('#ph').style.display='block';requestAnimationFrame(frame);
   updateLoopControls();
 }
 function startLoop(record){
+  if(pausedLoop){resumeLoop(record);return}
   if(!(playing&&playbackLoop)){
     loopMetronomeBefore=$('#metronome').checked;
     restoreLoopMetronome=true;
@@ -600,6 +686,28 @@ function startLoop(record){
   if(record)$('#loopRecord').blur();
   play(range,record);
 }
+function pauseLoop(){
+  if(!playing||!playbackLoop)return;
+  pausedLoopStep=currentPlaybackPosition()??playbackLoop.start;
+  clearInterval(timer);stopVoiceSources();clearVoiceOutputs();if(bus)newBus();
+  playing=false;pausedLoop=true;loopRecording=false;$('#keyboardRecord').checked=false;
+  $('#play').classList.remove('on');$('#play').textContent='▶';$('#ph').style.display='none';
+  $('#metronomeArm').getAnimations().forEach(animation=>animation.cancel());
+  $('#metronomeVisual').classList.remove('is-accent');
+  renderKeyboard();updateMetronomeVisibility();updateLoopControls();
+}
+function resumeLoop(record=false){
+  if(!pausedLoop)return;
+  const range=selectedLoopRange();
+  if(record&&!$('#loopOverdub').checked){
+    const tr=song.tracks[sel];
+    tr.notes=tr.notes.filter(note=>note.step+note.len<=range.start||note.step>=range.end);
+    draw();
+  }
+  pausedLoop=false;playbackLoop=null;
+  $('#keyboardRecord').checked=record;
+  play(range,record);
+}
 function stopLoopRecording(){
   if(!playbackLoop||!loopRecording)return;
   loopRecording=false;$('#keyboardRecord').checked=false;
@@ -617,8 +725,10 @@ function tick(){
   }
 }
 function stop(){
-  const wasLooping=!!playbackLoop;
+  const wasLooping=!!playbackLoop||pausedLoop;
   clearInterval(timer);stopVoiceSources();clearVoiceOutputs();if(bus)newBus();playing=false;playbackLoop=null;loopRecording=false;
+  pausedLoop=false;
+  if(wasLooping)setLoopWidgetActive(false);
   if(wasLooping&&restoreLoopMetronome)$('#metronome').checked=loopMetronomeBefore;
   if(wasLooping)restoreLoopMetronome=false;
   updateMetronomeVisibility();$('#metronomeVisual').classList.remove('is-accent');$('#metronomeArm').getAnimations().forEach(animation=>animation.cancel());
@@ -637,8 +747,12 @@ function frame(){
   updateLoopProgress();
   while(queue.length>1&&queue[1].t<=now)queue.shift();
   const h=queue[0];if(h&&h.t<=now){
-    const x=KW+(h.s+Math.min(1,(now-h.t)/h.sd))*CW,ph=$('#ph'),sc=$('#scroll');ph.style.left=x+'px';
-    if(x<sc.scrollLeft+KW||x>sc.scrollLeft+sc.clientWidth-40)sc.scrollLeft=x-KW-80;
+    if(!playbackLoop){
+      const page=Math.floor(h.s/(rollZoomBars*16));
+      if(page!==rollPage){rollPage=page;renderRollSections();updateRollViewport()}
+    }
+    const sectionStart=rollPage*rollZoomBars*16,x=(h.s-sectionStart+Math.min(1,(now-h.t)/h.sd))*CW,ph=$('#ph');
+    ph.style.left=x+'px';ph.style.display=x>=0&&x<$('#grid').width?'block':'none';
   }
   if(ended&&now>endAt)return stop();
   requestAnimationFrame(frame);
@@ -652,7 +766,7 @@ function rowsOf(tr){
   const r=[];for(let m=hi;m>=lo;m--)r.push({p:nameOf(m),m,l:nameOf(m),black:NAMES[m%12].includes('#')});return r;
 }
 function draw(){
-  const tr=song.tracks[sel],rows=rowsOf(tr),reference=tr.instrument==='drums'?drumReferenceTrack:null,referenceRows=reference?rowsOf(reference):[],rowHeight=rows.length*RH,H=(rows.length+referenceRows.length)*RH,Wd=total()*CW,cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
+  const tr=song.tracks[sel],rows=rowsOf(tr),H=rows.length*RH,sectionStart=rollPage*rollZoomBars*16,visibleSteps=Math.min(rollZoomBars*16,total()-sectionStart),Wd=visibleSteps*CW,cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
   const root=+$('#root').value,sc=$('#scale').value.split(',').map(Number),col=INST[tr.instrument].c;
   const g=$('#grid'),k=$('#keys');if(g.width!==Wd)g.width=Wd;if(g.height!==H)g.height=H;if(k.width!==KW)k.width=KW;if(k.height!==H)k.height=H;$('#ph').style.height=H+'px';
   const c=g.getContext('2d'),kc=k.getContext('2d');
@@ -663,45 +777,49 @@ function draw(){
     if(!drum&&r.m%12===0){c.fillStyle=v('--line');c.fillRect(0,y+RH-1,Wd,1)}
     kc.fillStyle=drum?v('--panel'):r.black?'#1b1b26':'#ecedf5';kc.fillRect(0,y,KW,RH);
     kc.fillStyle=drum?v('--tx'):r.black?'#9aa':'#333';kc.font='10px ui-monospace,monospace';kc.textBaseline='middle';
-    if(drum||!r.black||true)kc.fillText(r.l,6,y+RH/2);
+    kc.fillText(r.l,6,y+RH/2);
     if(!drum&&r.m%12===0){kc.fillStyle=col;kc.fillRect(KW-4,y,4,RH)}
     kc.fillStyle='#0003';kc.fillRect(0,y+RH-1,KW,1);
   });
-  if(reference){
-    const referenceColor=INST[reference.instrument].c;
-    c.fillStyle=v('--rowb');c.fillRect(0,rowHeight,Wd,referenceRows.length*RH);
-    referenceRows.forEach((r,i)=>{
-      const y=rowHeight+i*RH,ins=sc.includes(((r.m-root)%12+12)%12);
-      c.fillStyle=r.black?v('--rowb'):ins?v('--scale'):v('--row');c.fillRect(0,y,Wd,RH);
-      if(ins){c.fillStyle=referenceColor+'12';c.fillRect(0,y,Wd,RH)}
-      if(r.m%12===0){c.fillStyle=v('--line');c.fillRect(0,y+RH-1,Wd,1)}
-      kc.fillStyle=r.black?'#1b1b26':'#ecedf5';kc.fillRect(0,y,KW,RH);
-      kc.fillStyle=r.black?'#9aa':'#333';kc.font='10px ui-monospace,monospace';kc.textBaseline='middle';kc.fillText(r.l,6,y+RH/2);
-      if(r.m%12===0){kc.fillStyle=referenceColor;kc.fillRect(KW-4,y,4,RH)}
-      kc.fillStyle='#0003';kc.fillRect(0,y+RH-1,KW,1);
-    });
-    c.strokeStyle=referenceColor+'99';c.lineWidth=2;c.beginPath();c.moveTo(0,rowHeight+.5);c.lineTo(Wd,rowHeight+.5);c.stroke();
-    for(const note of reference.notes){
-      const row=referenceRows.findIndex(item=>item.p===note.pitch);if(row<0)continue;
-      const y=rowHeight+row*RH;
-      c.globalAlpha=.34;c.fillStyle=referenceColor;c.fillRect(note.step*CW+1,y+2,note.len*CW-2,RH-4);c.globalAlpha=1;
-      if(note.len*CW>30){c.fillStyle=v('--tx');c.globalAlpha=.75;c.font='bold 9px ui-monospace,monospace';c.fillText(note.pitch,note.step*CW+4,y+RH/2);c.globalAlpha=1}
-    }
-  }
-  const loopRange=selectedLoopRange();
-  c.fillStyle='rgba(104,240,220,.07)';
-  c.fillRect(loopRange.start*CW,0,(loopRange.end-loopRange.start)*CW,H);
+  const loopRange=selectedLoopRange(),visibleEnd=sectionStart+visibleSteps;
+  const loopStart=Math.max(loopRange.start,sectionStart),loopEnd=Math.min(loopRange.end,visibleEnd);
+  if(loopEnd>loopStart){c.fillStyle='rgba(104,240,220,.07)';c.fillRect((loopStart-sectionStart)*CW,0,(loopEnd-loopStart)*CW,H)}
   c.lineWidth=1;
-  for(let s=0;s<=total();s++){c.strokeStyle=s%16===0?v('--mut'):s%4===0?v('--line'):v('--line')+'66';c.beginPath();c.moveTo(s*CW+.5,0);c.lineTo(s*CW+.5,H);c.stroke()}
-  c.strokeStyle='#68f0dcaa';c.lineWidth=2;
-  for(const step of [loopRange.start,loopRange.end]){c.beginPath();c.moveTo(step*CW+.5,0);c.lineTo(step*CW+.5,H);c.stroke()}
-  for(const n of tr.notes){
-    const i=rows.findIndex(r=>r.p===n.pitch);if(i<0)continue;
-    c.globalAlpha=.4+.6*(n.vel??1);c.fillStyle=col;c.fillRect(n.step*CW+1,i*RH+1,n.len*CW-2,RH-2);c.globalAlpha=1;c.fillStyle='#0008';c.fillRect(n.step*CW+1,i*RH+RH-3,n.len*CW-2,2);
-    if(n===selectedNote){c.strokeStyle='#fff';c.lineWidth=2;c.strokeRect(n.step*CW+2,i*RH+2,n.len*CW-4,RH-4)}
-    if(n.fx&&Object.keys(n.fx).length){c.fillStyle='#171a30';c.beginPath();c.arc(n.step*CW+n.len*CW-5,i*RH+5,3,0,Math.PI*2);c.fill()}
-    if(n.len*CW>30&&tr.instrument!=='drums'){c.fillStyle='#1a1530';c.font='bold 9px ui-monospace,monospace';c.fillText(n.pitch,n.step*CW+4,i*RH+RH/2)}
+  for(let s=0;s<=visibleSteps;s++){
+    const absoluteStep=sectionStart+s;
+    c.strokeStyle=absoluteStep%16===0?v('--mut'):absoluteStep%4===0?v('--line'):v('--line')+'66';
+    c.beginPath();c.moveTo(s*CW+.5,0);c.lineTo(s*CW+.5,H);c.stroke();
   }
+  c.strokeStyle='#68f0dcaa';c.lineWidth=2;
+  for(const step of [loopRange.start,loopRange.end])if(step>=sectionStart&&step<=visibleEnd){
+    c.beginPath();c.moveTo((step-sectionStart)*CW+.5,0);c.lineTo((step-sectionStart)*CW+.5,H);c.stroke();
+  }
+  for(const note of tr.notes){
+    if(note.step+note.len<=sectionStart||note.step>=visibleEnd)continue;
+    const row=rows.findIndex(item=>item.p===note.pitch);if(row<0)continue;
+    const x=(note.step-sectionStart)*CW,y=row*RH;
+    c.globalAlpha=.4+.6*(note.vel??1);c.fillStyle=col;c.fillRect(x+1,y+1,note.len*CW-2,RH-2);c.globalAlpha=1;c.fillStyle='#0008';c.fillRect(x+1,y+RH-3,note.len*CW-2,2);
+    if(note===selectedNote){c.strokeStyle='#fff';c.lineWidth=2;c.strokeRect(x+2,y+2,note.len*CW-4,RH-4)}
+    if(note.fx&&Object.keys(note.fx).length){c.fillStyle='#171a30';c.beginPath();c.arc(x+note.len*CW-5,y+5,3,0,Math.PI*2);c.fill()}
+    if(note.len*CW>30&&tr.instrument!=='drums'){c.fillStyle='#1a1530';c.font='bold 9px ui-monospace,monospace';c.fillText(note.pitch,x+4,y+RH/2)}
+  }
+  const now=performance.now();
+  for(const [id,preview] of previewNotes){
+    if(preview.expires<=now){previewNotes.delete(id);continue}
+    if(preview.track!==tr||preview.step<sectionStart||preview.step>=visibleEnd)continue;
+    const row=rows.findIndex(item=>item.p===preview.pitch);if(row<0)continue;
+    const remaining=(preview.expires-now)/preview.duration,x=(preview.step-sectionStart)*CW,y=row*RH;
+    c.globalAlpha=.15+.65*remaining;c.fillStyle=col;c.fillRect(x+1,y+1,Math.max(CW-2,2),RH-2);c.globalAlpha=remaining;
+    c.strokeStyle=col;c.lineWidth=2;c.strokeRect(x+2,y+2,CW-4,RH-4);c.globalAlpha=1;
+  }
+  if(previewNotes.size&&!previewAnimationFrame)previewAnimationFrame=requestAnimationFrame(()=>{previewAnimationFrame=0;draw()});
+}
+function showKeyboardPreview(step,pitch){
+  const duration=Math.max(650,120/song.bpm*1000),id=Symbol();
+  previewNotes.set(id,{step,pitch,track:song.tracks[sel],duration,expires:performance.now()+duration});
+  const page=Math.floor(step/(rollZoomBars*16));
+  if(page!==rollPage){rollPage=page;renderRollSections();updateRollViewport()}
+  else draw();
 }
 function renderNoteFx(){
   const tr=song.tracks[sel],note=tr.notes.includes(selectedNote)?selectedNote:null,controls=$('#noteFxControls');
@@ -711,10 +829,10 @@ function renderNoteFx(){
     controls.innerHTML='<span class="hint">Las notas nuevas heredan el ajuste actual; las notas existentes no cambian.</span>';return;
   }
   $('#noteFxStatus').textContent=`${note.pitch} · ${keyboardStepLabel(note.step)} · ${note.len} paso(s) · Su ajuste será el predeterminado para las notas nuevas de esta pista.`;
-  controls.innerHTML=FX.map(({id,name,hint})=>{
+  controls.innerHTML=FX.map(({id,name,hint,icon})=>{
     const value=note.fx?.[id]??0,active=value>0;
     return `<div class="note-fx-control">
-      <label title="${hint}"><input type="checkbox" data-fx="${id}" ${active?'checked':''}> ${name}</label>
+      <label title="${hint}"><input class="fx-switch" type="checkbox" data-fx="${id}" aria-label="Activar ${name}" ${active?'checked':''}><span class="fx-icon" aria-hidden="true">${icon}</span> ${name}</label>
       <input type="range" min="0" max="1" step=".05" value="${value}" data-fx-level="${id}" aria-label="Intensidad de ${name}" ${active?'':'disabled'}>
       <output data-fx-output="${id}">${Math.round(value*100)}%</output>
     </div>`;
@@ -746,8 +864,8 @@ function deleteSelectedNote(){
 $('#deleteNote').addEventListener('click',deleteSelectedNote);
 let drag=null;
 const grid=$('#grid'),EDGE=9;
-const hitAt=(tr,rows,e)=>{const r=rows[Math.floor(e.offsetY/RH)],st=Math.floor(e.offsetX/CW);if(!r||st<0||st>=total())return null;return{r,s:st,n:tr.notes.find(n=>n.pitch===r.p&&st>=n.step&&st<n.step+n.len)}};
-const nearEdge=(n,e)=>n.step*CW+n.len*CW-e.offsetX<EDGE;
+const hitAt=(tr,rows,e)=>{const r=rows[Math.floor(e.offsetY/RH)],st=rollPage*rollZoomBars*16+Math.floor(e.offsetX/CW);if(!r||st<0||st>=total())return null;return{r,s:st,n:tr.notes.find(n=>n.pitch===r.p&&st>=n.step&&st<n.step+n.len)}};
+const nearEdge=(n,e)=>n.step*CW+n.len*CW-rollPage*rollZoomBars*16*CW-e.offsetX<EDGE;
 grid.addEventListener('pointerdown',e=>{
   const tr=song.tracks[sel],rows=rowsOf(tr),h=hitAt(tr,rows,e);if(!h)return;
   if(h.n&&e.shiftKey){const c=[1,.7,.45],i=(c.indexOf(h.n.vel??1)+1)%3;i?h.n.vel=c[i]:delete h.n.vel;preview(h.r.p,h.n.fx);draw();return}
@@ -761,7 +879,7 @@ grid.addEventListener('pointermove',e=>{
   const n=drag.n,row=clamp(Math.floor(e.offsetY/RH),0,drag.rows.length-1);
   if(!drag.moved&&(Math.abs(e.offsetX-drag.x0)>4||(!drag.fresh&&row!==drag.y0)))drag.moved=true;
   if(!drag.moved)return;
-  if(drag.mode==='size')n.len=clamp(Math.floor(e.offsetX/CW)-n.step+1,1,total()-n.step);
+  if(drag.mode==='size')n.len=clamp(rollPage*rollZoomBars*16+Math.floor(e.offsetX/CW)-n.step+1,1,total()-n.step);
   else{
     n.step=clamp(drag.step0+Math.round((e.offsetX-drag.x0)/CW),0,total()-n.len);
     const r=drag.rows[row];if(r.p!==n.pitch){n.pitch=r.p;preview(r.p,n.fx)}
@@ -787,36 +905,32 @@ function renderTabs(){
     b.textContent=(tr.mute?'🔇 ':'')+tr.name;b.onclick=()=>{sel=i;refresh()};t.appendChild(b)});
   const s=document.createElement('select');s.innerHTML='<option value="">＋ Añadir pista…</option>'+instOpts();
   s.onchange=()=>{if(!s.value||song.tracks.length>=10)return;song.tracks.push(mk(INST[s.value].n.split(' (')[0],s.value));sel=song.tracks.length-1;refresh()};t.appendChild(s);
-  renderDrumReferenceControls();
 }
 function renderSettings(){
   const tr=song.tracks[sel],p=$('#settings');
-  p.innerHTML=`<label>Nombre <input id="tn" value="" style="width:130px"></label>
-  <label>Instrumento <select id="ti">${instOpts()}</select></label>
-  <label>Volumen <input id="tv" type="range" min="0" max="1" step=".01"></label>
-  <label>Paneo <input id="tp" type="range" min="-1" max="1" step=".05"></label>
-  <label><input id="tm" type="checkbox"> Silenciar</label>
-  <button id="tc">Vaciar pista</button><button id="td">Eliminar pista</button>`;
-  $('#tn').value=tr.name;$('#ti').value=tr.instrument;$('#tv').value=tr.volume;$('#tp').value=tr.pan||0;$('#tm').checked=tr.mute;
+  p.innerHTML=`<label title="Nombre de la pista"><span class="tool-setting-title"><span class="tool-setting-icon" aria-hidden="true">✎</span> Nombre</span><input id="tn" value="" aria-label="Nombre de la pista"></label>
+  <label title="Instrumento de la pista"><span class="tool-setting-title"><span class="tool-setting-icon" aria-hidden="true">◈</span> Instrumento</span><select id="ti" aria-label="Instrumento de la pista">${instOpts()}</select></label>
+  <label title="Volumen de la pista"><span class="tool-setting-title"><span class="tool-setting-icon" aria-hidden="true">◖</span> Volumen</span><input id="tv" type="range" min="0" max="1" step=".01" aria-label="Volumen de la pista"></label>
+  <label title="Paneo estéreo"><span class="tool-setting-title"><span class="tool-setting-icon" aria-hidden="true">↔</span> Paneo</span><input id="tp" type="range" min="-1" max="1" step=".05" aria-label="Paneo de la pista"></label>
+  <div class="track-action-buttons">
+    <button id="tm" type="button" aria-label="${tr.mute?'Activar pista':'Silenciar pista'}" aria-pressed="${tr.mute}" title="${tr.mute?'Activar pista':'Silenciar pista'}">${tr.mute?'🔇':'🔊'}</button>
+    <button id="tc" type="button" aria-label="Vaciar pista" title="Vaciar pista">⌫</button>
+    <button id="td" type="button" aria-label="Eliminar pista" title="Eliminar pista">×</button>
+  </div>`;
+  $('#tn').value=tr.name;$('#ti').value=tr.instrument;$('#tv').value=tr.volume;$('#tp').value=tr.pan||0;
   $('#tn').oninput=e=>{tr.name=e.target.value;renderTabs()};
   $('#ti').onchange=e=>{const was=tr.instrument==='drums',now=e.target.value==='drums';tr.instrument=e.target.value;if(was!==now)tr.notes=[];lastSel=-1;refresh()};
   $('#tv').oninput=e=>{tr.volume=+e.target.value;if(playing)trackOut(tr)};
   $('#tp').oninput=e=>{tr.pan=+e.target.value;if(playing)trackOut(tr)};
-  $('#tm').onchange=e=>{tr.mute=e.target.checked;if(playing)trackOut(tr);renderTabs()};
+  $('#tm').onclick=()=>{tr.mute=!tr.mute;if(playing)trackOut(tr);renderSettings();renderTabs()};
   $('#tc').onclick=()=>{tr.notes=[];selectedNote=null;renderNoteFx();draw()};
   $('#td').onclick=()=>{if(song.tracks.length>1){song.tracks.splice(sel,1);selectedNote=null;sel=Math.max(0,sel-1);refresh()}};
 }
 function refresh(){
   $('#title').value=song.title;$('#bpm').value=song.bpm;$('#bars').textContent=song.bars;
-  renderTabs();renderSettings();draw();renderNoteFx();renderKeyboard();renderLoopTimeline();
+  renderTabs();renderSettings();renderKeyboard();renderNoteFx();renderLoopTimeline();
   if(sel!==lastSel){lastSel=sel;focusRoll()}
 }
-$('#drumReferenceTrack').addEventListener('change',e=>{
-  const index=e.target.value===''?-1:+e.target.value;
-  drumReferenceTrack=index<0?null:song.tracks[index];
-  drumReferenceChosen=true;
-  draw();
-});
 function focusRoll(){const tr=song.tracks[sel],rows=rowsOf(tr),ys=tr.notes.map(n=>rows.findIndex(r=>r.p===n.pitch)).filter(i=>i>=0);$('#scroll').scrollTop=Math.max(0,(ys.length?Math.min(...ys):Math.floor(rows.length/3))*RH-40)}
 function setBars(n){
   song.bars=clamp(n,1,64);for(const t of song.tracks)t.notes=t.notes.filter(x=>x.step<total()).map(x=>({...x,len:Math.min(x.len,total()-x.step)}));refresh();
