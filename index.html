@@ -1,62 +1,94 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b0e18">
-  <meta name="description" content="Compón música chiptune, edita canciones y convierte audio o MIDI en arreglos retro con Chiptune Studio.">
-  <title>Chiptune Studio — composición y conversión musical</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="app.css">
-  <script src="app.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chiptune Studio</title>
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <main class="app">
-    <header class="app-header">
-      <a class="brand" href="#studio" aria-label="Chiptune Studio, inicio">
-        <span class="brand-mark" aria-hidden="true">♫</span>
-        <span>
-          <strong>Chiptune Studio</strong>
-          <small>Composición y conversión musical</small>
-        </span>
-      </a>
-      <span class="app-version">HERRAMIENTAS MUSICALES</span>
-    </header>
-
-    <nav class="app-tabs" role="tablist" aria-label="Herramientas">
-      <button id="tab-studio" class="app-tab" type="button" role="tab"
-        aria-controls="panel-studio" aria-selected="true" tabindex="0" data-app-tab="studio">
-        <span aria-hidden="true">♫</span>
-        <span><strong>Estudio</strong><small>Componer y editar</small></span>
-      </button>
-      <button id="tab-audio2ct" class="app-tab" type="button" role="tab"
-        aria-controls="panel-audio2ct" aria-selected="false" tabindex="-1" data-app-tab="audio2ct">
-        <span aria-hidden="true">⇢</span>
-        <span><strong>Audio a canción</strong><small>Convertir audio o MIDI</small></span>
-      </button>
-    </nav>
-
-    <section class="workspace" aria-label="Área de trabajo">
-      <div id="panel-studio" class="app-panel is-active" role="tabpanel"
-        aria-labelledby="tab-studio" data-app-panel="studio">
-        <iframe src="Chiptune%20Studio.html" title="Chiptune Studio: editor de canciones"></iframe>
-      </div>
-      <div id="panel-audio2ct" class="app-panel" role="tabpanel"
-        aria-labelledby="tab-audio2ct" aria-hidden="true" data-app-panel="audio2ct">
-        <iframe src="Audio2CT.html" title="Audio2CT: conversor de audio y MIDI"></iframe>
-      </div>
-    </section>
-
-    <footer class="app-footer">
-      <span class="footer-credit"><span class="footer-note" aria-hidden="true">♫</span> © 2026 Renaldy Sánchez · Licencia MIT</span>
-      <nav class="footer-links" aria-label="Enlaces del proyecto">
-        <a href="https://github.com/nanypoe" target="_blank" rel="noopener noreferrer">GitHub de nanypoe<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
-        <a href="https://github.com/nanypoe/chiptune-studio" target="_blank" rel="noopener noreferrer">Repositorio<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
-      </nav>
-    </footer>
-  </main>
+<header id="top" class="panel">
+  <h1>♫ CHIPTUNE STUDIO</h1>
+  <input id="title" maxlength="60" aria-label="Título">
+  <button id="play" class="big" title="Reproducir / detener (Espacio)">▶</button>
+  <button id="stop" class="big" title="Detener">■</button>
+  <label><input id="loop" type="checkbox" checked> Repetir</label>
+  <label><input id="metro" type="checkbox"> Metrónomo</label>
+  <label>BPM <input id="bpm" type="number" min="40" max="240" value="120"></label>
+  <span class="grp">Compases <button id="barM">−</button><b id="bars">4</b><button id="barP">+</button><button id="dup" title="Duplica toda la canción">×2</button></span>
+  <label>Tono <select id="root"></select></label>
+  <label><select id="scale"></select></label>
+  <label>🔊 <input id="vol" type="range" min="0" max="1" step=".01" value=".7"></label>
+  <span class="sp"></span>
+  <span id="saved"></span>
+  <button id="file">Archivo · JSON · IA</button>
+</header>
+<main>
+  <aside id="left" class="panel">
+    <div class="ph"><h2>Pistas</h2><select id="addTrack" aria-label="Añadir pista"></select></div>
+    <div id="tracks"></div>
+    <div id="card"></div>
+  </aside>
+  <section id="center">
+    <div id="rtool" class="panel">
+      <span class="grp">Octava <button id="octD" title="Bajar octava (Z)">▼</button><b id="oct"></b><button id="octU" title="Subir octava (X)">▲</button></span>
+      <span class="grp">Nota <span id="lens"></span></span>
+      <span class="grp">Zoom <button id="zOut">−</button><b id="zoom">100%</b><button id="zIn">+</button><button id="zFit" title="Ver todo el proyecto">Ajustar</button></span>
+      <span class="hint">Clic: crear · arrastra: mover · borde derecho: alargar · clic en nota: borrar · Mayús+clic: fuerza · Ctrl+rueda: zoom</span>
+    </div>
+    <div id="rollBox"><canvas id="grid"></canvas><div id="ph"></div></div>
+  </section>
+  <aside id="right" class="panel">
+    <div class="ph"><h2>Aprende</h2><label><input id="learnOn" type="checkbox" checked> Guía</label></div>
+    <div id="learn"></div>
+    <div class="ph"><h2>Acordes del tono</h2></div>
+    <div id="chords"></div>
+    <p id="tip" class="hint"></p>
+  </aside>
+</main>
+<footer id="bottom" class="panel">
+  <div class="kh"><b>Teclado</b><label><input id="rec" type="checkbox"> ● Grabar al tocar</label><span class="hint" id="khint"></span></div>
+  <div id="keys"></div>
+</footer>
+<dialog id="dlg">
+  <h2>Archivo · JSON · IA</h2>
+  <div class="row">
+    <button id="demo">Cargar demo</button><button id="new">Canción nueva</button>
+    <label class="btn">Abrir archivo <input id="open" type="file" accept=".json,.js,.txt" hidden></label>
+    <button id="iText">Importar texto</button><button id="xJson">Descargar JSON</button><button id="xJs">Descargar JS</button>
+    <button id="xWav">Exportar WAV</button><button id="copy">Copiar</button><button id="guide">Guía para IA</button><button id="clr">Limpiar</button>
+  </div>
+  <textarea id="out" spellcheck="false" placeholder="Aquí aparece el JSON exportado o la guía para IA. Pega una canción y pulsa «Importar texto»."></textarea>
+  <p id="msg"></p><button id="close">Cerrar</button>
+</dialog>
+<script src="src/core/cs.js"></script>
+<script src="src/engine/schema.js"></script>
+<script src="src/engine/effects.js"></script>
+<script src="src/engine/voice.js"></script>
+<script src="src/engine/engine.js"></script>
+<!-- INSTRUMENTOS: para añadir uno, crea su archivo en src/instruments/ y enlázalo aquí -->
+<script src="src/instruments/pulse.js"></script>
+<script src="src/instruments/arp.js"></script>
+<script src="src/instruments/triangle.js"></script>
+<script src="src/instruments/saw.js"></script>
+<script src="src/instruments/brass.js"></script>
+<script src="src/instruments/bell.js"></script>
+<script src="src/instruments/bass.js"></script>
+<script src="src/instruments/pluck.js"></script>
+<script src="src/instruments/piano.js"></script>
+<script src="src/instruments/guitar.js"></script>
+<script src="src/instruments/strings.js"></script>
+<script src="src/instruments/pad.js"></script>
+<script src="src/instruments/drums.js"></script>
+<!-- EFECTOS: igual, en src/effects/ -->
+<script src="src/effects/reverb.js"></script>
+<script src="src/effects/delay.js"></script>
+<script src="src/effects/chorus.js"></script>
+<script src="src/effects/drive.js"></script>
+<script src="src/effects/crush.js"></script>
+<script src="src/song/song.js"></script>
+<script src="src/theory/theory.js"></script>
+<script src="src/theory/lessons.js"></script>
+<script src="src/ui/app.js"></script>
 </body>
 </html>
