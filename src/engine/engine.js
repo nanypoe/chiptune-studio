@@ -60,7 +60,7 @@ CS.engine = (() => {
     refresh(song) { if (rig) { const so = E.solo(song); song.tracks.forEach((t) => rig.strip(t, so)); } },
     play(song, o = {}) {
       E.init(); E.stop();
-      P = { song, loop: o.loop !== false, step: o.from || 0, t: ctx.currentTime + 0.08, end: 0 }; q = []; lastBpm = 0;
+      const from = o.from || 0; P = { song, loop: o.loop !== false, step: from, from, to: o.to > from ? o.to : 0, t: ctx.currentTime + 0.08, end: 0 }; q = []; lastBpm = 0;
       timer = setInterval(E._tick, 25); E._tick();
     },
     _tick() {
@@ -71,7 +71,7 @@ CS.engine = (() => {
         for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, n.len * sd, n.vel ?? 1, so);
         if (E.metro && P.step % 4 === 0) E._click(P.t, P.step % 16 === 0);
         q.push({ s: P.step, t: P.t, sd }); P.t += sd; P.step++;
-        if (P.step >= s.bars * 16) { if (P.loop) P.step = 0; else P.end = P.t + 1.5; }
+        const lim = Math.min(P.to || 1e9, s.bars * 16); if (P.step >= lim) { if (P.loop) P.step = P.from; else P.end = P.t + 1.5; }
       }
       if (P.end && ctx.currentTime > P.end) E.stop();
     },

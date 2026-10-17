@@ -37,5 +37,14 @@ para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, 
 `{"format":"chiptune-studio","version":2,"title","bpm","bars","tracks":[{"name","instrument","volume","pan","fx":{"reverb":0.15},"notes":[{"step","len","pitch","vel"}]}]}`
 16 pasos por compás, 4/4. Se importan canciones v1 (los ids antiguos tienen alias: flute→triangle, bass2→pluck, lead→saw, pulse25/50→pulse, pulse12→arp, organ/choir→pad).
 
+## Pantalla
+- **Cabecera:** ☰ Menú (canción nueva, importar/exportar JSON·JS·WAV, guía para IA, atajos) · título · deshacer/rehacer · reproducir/detener · repetir · metrónomo (sonido) · **monitor** (péndulo, 4 tiempos y avance) · BPM · compases · **bucle de sección** · tono y escala · volumen · 📖 Aprender.
+- **Roll (ancho completo):** una octava de 12 semitonos, con zoom y desplazamiento. Barra de herramientas: octava, duración de nota, zoom, copiar/pegar compás, transponer ♭/♯ y limpiar (compás, pista, todo).
+- **📖 Aprender (panel flotante):** *Lecciones* (12, con retos que se comprueban solos), *Acordes* del tono (escuchar e insertar) y *Oído* (intervalos, mayor/menor).
+- **Todos los botones** tienen una descripción emergente breve al pasar el ratón.
+
+## Ruta de aprendizaje
+Basada en el mapa del video (vocabulario → intervalos → escala mayor → acordes → armonizar → escala menor → pentatónica → modos/centro tonal), adaptada a componer y con una lección final de forma y arreglo. Está en `src/theory/lessons.js` como datos: se puede reordenar o ampliar.
+
 ## Atajos
-Espacio reproducir/detener · Z / X bajar/subir octava · A W S E D F T G Y H U J K tocar · Ctrl+rueda zoom · rueda desplazar · Mayús+clic en nota: fuerza.
+Espacio reproducir/pausar · Z / X bajar/subir octava · A W S E D F T G Y H U J K tocar · Ctrl+Z / Ctrl+Y deshacer/rehacer · Inicio cursor al principio · Ctrl+rueda zoom · rueda desplazar · Mayús+clic en nota: su fuerza · clic derecho: borrar nota.
