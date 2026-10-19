@@ -29,6 +29,12 @@ Campos (`cs-instrument@1`): `osc[]` (`wave`: sine|triangle|saw|square|pulse, `du
 `filter` (`cutoff:[inicio,fin]` × frecuencia de la nota, `time`, `q`), `vibrato` (rate, depth, delay), `noise` (soplo/golpe), `formants` (voces), `gain`.
 Percusión: `pieces` con `layers` (`osc` con barrido de frecuencia, o `noise` con filtro). Un archivo mal formado se ignora y se anota en `CS.errors`.
 
+### Capacidades avanzadas de síntesis (opcionales en un instrumento)
+- `osc[].wave: "pwm"` con `duty: [inicio, fin]` y `time`: el ancho del pulso se mueve solo (el clásico "respirar" del C64/NES).
+- `pitchEnv: { from: cents, time: s }`: la nota arranca desafinada y cae a su altura (chirp, moneda, láser).
+- `arp: { offsets: [0,4,7], rate: Hz }`: arpegio rápido dentro de la voz (el truco de los chips de un canal).
+- Por nota (formato de canción): `slide: "G5"` desliza la nota hasta esa altura; `chord: "M" | "m" | "dim" | "aug" | "7" | "M7" | "m7" | "sus4" | "power"` la toca como acorde arpegiado. En el estudio: **Efectos de nota** (selector de acorde y botón ↗ Deslizar).
+
 ## Añadir un efecto
 Copia un archivo de `src/effects/`. Si usa un `kind` existente (reverb, delay, chorus, drive) solo cambias parámetros;
 para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, output })` en `src/engine/effects.js`. Los efectos son envíos por pista (sliders en la tarjeta de pista).
@@ -40,7 +46,9 @@ para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, 
 ## Pantalla
 - **Cabecera:** ☰ Menú (canción nueva, importar/exportar JSON·JS·WAV, guía para IA, atajos) · título · deshacer/rehacer · reproducir/detener · repetir · metrónomo (sonido) · **monitor** (péndulo, 4 tiempos y avance) · BPM · compases · **bucle de sección** · tono y escala · volumen · 📖 Aprender.
 - **Roll (ancho completo):** una octava de 12 semitonos, con zoom y desplazamiento. Barra de herramientas: octava, duración de nota, zoom, copiar/pegar compás, transponer ♭/♯ y limpiar (compás, pista, todo).
-- **📖 Aprender (panel flotante):** *Lecciones* (12, con retos que se comprueban solos), *Acordes* del tono (escuchar e insertar) y *Oído* (intervalos, mayor/menor).
+- **📖 Aprender (panel flotante):** 3 pestañas. *Lecciones*: 12 lecciones de varias páginas (explicación visual → 3 ejemplos con pasos y audio → reto que se comprueba solo); «Siguiente» pasa a «Lección N ▶» al terminar. *Acordes*: los 7 del tono con sus notas (nomenclatura C4 · Do), cómo se forman, dónde se usan, instrucciones «Hazlo tú», ＋ insertar y progresiones famosas. *Oído*: intervalos, acorde y escala mayor/menor.
+- **«Suena con»:** por defecto todo suena con piano; el botón lo sincroniza con el instrumento y la octava de la pista elegida (ejemplos, acordes y oído).
+- **Teclado:** las teclas negras muestran ♯ y ♭; al tocar, dice cuál es el nombre correcto (por la tonalidad, o subiendo → ♯ / bajando → ♭).
 - **Todos los botones** tienen una descripción emergente breve al pasar el ratón.
 
 ## Ruta de aprendizaje

@@ -12,7 +12,9 @@ CS.song = {
         if (dr) { p = String(p).toLowerCase(); if (p === 'tom') p = 'tommid'; if (!d.pieces[p]) continue; }
         else { const m = CS.midi(String(p)); if (m == null || m < 12 || m > 119) continue; p = CS.name(m); }
         const st = Math.max(0, Math.floor(+n.step || 0)), len = dr ? 1 : Math.max(1, Math.floor(+n.len || 1)), vel = n.vel == null ? 1 : CS.clamp(+n.vel || 1, 0.1, 1);
-        const x = { step: st, len, pitch: p }; if (vel < 1) x.vel = +vel.toFixed(2); notes.push(x); end = Math.max(end, st + len);
+        const x = { step: st, len, pitch: p }; if (vel < 1) x.vel = +vel.toFixed(2);
+        if (!dr) { const sm = n.slide ? CS.midi(String(n.slide)) : null; if (sm != null && sm >= 12 && sm <= 119 && CS.name(sm) !== p) x.slide = CS.name(sm); if (n.chord && CS.CHORDS[n.chord]) x.chord = n.chord; }
+        notes.push(x); end = Math.max(end, st + len);
       }
       const fx = {}; if (t.fx && typeof t.fx === 'object') for (const [k, v] of Object.entries(t.fx)) fx[k] = CS.clamp(+v || 0, 0, 1); else fx.reverb = 0.15;
       s.tracks.push({ name: String(t.name || d.name), instrument: d.id, volume: CS.clamp(t.volume ?? 0.8, 0, 1), pan: CS.clamp(+t.pan || 0, -1, 1), mute: !!t.mute, solo: false, fx, notes });
@@ -53,6 +55,8 @@ REGLAS
 - pitch: "C4" = Do central; sostenidos con #. En batería: ${CS.drumOrder.join(', ')}.
 - bpm 40-240, bars 1-64, hasta 12 pistas, volume 0-1, pan -1 (izq) a 1 (der).
 - vel (0.1-1, opcional): tiempo fuerte 1, contratiempo 0.6-0.8, nota fantasma 0.4.
+- slide (opcional, nota destino, ej. "G5"): la nota se desliza hasta esa altura durante su duración (portamento, saltos de juego).
+- chord (opcional): "M", "m", "dim", "aug", "7", "M7", "m7", "sus4" o "power": una sola nota suena como acorde arpegiado rápido (truco chiptune de un canal).
 - fx por pista (envío 0-1): ${Object.keys(CS.fx).join(', ')}.
 - Ids antiguos aceptados: ${al}.
 

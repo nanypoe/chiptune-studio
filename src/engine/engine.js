@@ -38,9 +38,11 @@ CS.Rig = class {
     for (const id in s.sends) if (!(tr.fx && id in tr.fx)) s.sends[id].gain.value = 0;
     return s.g;
   }
-  hit(tr, pitch, t, dur, vel, solo) {
+  hit(tr, pitch, t, dur, vel, solo, n) {
     const g = this.strip(tr, solo), d = CS.getInst(tr.instrument); if (!d) return;
-    if (d.id === 'drums') CS.drumHit(this, d, pitch, t, vel, g); else CS.voice(this, d, CS.hz(CS.midi(pitch)), t, dur, vel, g);
+    if (d.id === 'drums') return CS.drumHit(this, d, pitch, t, vel, g);
+    const ex = {}; if (n && n.slide && CS.midi(n.slide) != null) ex.fEnd = CS.hz(CS.midi(n.slide)); if (n && n.chord && CS.CHORDS[n.chord]) ex.offs = CS.CHORDS[n.chord];
+    CS.voice(this, d, CS.hz(CS.midi(pitch)), t, dur, vel, g, ex);
   }
   cut() { this.all.forEach((s) => s.g.disconnect()); this.all.clear(); this.strips = new WeakMap(); }   // silencia todo lo programado
 };
@@ -56,7 +58,7 @@ CS.engine = (() => {
     },
     setVol(v) { E.vol = v; if (rig) rig.master.gain.value = v; },
     solo: (s) => s.tracks.some((t) => t.solo),
-    preview(song, tr, pitch, dur = 0.25, vel = 1) { E.init(); rig.hit(tr, pitch, ctx.currentTime + 0.01, dur, vel, E.solo(song)); },
+    preview(song, tr, pitch, dur = 0.25, vel = 1, n) { E.init(); rig.hit(tr, pitch, ctx.currentTime + 0.01, dur, vel, E.solo(song), n); },
     refresh(song) { if (rig) { const so = E.solo(song); song.tracks.forEach((t) => rig.strip(t, so)); } },
     play(song, o = {}) {
       E.init(); E.stop();
@@ -68,7 +70,7 @@ CS.engine = (() => {
       while (!P.end && P.t < ctx.currentTime + 0.12) {
         if (s.bpm !== lastBpm) { lastBpm = s.bpm; rig.setBpm(s.bpm); }
         const sd = 60 / s.bpm / 4, so = E.solo(s);
-        for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, n.len * sd, n.vel ?? 1, so);
+        for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, n.len * sd, n.vel ?? 1, so, n);
         if (E.metro && P.step % 4 === 0) E._click(P.t, P.step % 16 === 0);
         q.push({ s: P.step, t: P.t, sd }); P.t += sd; P.step++;
         const lim = Math.min(P.to || 1e9, s.bars * 16); if (P.step >= lim) { if (P.loop) P.step = P.from; else P.end = P.t + 1.5; }
@@ -88,7 +90,7 @@ CS.engine = (() => {
     },
     async wav(song) {
       const sr = 44100, sd = 60 / song.bpm / 4, T = song.bars * 16 * sd, oc = new OfflineAudioContext(2, Math.ceil((T + 2) * sr), sr), r = new CS.Rig(oc, song.bpm), so = E.solo(song);
-      for (const tr of song.tracks) for (const n of tr.notes) r.hit(tr, n.pitch, 0.01 + n.step * sd, n.len * sd, n.vel ?? 1, so);
+      for (const tr of song.tracks) for (const n of tr.notes) r.hit(tr, n.pitch, 0.01 + n.step * sd, n.len * sd, n.vel ?? 1, so, n);
       const b = await oc.startRendering(), n = b.length, ch = [b.getChannelData(0), b.getChannelData(1)];
       let pk = 0; for (const c of ch) for (let i = 0; i < n; i++) pk = Math.max(pk, Math.abs(c[i]));
       const k = pk > 0 ? 0.9 / pk : 1, a = new ArrayBuffer(44 + n * 4), v = new DataView(a), w = (o, t) => [...t].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)));

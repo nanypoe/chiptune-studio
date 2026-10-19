@@ -8,8 +8,9 @@
   const tr = () => song.tracks[sel], isD = () => tr().instrument === 'drums', total = () => song.bars * 16;
   const rootV = () => +$('#root').value, sc = () => T.scales[$('#scale').value], barOf = () => Math.floor(cur / 16);
   const rows = () => isD() ? [...CS.drumOrder].reverse().map((k) => ({ p: k, l: CS.getInst('drums').pieces[k].name }))
-    : Array.from({ length: 12 }, (_, i) => { const m = 12 * (oct + 1) + 11 - i; return { p: name(m), m, l: name(m) }; });
-  const hear = (p, v = 1) => E.preview(song, tr(), p, 0.3, v);
+    : Array.from({ length: 12 }, (_, i) => { const m = 12 * (oct + 1) + 11 - i; return { p: name(m), m, l: rowLabel(m) }; });
+  const rowLabel = (m) => { const pc = m % 12; if (!CS.NOTE[pc].includes('#')) return name(m); const id = $('#scale').value; if (T.spellMap(rootV(), id)?.[pc] || T.pref(rootV(), id)) return T.spell(m, rootV(), id).full; return CS.NOTE[pc] + '/' + T.FL[pc] + (Math.floor(m / 12) - 1); };
+  const hear = (p, v = 1, n) => E.preview(song, tr(), p, 0.3, v, n);
   const say = (t) => { $('#st').textContent = t; clearTimeout(stT); stT = setTimeout(() => ($('#st').textContent = ''), 2800); };
   const region = () => { if (!$('#lp').checked) return null; const a = clamp((+$('#lpA').value || 1) - 1, 0, song.bars - 1), n = clamp(+$('#lpN').value || 1, 1, song.bars - a); return { from: a * 16, to: (a + n) * 16 }; };
 
@@ -50,7 +51,9 @@
       const i = R.findIndex((r) => r.p === n.pitch);
       if (i < 0) { if (!D) midi(n.pitch) > R[0].m ? up++ : dn++; continue; }
       x.globalAlpha = 0.45 + 0.55 * (n.vel ?? 1); x.fillStyle = col; x.fillRect(n.step * SW + 1, RU + i * RH + 2, Math.max(2, n.len * SW - 2), RH - 4); x.globalAlpha = 1;
-      if (n.len * SW > 34 && !D) { x.fillStyle = '#1a1530'; x.font = 'bold 11px system-ui'; x.fillText(n.pitch, n.step * SW + 5, RU + i * RH + RH / 2); }
+      if (n.chord) { x.fillStyle = '#ffffffcc'; x.fillRect(n.step * SW + 1, RU + i * RH + 2, Math.max(2, n.len * SW - 2), 3); }
+      if (n.slide) { const j = R.findIndex((r) => r.p === n.slide), yj = j >= 0 ? RU + j * RH + RH / 2 : (midi(n.slide) > midi(n.pitch) ? RU + 3 : H - 3); x.strokeStyle = '#ffffff'; x.lineWidth = 2; x.beginPath(); x.moveTo(n.step * SW + 3, RU + i * RH + RH / 2); x.lineTo((n.step + n.len) * SW - 3, yj); x.stroke(); }
+      if (n.len * SW > 34 && !D) { x.fillStyle = '#1a1530'; x.font = 'bold 11px system-ui'; x.fillText(n.pitch + (n.chord ? ' ' + n.chord : '') + (n.slide ? ' →' + n.slide : ''), n.step * SW + 5, RU + i * RH + RH / 2); }
     }
     x.fillStyle = '#ff3d6e'; x.beginPath(); const cx = cur * SW; x.moveTo(cx - 5, 0); x.lineTo(cx + 5, 0); x.lineTo(cx, 9); x.fill(); x.restore();
     x.fillStyle = v('--mut'); x.font = '12px system-ui';
@@ -67,17 +70,18 @@
     if (e.offsetY < G.RU) { cur = clamp(Math.floor((e.offsetX - G.LW + sx) / G.SW), 0, total() - 1); draw(); return; }
     const h = hitAt(e); if (!h) return; g.setPointerCapture(e.pointerId);
     if (h.n && e.shiftKey) { const c = [1, 0.7, 0.45], i = (c.indexOf(h.n.vel ?? 1) + 1) % 3; i ? (h.n.vel = c[i]) : delete h.n.vel; hear(h.r.p, h.n.vel ?? 1); changed(); return; }
-    if (h.n) drag = { n: h.n, mode: edge(h.n, e) ? 'size' : 'move', x0: e.offsetX, y0: e.offsetY, step0: h.n.step, moved: false, fresh: false };
-    else { const n = { step: h.s, len: Math.min(len, total() - h.s), pitch: h.r.p }; tr().notes.push(n); hear(n.pitch); cur = h.s; drag = { n, mode: 'size', x0: e.offsetX, y0: e.offsetY, moved: false, fresh: true }; draw(); }
+    if (h.n) drag = { n: h.n, mode: slideMode && !isD() ? 'slide' : edge(h.n, e) ? 'size' : 'move', x0: e.offsetX, y0: e.offsetY, step0: h.n.step, moved: false, fresh: false };
+    else { const n = { step: h.s, len: Math.min(len, total() - h.s), pitch: h.r.p }; if (!isD() && $('#chordSel').value) n.chord = $('#chordSel').value; tr().notes.push(n); hear(n.pitch, 1, n); cur = h.s; drag = { n, mode: 'size', x0: e.offsetX, y0: e.offsetY, moved: false, fresh: true }; draw(); }
   });
   g.addEventListener('pointermove', (e) => {
     if (!drag) { const h = hitAt(e); g.style.cursor = h && h.n ? (edge(h.n, e) ? 'ew-resize' : 'grab') : 'crosshair'; return; }
     const n = drag.n; if (!drag.moved && (Math.abs(e.offsetX - drag.x0) > 4 || (!drag.fresh && Math.abs(e.offsetY - drag.y0) > G.RH / 2))) drag.moved = true; if (!drag.moved) return;
     if (drag.mode === 'size') n.len = clamp(Math.floor((e.offsetX - G.LW + sx) / G.SW) - n.step + 1, 1, total() - n.step);
+    else if (drag.mode === 'slide') { const r = G.R[clamp(Math.floor((e.offsetY - G.RU) / G.RH), 0, 11)]; if (r.p !== n.pitch) n.slide = r.p; else delete n.slide; }
     else { n.step = clamp(drag.step0 + Math.round((e.offsetX - drag.x0) / G.SW), 0, total() - n.len); const r = G.R[clamp(Math.floor((e.offsetY - G.RU) / G.RH), 0, 11)]; if (r.p !== n.pitch) { n.pitch = r.p; hear(r.p); } }
     draw();
   });
-  const end = () => { if (!drag) return; if (!drag.moved && !drag.fresh) { const t = tr(); t.notes.splice(t.notes.indexOf(drag.n), 1); } drag = null; changed(); };
+  const end = () => { if (!drag) return; if (!drag.moved && !drag.fresh && drag.mode !== 'slide') { const t = tr(); t.notes.splice(t.notes.indexOf(drag.n), 1); } drag = null; changed(); };
   g.addEventListener('pointerup', end); g.addEventListener('pointercancel', end);
   g.addEventListener('wheel', (e) => {
     e.preventDefault();
@@ -91,6 +95,8 @@
   $('#octD').onclick = () => setOct(-1); $('#octU').onclick = () => setOct(1);
   $('#lens').innerHTML = [[1, '1/16', 'semicorchea · 1 paso'], [2, '1/8', 'corchea · 2 pasos'], [4, '1/4', 'negra · 4 pasos (un pulso)'], [8, '1/2', 'blanca · 8 pasos'], [16, '1', 'redonda · 16 pasos (un compás)']]
     .map(([n, l, t]) => `<button data-l="${n}" class="${n === len ? 'on' : ''}" title="Notas nuevas de ${t}">${l}</button>`).join('');
+  let slideMode = false;
+  $('#mdSlide').onclick = () => { slideMode = !slideMode; $('#mdSlide').classList.toggle('on', slideMode); say(slideMode ? 'Modo deslizar: arrastra una nota hacia arriba o abajo' : 'Modo normal'); };
   $('#lens').onclick = (e) => { const b = e.target.closest('button'); if (!b) return; len = +b.dataset.l; [...$('#lens').children].forEach((x) => x.classList.toggle('on', x === b)); };
 
   /* ---------- Edición de compases y pistas ---------- */
@@ -144,11 +150,23 @@
     $('#khint').textContent = isD() ? 'Pads de batería: A W S E D F T G Y H U J' : 'Teclas A W S E D F T G Y H U J K · Z / X cambian de octava';
     if (isD()) { CS.drumOrder.forEach((k, i) => K.insertAdjacentHTML('beforeend', `<button data-i="${i}" title="${CS.getInst('drums').pieces[k].name} (tecla ${KL[i]})"><b>${CS.getInst('drums').pieces[k].name}</b><kbd>${KL[i]}</kbd></button>`)); return; }
     [0, 2, 4, 5, 7, 9, 11, 12].forEach((st, w) => K.insertAdjacentHTML('beforeend', `<button class="w" data-i="${st}" title="${CS.NOTE[st % 12]}${oct + (st === 12 ? 1 : 0)} (tecla ${KL[st]})" style="left:calc(${w}*100%/8)"><b>${CS.NOTE[st % 12]}${oct + (st === 12 ? 1 : 0)}</b><small>${SOL[st % 12]}</small><kbd>${KL[st]}</kbd></button>`));
-    [[1, 0], [3, 1], [6, 3], [8, 4], [10, 5]].forEach(([st, w]) => K.insertAdjacentHTML('beforeend', `<button class="k" data-i="${st}" title="${CS.NOTE[st]}${oct} sostenido (tecla ${KL[st]})" style="left:calc(${w + 1}*100%/8 - 100%/8*.29)"><b>${CS.NOTE[st]}</b><kbd>${KL[st]}</kbd></button>`));
+    const id = $('#scale').value, mp = T.spellMap(rootV(), id), up = (n) => n.replace('#', '♯').replace('b', '♭');
+    [[1, 0], [3, 1], [6, 3], [8, 4], [10, 5]].forEach(([st, w]) => {
+      const m = 12 * (oct + 1) + st, inK = !!(mp && mp[st]), pf = T.pref(rootV(), id), sp = inK || pf ? T.spell(m, rootV(), id) : null;
+      const lab = sp ? `<b>${up(sp.n)}</b>` : `<b>${up(CS.NOTE[st])}</b><b>${up(T.FL[st])}</b>`, tip = sp ? `${sp.full} (${sp.sol}): ` + (inK ? 'en esta tonalidad se escribe así' : `esta tonalidad usa ${pf < 0 ? 'bemoles ♭' : 'sostenidos ♯'}`) : `${CS.NOTE[st]}${oct} / ${T.FL[st]}${oct}: sostenido si subes, bemol si bajas (convención habitual)`;
+      K.insertAdjacentHTML('beforeend', `<button class="k" data-i="${st}" title="${tip} · tecla ${KL[st]}" style="left:calc(${w + 1}*100%/8 - 100%/8*.29)">${lab}<kbd>${KL[st]}</kbd></button>`);
+    });
+  }
+  let lastM = null, kfT = 0;
+  function kfb(sp) {
+    const A = sp.acc > 0 ? '♯' : sp.acc < 0 ? '♭' : '', why = { scale: 'es una nota de la escala elegida', up: 'vienes subiendo y esta tonalidad no tiene ♯ ni ♭', down: 'vienes bajando y esta tonalidad no tiene ♯ ni ♭', key: `la tonalidad elegida usa ${sp.acc > 0 ? 'sostenidos' : 'bemoles'}`, none: 'primer toque sin tonalidad con ♯/♭: se usa sostenido' }[sp.why];
+    $('#kfb').textContent = `${sp.n[0]}${A}${sp.full.slice(sp.n.length)} · ${sp.sol}` + (sp.acc ? ` — ${sp.acc > 0 ? 'sostenido ♯' : 'bemol ♭'}: ${why}` : '');
+    clearTimeout(kfT); kfT = setTimeout(() => ($('#kfb').textContent = ''), 3500);
   }
   function key(i) {
-    const p = isD() ? CS.drumOrder[i] : name(12 * (oct + 1) + i); if (!p) return; hear(p);
+    const m = isD() ? null : 12 * (oct + 1) + i, p = isD() ? CS.drumOrder[i] : name(m); if (!p) return; hear(p);
     const b = $(`#keys [data-i="${i}"]`); if (b) { b.classList.add('p'); setTimeout(() => b.classList.remove('p'), 120); }
+    if (!isD()) { kfb(T.spell(m, rootV(), $('#scale').value, lastM == null ? 0 : Math.sign(m - lastM))); lastM = m; }
     if (rec) { const ps = E.pos(), st = clamp(ps != null ? Math.floor(ps) : cur, 0, total() - 1); tr().notes.push({ step: st, len: isD() ? 1 : Math.min(len, total() - st), pitch: p }); if (ps == null) cur = clamp(cur + (isD() ? 1 : len), 0, total() - 1); changed(); }
   }
   $('#keys').addEventListener('pointerdown', (e) => { const b = e.target.closest('button'); if (b) key(+b.dataset.i); });
@@ -160,62 +178,125 @@
     else { const i = KEYS.indexOf(e.code); if (i >= 0 && !e.repeat) key(i); }
   });
 
-  /* ---------- Panel de aprendizaje: lecciones · acordes · oído ---------- */
+  /* ---------- Panel de aprendizaje: lecciones (páginas) · acordes · oído, con sonido sincronizable ---------- */
+  let sync = false, pg = 0, chOpen = 0;
+  const solOf = (p) => { const m = /^([A-G])([#b]?)/.exec(p); return T.SOLN[m[1]] + (m[2] === '#' ? '♯' : m[2] === 'b' ? '♭' : ''); };
+  const chip = (p) => `<span class="nt" style="--c:hsl(${(midi(p) % 12) * 30} 70% 58%)">${p}<small>${solOf(p)}</small></span>`;
+  const fmtHtml = (h) => h.replace(/\[\[([A-G][#b]?-?\d)\]\]/g, (_, p) => chip(p));
+  const syncOn = () => sync && !isD(), syncInst = () => (syncOn() ? tr().instrument : 'piano'), sy = () => (syncOn() ? (oct - 4) * 12 : 0);
   const lessonCtx = () => ({ root: rootV(), sc: sc(), id: $('#scale').value });
+  const playTemp = (o) => E.play(CS.song.normalize(o), { loop: false });
+  const exSong = (d) => ({ bpm: d.bpm, bars: d.bars, tracks: d.tracks.map(([inst, ns]) => { const dr = inst === 'drums'; return { instrument: dr ? 'drums' : syncOn() ? syncInst() : inst, volume: 0.9, fx: { reverb: 0.12 }, notes: ns.map((n) => (dr ? n : { ...n, pitch: name(clamp(midi(n.pitch) + sy(), 24, 108)) })) }; }) });
   function renderDrawer() {
     document.querySelectorAll('.tabs button').forEach((b) => b.classList.toggle('on', b.dataset.tab === tab));
-    const B = $('#dbody'); if (!$('#drawer').classList.contains('open')) return;
-    if (tab === 'lec') {
-      const L = CS.lessons, l = L[ls];
-      B.innerHTML = `<div class="steps">${L.map((x, i) => `<button data-l="${i}" class="${i === ls ? 'on' : ''} ${done.has(i) ? 'ok' : ''}" title="${i + 1}. ${x.t}${done.has(i) ? ' (completada)' : ''}">${i + 1}</button>`).join('')}</div><h3>${ls + 1}. ${l.t}</h3><p>${l.b}</p><p class="task">🎯 ${l.task}</p><div id="lstat"></div><div class="nav"><button data-n="-1" title="Lección anterior">◀ Anterior</button><button data-n="1" title="Lección siguiente">Siguiente ▶</button></div>`;
-      checkLesson();
-    } else if (tab === 'cho') renderChords(); else renderEar();
+    $('#sync').textContent = sync ? `🔄 Suena con tu pista: ${isD() ? 'Piano (la pista elegida es batería)' : CS.getInst(tr().instrument).name + ' · octava ' + oct}` : '🎹 Suena con: Piano (por defecto)'; $('#sync').classList.toggle('on', sync);
+    if (!$('#drawer').classList.contains('open')) return;
+    const B = $('#dbody'), st = B.scrollTop; if (tab === 'lec') renderLesson(); else if (tab === 'cho') renderChords(); else renderEar(); B.scrollTop = st;
+  }
+  function renderLesson() {
+    const L = CS.lessons, l = L[ls], P = l.pages, N = P.length + 1; pg = clamp(pg, 0, N - 1); let body;
+    if (pg < P.length) { const p = P[pg]; body = `<h3>${p.h}</h3>` + (p.html ? fmtHtml(p.html) : '<p class="hint">Haz cada ejemplo tú mismo en el roll siguiendo los pasos; el botón ▶ te deja escuchar cómo debe sonar (no modifica tu canción).</p>') + (p.ex || []).map((e, i) => `<div class="exc"><span class="tag">${e.g}</span><b>${e.t}</b><ol class="how">${e.how.split(' | ').map((x) => `<li>${fmtHtml(x)}</li>`).join('')}</ol><button data-ex="${pg}-${i}" title="Escucha cómo debe sonar este ejemplo (no cambia tu canción)">▶ Escuchar ejemplo</button></div>`).join(''); }
+    else body = `<h3>🎯 Tu reto</h3><div class="box tip">${fmtHtml(l.task)}</div>${l.tips ? `<div class="box">💡 ${fmtHtml(l.tips)}</div>` : ''}<div id="lstat"></div><p class="hint">Cuando lo logres se marca solo y se ilumina el número de la lección.</p>`;
+    const prev = pg > 0 ? '◀ Atrás' : ls > 0 ? `◀ Lección ${ls}` : '◀', next = pg < N - 1 ? 'Siguiente ▶' : ls < L.length - 1 ? `Lección ${ls + 2} ▶` : '¡Fin! 🎉';
+    $('#dbody').innerHTML = `<div class="steps">${L.map((x, i) => `<button data-l="${i}" class="${i === ls ? 'on' : ''} ${done.has(i) ? 'ok' : ''}" title="${i + 1}. ${x.t}${done.has(i) ? ' (completada ✓)' : ''}">${i + 1}</button>`).join('')}</div>
+      <div class="lh"><span style="font-size:22px">${l.ic}</span><b>LECCIÓN ${ls + 1} DE ${L.length}</b></div><div class="pbar"><i style="width:${(pg + 1) / N * 100}%"></i></div>${body}
+      <div class="nav"><button data-pg="-1" ${prev === '◀' ? 'disabled' : ''} title="${pg > 0 ? 'Página anterior' : 'Ir a la lección anterior'}">${prev}</button><span class="dots2">${Array.from({ length: N }, (_, i) => `<i class="${i === pg ? 'on' : ''}"></i>`).join('')}</span><button data-pg="1" ${next.startsWith('¡') ? 'disabled' : ''} title="${pg < N - 1 ? 'Página siguiente' : 'Ir a la lección siguiente'}">${next}</button></div>`;
+    checkLesson();
   }
   function checkLesson() {
     const ok = CS.lessons[ls].ok(song, lessonCtx()), s = $('#lstat');
-    if (ok && !done.has(ls)) { done.add(ls); localStorage.setItem(DK, JSON.stringify([...done])); say(`✓ Lección ${ls + 1} completada`); document.querySelector(`.steps [data-l="${ls}"]`)?.classList.add('ok'); }
-    for (const i of CS.lessons.keys()) if (!done.has(i) && CS.lessons[i].ok(song, lessonCtx())) { done.add(i); localStorage.setItem(DK, JSON.stringify([...done])); say(`✓ Lección ${i + 1} completada`); }
+    for (const i of CS.lessons.keys()) if (!done.has(i) && CS.lessons[i].ok(song, lessonCtx())) { done.add(i); localStorage.setItem(DK, JSON.stringify([...done])); say(`✓ Lección ${i + 1} completada`); document.querySelector(`.steps [data-l="${i}"]`)?.classList.add('ok'); }
     $('#learnBtn').textContent = `📖 Aprender ${done.size}/${CS.lessons.length}`;
     if (s) { s.textContent = ok ? '✓ ¡Logrado!' : 'Pendiente…'; s.className = ok ? 'ok' : ''; }
   }
   function renderChords() {
-    const s = sc(), B = $('#dbody'); if (s.s.length < 7) { B.innerHTML = '<p class="hint">Elige la escala Mayor o Menor natural para ver los acordes del tono.</p>'; return; }
-    B.innerHTML = `<p class="hint">Los 7 acordes que nacen de la escala elegida. Clic para escucharlos; ＋ los inserta en el compás del cursor de la pista elegida (octava ${oct}).</p><div id="chords">` + s.rn.map((rn, i) => { const ns = T.triad(rootV(), oct, s, i); return `<div class="ch"><button data-c="${i}" title="Escuchar el acorde ${rn}">${rn} <small>${T.chordName(ns)}</small></button><button data-i="${i}" title="Insertar el acorde ${rn} en el compás del cursor">＋</button></div>`; }).join('') + '</div>';
+    const s = sc(), id = $('#scale').value, B = $('#dbody'), mj = id === 'major';
+    if (s.s.length < 7) { B.innerHTML = '<div class="box warn">Elige la escala <b>Mayor</b> o <b>Menor natural</b> (arriba) para ver los 7 acordes de la tonalidad.</div>'; return; }
+    const R = rootV(), U = T.use[mj ? 'major' : 'minor'], ty = { M: ['mayor', 'fundamental + 3ª mayor (4 filas) + 5ª justa (7 filas)'], m: ['menor', 'fundamental + 3ª menor (3 filas) + 5ª justa (7 filas)'], dim: ['disminuido', 'fundamental + 3ª menor (3) + 5ª disminuida (6)'], aug: ['aumentado', 'fundamental + 3ª mayor (4) + 5ª aumentada (8)'] };
+    let h = `<div class="box tip">💡 Estás en <b>${T.keyName(R, id)}</b>. Un <b>acorde del tono</b> es una tríada (3 notas) construida sobre cada nota de la escala: los 7 suenan bien juntos. <b>Intenta ponerlos tú primero</b> con las instrucciones y compara con ＋.</div>`;
+    s.rn.forEach((rn, i) => {
+      const ns = T.triad(R, oct, s, i), t = T.triadType(ns), sp = ns.map((m) => T.spell(m, R, id)), u = U[i];
+      h += `<button class="chh ${i === chOpen ? 'open' : ''}" data-o="${i}" title="Ver sus notas, dónde se usa y cómo ponerlo"><b>${rn}</b> · ${T.label(ns, R, id)} <small>${sp.map((x) => x.sol).join(' – ')}</small></button>`;
+      if (i === chOpen) h += `<div class="exc"><p><b>Notas:</b> ${sp.map((x, k) => chip(x.full) + (ns[k] >= 12 * (oct + 2) ? '<small>↑ octava siguiente</small>' : '')).join(' ')}</p><p><b>Cómo se forma:</b> ${ty[t.type][1]} → acorde <b>${ty[t.type][0]}</b>.</p><p>${u.e}</p><p><b>Dónde se usa:</b> ${u.w}</p>
+        <b>🛠️ Hazlo tú:</b><ol class="how"><li>Elige una pista melódica (Piano, Guitarra…).</li><li>En <b>Nota</b> elige <b>1</b> (un compás entero).</li><li>Clic en la regla para poner el cursor en el compás que quieras.</li><li>En esa <b>misma columna</b> haz clic en ${sp.map((x) => chip(x.full)).join(' ')} (usa ▲▼ si alguna está en otra octava).</li><li>Pulsa ▶ y compáralo con el botón ＋.</li></ol>
+        <div class="nav"><button data-c="${i}" title="Escuchar este acorde">🔊 Escuchar</button><button data-i="${i}" title="Insertar este acorde en el compás del cursor de la pista elegida">＋ Insertar</button></div></div>`;
+    });
+    h += '<h3>🎼 Progresiones famosas en esta tonalidad</h3><p class="hint">Un acorde por compás. Escúchalas, inserta la que te guste y cámbiale el ritmo o la melodía.</p>';
+    T.progs[mj ? 'major' : 'minor'].forEach((p, k) => { h += `<div class="exc"><span class="tag">${p.w}</span><b>${p.n}</b><p>${p.d.map((d) => s.rn[d]).join(' – ')} → <b>${p.d.map((d) => T.label(T.triad(R, oct, s, d), R, id)).join(' – ')}</b></p><div class="nav"><button data-pp="${k}" title="Escuchar la progresión completa">🔊 Escuchar</button><button data-pi="${k}" title="Insertar la progresión, un acorde por compás desde el cursor (alarga la canción si hace falta)">＋ Insertar (${p.d.length} compases)</button></div></div>`; });
+    B.innerHTML = h;
   }
   const IV = ['Unísono', '2ª menor', '2ª mayor', '3ª menor', '3ª mayor', '4ª justa', 'Tritono', '5ª justa', '6ª menor', '6ª mayor', '7ª menor', '7ª mayor', 'Octava'];
-  const EAR = { int: ['Intervalos básicos (3ª, 4ª, 5ª, 8ª)', [3, 4, 5, 7, 12]], all: ['Todos los intervalos', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]], tri: ['Acorde: ¿mayor o menor?'], sca: ['Escala: ¿mayor o menor?'] };
-  let earQ = null, earS = { ok: 0, n: 0 }, earMode = 'int'; const earTr = CS.song.track('piano');
-  const pt = (m, d = 0) => setTimeout(() => E.preview(song, earTr, name(m), 0.5), d);
+  const EAR = { int: ['Intervalos básicos (3ª, 4ª, 5ª, 8ª)', [3, 4, 5, 7, 12], '😢 3ª menor: triste · 😊 3ª mayor: alegre · 🌅 4ª: abierta · 💪 5ª: firme · 🪞 8ª: la misma nota más aguda'], all: ['Todos los intervalos', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 'Empieza por los básicos; cada intervalo tiene su “color”. Tritono = tensión, 7ª = pide resolver.'], tri: ['Acorde: ¿mayor o menor?'], sca: ['Escala: ¿mayor o menor?'], dic: ['✍️ Dictado: escucha y copia en el roll'] };
+  const EARTIP = { tri: '😊 Mayor: brillante y alegre · 😢 Menor: oscuro y triste', sca: 'Fíjate en la tercera nota: sube más (mayor, alegre) o menos (menor, oscura)' };
+  let earQ = null, earMode = 'int', dicQ = null; const earTr = CS.song.track('piano');
+  /* estadísticas persistentes: aciertos por ejercicio, ejercicios de hoy y racha de días */
+  const SKEY = 'cs2_stats'; let stats = JSON.parse(localStorage.getItem(SKEY) || '{}');
+  const today = (d = new Date()) => d.toLocaleDateString('en-CA');
+  const statAdd = (mode, ok) => { stats.days = stats.days || {}; stats.days[today()] = (stats.days[today()] || 0) + 1; stats.m = stats.m || {}; const a = stats.m[mode] || [0, 0]; a[1]++; if (ok) a[0]++; stats.m[mode] = a; try { localStorage.setItem(SKEY, JSON.stringify(stats)); } catch (e) { /* sin almacenamiento */ } };
+  const streak = () => { const d = new Date(); if (!(stats.days || {})[today(d)]) d.setDate(d.getDate() - 1); let n = 0; while ((stats.days || {})[today(d)]) { n++; d.setDate(d.getDate() - 1); } return n; };
+  const statLine = () => { const m = stats.m || {}, ok = Object.values(m).reduce((a, x) => a + x[0], 0), n = Object.values(m).reduce((a, x) => a + x[1], 0), c = m[earMode]; return `🔥 Racha: ${streak()} día(s) · Hoy: ${(stats.days || {})[today()] || 0} ejercicios · Total: ${ok} de ${n}${n ? ` (${Math.round(ok / n * 100)}%)` : ''}${c ? ` · Este ejercicio: ${c[0]} de ${c[1]}` : ''}`; };
+  const pt = (m, d = 0) => setTimeout(() => { earTr.instrument = syncInst(); E.preview(song, earTr, name(clamp(m, 24, 108)), 0.5); }, d);
   function earNew() {
-    const r = 55 + Math.floor(Math.random() * 12), mj = Math.random() < 0.5;
+    const r = syncOn() ? 12 * (oct + 1) + Math.floor(Math.random() * 7) : 55 + Math.floor(Math.random() * 7), mj = Math.random() < 0.5;
     if (earMode === 'int' || earMode === 'all') { const p = EAR[earMode][1], a = p[Math.floor(Math.random() * p.length)]; earQ = { ans: p.map((x) => IV[x]), ok: IV[a], play: () => { pt(r); pt(r + a, 550); } }; }
     else if (earMode === 'tri') earQ = { ans: ['Mayor', 'Menor'], ok: mj ? 'Mayor' : 'Menor', play: () => [0, mj ? 4 : 3, 7].forEach((x) => pt(r + x)) };
-    else { const s = mj ? [0, 2, 4, 5, 7, 9, 11, 12] : [0, 2, 3, 5, 7, 8, 10, 12]; earQ = { ans: ['Mayor', 'Menor'], ok: mj ? 'Mayor' : 'Menor', play: () => s.forEach((x, i) => pt(r + x, i * 280)) }; }
+    else { const sc2 = mj ? [0, 2, 4, 5, 7, 9, 11, 12] : [0, 2, 3, 5, 7, 8, 10, 12]; earQ = { ans: ['Mayor', 'Menor'], ok: mj ? 'Mayor' : 'Menor', play: () => sc2.forEach((x, i) => pt(r + x, i * 280)) }; }
     renderEar(); earQ.play();
   }
-  function renderEar(fb = '') {
-    $('#dbody').innerHTML = `<p class="hint">El oído se entrena poco a poco: unos minutos al día. Escucha y elige la respuesta.</p><select id="earMode" title="Qué quieres practicar">${Object.entries(EAR).map(([k, v]) => `<option value="${k}">${v[0]}</option>`).join('')}</select>
-      <div class="nav"><button id="earGo" title="Empezar con una pregunta nueva">${earQ ? '↻ Nueva' : '▶ Empezar'}</button><button id="earRe" title="Volver a escuchar la pregunta" ${earQ ? '' : 'disabled'}>🔊 Repetir</button></div>
-      ${earQ ? `<div class="earb">${earQ.ans.map((a) => `<button data-a="${a}" title="Responder: ${a}">${a}</button>`).join('')}</div>` : ''}<p><b>${fb}</b></p><p class="hint">Aciertos: ${earS.ok} de ${earS.n}</p>`;
-    $('#earMode').value = earMode;
+  /* Dictado: 4 notas de la escala elegida, en la octava que ves en el roll, para copiarlas en las columnas 1, 5, 9 y 13 */
+  const dicPlay = () => playTemp({ bpm: 100, bars: 1, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: dicQ.ms.map((m, i) => ({ step: i * 4, len: 4, pitch: name(m) })) }] });
+  function dicNew() {
+    const base = 12 * (oct + 1), pcs = [...Array(12).keys()].filter((pc) => T.inScale(base + pc, rootV(), sc())), pick = () => base + pcs[Math.floor(Math.random() * pcs.length)];
+    dicQ = { ms: [pick(), pick(), pick(), pick()] }; dicQ.ps = dicQ.ms.map(name); renderEar(); dicPlay();
   }
-  $('#dbody').onclick = (e) => {
-    const b = e.target.closest('button'); if (!b) return;
-    if (tab === 'lec') { if (b.dataset.l) ls = +b.dataset.l; else ls = clamp(ls + +b.dataset.n, 0, CS.lessons.length - 1); renderDrawer(); }
-    else if (tab === 'cho') {
-      const i = +(b.dataset.c ?? b.dataset.i), ns = T.triad(rootV(), oct, sc(), i); if (isD()) return say('Elige una pista melódica para tocar o insertar acordes');
-      if (b.dataset.c !== undefined) ns.forEach((m) => hear(name(m))); else { const st = barOf() * 16; ns.forEach((m) => tr().notes.push({ step: st, len: Math.min(16, total() - st), pitch: name(m) })); say(`Acorde insertado en el compás ${barOf() + 1}`); changed(); }
-    } else if (b.id === 'earGo') earNew(); else if (b.id === 'earRe') earQ.play();
-    else if (b.dataset.a) { earS.n++; const okk = b.dataset.a === earQ.ok; if (okk) earS.ok++; const q = earQ; earQ = null; renderEar(okk ? '✓ ¡Correcto!' : '✗ Era: ' + q.ok); setTimeout(() => { if (tab === 'ear') earNew(); }, 1100); }
+  function dicCheck() {
+    if (!dicQ) return; if (isD()) return renderEar('Elige una pista melódica para copiar las notas');
+    const b = barOf() * 16, ok = dicQ.ps.map((p, i) => tr().notes.some((n) => n.step === b + i * 4 && n.pitch === p)), all = ok.every(Boolean);
+    statAdd('dic', all); renderEar(all ? '✓ ¡Perfecto! Copiaste las 4 notas.' : `Aciertos: ${ok.filter(Boolean).length} de 4. Revisa la nota ${ok.indexOf(false) + 1} (columna ${ok.indexOf(false) * 4 + 1} del compás del cursor).`);
+  }
+  function renderEar(fb = '') {
+    const snd = syncOn() ? `${CS.getInst(tr().instrument).name} · octava ${oct}` : 'Piano';
+    const head = `<div class="box tip">👂 Entrenar el oído es como aprender a distinguir colores: poco a poco, unos minutos al día. Ahora suena con: <b>${snd}</b>. Cambia arriba <b>«Suena con»</b> para oírlo en tu instrumento y tu octava.</div>
+      <select id="earMode" title="Qué quieres practicar">${Object.entries(EAR).map(([k, v]) => `<option value="${k}">${v[0]}</option>`).join('')}</select>`;
+    let body;
+    if (earMode === 'dic') body = `<div class="box">1) Elige una pista melódica y pon el cursor en un compás vacío (clic en la regla). 2) Pulsa Empezar: oirás <b>4 notas</b> (negras) de tu escala, en la octava que ves: <b>C${oct}–B${oct}</b>. 3) Cópialas con <b>Nota 1/4</b> en las columnas <b>1, 5, 9 y 13</b>. 4) Pulsa Comprobar.</div>
+      <div class="nav"><button id="earGo" title="Generar un dictado nuevo y escucharlo">${dicQ ? '↻ Nuevo dictado' : '▶ Empezar'}</button><button id="earRe" title="Volver a escuchar el dictado" ${dicQ ? '' : 'disabled'}>🔊 Repetir</button><button id="dicChk" title="Comprobar lo que escribiste en el roll" ${dicQ ? '' : 'disabled'}>✔ Comprobar</button></div>
+      ${dicQ ? `<button id="dicSol" title="Ver las notas correctas (cuenta como fallo)">👁 Ver solución</button>` : ''}`;
+    else body = `<p class="hint">${EAR[earMode][2] || EARTIP[earMode]}</p><div class="nav"><button id="earGo" title="Empezar con una pregunta nueva">${earQ ? '↻ Nueva' : '▶ Empezar'}</button><button id="earRe" title="Volver a escuchar la pregunta" ${earQ ? '' : 'disabled'}>🔊 Repetir</button></div>
+      ${earQ ? `<div class="earb">${earQ.ans.map((a) => `<button data-a="${a}" title="Responder: ${a}">${a}</button>`).join('')}</div>` : ''}`;
+    $('#dbody').innerHTML = head + body + `<p><b>${fb}</b></p><p class="hint">${statLine()}</p>`; $('#earMode').value = earMode;
+  }
+  const insProg = (k) => {
+    if (isD()) return say('Elige una pista melódica para insertar acordes'); const mj = $('#scale').value === 'major', p = T.progs[mj ? 'major' : 'minor'][k], s = sc(), st = barOf();
+    song.bars = clamp(Math.max(song.bars, st + p.d.length), 1, 64); p.d.forEach((d, b) => { if (st + b < song.bars) T.triad(rootV(), oct, s, d).forEach((m) => tr().notes.push({ step: (st + b) * 16, len: 16, pitch: name(m) })); });
+    say(`Progresión «${p.n}» insertada desde el compás ${st + 1}`); changed();
   };
-  $('#dbody').onchange = (e) => { if (e.target.id === 'earMode') { earMode = e.target.value; earQ = null; renderEar(); } };
+  $('#dbody').onclick = (e) => {
+    const b = e.target.closest('button'); if (!b) return; const D = b.dataset;
+    if (tab === 'lec') {
+      if (D.ex) { const [p, i] = D.ex.split('-').map(Number); return playTemp(exSong(CS.lessons[ls].pages[p].ex[i].demo)); }
+      if (D.l) { ls = +D.l; pg = 0; } else { const N = CS.lessons[ls].pages.length + 1, d = +D.pg; if (pg + d < 0) { ls = clamp(ls - 1, 0, CS.lessons.length - 1); pg = 0; } else if (pg + d >= N) { ls = clamp(ls + 1, 0, CS.lessons.length - 1); pg = 0; } else pg += d; }
+      renderDrawer(); $('#dbody').scrollTop = 0;
+    } else if (tab === 'cho') {
+      const s = sc();
+      if (D.o !== undefined) { chOpen = chOpen === +D.o ? -1 : +D.o; return renderDrawer(); }
+      if (D.pp !== undefined || D.pi !== undefined) { const k = +(D.pp ?? D.pi); if (D.pi !== undefined) return insProg(k); const p = T.progs[$('#scale').value === 'major' ? 'major' : 'minor'][k]; return playTemp({ bpm: 90, bars: p.d.length, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: p.d.flatMap((d, bb) => T.triad(rootV(), oct, s, d).map((m) => ({ step: bb * 16, len: 16, pitch: name(m) }))) }] }); }
+      const i = +(D.c ?? D.i), ns = T.triad(rootV(), oct, s, i);
+      if (D.c !== undefined) playTemp({ bpm: 90, bars: 1, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: ns.map((m) => ({ step: 0, len: 12, pitch: name(m) })) }] });
+      else { if (isD()) return say('Elige una pista melódica para insertar acordes'); const st = barOf() * 16; ns.forEach((m) => tr().notes.push({ step: st, len: Math.min(16, total() - st), pitch: name(m) })); say(`Acorde insertado en el compás ${barOf() + 1}`); changed(); }
+    } else if (b.id === 'earGo') { if (earMode === 'dic') dicNew(); else earNew(); } else if (b.id === 'earRe') { if (earMode === 'dic') { if (dicQ) dicPlay(); } else if (earQ) earQ.play(); }
+    else if (b.id === 'dicChk') dicCheck(); else if (b.id === 'dicSol') { statAdd('dic', false); renderEar('Solución: ' + dicQ.ps.map((p, i) => `col. ${i * 4 + 1}: ${p}`).join(' · ')); }
+    else if (D.a && earQ) { const okk = D.a === earQ.ok, q = earQ; statAdd(earMode, okk); earQ = null; renderEar(okk ? '✓ ¡Correcto!' : '✗ Era: ' + q.ok + ' (escúchala otra vez)'); if (!okk) setTimeout(() => q.play(), 500); setTimeout(() => { if (tab === 'ear') earNew(); }, okk ? 1100 : 2600); }
+  };
+  $('#dbody').onchange = (e) => { if (e.target.id === 'earMode') { earMode = e.target.value; earQ = null; dicQ = null; renderEar(); } };
   document.querySelector('.tabs').onclick = (e) => { const b = e.target.closest('button'); if (b) { tab = b.dataset.tab; renderDrawer(); } };
+  $('#sync').onclick = () => { sync = !sync; if (sync && isD()) say('La pista elegida es batería: se usa el piano'); renderDrawer(); };
   $('#learnBtn').onclick = () => { $('#drawer').classList.toggle('open'); renderDrawer(); }; $('#dClose').onclick = () => $('#drawer').classList.remove('open');
 
   /* ---------- Cabecera y transporte ---------- */
   $('#root').innerHTML = CS.NOTE.map((n, i) => `<option value="${i}">${n} · ${SOL[i]}</option>`).join(''); $('#root').value = 9;
   $('#scale').innerHTML = Object.entries(T.scales).map(([k, v]) => `<option value="${k}">${v.n}</option>`).join('');
-  $('#root').onchange = $('#scale').onchange = () => { renderDrawer(); draw(); checkLesson(); };
+  $('#root').onchange = $('#scale').onchange = () => { renderKeys(); renderDrawer(); draw(); checkLesson(); };
   const toggle = () => { if (E.playing) return E.stop(); const rg = region(); E.play(song, rg ? { loop: true, from: rg.from, to: rg.to } : { loop: $('#loop').checked, from: cur }); };
   $('#play').onclick = toggle; $('#stop').onclick = () => E.stop();
   $('#metro').onchange = (e) => (E.metro = e.target.checked); $('#vol').oninput = (e) => E.setVol(+e.target.value);

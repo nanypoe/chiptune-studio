@@ -45,6 +45,7 @@
       <span class="grp" title="El roll muestra una octava (12 semitonos). Cambia de octava para llegar a notas más graves o agudas">Octava <button id="octD" title="Bajar una octava, notas más graves (Z)">▼</button><b id="oct"></b><button id="octU" title="Subir una octava, notas más agudas (X)">▲</button></span>
       <span class="grp" title="Duración de las notas que creas con un clic">Nota <span id="lens"></span></span>
       <span class="grp" title="Acerca o aleja el tiempo. Ctrl + rueda del ratón también hace zoom">Zoom <button id="zOut" title="Alejar: ver más compases">−</button><b id="zoom">100%</b><button id="zIn" title="Acercar: ver más detalle">+</button><button id="zFit" title="Ajustar: ver todo el proyecto de una vez">Ajustar</button></span>
+      <span class="grp" title="Efectos de la nota que vas a crear o editar">Efectos de nota <select id="chordSel" title="Acorde arpegiado: una sola nota suena como un acorde que se arpegia muy rápido, el truco de los chips de un canal. Se aplica a las notas nuevas"><option value="">Nota normal</option><option value="M">Acorde mayor</option><option value="m">Acorde menor</option><option value="7">Acorde 7ª</option><option value="sus4">Acorde sus4</option><option value="power">Quinta (power)</option></select><button id="mdSlide" title="Modo deslizar: arrastra una nota hacia arriba o abajo y se deslizará hasta esa altura mientras dura (portamento). Arrástrala de vuelta a su fila para quitarlo">↗ Deslizar</button></span>
       <span class="grp">Compás <button id="cpy" title="Copiar las notas del compás del cursor (de la pista elegida)">⧉ Copiar</button><button id="pst" title="Pegar lo copiado en el compás del cursor y pasar al siguiente">⎘ Pegar</button></span>
       <span class="grp" title="Transponer la pista elegida: mueve todas sus notas. Con Mayús, una octava entera">Transponer <button id="trD" title="Bajar un semitono todas las notas de la pista (Mayús: una octava)">♭</button><button id="trU" title="Subir un semitono todas las notas de la pista (Mayús: una octava)">♯</button></span>
       <span class="grp">🧹 <button id="clB" title="Borrar las notas del compás del cursor en la pista elegida">Compás</button><button id="clT" title="Borrar todas las notas de la pista elegida">Pista</button><button id="clA" title="Borrar todas las notas de todas las pistas (se puede deshacer)">Todo</button></span>
@@ -53,12 +54,13 @@
     <div id="rollBox"><canvas id="grid" title=""></canvas><div id="ph"></div></div>
     <aside id="drawer" class="panel" aria-label="Aprendizaje">
       <div class="ph"><div class="tabs"><button data-tab="lec" title="Lecciones paso a paso con retos que se comprueban solos">Lecciones</button><button data-tab="cho" title="Acordes de la tonalidad elegida: escúchalos e insértalos">Acordes</button><button data-tab="ear" title="Entrena el oído: reconoce intervalos, acordes y escalas">Oído</button></div><button id="dClose" title="Ocultar este panel">✕</button></div>
+      <button id="sync" title="Elige con qué suenan los ejemplos, acordes y ejercicios de oído: con un piano (por defecto) o sincronizados con el instrumento y la octava de la pista que tienes elegida. Probar la misma idea en distintos instrumentos es una gran forma de aprender">🎹 Suena con: Piano</button>
       <div id="dbody"></div>
     </aside>
   </section>
 </main>
 <footer id="bottom" class="panel">
-  <div class="kh"><b>Teclado</b><label title="Si está activo, cada nota que toques se escribe en la pista: en la posición que suena, o en el cursor si está detenido"><input id="rec" type="checkbox"> ● Grabar al tocar</label><span class="hint" id="khint"></span></div>
+  <div class="kh"><b>Teclado</b><label title="Si está activo, cada nota que toques se escribe en la pista: en la posición que suena, o en el cursor si está detenido"><input id="rec" type="checkbox"> ● Grabar al tocar</label><span class="hint" id="khint"></span><span id="kfb" aria-live="polite"></span></div>
   <div id="keys"></div>
 </footer>
 <dialog id="dlg">
@@ -91,6 +93,8 @@
 <!-- INSTRUMENTOS: para añadir uno, crea su archivo en src/instruments/ y enlázalo aquí -->
 <script src="src/instruments/pulse.js"></script>
 <script src="src/instruments/arp.js"></script>
+<script src="src/instruments/pwm.js"></script>
+<script src="src/instruments/chirp.js"></script>
 <script src="src/instruments/triangle.js"></script>
 <script src="src/instruments/saw.js"></script>
 <script src="src/instruments/brass.js"></script>
