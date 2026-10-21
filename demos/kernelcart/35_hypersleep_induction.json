@@ -1,0 +1,515 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "35 · HYPERSLEEP INDUCTION / El Sueño Sin Retorno",
+ "bpm": 44,
+ "bars": 8,
+ "timeSig": "4/4",
+ "loopStart": 0,
+ "tracks": [
+  {
+   "name": "Criogenia",
+   "instrument": "pad",
+   "volume": 0.5,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.8,
+    "chorus": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F2",
+     "vel": 0.48
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "Eb2",
+     "vel": 0.48
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "Bb2",
+     "vel": 0.48
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.48
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A2",
+     "vel": 0.48
+    }
+   ]
+  },
+  {
+   "name": "Sueño",
+   "instrument": "strings",
+   "volume": 0.34,
+   "pan": 0.2,
+   "fx": {
+    "reverb": 0.75
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F4",
+     "vel": 0.34
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "Bb4",
+     "vel": 0.34
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "Eb5",
+     "vel": 0.34
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.34
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.34
+    }
+   ]
+  },
+  {
+   "name": "Corazón",
+   "instrument": "drums",
+   "volume": 0.4,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 2,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 18,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 34,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 50,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 66,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.2
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 82,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.2
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 98,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.2
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.5
+    },
+    {
+     "step": 114,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.3
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.2
+    }
+   ]
+  },
+  {
+   "name": "Bajo",
+   "instrument": "bass",
+   "volume": 0.55,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.3
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.5
+    }
+   ]
+  },
+  {
+   "name": "Campana",
+   "instrument": "bell",
+   "volume": 0.28,
+   "pan": 0.45,
+   "fx": {
+    "reverb": 0.8
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.4
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "A5",
+     "vel": 0.35
+    }
+   ]
+  },
+  {
+   "name": "Respiración",
+   "instrument": "chirp",
+   "volume": 0.24,
+   "pan": -0.35,
+   "fx": {
+    "delay": 0.6,
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 16,
+     "len": 6,
+     "pitch": "D6",
+     "vel": 0.3,
+     "slide": "A5"
+    },
+    {
+     "step": 56,
+     "len": 6,
+     "pitch": "F6",
+     "vel": 0.28,
+     "slide": "C6"
+    },
+    {
+     "step": 84,
+     "len": 6,
+     "pitch": "Eb6",
+     "vel": 0.3,
+     "slide": "Bb5"
+    },
+    {
+     "step": 124,
+     "len": 4,
+     "pitch": "D6",
+     "vel": 0.26,
+     "slide": "A5"
+    }
+   ]
+  },
+  {
+   "name": "Pulso",
+   "instrument": "pulse",
+   "volume": 0.18,
+   "pan": 0.35,
+   "fx": {
+    "delay": 0.7,
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 12,
+     "len": 1,
+     "pitch": "D5",
+     "vel": 0.25
+    },
+    {
+     "step": 44,
+     "len": 1,
+     "pitch": "D5",
+     "vel": 0.25
+    },
+    {
+     "step": 76,
+     "len": 1,
+     "pitch": "D5",
+     "vel": 0.25
+    },
+    {
+     "step": 108,
+     "len": 1,
+     "pitch": "D5",
+     "vel": 0.25
+    }
+   ]
+  }
+ ]
+}

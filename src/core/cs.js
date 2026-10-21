@@ -8,6 +8,9 @@ window.CS = (() => {
     midi: (p) => { const m = /^([A-G])([#b]?)(-?\d)$/i.exec(p); return m ? 12 * (+m[3] + 1) + B[m[1].toUpperCase()] + (m[2] === '#' ? 1 : m[2] === 'b' ? -1 : 0) : null; },
     name: (m) => NOTE[m % 12] + (Math.floor(m / 12) - 1),
     hz: (m) => 440 * 2 ** ((m - 69) / 12),
+    /* Compases: spb = pasos (semicorcheas) por compás, beat = pasos por pulso, n = pulsos que se cuentan */
+    TS: { '4/4': { spb: 16, beat: 4, n: 4 }, '3/4': { spb: 12, beat: 4, n: 3 }, '2/4': { spb: 8, beat: 4, n: 2 }, '5/4': { spb: 20, beat: 4, n: 5 }, '6/8': { spb: 12, beat: 6, n: 2 }, '12/8': { spb: 24, beat: 6, n: 4 }, '7/8': { spb: 14, beat: 2, n: 7 } },
+    sig: (s) => CS.TS[s.timeSig] || CS.TS['4/4'],
     inst: {}, fx: {}, alias: {}, kinds: {}, errors: [], drumOrder: [],
   };
 })();

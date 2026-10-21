@@ -1,10 +1,10 @@
 /* Modelo de canción: crear, validar/normalizar (acepta v1 y v2), dar formato a texto, demo y guía para IA. */
 CS.song = {
   track(inst, name) { const d = CS.getInst(inst); return { name: name || d.name, instrument: d.id, volume: 0.8, pan: d.pan || 0, mute: false, solo: false, fx: { reverb: 0.15 }, notes: [] }; },
-  blank() { return { format: 'chiptune-studio', version: 2, title: 'Mi canción', bpm: 120, bars: 4, tracks: [CS.song.track('pulse', 'Melodía'), CS.song.track('bass', 'Bajo'), CS.song.track('drums', 'Batería')] }; },
+  blank() { return { format: 'chiptune-studio', version: 2, title: 'Mi canción', bpm: 120, bars: 4, timeSig: '4/4', loopStart: 0, tracks: [CS.song.track('pulse', 'Melodía'), CS.song.track('bass', 'Bajo'), CS.song.track('drums', 'Batería')] }; },
   normalize(o) {
     if (!o || !Array.isArray(o.tracks)) throw new Error('falta el arreglo "tracks"');
-    const s = { format: 'chiptune-studio', version: 2, title: String(o.title || 'Sin título'), bpm: CS.clamp(+o.bpm || 120, 40, 240), bars: 1, tracks: [] }; let end = 0;
+    const s = { format: 'chiptune-studio', version: 2, title: String(o.title || 'Sin título'), bpm: CS.clamp(+o.bpm || 120, 40, 240), bars: 1, timeSig: CS.TS[o.timeSig] ? o.timeSig : '4/4', loopStart: 0, tracks: [] }; let end = 0;
     for (const t of o.tracks.slice(0, 12)) {
       const d = CS.getInst(t.instrument) || CS.getInst('pulse'), dr = d.id === 'drums', notes = [];
       for (const n of t.notes || []) {
@@ -20,8 +20,8 @@ CS.song = {
       s.tracks.push({ name: String(t.name || d.name), instrument: d.id, volume: CS.clamp(t.volume ?? 0.8, 0, 1), pan: CS.clamp(+t.pan || 0, -1, 1), mute: !!t.mute, solo: false, fx, notes });
     }
     if (!s.tracks.length) throw new Error('no hay pistas');
-    s.bars = CS.clamp(Math.max(Math.floor(+o.bars || 1), Math.ceil(end / 16)), 1, 64);
-    const T = s.bars * 16; for (const t of s.tracks) t.notes = t.notes.filter((n) => n.step < T).map((n) => ({ ...n, len: Math.min(n.len, T - n.step) }));
+    s.bars = CS.clamp(Math.max(Math.floor(+o.bars || 1), Math.ceil(end / CS.sig(s).spb)), 1, 64); s.loopStart = CS.clamp(Math.floor(+o.loopStart || 0), 0, s.bars - 1);
+    const T = s.bars * CS.sig(s).spb; for (const t of s.tracks) t.notes = t.notes.filter((n) => n.step < T).map((n) => ({ ...n, len: Math.min(n.len, T - n.step) }));
     return s;
   },
   parse(text) { const a = text.indexOf('{'), b = text.lastIndexOf('}'); if (a < 0 || b < a) throw new Error('no encontré un objeto { ... }'); return CS.song.normalize(JSON.parse(text.slice(a, b + 1))); },
@@ -30,7 +30,7 @@ CS.song = {
     return JSON.stringify(h).slice(0, -1).replace(/,"/g, ',\n "').replace('{"', '{\n "') + ',\n "tracks":[\n' + tr.join(',\n') + '\n ]\n}';
   },
   demo() {
-    const s = { format: 'chiptune-studio', version: 2, title: 'Demo en La menor', bpm: 120, bars: 4, tracks: [] }, N = CS.name;
+    const s = { format: 'chiptune-studio', version: 2, title: 'Demo en La menor', bpm: 120, bars: 4, timeSig: '4/4', loopStart: 0, tracks: [] }, N = CS.name;
     const mel = [[0,2,'E5'],[2,2,'C5'],[4,2,'A4'],[6,2,'C5'],[8,4,'E5'],[12,4,'D5'],[16,2,'C5'],[18,2,'A4'],[20,2,'F4'],[22,2,'A4'],[24,4,'C5'],[28,4,'A4'],[32,2,'G4'],[34,2,'C5'],[36,2,'E5'],[38,2,'C5'],[40,4,'G5'],[44,4,'E5'],[48,2,'D5'],[50,2,'G4'],[52,2,'B4'],[54,2,'D5'],[56,8,'G5']];
     const ch = [[57, 60, 64], [53, 57, 60], [48, 52, 55], [55, 59, 62]], roots = [33, 29, 36, 31], pads = [], bass = [], dr = [];
     ch.forEach((c, b) => { c.forEach((m) => pads.push({ step: b * 16, len: 16, pitch: N(m) })); for (const st of [0, 6, 8, 14]) bass.push({ step: b * 16 + st, len: 2, pitch: N(roots[b]) });
@@ -46,12 +46,14 @@ CS.song = {
     const dk = CS.getInst('drums'), al = Object.entries(CS.alias).map(([a, b]) => `${a}→${b}`).join(', ');
     return `GUÍA PARA IA — Chiptune Studio (formato v2)
 Responde SOLO con un JSON válido:
-{"format":"chiptune-studio","version":2,"title":"Nombre","bpm":120,"bars":8,
+{"format":"chiptune-studio","version":2,"title":"Nombre","bpm":120,"bars":8,"timeSig":"4/4",
  "tracks":[{"name":"Melodía","instrument":"pulse","volume":0.8,"pan":0,"fx":{"reverb":0.15},
    "notes":[{"step":0,"len":2,"pitch":"E5"},{"step":2,"len":2,"pitch":"G5","vel":0.6}]}]}
 
 REGLAS
-- 16 pasos por compás (semicorcheas), siempre 4/4. step = posición (el compás 2 empieza en 16). len en pasos: 1=1/16, 2=1/8, 4=1/4, 8=1/2, 16=compás. step+len <= bars*16.
+- Rejilla de semicorcheas: 1 paso = 1/16. "timeSig" (opcional, por defecto "4/4") fija los pasos por compás: 4/4=16, 3/4=12, 2/4=8, 5/4=20, 6/8=12, 12/8=24, 7/8=14. El compás n empieza en el paso (n-1) × pasos por compás.
+- loopStart (opcional, compás 0-based; por defecto 0): al llegar al final, la canción vuelve a ese compás. Útil para intro + parte que se repite. Para un bucle sin saltos, el último compás debe enlazar con el compás loopStart.
+- len en pasos: 1=1/16, 2=1/8, 4=1/4, 8=1/2, 16=compás en 4/4. step+len <= bars × pasos por compás.
 - pitch: "C4" = Do central; sostenidos con #. En batería: ${CS.drumOrder.join(', ')}.
 - bpm 40-240, bars 1-64, hasta 12 pistas, volume 0-1, pan -1 (izq) a 1 (der).
 - vel (0.1-1, opcional): tiempo fuerte 1, contratiempo 0.6-0.8, nota fantasma 0.4.

@@ -20,8 +20,9 @@
     <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M9 29 13 5h6l4 24z" class="mb"/><g id="arm"><path d="M16 26V8" class="ma"/><circle cx="16" cy="12" r="2.6" class="mw"/></g></svg>
     <span class="dots"><i></i><i></i><i></i><i></i></span><span id="monT">—</span><span class="mbar"><i id="monP"></i></span>
   </div>
+  <label title="Compás: cuántos pulsos tiene cada grupo. 4/4 marcha, 3/4 vals, 6/8 balanceo, 5/4 y 7/8 raros. El roll, el metrónomo y el monitor se adaptan">Compás <select id="ts"><option value="4/4">4/4</option><option value="3/4">3/4</option><option value="2/4">2/4</option><option value="5/4">5/4</option><option value="6/8">6/8</option><option value="12/8">12/8</option><option value="7/8">7/8</option></select></label>
   <label title="Tempo: pulsos por minuto. Más alto = más rápido (40 a 240)">BPM <input id="bpm" type="number" min="40" max="240" value="120"></label>
-  <span class="grp" title="Longitud de la canción. Un compás = 16 pasos">Compases
+  <span class="grp" title="Longitud de la canción, medida en compases">Longitud
     <button id="barM" title="Quitar el último compás">−</button><b id="bars">4</b><button id="barP" title="Añadir un compás al final">+</button><button id="dup" title="Duplicar toda la canción para alargarla (copia todo detrás)">×2</button></span>
   <span class="grp" title="Bucle de sección: repite solo los compases que indiques, ideal para practicar o grabar con el teclado">
     <label class="tg"><input id="lp" type="checkbox"> 🔁 Sección</label>
@@ -46,7 +47,7 @@
       <span class="grp" title="Duración de las notas que creas con un clic">Nota <span id="lens"></span></span>
       <span class="grp" title="Acerca o aleja el tiempo. Ctrl + rueda del ratón también hace zoom">Zoom <button id="zOut" title="Alejar: ver más compases">−</button><b id="zoom">100%</b><button id="zIn" title="Acercar: ver más detalle">+</button><button id="zFit" title="Ajustar: ver todo el proyecto de una vez">Ajustar</button></span>
       <span class="grp" title="Efectos de la nota que vas a crear o editar">Efectos de nota <select id="chordSel" title="Acorde arpegiado: una sola nota suena como un acorde que se arpegia muy rápido, el truco de los chips de un canal. Se aplica a las notas nuevas"><option value="">Nota normal</option><option value="M">Acorde mayor</option><option value="m">Acorde menor</option><option value="7">Acorde 7ª</option><option value="sus4">Acorde sus4</option><option value="power">Quinta (power)</option></select><button id="mdSlide" title="Modo deslizar: arrastra una nota hacia arriba o abajo y se deslizará hasta esa altura mientras dura (portamento). Arrástrala de vuelta a su fila para quitarlo">↗ Deslizar</button></span>
-      <span class="grp">Compás <button id="cpy" title="Copiar las notas del compás del cursor (de la pista elegida)">⧉ Copiar</button><button id="pst" title="Pegar lo copiado en el compás del cursor y pasar al siguiente">⎘ Pegar</button></span>
+      <span class="grp">Editar compás <button id="cpy" title="Copiar las notas del compás del cursor (de la pista elegida)">⧉ Copiar</button><button id="pst" title="Pegar lo copiado en el compás del cursor y pasar al siguiente">⎘ Pegar</button></span>
       <span class="grp" title="Transponer la pista elegida: mueve todas sus notas. Con Mayús, una octava entera">Transponer <button id="trD" title="Bajar un semitono todas las notas de la pista (Mayús: una octava)">♭</button><button id="trU" title="Subir un semitono todas las notas de la pista (Mayús: una octava)">♯</button></span>
       <span class="grp">🧹 <button id="clB" title="Borrar las notas del compás del cursor en la pista elegida">Compás</button><button id="clT" title="Borrar todas las notas de la pista elegida">Pista</button><button id="clA" title="Borrar todas las notas de todas las pistas (se puede deshacer)">Todo</button></span>
       <span id="st" aria-live="polite"></span>
@@ -71,6 +72,9 @@
   <div class="sec"><b>Importar</b>
     <label class="btn" title="Abrir un archivo .json o .js exportado antes, o creado por una IA">Abrir archivo <input id="open" type="file" accept=".json,.js,.txt" hidden></label>
     <button id="iText" title="Importar la canción que pegaste en el cuadro de texto de abajo">Importar texto</button></div>
+  <div class="sec"><b>Bucle</b>
+    <label title="Al llegar al final, la canción vuelve a este compás. 1 = vuelve al principio; con un número mayor, el principio queda como introducción que suena solo una vez">Vuelve al compás <input id="lpS" type="number" min="1" value="1"></label>
+    <button id="xWavL" title="Renderiza solo el tramo que se repite y mezcla la cola del final con el inicio: al repetir el archivo no se oye ningún salto (ideal para música de juego)">WAV en bucle perfecto</button></div>
   <div class="sec"><b>Exportar</b>
     <button id="xJson" title="Descargar la canción como archivo .json (el formato para tu juego y para las IAs)">Descargar JSON</button>
     <button id="xJs" title="Descargar la canción como módulo .js">Descargar JS</button>

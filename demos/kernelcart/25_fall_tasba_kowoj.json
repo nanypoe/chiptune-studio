@@ -1,0 +1,817 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "25 · FALL OF TASBA KOWOJ / El Fuego de Vinak",
+ "bpm": 46,
+ "bars": 10,
+ "timeSig": "4/4",
+ "loopStart": 0,
+ "tracks": [
+  {
+   "name": "Réquiem",
+   "instrument": "guitar",
+   "volume": 0.46,
+   "pan": -0.25,
+   "fx": {
+    "drive": 0.35,
+    "reverb": 0.55
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 8,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 16,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 24,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "D2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "D2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "A2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 56,
+     "len": 8,
+     "pitch": "A2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "E2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 72,
+     "len": 8,
+     "pitch": "E2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 88,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "D2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "A2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 120,
+     "len": 8,
+     "pitch": "A2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "E2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "E2",
+     "vel": 0.5,
+     "chord": "power"
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.6,
+     "chord": "power"
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "F#2",
+     "vel": 0.5,
+     "chord": "power"
+    }
+   ]
+  },
+  {
+   "name": "Cuerdas",
+   "instrument": "strings",
+   "volume": 0.42,
+   "pan": 0.2,
+   "fx": {
+    "reverb": 0.65
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "F#3",
+     "vel": 0.45
+    },
+    {
+     "step": 8,
+     "len": 8,
+     "pitch": "C#4",
+     "vel": 0.38
+    },
+    {
+     "step": 16,
+     "len": 8,
+     "pitch": "F#3",
+     "vel": 0.45
+    },
+    {
+     "step": 24,
+     "len": 8,
+     "pitch": "C#4",
+     "vel": 0.38
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "D3",
+     "vel": 0.45
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "A3",
+     "vel": 0.38
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "A3",
+     "vel": 0.45
+    },
+    {
+     "step": 56,
+     "len": 8,
+     "pitch": "E4",
+     "vel": 0.38
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "E3",
+     "vel": 0.45
+    },
+    {
+     "step": 72,
+     "len": 8,
+     "pitch": "B3",
+     "vel": 0.38
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "F#3",
+     "vel": 0.45
+    },
+    {
+     "step": 88,
+     "len": 8,
+     "pitch": "C#4",
+     "vel": 0.38
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D3",
+     "vel": 0.45
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "A3",
+     "vel": 0.38
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "A3",
+     "vel": 0.45
+    },
+    {
+     "step": 120,
+     "len": 8,
+     "pitch": "E4",
+     "vel": 0.38
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "E3",
+     "vel": 0.45
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "B3",
+     "vel": 0.38
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "F#3",
+     "vel": 0.45
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "C#4",
+     "vel": 0.38
+    }
+   ]
+  },
+  {
+   "name": "Coro",
+   "instrument": "pad",
+   "volume": 0.48,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.8,
+    "chorus": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "C#4"
+    }
+   ]
+  },
+  {
+   "name": "Bajo",
+   "instrument": "bass",
+   "volume": 0.68,
+   "pan": 0,
+   "fx": {
+    "drive": 0.2,
+    "reverb": 0.3
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "F#1",
+     "vel": 0.7
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "F#1",
+     "vel": 0.7
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.7
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.7
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F#1",
+     "vel": 0.7
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.7
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.7
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "F#1",
+     "vel": 0.7
+    }
+   ]
+  },
+  {
+   "name": "Tímbales",
+   "instrument": "drums",
+   "volume": 0.4,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 8,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 24,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 56,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 136,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 152,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.45
+    }
+   ]
+  },
+  {
+   "name": "Campana",
+   "instrument": "bell",
+   "volume": 0.3,
+   "pan": 0.45,
+   "fx": {
+    "reverb": 0.7
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "F#5",
+     "vel": 0.4
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.4
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "A5",
+     "vel": 0.4
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.4
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "E5",
+     "vel": 0.4
+    }
+   ]
+  },
+  {
+   "name": "Aullido",
+   "instrument": "saw",
+   "volume": 0.32,
+   "pan": 0.15,
+   "fx": {
+    "reverb": 0.6,
+    "delay": 0.4
+   },
+   "notes": [
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "F#4"
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 56,
+     "len": 8,
+     "pitch": "C#5"
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 72,
+     "len": 8,
+     "pitch": "G#4"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F#4"
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 120,
+     "len": 8,
+     "pitch": "A5"
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "C#5"
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "F#4"
+    }
+   ]
+  }
+ ]
+}

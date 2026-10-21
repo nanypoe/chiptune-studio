@@ -47,6 +47,9 @@ CS.Rig = class {
   cut() { this.all.forEach((s) => s.g.disconnect()); this.all.clear(); this.strips = new WeakMap(); }   // silencia todo lo programado
 };
 
+/** Bucle perfecto: la cola (reverb, notas que suenan tras el final) se suma al inicio del tramo que se repite. */
+CS.foldLoop = (c, L, a, n) => { const M = L - a, o = new Float32Array(M); for (let i = 0; i < M; i++) o[i] = c[a + i]; for (let i = L; i < n; i++) { const j = i - L; if (j < M) o[j] += c[i]; } return o; };
+
 CS.engine = (() => {
   let ctx, rig, timer, q = [], P = null, lastBpm = 0;
   const E = {
@@ -69,11 +72,11 @@ CS.engine = (() => {
       if (!P) return; const s = P.song;
       while (!P.end && P.t < ctx.currentTime + 0.12) {
         if (s.bpm !== lastBpm) { lastBpm = s.bpm; rig.setBpm(s.bpm); }
-        const sd = 60 / s.bpm / 4, so = E.solo(s);
+        const sd = 60 / s.bpm / 4, so = E.solo(s), sg = CS.sig(s);
         for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, n.len * sd, n.vel ?? 1, so, n);
-        if (E.metro && P.step % 4 === 0) E._click(P.t, P.step % 16 === 0);
+        if (E.metro && P.step % sg.beat === 0) E._click(P.t, P.step % sg.spb === 0);
         q.push({ s: P.step, t: P.t, sd }); P.t += sd; P.step++;
-        const lim = Math.min(P.to || 1e9, s.bars * 16); if (P.step >= lim) { if (P.loop) P.step = P.from; else P.end = P.t + 1.5; }
+        const lim = Math.min(P.to || 1e9, s.bars * sg.spb); if (P.step >= lim) { if (P.loop) P.step = P.to ? P.from : (s.loopStart || 0) * sg.spb; else P.end = P.t + 1.5; }
       }
       if (P.end && ctx.currentTime > P.end) E.stop();
     },
@@ -88,10 +91,11 @@ CS.engine = (() => {
       while (q.length > 1 && q[1].t <= n) q.shift();
       const h = q[0]; return h && h.t <= n ? h.s + Math.min(1, (n - h.t) / h.sd) : null;
     },
-    async wav(song) {
-      const sr = 44100, sd = 60 / song.bpm / 4, T = song.bars * 16 * sd, oc = new OfflineAudioContext(2, Math.ceil((T + 2) * sr), sr), r = new CS.Rig(oc, song.bpm), so = E.solo(song);
-      for (const tr of song.tracks) for (const n of tr.notes) r.hit(tr, n.pitch, 0.01 + n.step * sd, n.len * sd, n.vel ?? 1, so, n);
-      const b = await oc.startRendering(), n = b.length, ch = [b.getChannelData(0), b.getChannelData(1)];
+    async wav(song, loopable) {
+      const sr = 44100, sd = 60 / song.bpm / 4, T = song.bars * CS.sig(song).spb * sd, oc = new OfflineAudioContext(2, Math.ceil((T + 2) * sr), sr), r = new CS.Rig(oc, song.bpm), so = E.solo(song), off = loopable ? 0 : 0.01;
+      for (const tr of song.tracks) for (const n of tr.notes) r.hit(tr, n.pitch, off + n.step * sd, n.len * sd, n.vel ?? 1, so, n);
+      const b = await oc.startRendering(); let n = b.length, ch = [b.getChannelData(0), b.getChannelData(1)];
+      if (loopable) { const L = Math.round(T * sr), a = Math.round((song.loopStart || 0) * CS.sig(song).spb * sd * sr); ch = ch.map((c) => CS.foldLoop(c, L, a, n)); n = L - a; }
       let pk = 0; for (const c of ch) for (let i = 0; i < n; i++) pk = Math.max(pk, Math.abs(c[i]));
       const k = pk > 0 ? 0.9 / pk : 1, a = new ArrayBuffer(44 + n * 4), v = new DataView(a), w = (o, t) => [...t].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)));
       w(0, 'RIFF'); v.setUint32(4, 36 + n * 4, true); w(8, 'WAVEfmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 2, true);

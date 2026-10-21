@@ -40,13 +40,17 @@ Copia un archivo de `src/effects/`. Si usa un `kind` existente (reverb, delay, c
 para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, output })` en `src/engine/effects.js`. Los efectos son envíos por pista (sliders en la tarjeta de pista).
 
 ## Formato de canción v2
-`{"format":"chiptune-studio","version":2,"title","bpm","bars","tracks":[{"name","instrument","volume","pan","fx":{"reverb":0.15},"notes":[{"step","len","pitch","vel"}]}]}`
-16 pasos por compás, 4/4. Se importan canciones v1 (los ids antiguos tienen alias: flute→triangle, bass2→pluck, lead→saw, pulse25/50→pulse, pulse12→arp, organ/choir→pad).
+`{"format":"chiptune-studio","version":2,"title","bpm","bars","timeSig","tracks":[{"name","instrument","volume","pan","fx":{"reverb":0.15},"notes":[{"step","len","pitch","vel","slide","chord"}]}]}`
+
+- La rejilla es de semicorcheas (1 paso = 1/16). `timeSig` (opcional, por defecto `"4/4"`) fija los pasos por compás: **4/4 = 16, 3/4 = 12, 2/4 = 8, 5/4 = 20, 6/8 = 12, 12/8 = 24, 7/8 = 14**. El compás *n* empieza en el paso (n−1) × pasos por compás.
+- `loopStart` (opcional, compás 0-based, por defecto 0): al terminar, la canción vuelve a ese compás (intro + parte que se repite). **Menú → WAV en bucle perfecto** exporta solo el tramo que se repite, con la cola del final mezclada sobre el inicio (sin salto al repetir).
+- Se importan canciones v1 y v2 sin `timeSig` (se leen como 4/4). Alias de ids antiguos: flute→triangle, bass2→pluck, lead→saw, pulse25/50→pulse, pulse12→arp, organ/choir→pad.
+- Cambiar el compás en el estudio reacomoda las notas compás por compás (las que no caben se quitan; se puede deshacer).
 
 ## Pantalla
 - **Cabecera:** ☰ Menú (canción nueva, importar/exportar JSON·JS·WAV, guía para IA, atajos) · título · deshacer/rehacer · reproducir/detener · repetir · metrónomo (sonido) · **monitor** (péndulo, 4 tiempos y avance) · BPM · compases · **bucle de sección** · tono y escala · volumen · 📖 Aprender.
 - **Roll (ancho completo):** una octava de 12 semitonos, con zoom y desplazamiento. Barra de herramientas: octava, duración de nota, zoom, copiar/pegar compás, transponer ♭/♯ y limpiar (compás, pista, todo).
-- **📖 Aprender (panel flotante):** 3 pestañas. *Lecciones*: 12 lecciones de varias páginas (explicación visual → 3 ejemplos con pasos y audio → reto que se comprueba solo); «Siguiente» pasa a «Lección N ▶» al terminar. *Acordes*: los 7 del tono con sus notas (nomenclatura C4 · Do), cómo se forman, dónde se usan, instrucciones «Hazlo tú», ＋ insertar y progresiones famosas. *Oído*: intervalos, acorde y escala mayor/menor.
+- **📖 Aprender (panel flotante):** 3 pestañas. *Lecciones*: 13 lecciones de varias páginas (explicación visual → 3 ejemplos con pasos y audio → reto que se comprueba solo); «Siguiente» pasa a «Lección N ▶» al terminar. *Acordes*: los 7 del tono con sus notas (nomenclatura C4 · Do), cómo se forman, dónde se usan, instrucciones «Hazlo tú», ＋ insertar y progresiones famosas. *Oído*: intervalos, acorde y escala mayor/menor.
 - **«Suena con»:** por defecto todo suena con piano; el botón lo sincroniza con el instrumento y la octava de la pista elegida (ejemplos, acordes y oído).
 - **Teclado:** las teclas negras muestran ♯ y ♭; al tocar, dice cuál es el nombre correcto (por la tonalidad, o subiendo → ♯ / bajando → ♭).
 - **Todos los botones** tienen una descripción emergente breve al pasar el ratón.

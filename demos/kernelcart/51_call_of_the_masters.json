@@ -1,0 +1,923 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "51 · THE CALL OF THE MASTERS / El Llamado de la Memoria",
+ "bpm": 72,
+ "bars": 14,
+ "timeSig": "4/4",
+ "loopStart": 0,
+ "tracks": [
+  {
+   "name": "Coro",
+   "instrument": "pad",
+   "volume": 0.5,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.85,
+    "chorus": 0.3
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F#4"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "F#4"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "C#4"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "E4"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "D4"
+    }
+   ]
+  },
+  {
+   "name": "Cantor",
+   "instrument": "pulse",
+   "volume": 0.35,
+   "pan": 0.15,
+   "fx": {
+    "delay": 0.3,
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 4,
+     "pitch": "G4"
+    },
+    {
+     "step": 4,
+     "len": 4,
+     "pitch": "A4"
+    },
+    {
+     "step": 8,
+     "len": 4,
+     "pitch": "B4"
+    },
+    {
+     "step": 12,
+     "len": 4,
+     "pitch": "D5"
+    },
+    {
+     "step": 16,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 24,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "F#4"
+    },
+    {
+     "step": 56,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 64,
+     "len": 4,
+     "pitch": "G4"
+    },
+    {
+     "step": 68,
+     "len": 4,
+     "pitch": "A4"
+    },
+    {
+     "step": 72,
+     "len": 4,
+     "pitch": "B4"
+    },
+    {
+     "step": 76,
+     "len": 4,
+     "pitch": "D5"
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 88,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "G4"
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "C#5"
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 160,
+     "len": 8,
+     "pitch": "B4"
+    },
+    {
+     "step": 168,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 176,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 184,
+     "len": 8,
+     "pitch": "F#4"
+    },
+    {
+     "step": 192,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 200,
+     "len": 8,
+     "pitch": "C#5"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "D5"
+    }
+   ]
+  },
+  {
+   "name": "Cuerdas",
+   "instrument": "strings",
+   "volume": 0.38,
+   "pan": 0.2,
+   "fx": {
+    "reverb": 0.75
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 8,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.3
+    },
+    {
+     "step": 16,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.36
+    },
+    {
+     "step": 24,
+     "len": 8,
+     "pitch": "E5",
+     "vel": 0.3
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "B4",
+     "vel": 0.36
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "F#5",
+     "vel": 0.3
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "F#4",
+     "vel": 0.36
+    },
+    {
+     "step": 56,
+     "len": 8,
+     "pitch": "C#5",
+     "vel": 0.3
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 72,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.3
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.36
+    },
+    {
+     "step": 88,
+     "len": 8,
+     "pitch": "E5",
+     "vel": 0.3
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D4",
+     "vel": 0.36
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.3
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 120,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.3
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "B4",
+     "vel": 0.36
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "F#5",
+     "vel": 0.3
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.36
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "E5",
+     "vel": 0.3
+    },
+    {
+     "step": 160,
+     "len": 8,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 168,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.3
+    },
+    {
+     "step": 176,
+     "len": 8,
+     "pitch": "D4",
+     "vel": 0.36
+    },
+    {
+     "step": 184,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.3
+    },
+    {
+     "step": 192,
+     "len": 8,
+     "pitch": "A4",
+     "vel": 0.36
+    },
+    {
+     "step": 200,
+     "len": 8,
+     "pitch": "E5",
+     "vel": 0.3
+    },
+    {
+     "step": 208,
+     "len": 8,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 216,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.3
+    }
+   ]
+  },
+  {
+   "name": "Bajo",
+   "instrument": "bass",
+   "volume": 0.42,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.42
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.42
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B1",
+     "vel": 0.42
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "F#1",
+     "vel": 0.42
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.42
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.42
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.42
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.42
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B1",
+     "vel": 0.42
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.42
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.42
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.42
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.42
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.42
+    }
+   ]
+  },
+  {
+   "name": "Campana",
+   "instrument": "bell",
+   "volume": 0.28,
+   "pan": 0.45,
+   "fx": {
+    "delay": 0.5,
+    "reverb": 0.7
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "G5",
+     "vel": 0.35
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "A5",
+     "vel": 0.35
+    },
+    {
+     "step": 176,
+     "len": 8,
+     "pitch": "D6",
+     "vel": 0.35
+    },
+    {
+     "step": 208,
+     "len": 8,
+     "pitch": "G5",
+     "vel": 0.35
+    }
+   ]
+  },
+  {
+   "name": "Aire",
+   "instrument": "chirp",
+   "volume": 0.2,
+   "pan": -0.4,
+   "fx": {
+    "delay": 0.6,
+    "reverb": 0.7
+   },
+   "notes": [
+    {
+     "step": 40,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.24,
+     "slide": "G5"
+    },
+    {
+     "step": 104,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.24,
+     "slide": "G5"
+    },
+    {
+     "step": 168,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.24,
+     "slide": "G5"
+    }
+   ]
+  },
+  {
+   "name": "Órgano",
+   "instrument": "pwm",
+   "volume": 0.28,
+   "pan": 0.3,
+   "fx": {
+    "reverb": 0.5
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.22
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "E5",
+     "vel": 0.22
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B4",
+     "vel": 0.28
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F#5",
+     "vel": 0.22
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "F#4",
+     "vel": 0.28
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#5",
+     "vel": 0.22
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.22
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "E5",
+     "vel": 0.22
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D4",
+     "vel": 0.28
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.22
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.22
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B4",
+     "vel": 0.28
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "F#5",
+     "vel": 0.22
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "E5",
+     "vel": 0.22
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.22
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "D4",
+     "vel": 0.28
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.22
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "E5",
+     "vel": 0.22
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.22
+    }
+   ]
+  }
+ ]
+}

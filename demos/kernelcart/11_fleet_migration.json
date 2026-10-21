@@ -1,0 +1,1038 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "11 · FLEET MIGRATION / El Éxodo de las Arcas",
+ "bpm": 56,
+ "bars": 14,
+ "timeSig": "4/4",
+ "loopStart": 2,
+ "tracks": [
+  {
+   "name": "Deriva",
+   "instrument": "pad",
+   "volume": 0.44,
+   "pan": -0.2,
+   "fx": {
+    "reverb": 0.7,
+    "chorus": 0.45
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B2"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "B2"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "C#3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A2"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "C#3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "B2"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C#3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A2"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "C#3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "G#2"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "B2"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "G#3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "B3"
+    }
+   ]
+  },
+  {
+   "name": "Casco",
+   "instrument": "strings",
+   "volume": 0.3,
+   "pan": 0.25,
+   "fx": {
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B3",
+     "vel": 0.35
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F#4",
+     "vel": 0.35
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#4",
+     "vel": 0.35
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "G#4",
+     "vel": 0.35
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "E4",
+     "vel": 0.35
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "B4",
+     "vel": 0.35
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "B3",
+     "vel": 0.35
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F#4",
+     "vel": 0.35
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "C#4",
+     "vel": 0.35
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "G#4",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A3",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "E4",
+     "vel": 0.35
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "E4",
+     "vel": 0.35
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "B4",
+     "vel": 0.35
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "B3",
+     "vel": 0.35
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "F#4",
+     "vel": 0.35
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C#4",
+     "vel": 0.35
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G#4",
+     "vel": 0.35
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A3",
+     "vel": 0.35
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "E4",
+     "vel": 0.35
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "G#3",
+     "vel": 0.35
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "D#4",
+     "vel": 0.35
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "E4",
+     "vel": 0.35
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "B4",
+     "vel": 0.35
+    }
+   ]
+  },
+  {
+   "name": "Señal",
+   "instrument": "bell",
+   "volume": 0.28,
+   "pan": 0.55,
+   "fx": {
+    "reverb": 0.65,
+    "delay": 0.3
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.45
+    },
+    {
+     "step": 32,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.45
+    },
+    {
+     "step": 64,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.45
+    },
+    {
+     "step": 96,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.45
+    },
+    {
+     "step": 128,
+     "len": 4,
+     "pitch": "F#6",
+     "vel": 0.45
+    },
+    {
+     "step": 160,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.45
+    },
+    {
+     "step": 192,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.45
+    }
+   ]
+  },
+  {
+   "name": "Motor",
+   "instrument": "bass",
+   "volume": 0.58,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.2
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.5
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.5
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "B1",
+     "vel": 0.5
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C#2",
+     "vel": 0.5
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "E2",
+     "vel": 0.5
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "B1",
+     "vel": 0.5
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "C#2",
+     "vel": 0.5
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.5
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.5
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "B1",
+     "vel": 0.5
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C#2",
+     "vel": 0.5
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A1",
+     "vel": 0.5
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "G#1",
+     "vel": 0.5
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "E1",
+     "vel": 0.5
+    }
+   ]
+  },
+  {
+   "name": "Voz",
+   "instrument": "triangle",
+   "volume": 0.46,
+   "pan": -0.1,
+   "fx": {
+    "reverb": 0.5,
+    "delay": 0.25
+   },
+   "notes": [
+    {
+     "step": 32,
+     "len": 12,
+     "pitch": "E5"
+    },
+    {
+     "step": 44,
+     "len": 4,
+     "pitch": "B4"
+    },
+    {
+     "step": 48,
+     "len": 12,
+     "pitch": "C#5"
+    },
+    {
+     "step": 60,
+     "len": 4,
+     "pitch": "G#4"
+    },
+    {
+     "step": 64,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 72,
+     "len": 4,
+     "pitch": "G#5"
+    },
+    {
+     "step": 76,
+     "len": 4,
+     "pitch": "F#5"
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "B5"
+    },
+    {
+     "step": 88,
+     "len": 4,
+     "pitch": "A#5"
+    },
+    {
+     "step": 92,
+     "len": 4,
+     "pitch": "G#5"
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "G#5"
+    },
+    {
+     "step": 104,
+     "len": 4,
+     "pitch": "B5"
+    },
+    {
+     "step": 108,
+     "len": 4,
+     "pitch": "G#5"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "F#5"
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "B5"
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "A5"
+    },
+    {
+     "step": 152,
+     "len": 4,
+     "pitch": "G#5"
+    },
+    {
+     "step": 156,
+     "len": 4,
+     "pitch": "F#5"
+    },
+    {
+     "step": 160,
+     "len": 12,
+     "pitch": "E5"
+    },
+    {
+     "step": 172,
+     "len": 4,
+     "pitch": "D#5"
+    },
+    {
+     "step": 176,
+     "len": 8,
+     "pitch": "C#5"
+    },
+    {
+     "step": 184,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "B4"
+    },
+    {
+     "step": 208,
+     "len": 8,
+     "pitch": "E5"
+    },
+    {
+     "step": 216,
+     "len": 8,
+     "pitch": "F#5"
+    }
+   ]
+  },
+  {
+   "name": "Polvo",
+   "instrument": "arp",
+   "volume": 0.26,
+   "pan": 0.4,
+   "fx": {
+    "delay": 0.35,
+    "reverb": 0.4
+   },
+   "notes": [
+    {
+     "step": 32,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.4
+    },
+    {
+     "step": 36,
+     "len": 4,
+     "pitch": "F#6",
+     "vel": 0.25
+    },
+    {
+     "step": 40,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.4
+    },
+    {
+     "step": 44,
+     "len": 4,
+     "pitch": "D#7",
+     "vel": 0.25
+    },
+    {
+     "step": 48,
+     "len": 4,
+     "pitch": "C#6",
+     "vel": 0.4
+    },
+    {
+     "step": 52,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    },
+    {
+     "step": 56,
+     "len": 4,
+     "pitch": "C#7",
+     "vel": 0.4
+    },
+    {
+     "step": 60,
+     "len": 4,
+     "pitch": "E7",
+     "vel": 0.25
+    },
+    {
+     "step": 64,
+     "len": 4,
+     "pitch": "E5",
+     "vel": 0.4
+    },
+    {
+     "step": 68,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.25
+    },
+    {
+     "step": 72,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.4
+    },
+    {
+     "step": 76,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    },
+    {
+     "step": 80,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.4
+    },
+    {
+     "step": 84,
+     "len": 4,
+     "pitch": "F#6",
+     "vel": 0.25
+    },
+    {
+     "step": 88,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.4
+    },
+    {
+     "step": 92,
+     "len": 4,
+     "pitch": "D#7",
+     "vel": 0.25
+    },
+    {
+     "step": 96,
+     "len": 4,
+     "pitch": "C#6",
+     "vel": 0.4
+    },
+    {
+     "step": 100,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    },
+    {
+     "step": 104,
+     "len": 4,
+     "pitch": "C#7",
+     "vel": 0.4
+    },
+    {
+     "step": 108,
+     "len": 4,
+     "pitch": "E7",
+     "vel": 0.25
+    },
+    {
+     "step": 112,
+     "len": 4,
+     "pitch": "A5",
+     "vel": 0.4
+    },
+    {
+     "step": 116,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.25
+    },
+    {
+     "step": 120,
+     "len": 4,
+     "pitch": "A6",
+     "vel": 0.4
+    },
+    {
+     "step": 124,
+     "len": 4,
+     "pitch": "C#7",
+     "vel": 0.25
+    },
+    {
+     "step": 128,
+     "len": 4,
+     "pitch": "E5",
+     "vel": 0.4
+    },
+    {
+     "step": 132,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.25
+    },
+    {
+     "step": 136,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.4
+    },
+    {
+     "step": 140,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    },
+    {
+     "step": 144,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.4
+    },
+    {
+     "step": 148,
+     "len": 4,
+     "pitch": "F#6",
+     "vel": 0.25
+    },
+    {
+     "step": 152,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.4
+    },
+    {
+     "step": 156,
+     "len": 4,
+     "pitch": "D#7",
+     "vel": 0.25
+    },
+    {
+     "step": 160,
+     "len": 4,
+     "pitch": "C#6",
+     "vel": 0.4
+    },
+    {
+     "step": 164,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    },
+    {
+     "step": 168,
+     "len": 4,
+     "pitch": "C#7",
+     "vel": 0.4
+    },
+    {
+     "step": 172,
+     "len": 4,
+     "pitch": "E7",
+     "vel": 0.25
+    },
+    {
+     "step": 176,
+     "len": 4,
+     "pitch": "A5",
+     "vel": 0.4
+    },
+    {
+     "step": 180,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.25
+    },
+    {
+     "step": 184,
+     "len": 4,
+     "pitch": "A6",
+     "vel": 0.4
+    },
+    {
+     "step": 188,
+     "len": 4,
+     "pitch": "C#7",
+     "vel": 0.25
+    },
+    {
+     "step": 192,
+     "len": 4,
+     "pitch": "G#5",
+     "vel": 0.4
+    },
+    {
+     "step": 196,
+     "len": 4,
+     "pitch": "D#6",
+     "vel": 0.25
+    },
+    {
+     "step": 200,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.4
+    },
+    {
+     "step": 204,
+     "len": 4,
+     "pitch": "B6",
+     "vel": 0.25
+    },
+    {
+     "step": 208,
+     "len": 4,
+     "pitch": "E5",
+     "vel": 0.4
+    },
+    {
+     "step": 212,
+     "len": 4,
+     "pitch": "B5",
+     "vel": 0.25
+    },
+    {
+     "step": 216,
+     "len": 4,
+     "pitch": "E6",
+     "vel": 0.4
+    },
+    {
+     "step": 220,
+     "len": 4,
+     "pitch": "G#6",
+     "vel": 0.25
+    }
+   ]
+  },
+  {
+   "name": "Latido",
+   "instrument": "drums",
+   "volume": 0.32,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 192,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "rim",
+     "vel": 0.3
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "rim",
+     "vel": 0.3
+    },
+    {
+     "step": 168,
+     "len": 1,
+     "pitch": "rim",
+     "vel": 0.3
+    },
+    {
+     "step": 216,
+     "len": 1,
+     "pitch": "rim",
+     "vel": 0.3
+    }
+   ]
+  }
+ ]
+}

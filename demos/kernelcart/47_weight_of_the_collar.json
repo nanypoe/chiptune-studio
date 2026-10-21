@@ -1,0 +1,8241 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "47 · THE WEIGHT OF THE COLLAR / La Carga Conquistadora",
+ "bpm": 160,
+ "bars": 28,
+ "timeSig": "4/4",
+ "loopStart": 4,
+ "tracks": [
+  {
+   "name": "Guitarra",
+   "instrument": "guitar",
+   "volume": 0.56,
+   "pan": -0.35,
+   "fx": {
+    "drive": 0.45,
+    "reverb": 0.25
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 1,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 2,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 3,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 4,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 5,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 6,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 7,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 8,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 9,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 10,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 11,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 12,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 13,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 14,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 15,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 17,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 18,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 19,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 20,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 21,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 22,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 23,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 24,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 25,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 26,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 27,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 28,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 29,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 30,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 31,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 33,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 34,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 35,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 36,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 37,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 38,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 39,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 41,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 42,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 43,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 44,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 45,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 46,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 47,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 49,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 50,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 51,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 52,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 53,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 54,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 55,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 56,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 57,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 58,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 59,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 60,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 61,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 62,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 63,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 65,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 66,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 67,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 68,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 69,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 70,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 71,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 73,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 74,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 75,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 76,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 77,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 78,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 79,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 81,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 82,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 83,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 84,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 85,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 86,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 87,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 89,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 90,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 91,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 92,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 93,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 94,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 95,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 97,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 98,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 99,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 100,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 101,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 102,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 103,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 105,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 106,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 107,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 108,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 109,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 110,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 111,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 113,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 114,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 115,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 116,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 117,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 118,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 119,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 121,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 122,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 123,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 124,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 125,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 126,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 127,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 129,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 130,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 131,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 132,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 133,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 134,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 135,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 136,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 137,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 138,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 139,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 140,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 141,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 142,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 143,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 145,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 146,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 147,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 148,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 149,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 150,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 151,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 152,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 153,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 154,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 155,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 156,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 157,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 158,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 159,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 160,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 161,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 162,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 163,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 164,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 165,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 166,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 167,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 168,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 169,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 170,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 171,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 172,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 173,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 174,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 175,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 176,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 177,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 178,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 179,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 180,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 181,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 182,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 183,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 184,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 185,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 186,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 187,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 188,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 189,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 190,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 191,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 192,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 193,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 194,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 195,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 196,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 197,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 198,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 199,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 200,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 201,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 202,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 203,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 204,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 205,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 206,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 207,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 208,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 209,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 210,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 211,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 212,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 213,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 214,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 215,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 216,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 217,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 218,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 219,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 220,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 221,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 222,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 223,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 224,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 225,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 226,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 227,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 228,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 229,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 230,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 231,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 232,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 233,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 234,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 235,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 236,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 237,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 238,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 239,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 240,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 241,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 242,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 243,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 244,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 245,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 246,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 247,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 248,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 249,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 250,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 251,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 252,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 253,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 254,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 255,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 256,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 257,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 258,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 259,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 260,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 261,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 262,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 263,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 264,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 265,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 266,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 267,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 268,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 269,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 270,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 271,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 272,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 273,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 274,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 275,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 276,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 277,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 278,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 279,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 280,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 281,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 282,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 283,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 284,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 285,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 286,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 287,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 288,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 289,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 290,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 291,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 292,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 293,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 294,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 295,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 296,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 297,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 298,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 299,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 300,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 301,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 302,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 303,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 304,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 305,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 306,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 307,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 308,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 309,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 310,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 311,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 312,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 313,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 314,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 315,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 316,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 317,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 318,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 319,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 320,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 321,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 322,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 323,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 324,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 325,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 326,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 327,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 328,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 329,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 330,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 331,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 332,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 333,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 334,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 335,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 336,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 337,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 338,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 339,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 340,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 341,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 342,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 343,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 344,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 345,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 346,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 347,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 348,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 349,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 350,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 351,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 352,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 353,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 354,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 355,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 356,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 357,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 358,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 359,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 360,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 361,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 362,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 363,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 364,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 365,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 366,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 367,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 368,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 369,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 370,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 371,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 372,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 373,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 374,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 375,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 376,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 377,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 378,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 379,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 380,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 381,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 382,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 383,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 384,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 385,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 386,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 387,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 388,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 389,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 390,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 391,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 392,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 393,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 394,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 395,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 396,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 397,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 398,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.55
+    },
+    {
+     "step": 399,
+     "len": 1,
+     "pitch": "D3",
+     "vel": 0.35
+    },
+    {
+     "step": 400,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 401,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 402,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 403,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 404,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 405,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 406,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 407,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 408,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 409,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 410,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 411,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 412,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 413,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 414,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.55
+    },
+    {
+     "step": 415,
+     "len": 1,
+     "pitch": "A#3",
+     "vel": 0.35
+    },
+    {
+     "step": 416,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 417,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 418,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 419,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 420,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 421,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 422,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 423,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 424,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 425,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 426,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 427,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 428,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 429,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 430,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.55
+    },
+    {
+     "step": 431,
+     "len": 1,
+     "pitch": "F3",
+     "vel": 0.35
+    },
+    {
+     "step": 432,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 433,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 434,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 435,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 436,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 437,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 438,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 439,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 440,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 441,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 442,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 443,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 444,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 445,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    },
+    {
+     "step": 446,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.55
+    },
+    {
+     "step": 447,
+     "len": 1,
+     "pitch": "C3",
+     "vel": 0.35
+    }
+   ]
+  },
+  {
+   "name": "Bajo",
+   "instrument": "bass",
+   "volume": 0.72,
+   "pan": 0,
+   "fx": {
+    "drive": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 2,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 4,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 6,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 8,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 10,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 12,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 14,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 18,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 20,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 22,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 24,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 26,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 28,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 30,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 34,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 36,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 38,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 42,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 44,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 46,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 50,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 52,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 54,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 56,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 58,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 60,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 62,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 66,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 68,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 70,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 74,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 76,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 78,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 82,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 84,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 86,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 90,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 92,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 94,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 98,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 100,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 102,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 106,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 108,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 110,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 114,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 116,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 118,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 122,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 124,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 126,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 130,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 132,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 134,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 136,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 138,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 140,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 142,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 146,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 148,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 150,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 152,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 154,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 156,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 158,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 160,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 162,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 164,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 166,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 168,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 170,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 172,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 174,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 176,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 178,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 180,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 182,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 184,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 186,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 188,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 190,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 192,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 194,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 196,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 198,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 200,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 202,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 204,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 206,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 208,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 210,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 212,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 214,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 216,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 218,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 220,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 222,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 224,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 226,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 228,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 230,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 232,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 234,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 236,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 238,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 240,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 242,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 244,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 246,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 248,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 250,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 252,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 254,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 256,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 258,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 260,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 262,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 264,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 266,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 268,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 270,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 272,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 274,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 276,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 278,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 280,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 282,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 284,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 286,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 288,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 290,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 292,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 294,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 296,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 298,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 300,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 302,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 304,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 306,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 308,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 310,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 312,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 314,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 316,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 318,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 320,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 322,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 324,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 326,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 328,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 330,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 332,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 334,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 336,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 338,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 340,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 342,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 344,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 346,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 348,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 350,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 352,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 354,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 356,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 358,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 360,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 362,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 364,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 366,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 368,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 370,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 372,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 374,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 376,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 378,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 380,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 382,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 384,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 386,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 388,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 390,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 392,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 394,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 396,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.9
+    },
+    {
+     "step": 398,
+     "len": 1,
+     "pitch": "D1",
+     "vel": 0.7
+    },
+    {
+     "step": 400,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 402,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 404,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 406,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 408,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 410,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 412,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.9
+    },
+    {
+     "step": 414,
+     "len": 1,
+     "pitch": "A#1",
+     "vel": 0.7
+    },
+    {
+     "step": 416,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 418,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 420,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 422,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 424,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 426,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 428,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.9
+    },
+    {
+     "step": 430,
+     "len": 1,
+     "pitch": "F1",
+     "vel": 0.7
+    },
+    {
+     "step": 432,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 434,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 436,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 438,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 440,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 442,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    },
+    {
+     "step": 444,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.9
+    },
+    {
+     "step": 446,
+     "len": 1,
+     "pitch": "C2",
+     "vel": 0.7
+    }
+   ]
+  },
+  {
+   "name": "Batería",
+   "instrument": "drums",
+   "volume": 0.95,
+   "pan": 0,
+   "fx": {
+    "drive": 0.2,
+    "reverb": 0.2
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 2,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 4,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 6,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 8,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 10,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 12,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 14,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 1,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 3,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 5,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 7,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 9,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 11,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 13,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 15,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 18,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 20,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 22,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 24,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 26,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 28,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 30,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 17,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 19,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 21,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 23,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 25,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 27,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 29,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 31,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 34,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 36,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 38,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 42,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 44,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 46,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 33,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 35,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 37,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 39,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 41,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 43,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 45,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 47,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 50,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 52,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 54,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 56,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 58,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 60,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 62,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 49,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 51,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 53,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 55,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 57,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 59,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 61,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 63,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 66,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 68,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 70,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 74,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 76,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 78,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 65,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 67,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 69,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 71,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 73,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 75,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 77,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 79,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 82,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 84,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 86,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 90,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 92,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 94,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 81,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 83,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 85,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 87,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 89,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 91,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 93,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 95,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 98,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 100,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 102,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 106,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 108,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 110,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 97,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 99,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 101,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 103,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 105,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 107,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 109,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 111,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 114,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 116,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 118,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 122,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 124,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 126,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 113,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 115,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 117,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 119,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 121,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 123,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 125,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 127,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 130,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 132,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 134,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 136,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 138,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 140,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 142,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 129,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 131,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 133,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 135,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 137,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 139,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 141,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 143,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 146,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 148,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 150,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 152,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 154,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 156,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 158,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 145,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 147,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 149,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 151,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 153,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 155,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 157,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 159,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 160,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 162,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 164,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 166,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 168,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 170,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 172,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 174,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 161,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 163,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 165,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 167,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 169,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 171,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 173,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 175,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 176,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 178,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 180,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 182,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 184,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 186,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 188,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 190,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 177,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 179,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 181,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 183,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 185,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 187,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 189,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 191,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 192,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 194,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 196,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 198,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 200,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 202,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 204,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 206,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 193,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 195,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 197,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 199,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 201,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 203,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 205,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 207,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 208,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 210,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 212,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 214,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 216,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 218,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 220,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 222,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 209,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 211,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 213,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 215,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 217,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 219,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 221,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 223,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 224,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 226,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 228,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 230,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 232,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 234,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 236,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 238,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 225,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 227,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 229,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 231,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 233,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 235,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 237,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 239,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 240,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 242,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 244,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 246,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 248,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 250,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 252,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 254,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 241,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 243,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 245,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 247,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 249,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 251,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 253,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 255,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 256,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 258,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 260,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 262,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 264,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 266,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 268,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 270,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 257,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 259,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 261,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 263,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 265,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 267,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 269,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 271,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 272,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 274,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 276,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 278,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 280,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 282,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 284,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 286,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 273,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 275,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 277,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 279,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 281,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 283,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 285,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 287,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 288,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 290,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 292,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 294,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 296,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 298,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 300,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 302,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 289,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 291,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 293,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 295,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 297,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 299,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 301,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 303,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 304,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 306,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 308,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 310,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 312,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 314,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 316,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 318,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 305,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 307,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 309,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 311,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 313,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 315,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 317,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 319,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 320,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 322,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 324,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 326,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 328,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 330,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 332,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 334,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 321,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 323,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 325,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 327,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 329,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 331,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 333,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 335,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 321,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 325,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 329,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 333,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 336,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 338,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 340,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 342,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 344,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 346,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 348,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 350,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 337,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 339,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 341,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 343,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 345,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 347,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 349,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 351,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 337,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 341,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 345,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 349,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 352,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 354,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 356,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 358,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 360,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 362,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 364,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 366,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 353,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 355,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 357,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 359,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 361,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 363,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 365,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 367,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 353,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 357,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 361,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 365,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 368,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 370,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 372,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 374,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 376,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 378,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 380,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 382,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 369,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 371,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 373,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 375,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 377,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 379,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 381,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 383,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 369,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 373,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 377,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 381,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 384,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 386,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 388,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 390,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 392,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 394,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 396,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 398,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 385,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 387,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 389,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 391,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 393,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 395,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 397,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 399,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 385,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 389,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 393,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 397,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 400,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 402,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 404,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 406,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 408,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 410,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 412,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 414,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 401,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 403,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 405,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 407,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 409,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 411,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 413,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 415,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 401,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 405,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 409,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 413,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 416,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 418,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 420,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 422,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 424,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 426,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 428,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 430,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 417,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 419,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 421,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 423,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 425,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 427,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 429,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 431,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 417,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 421,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 425,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 429,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 432,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 434,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 436,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 438,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 440,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.95
+    },
+    {
+     "step": 442,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 444,
+     "len": 1,
+     "pitch": "snare",
+     "vel": 0.85
+    },
+    {
+     "step": 446,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.7
+    },
+    {
+     "step": 433,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 435,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 437,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 439,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 441,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 443,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 445,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 447,
+     "len": 1,
+     "pitch": "hat",
+     "vel": 0.22
+    },
+    {
+     "step": 433,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 437,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 441,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 445,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.6
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.6
+    },
+    {
+     "step": 192,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.6
+    },
+    {
+     "step": 320,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.6
+    },
+    {
+     "step": 384,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.6
+    },
+    {
+     "step": 188,
+     "len": 1,
+     "pitch": "tomhi",
+     "vel": 0.6
+    },
+    {
+     "step": 189,
+     "len": 1,
+     "pitch": "tommid",
+     "vel": 0.65
+    },
+    {
+     "step": 190,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.7
+    },
+    {
+     "step": 191,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.75
+    },
+    {
+     "step": 316,
+     "len": 1,
+     "pitch": "tomhi",
+     "vel": 0.6
+    },
+    {
+     "step": 317,
+     "len": 1,
+     "pitch": "tommid",
+     "vel": 0.65
+    },
+    {
+     "step": 318,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.7
+    },
+    {
+     "step": 319,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.75
+    },
+    {
+     "step": 444,
+     "len": 1,
+     "pitch": "tomhi",
+     "vel": 0.6
+    },
+    {
+     "step": 445,
+     "len": 1,
+     "pitch": "tommid",
+     "vel": 0.65
+    },
+    {
+     "step": 446,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.7
+    },
+    {
+     "step": 447,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.75
+    }
+   ]
+  },
+  {
+   "name": "Voz",
+   "instrument": "pulse",
+   "volume": 0.48,
+   "pan": 0,
+   "fx": {
+    "crush": 0.25,
+    "reverb": 0.35
+   },
+   "notes": [
+    {
+     "step": 64,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 68,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 70,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 72,
+     "len": 4,
+     "pitch": "E3"
+    },
+    {
+     "step": 76,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 80,
+     "len": 4,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 84,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 86,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 88,
+     "len": 4,
+     "pitch": "E3"
+    },
+    {
+     "step": 92,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 98,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 100,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 102,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 104,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 108,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 112,
+     "len": 4,
+     "pitch": "C3"
+    },
+    {
+     "step": 116,
+     "len": 2,
+     "pitch": "E3"
+    },
+    {
+     "step": 118,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 120,
+     "len": 8,
+     "pitch": "C3"
+    },
+    {
+     "step": 128,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 132,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 134,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 136,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 140,
+     "len": 4,
+     "pitch": "G3"
+    },
+    {
+     "step": 144,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 148,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 150,
+     "len": 2,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 152,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 156,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 160,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 164,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 166,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 168,
+     "len": 4,
+     "pitch": "E3"
+    },
+    {
+     "step": 172,
+     "len": 4,
+     "pitch": "C3"
+    },
+    {
+     "step": 176,
+     "len": 4,
+     "pitch": "G3"
+    },
+    {
+     "step": 180,
+     "len": 2,
+     "pitch": "E3"
+    },
+    {
+     "step": 182,
+     "len": 2,
+     "pitch": "C3"
+    },
+    {
+     "step": 184,
+     "len": 8,
+     "pitch": "C3"
+    },
+    {
+     "step": 192,
+     "len": 4,
+     "pitch": "D4"
+    },
+    {
+     "step": 196,
+     "len": 2,
+     "pitch": "A3"
+    },
+    {
+     "step": 198,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 200,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 204,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 208,
+     "len": 4,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 212,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 214,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 216,
+     "len": 4,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 220,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 224,
+     "len": 4,
+     "pitch": "F4"
+    },
+    {
+     "step": 228,
+     "len": 2,
+     "pitch": "E4"
+    },
+    {
+     "step": 230,
+     "len": 2,
+     "pitch": "D4"
+    },
+    {
+     "step": 232,
+     "len": 4,
+     "pitch": "C4"
+    },
+    {
+     "step": 236,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 240,
+     "len": 4,
+     "pitch": "G3"
+    },
+    {
+     "step": 244,
+     "len": 2,
+     "pitch": "E3"
+    },
+    {
+     "step": 246,
+     "len": 2,
+     "pitch": "C3"
+    },
+    {
+     "step": 248,
+     "len": 8,
+     "pitch": "G3"
+    },
+    {
+     "step": 256,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 260,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 262,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 264,
+     "len": 4,
+     "pitch": "E3"
+    },
+    {
+     "step": 268,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 272,
+     "len": 4,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 276,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 278,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 280,
+     "len": 4,
+     "pitch": "E3"
+    },
+    {
+     "step": 284,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 288,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 292,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 294,
+     "len": 2,
+     "pitch": "A3"
+    },
+    {
+     "step": 296,
+     "len": 4,
+     "pitch": "C4"
+    },
+    {
+     "step": 300,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 304,
+     "len": 4,
+     "pitch": "C3"
+    },
+    {
+     "step": 308,
+     "len": 2,
+     "pitch": "E3"
+    },
+    {
+     "step": 310,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 312,
+     "len": 8,
+     "pitch": "C3"
+    },
+    {
+     "step": 320,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 322,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 324,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 326,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 328,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 332,
+     "len": 4,
+     "pitch": "G3"
+    },
+    {
+     "step": 336,
+     "len": 2,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 338,
+     "len": 2,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 340,
+     "len": 2,
+     "pitch": "D3"
+    },
+    {
+     "step": 342,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 344,
+     "len": 4,
+     "pitch": "D3"
+    },
+    {
+     "step": 348,
+     "len": 4,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 352,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 354,
+     "len": 2,
+     "pitch": "F3"
+    },
+    {
+     "step": 356,
+     "len": 2,
+     "pitch": "A3"
+    },
+    {
+     "step": 358,
+     "len": 2,
+     "pitch": "C4"
+    },
+    {
+     "step": 360,
+     "len": 4,
+     "pitch": "A3"
+    },
+    {
+     "step": 364,
+     "len": 4,
+     "pitch": "F3"
+    },
+    {
+     "step": 368,
+     "len": 2,
+     "pitch": "C4"
+    },
+    {
+     "step": 370,
+     "len": 2,
+     "pitch": "G3"
+    },
+    {
+     "step": 372,
+     "len": 2,
+     "pitch": "E3"
+    },
+    {
+     "step": 374,
+     "len": 2,
+     "pitch": "C3"
+    },
+    {
+     "step": 376,
+     "len": 8,
+     "pitch": "C3"
+    },
+    {
+     "step": 384,
+     "len": 8,
+     "pitch": "D4"
+    },
+    {
+     "step": 392,
+     "len": 8,
+     "pitch": "D3"
+    },
+    {
+     "step": 400,
+     "len": 8,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 408,
+     "len": 8,
+     "pitch": "Bb3"
+    },
+    {
+     "step": 416,
+     "len": 8,
+     "pitch": "F4"
+    },
+    {
+     "step": 424,
+     "len": 8,
+     "pitch": "F3"
+    },
+    {
+     "step": 432,
+     "len": 8,
+     "pitch": "C4"
+    },
+    {
+     "step": 440,
+     "len": 4,
+     "pitch": "G3"
+    },
+    {
+     "step": 444,
+     "len": 4,
+     "pitch": "E3"
+    }
+   ]
+  },
+  {
+   "name": "Metal",
+   "instrument": "brass",
+   "volume": 0.3,
+   "pan": 0.3,
+   "fx": {
+    "drive": 0.4,
+    "reverb": 0.3
+   },
+   "notes": [
+    {
+     "step": 64,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 70,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.35
+    },
+    {
+     "step": 74,
+     "len": 2,
+     "pitch": "A4",
+     "vel": 0.35
+    },
+    {
+     "step": 78,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 192,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 198,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.35
+    },
+    {
+     "step": 202,
+     "len": 2,
+     "pitch": "A4",
+     "vel": 0.35
+    },
+    {
+     "step": 206,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 320,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 326,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.35
+    },
+    {
+     "step": 330,
+     "len": 2,
+     "pitch": "A4",
+     "vel": 0.35
+    },
+    {
+     "step": 334,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 384,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    },
+    {
+     "step": 390,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.35
+    },
+    {
+     "step": 394,
+     "len": 2,
+     "pitch": "A4",
+     "vel": 0.35
+    },
+    {
+     "step": 398,
+     "len": 2,
+     "pitch": "D4",
+     "vel": 0.4
+    }
+   ]
+  },
+  {
+   "name": "Coro",
+   "instrument": "pad",
+   "volume": 0.3,
+   "pan": 0.1,
+   "fx": {
+    "reverb": 0.55
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 192,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 208,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 224,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 224,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 224,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 240,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 240,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 240,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 256,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 256,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 256,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 272,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 272,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 272,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 288,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 288,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 288,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 304,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 304,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 304,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 320,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 320,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 320,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 336,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 336,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 336,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 352,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 352,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 352,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 368,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 368,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 368,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 384,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 384,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 384,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 400,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 400,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 400,
+     "len": 16,
+     "pitch": "F4"
+    },
+    {
+     "step": 416,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 416,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 416,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 432,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 432,
+     "len": 16,
+     "pitch": "E3"
+    },
+    {
+     "step": 432,
+     "len": 16,
+     "pitch": "G3"
+    }
+   ]
+  },
+  {
+   "name": "Señal",
+   "instrument": "chirp",
+   "volume": 0.22,
+   "pan": 0.4,
+   "fx": {
+    "crush": 0.3,
+    "delay": 0.25
+   },
+   "notes": [
+    {
+     "step": 67,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 91,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    },
+    {
+     "step": 131,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 155,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    },
+    {
+     "step": 195,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 219,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    },
+    {
+     "step": 259,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 283,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    },
+    {
+     "step": 323,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 347,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    },
+    {
+     "step": 387,
+     "len": 1,
+     "pitch": "D6",
+     "vel": 0.25,
+     "slide": "A6"
+    },
+    {
+     "step": 411,
+     "len": 1,
+     "pitch": "F6",
+     "vel": 0.22,
+     "slide": "C7"
+    }
+   ]
+  }
+ ]
+}

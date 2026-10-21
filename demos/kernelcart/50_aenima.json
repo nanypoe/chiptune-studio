@@ -1,0 +1,850 @@
+{
+ "format": "chiptune-studio",
+ "version": 2,
+ "title": "50 · AENIMA / La Mente Orgánica del Core",
+ "bpm": 60,
+ "bars": 12,
+ "timeSig": "4/4",
+ "loopStart": 0,
+ "tracks": [
+  {
+   "name": "Aenima",
+   "instrument": "pad",
+   "volume": 0.5,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.8,
+    "chorus": 0.4
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A#2"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "F3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "F#3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A3"
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "C4"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "D4"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "D#3"
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "G3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "A#3"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "D4"
+    }
+   ]
+  },
+  {
+   "name": "Ópera",
+   "instrument": "pulse",
+   "volume": 0.45,
+   "pan": 0.1,
+   "fx": {
+    "reverb": 0.6,
+    "delay": 0.25
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "G4"
+    },
+    {
+     "step": 8,
+     "len": 8,
+     "pitch": "Bb4"
+    },
+    {
+     "step": 16,
+     "len": 8,
+     "pitch": "Eb5"
+    },
+    {
+     "step": 24,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 32,
+     "len": 8,
+     "pitch": "C5"
+    },
+    {
+     "step": 40,
+     "len": 8,
+     "pitch": "Eb5"
+    },
+    {
+     "step": 48,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 56,
+     "len": 4,
+     "pitch": "F#5"
+    },
+    {
+     "step": 60,
+     "len": 4,
+     "pitch": "A5"
+    },
+    {
+     "step": 64,
+     "len": 12,
+     "pitch": "G5"
+    },
+    {
+     "step": 76,
+     "len": 4,
+     "pitch": "F5"
+    },
+    {
+     "step": 80,
+     "len": 8,
+     "pitch": "Eb5"
+    },
+    {
+     "step": 88,
+     "len": 8,
+     "pitch": "G5"
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "Bb4"
+    },
+    {
+     "step": 104,
+     "len": 8,
+     "pitch": "D5"
+    },
+    {
+     "step": 112,
+     "len": 8,
+     "pitch": "A4"
+    },
+    {
+     "step": 120,
+     "len": 4,
+     "pitch": "F#4"
+    },
+    {
+     "step": 124,
+     "len": 4,
+     "pitch": "D5"
+    },
+    {
+     "step": 128,
+     "len": 8,
+     "pitch": "G5"
+    },
+    {
+     "step": 136,
+     "len": 8,
+     "pitch": "Bb5"
+    },
+    {
+     "step": 144,
+     "len": 8,
+     "pitch": "Eb5"
+    },
+    {
+     "step": 152,
+     "len": 8,
+     "pitch": "C5"
+    },
+    {
+     "step": 160,
+     "len": 8,
+     "pitch": "C5"
+    },
+    {
+     "step": 168,
+     "len": 8,
+     "pitch": "G4"
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "G4"
+    }
+   ]
+  },
+  {
+   "name": "Coro",
+   "instrument": "strings",
+   "volume": 0.4,
+   "pan": 0.2,
+   "fx": {
+    "reverb": 0.7
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.28
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "D#4",
+     "vel": 0.36
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "A#4",
+     "vel": 0.28
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "C4",
+     "vel": 0.36
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D4",
+     "vel": 0.36
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.28
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "D#4",
+     "vel": 0.36
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "A#4",
+     "vel": 0.28
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "A#3",
+     "vel": 0.36
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "F4",
+     "vel": 0.28
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D4",
+     "vel": 0.36
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "A4",
+     "vel": 0.28
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.28
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "D#4",
+     "vel": 0.36
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "A#4",
+     "vel": 0.28
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C4",
+     "vel": 0.36
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.28
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "G4",
+     "vel": 0.36
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "D5",
+     "vel": 0.28
+    }
+   ]
+  },
+  {
+   "name": "Bajo",
+   "instrument": "bass",
+   "volume": 0.55,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.35
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.55
+    },
+    {
+     "step": 16,
+     "len": 16,
+     "pitch": "Eb2",
+     "vel": 0.55
+    },
+    {
+     "step": 32,
+     "len": 16,
+     "pitch": "C2",
+     "vel": 0.55
+    },
+    {
+     "step": 48,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.55
+    },
+    {
+     "step": 64,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.55
+    },
+    {
+     "step": 80,
+     "len": 16,
+     "pitch": "Eb2",
+     "vel": 0.55
+    },
+    {
+     "step": 96,
+     "len": 16,
+     "pitch": "Bb1",
+     "vel": 0.55
+    },
+    {
+     "step": 112,
+     "len": 16,
+     "pitch": "D2",
+     "vel": 0.55
+    },
+    {
+     "step": 128,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.55
+    },
+    {
+     "step": 144,
+     "len": 16,
+     "pitch": "Eb2",
+     "vel": 0.55
+    },
+    {
+     "step": 160,
+     "len": 16,
+     "pitch": "C2",
+     "vel": 0.55
+    },
+    {
+     "step": 176,
+     "len": 16,
+     "pitch": "G1",
+     "vel": 0.55
+    }
+   ]
+  },
+  {
+   "name": "Campana",
+   "instrument": "bell",
+   "volume": 0.3,
+   "pan": 0.45,
+   "fx": {
+    "reverb": 0.8
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 8,
+     "pitch": "G5",
+     "vel": 0.4
+    },
+    {
+     "step": 96,
+     "len": 8,
+     "pitch": "D5",
+     "vel": 0.4
+    },
+    {
+     "step": 184,
+     "len": 8,
+     "pitch": "G5",
+     "vel": 0.35
+    }
+   ]
+  },
+  {
+   "name": "Aire",
+   "instrument": "chirp",
+   "volume": 0.22,
+   "pan": -0.4,
+   "fx": {
+    "delay": 0.6,
+    "reverb": 0.7
+   },
+   "notes": [
+    {
+     "step": 36,
+     "len": 4,
+     "pitch": "D6",
+     "vel": 0.26,
+     "slide": "G5"
+    },
+    {
+     "step": 44,
+     "len": 3,
+     "pitch": "Bb5",
+     "vel": 0.24,
+     "slide": "Eb5"
+    },
+    {
+     "step": 84,
+     "len": 4,
+     "pitch": "D6",
+     "vel": 0.26,
+     "slide": "G5"
+    },
+    {
+     "step": 92,
+     "len": 3,
+     "pitch": "Bb5",
+     "vel": 0.24,
+     "slide": "Eb5"
+    },
+    {
+     "step": 148,
+     "len": 4,
+     "pitch": "D6",
+     "vel": 0.26,
+     "slide": "G5"
+    },
+    {
+     "step": 156,
+     "len": 3,
+     "pitch": "Bb5",
+     "vel": 0.24,
+     "slide": "Eb5"
+    }
+   ]
+  },
+  {
+   "name": "Percusión",
+   "instrument": "drums",
+   "volume": 0.35,
+   "pan": 0,
+   "fx": {
+    "reverb": 0.6
+   },
+   "notes": [
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 8,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 0,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 16,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 24,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 32,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 40,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 56,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 48,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 64,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 72,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 80,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 88,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 104,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 96,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 112,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 120,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 128,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 136,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 152,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 144,
+     "len": 1,
+     "pitch": "crash",
+     "vel": 0.35
+    },
+    {
+     "step": 160,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 168,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    },
+    {
+     "step": 176,
+     "len": 1,
+     "pitch": "kick",
+     "vel": 0.4
+    },
+    {
+     "step": 184,
+     "len": 1,
+     "pitch": "tomlo",
+     "vel": 0.3
+    }
+   ]
+  }
+ ]
+}
