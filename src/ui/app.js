@@ -5,20 +5,23 @@
   const SK = 'cs2_song', DK = 'cs2_done2';
   let song, sel = 0, oct = 4, len = 2, z = 1, sx = 0, cur = 0, ls = 0, rec = false, drag = null, G = {}, last = '', hist = [], hi = -1, clip = null, tab = 'lec', stT = 0;
   let done = new Set(JSON.parse(localStorage.getItem(DK) || '[]'));
+  let demos = [], demoNet = [], demoLocal = (() => { try { const a = JSON.parse(localStorage.getItem('cs2_demos') || '[]'); return Array.isArray(a) ? a.filter((d) => d && d.song && Array.isArray(d.song.tracks)) : []; } catch (e) { return []; } })();
   const tr = () => song.tracks[sel], isD = () => tr().instrument === 'drums', spb = () => CS.sig(song).spb, total = () => song.bars * spb(), LEN = () => (len === 'bar' ? spb() : len);
   const dots = () => [...document.querySelectorAll('#mon .dots i')];
   const rootV = () => +$('#root').value, sc = () => T.scales[$('#scale').value], barOf = () => Math.floor(cur / spb());
+  const tempoPrev = (bar) => { let b = song.bpm; for (const e of song.tempo || []) { if (e.bar >= bar) break; b = e.bpm; } return b; };
   const rows = () => isD() ? [...CS.drumOrder].reverse().map((k) => ({ p: k, l: CS.getInst('drums').pieces[k].name }))
     : Array.from({ length: 12 }, (_, i) => { const m = 12 * (oct + 1) + 11 - i; return { p: name(m), m, l: rowLabel(m) }; });
   const rowLabel = (m) => { const pc = m % 12; if (!CS.NOTE[pc].includes('#')) return name(m); const id = $('#scale').value; if (T.spellMap(rootV(), id)?.[pc] || T.pref(rootV(), id)) return T.spell(m, rootV(), id).full; return CS.NOTE[pc] + '/' + T.FL[pc] + (Math.floor(m / 12) - 1); };
   const hear = (p, v = 1, n) => E.preview(song, tr(), p, 0.3, v, n);
   const say = (t) => { $('#st').textContent = t; clearTimeout(stT); stT = setTimeout(() => ($('#st').textContent = ''), 2800); };
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const region = () => { if (!$('#lp').checked) return null; const a = clamp((+$('#lpA').value || 1) - 1, 0, song.bars - 1), n = clamp(+$('#lpN').value || 1, 1, song.bars - a); return { from: a * spb(), to: (a + n) * spb() }; };
 
   /* ---------- Historial (deshacer / rehacer) ---------- */
   const upBtns = () => { $('#undo').disabled = hi <= 0; $('#redo').disabled = hi >= hist.length - 1; };
   function commit() { const s = JSON.stringify(song); if (hist[hi] === s) return; hist = hist.slice(0, hi + 1); hist.push(s); if (hist.length > 100) hist.shift(); hi = hist.length - 1; upBtns(); }
-  function restore(i) { hi = clamp(i, 0, hist.length - 1); Object.assign(song, JSON.parse(hist[hi])); sel = clamp(sel, 0, song.tracks.length - 1); cur = clamp(cur, 0, total() - 1); E.refresh(song); renderAll(); save(); upBtns(); }
+  function restore(i) { hi = clamp(i, 0, hist.length - 1); const s = JSON.parse(hist[hi]); delete song.tempo; Object.assign(song, s); sel = clamp(sel, 0, song.tracks.length - 1); cur = clamp(cur, 0, total() - 1); E.refresh(song); renderAll(); save(); upBtns(); }
   const undo = () => { if (hi > 0) { restore(hi - 1); say('Deshecho'); } }, redo = () => { if (hi < hist.length - 1) { restore(hi + 1); say('Rehecho'); } };
   $('#undo').onclick = undo; $('#redo').onclick = redo;
 
@@ -29,6 +32,7 @@
     const x = c.getContext('2d'), cs = getComputedStyle(document.body), v = (n) => cs.getPropertyValue(n).trim();
     const R = rows(), LW = 84, RU = 22, RH = (H - RU) / 12, N = total(), SW = Math.max(2, (W - LW) / N) * z, D = isD(), SP = spb(), BT = CS.sig(song).beat;
     sx = clamp(sx, 0, Math.max(0, N * SW - (W - LW))); G = { W, H, LW, RU, RH, SW, R };
+    const tempoAt = {}; (song.tempo || []).forEach((e) => (tempoAt[e.bar] = e));
     const s7 = sc(), rt = rootV(), col = CS.getInst(tr().instrument).color;
     x.clearRect(0, 0, W, H); x.textBaseline = 'middle';
     R.forEach((r, i) => {
@@ -46,7 +50,12 @@
     for (let s = 0; s <= N; s++) {
       const bar = s % SP === 0, beat = s % BT === 0; if (!bar && !beat && SW < 9) continue;
       x.fillStyle = bar ? v('--mut') : beat ? v('--line') : v('--line') + '66'; x.fillRect(s * SW, bar ? 0 : RU, 1, H);
-      if (bar && s < N) { x.fillStyle = v('--tx'); x.font = '12px system-ui'; x.fillText(s / SP + 1, s * SW + 4, 11); }
+      const te = bar && s < N ? tempoAt[s / SP] : null;
+      if (te) { x.fillStyle = '#ffc83d88'; x.fillRect(s * SW, 0, 1, H); }
+      if (bar && s < N) {
+        const tag = te ? (SW * SP >= 46 ? ` ♩${Math.round(te.bpm)}${te.ramp ? (te.bpm >= tempoPrev(s / SP) ? '↗' : '↘') : ''}` : ' ♩') : '';
+        x.fillStyle = te ? v('--acc') : v('--tx'); x.font = '12px system-ui'; x.fillText(s / SP + 1 + tag, s * SW + 4, 11);
+      }
     }
     let up = 0, dn = 0;
     for (const n of tr().notes) {
@@ -175,7 +184,7 @@
   $('#rec').onchange = (e) => (rec = e.target.checked);
   addEventListener('keydown', (e) => {
     if (e.ctrlKey || e.metaKey) { if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return; if (e.code === 'KeyZ') { e.preventDefault(); e.shiftKey ? redo() : undo(); } else if (e.code === 'KeyY') { e.preventDefault(); redo(); } return; }
-    if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || e.altKey || $('#dlg').open) return;
+    if (/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || e.altKey || document.querySelector('dialog[open]')) return;
     if (e.code === 'Space') { e.preventDefault(); toggle(); } else if (e.code === 'KeyZ') setOct(-1); else if (e.code === 'KeyX') setOct(1); else if (e.code === 'Home') { cur = 0; sx = 0; draw(); }
     else { const i = KEYS.indexOf(e.code); if (i >= 0 && !e.repeat) key(i); }
   });
@@ -305,11 +314,11 @@
   $('#play').onclick = toggle; $('#stop').onclick = () => E.stop();
   $('#metro').onchange = (e) => (E.metro = e.target.checked); $('#vol').oninput = (e) => E.setVol(+e.target.value);
   $('#lp').onchange = $('#lpA').onchange = $('#lpN').onchange = () => { if (E.playing) E.stop(); draw(); };
-  $('#bpm').onchange = (e) => { song.bpm = clamp(+e.target.value || 120, 40, 240); e.target.value = song.bpm; commit(); save(); };
+  $('#bpm').onchange = (e) => { song.bpm = clamp(Math.round(+e.target.value || 120), 40, 240); e.target.value = song.bpm; if ($('#tdlg').open) renderTempo(); syncTempoBtn(); commit(); save(); };
   $('#title').oninput = (e) => { song.title = e.target.value; save(); }; $('#title').onchange = commit;
-  const setBars = (n) => { song.bars = clamp(n, 1, 64); const t = total(); for (const k of song.tracks) k.notes = k.notes.filter((x) => x.step < t).map((x) => ({ ...x, len: Math.min(x.len, t - x.step) })); cur = Math.min(cur, t - 1); song.loopStart = Math.min(song.loopStart || 0, song.bars - 1); z = 1; sx = 0; changed(); };
+  const setBars = (n) => { song.bars = clamp(n, 1, 64); const t = total(); for (const k of song.tracks) k.notes = k.notes.filter((x) => x.step < t).map((x) => ({ ...x, len: Math.min(x.len, t - x.step) })); cur = Math.min(cur, t - 1); song.loopStart = Math.min(song.loopStart || 0, song.bars - 1); if (song.tempo) { song.tempo = song.tempo.filter((e) => e.bar < song.bars); if (!song.tempo.length) delete song.tempo; } z = 1; sx = 0; changed(); };
   $('#barP').onclick = () => setBars(song.bars + 1); $('#barM').onclick = () => setBars(song.bars - 1);
-  $('#dup').onclick = () => { if (song.bars > 32) return say('Máximo 64 compases'); const o = total(); for (const t of song.tracks) t.notes.push(...t.notes.map((n) => ({ ...n, step: n.step + o }))); setBars(song.bars * 2); };
+  $('#dup').onclick = () => { if (song.bars > 32) return say('Máximo 64 compases'); const o = total(), b0 = song.bars; for (const t of song.tracks) t.notes.push(...t.notes.map((n) => ({ ...n, step: n.step + o }))); if (song.tempo && song.tempo.length) song.tempo = song.tempo.concat(song.tempo.map((e) => ({ ...e, bar: e.bar + b0 }))); setBars(song.bars * 2); };
 
   /* ---------- Compás (4/4, 3/4, 6/8…): las notas se acomodan compás por compás ---------- */
   function setTS(v) {
@@ -319,12 +328,160 @@
   }
   $('#ts').onchange = (e) => setTS(e.target.value);
 
+  /* ---------- Tempo por compás: saltos y acelerandos/ritardandos ---------- */
+  function syncTempoBtn() {
+    const n = (song.tempo || []).length;
+    $('#tempoBtn').textContent = n ? `♩ ${n}` : '♩';
+    $('#tempoBtn').classList.toggle('on', n > 0);
+    $('#tempoBtn').title = n ? `${n} cambio(s) de tempo por compás. Clic para editarlos` : 'Mapa de tempo: cambios de velocidad por compás (saltos o acelerando/ritardando)';
+  }
+  const tempoText = (tm, i) => {
+    const e = tm[i], pb = i ? tm[i - 1].bar : 0, prev = i ? tm[i - 1].bpm : song.bpm;
+    return e.ramp ? `${e.bpm >= prev ? 'sube' : 'baja'} de ${Math.round(prev)} a ${Math.round(e.bpm)} BPM entre los compases ${pb + 1} y ${e.bar + 1}` : `salta a ${Math.round(e.bpm)} BPM al empezar el compás ${e.bar + 1}`;
+  };
+  function renderTempo() {
+    const maxB = Math.max(2, song.bars);
+    $('#tBase').value = song.bpm;
+    $('#tBar').max = maxB;
+    $('#tBar').value = clamp(Math.round(+$('#tBar').value || 2), 2, maxB);
+    $('#tBpm').value = clamp(Math.round(+$('#tBpm').value || 140), 40, 240);
+    $('#tAdd').disabled = song.bars < 2;
+    const tm = song.tempo || [];
+    $('#tList').innerHTML = tm.length ? tm.map((e, i) => {
+      return `<div class="sec trow"><b>Compás ${e.bar + 1}</b><label>BPM <input type="number" data-tb="${i}" min="40" max="240" value="${Math.round(e.bpm)}"></label><label class="tg" title="Gradual: la velocidad cambia poco a poco desde el cambio anterior hasta este compás (acelerando o ritardando)"><input type="checkbox" data-tr="${i}" ${e.ramp ? 'checked' : ''}> Gradual</label><span class="hint">${tempoText(tm, i)}</span><button data-tx="${i}" title="Quitar este cambio de tempo">✕</button></div>`;
+    }).join('') : `<p class="hint">Sin cambios: la canción va a <b>${song.bpm} BPM</b> de principio a fin.</p>`;
+  }
+  const addTempo = () => {
+    if (song.bars < 2) return say('Añade al menos 2 compases para poder cambiar de tempo');
+    const bar = clamp(Math.round(+$('#tBar').value || 2), 2, song.bars) - 1;
+    const bpm = clamp(Math.round(+$('#tBpm').value || song.bpm), 40, 240);
+    song.tempo = (song.tempo || []).filter((e) => e.bar !== bar);
+    const e = { bar, bpm }; if ($('#tRamp').checked) e.ramp = true;
+    song.tempo.push(e); song.tempo.sort((a, b) => a.bar - b.bar);
+    say(`Compás ${bar + 1}: ${bpm} BPM${e.ramp ? ' (gradual)' : ''}${E.playing ? ' — se aplica en la reproducción' : ''}`);
+    changed(); renderTempo();
+  };
+  $('#tempoBtn').onclick = () => { renderTempo(); $('#tdlg').showModal(); };
+  $('#tClose').onclick = () => $('#tdlg').close();
+  $('#tAdd').onclick = addTempo;
+  $('#tBpm').onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); addTempo(); } };
+  $('#tBase').onchange = (e) => { song.bpm = clamp(Math.round(+e.target.value || 120), 40, 240); e.target.value = song.bpm; $('#bpm').value = song.bpm; changed(); renderTempo(); };
+  $('#tList').onchange = (e) => {
+    const i = +(e.target.dataset.tb ?? e.target.dataset.tr ?? -1); if (i < 0 || !song.tempo || !song.tempo[i]) return;
+    const t = song.tempo[i];
+    if (e.target.dataset.tb !== undefined) { t.bpm = clamp(Math.round(+e.target.value || t.bpm), 40, 240); e.target.value = t.bpm; }
+    else { if (e.target.checked) t.ramp = true; else delete t.ramp; }
+    const hint = e.target.closest('.trow')?.querySelector('.hint'); if (hint) hint.textContent = tempoText(song.tempo, i);
+    changed();
+  };
+  $('#tList').onclick = (e) => {
+    const b = e.target.closest('[data-tx]'); if (!b) return;
+    song.tempo.splice(+b.dataset.tx, 1); if (!song.tempo.length) delete song.tempo;
+    say('Cambio de tempo eliminado'); changed(); renderTempo();
+  };
+
   /* ---------- Menú: archivo, JSON, IA ---------- */
   const msg = (t) => ($('#msg').textContent = t);
   const dl = (n, b) => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = n; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
   const slug = () => (song.title || 'cancion').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'cancion';
-  const load = (s) => { E.stop(); Object.assign(song, s); sel = 0; cur = 0; z = 1; sx = 0; renderAll(); commit(); save(); };
-  $('#menu').onclick = () => $('#dlg').showModal(); $('#close').onclick = () => $('#dlg').close();
+  const load = (s) => { E.stop(); delete song.tempo; Object.assign(song, s); sel = 0; cur = 0; z = 1; sx = 0; renderAll(); commit(); save(); };
+
+  /* ---------- Demos: cualquier .json de la carpeta demos/ ---------- */
+  const DEMOK = 'cs2_demos';
+  const saveLocalDemos = () => { try { localStorage.setItem(DEMOK, JSON.stringify(demoLocal)); } catch (e) { /* sin almacenamiento */ } };
+  function mergeDemos() {
+    const M = new Map(), put = (d, source) => {
+      if (!d || !d.song || !Array.isArray(d.song.tracks)) return;
+      M.set(d.file || d.name || 'demo', { ...d, source });
+    };
+    for (const d of window.CS_DEMOS_BUILTIN || []) put(d, 'incluida');
+    for (const d of demoNet) put(d, 'carpeta');
+    for (const d of demoLocal) put(d, 'local');
+    demos = [...M.values()].sort((a, b) => String(a.name || a.file).localeCompare(String(b.name || b.file), 'es'));
+    renderDemos();
+  }
+  function renderDemos() {
+    const L = $('#demoList'); if (!L) return;
+    if (!demos.length) {
+      L.innerHTML = '<p class="hint">No hay demos todavía. Deja un <b>.json</b> en la carpeta <b>demos/</b> y pulsa «Buscar demos»; con <b>node tools/serve.js</b> se detecta solo.</p>';
+      return;
+    }
+    L.innerHTML = demos.map((d) => {
+      const s = d.song, key = d.file || d.name || 'demo', extra = [`${s.bpm} BPM`, `${s.bars} compases`, s.timeSig];
+      if (s.tempo && s.tempo.length) extra.push(`${s.tempo.length} cambio${s.tempo.length === 1 ? '' : 's'} de tempo`);
+      const src = d.source === 'local' ? ' · cargada por ti' : d.source === 'carpeta' ? ' · carpeta demos/' : ' · incluida';
+      return `<div class="demo"><span><b>${esc(d.name || d.file)}</b><small>${esc(d.file || '')} · ${esc(extra.join(' · '))}${esc(src)}</small></span>` +
+        `<span class="dbtns"><button data-demo="${esc(key)}" title="Cargar esta demo en el estudio">Cargar</button>${d.source === 'local' ? `<button class="del" data-del="${esc(key)}" title="Quitar esta demo de la lista guardada">✕</button>` : ''}</span></div>`;
+    }).join('');
+  }
+  const demoCache = new Map();
+  async function refreshDemos(force = false) {
+    demoNet = [];
+    if (force) demoCache.clear();
+    if (location.protocol === 'http:' || location.protocol === 'https:') {
+      const names = new Set();
+      const addName = (x) => {
+        const raw = String(x).split('/').pop().split(/[?#]/)[0];
+        try { names.add(decodeURIComponent(raw)); } catch (e) { names.add(raw); }
+      };
+      try {
+        const r = await fetch('demos/index.json', { cache: 'no-store' });
+        if (r.ok) { const m = await r.json(); (Array.isArray(m) ? m : m.demos || []).forEach(addName); }
+      } catch (e) { /* sin manifiesto */ }
+      try {
+        const r = await fetch('demos/', { cache: 'no-store' });
+        if (r.ok) {
+          const doc = new DOMParser().parseFromString(await r.text(), 'text/html');
+          doc.querySelectorAll('a[href]').forEach((a) => {
+            const h = a.getAttribute('href') || '';
+            if (/\.json(?:[?#]|$)/i.test(h)) addName(h);
+          });
+        }
+      } catch (e) { /* sin listado */ }
+      for (const k of demoCache.keys()) if (!names.has(k)) demoCache.delete(k);
+      for (const file of names) {
+        if (!/\.json$/i.test(file) || file === 'index.json') continue;
+        if (!force && demoCache.has(file)) { demoNet.push(demoCache.get(file)); continue; }
+        try {
+          const r = await fetch('demos/' + encodeURIComponent(file), { cache: 'no-store' });
+          if (!r.ok) continue;
+          const s = CS.song.normalize(await r.json());
+          const d = { file, name: s.title, song: s };
+          demoNet.push(d); demoCache.set(file, d);
+        } catch (e) { console.warn('Demo no válida:', file, e.message); }
+      }
+    }
+    mergeDemos();
+  }
+  async function addDemoFiles(files) {
+    let ok = 0, bad = 0;
+    for (const f of files) {
+      if (!/\.json$/i.test(f.name) || f.name.toLowerCase() === 'index.json') continue;
+      try {
+        const s = CS.song.normalize(JSON.parse(await f.text()));
+        demoLocal = demoLocal.filter((d) => d.file !== f.name);
+        demoLocal.push({ file: f.name, name: s.title, song: s }); ok++;
+      } catch (e) { bad++; console.warn('Demo no válida:', f.name, e.message); }
+    }
+    if (ok) { saveLocalDemos(); mergeDemos(); msg(`${ok} demo(s) añadida(s)${bad ? `; ${bad} no válida(s)` : ''}.`); }
+    else msg(bad ? 'El archivo no es una canción válida.' : 'No se seleccionó ningún .json.');
+  }
+  $('#demoRefresh').onclick = async () => { msg('Buscando demos…'); await refreshDemos(true); msg(`${demos.length} demo(s) disponible(s).`); };
+  $('#demoDir').onchange = async (e) => { await addDemoFiles(e.target.files); e.target.value = ''; };
+  $('#demoFile').onchange = async (e) => { await addDemoFiles(e.target.files); e.target.value = ''; };
+  $('#demoList').onclick = (e) => {
+    const find = (key) => demos.find((d) => (d.file || d.name || 'demo') === key);
+    const del = e.target.closest('[data-del]');
+    if (del) {
+      const d = find(del.dataset.del); if (!d) return;
+      demoLocal = demoLocal.filter((x) => (x.file || x.name || 'demo') !== del.dataset.del); saveLocalDemos(); mergeDemos();
+      msg(`Demo «${d.name || d.file}» quitada de la lista.`); return;
+    }
+    const b = e.target.closest('[data-demo]'); if (!b) return;
+    const d = find(b.dataset.demo); if (!d || !d.song) return;
+    load(CS.song.normalize(d.song)); $('#dlg').close(); msg(`Demo «${d.name || d.file}» cargada.`);
+  };
+  $('#menu').onclick = () => { refreshDemos(); $('#dlg').showModal(); }; $('#close').onclick = () => $('#dlg').close();
   $('#demo').onclick = () => { load(CS.song.demo()); msg('Demo cargada.'); }; $('#new').onclick = () => { load(CS.song.blank()); msg('Canción nueva (Ctrl+Z para recuperar la anterior).'); };
   $('#xJson').onclick = () => { const t = CS.song.text(song); $('#out').value = t; dl(slug() + '.json', new Blob([t], { type: 'application/json' })); msg('Descargado ' + slug() + '.json'); };
   $('#xJs').onclick = () => { const t = '// Chiptune Studio v2 · 1 paso = 1/16 de nota\nconst song = ' + CS.song.text(song) + ';\n\nexport default song;\n'; $('#out').value = t; dl(slug() + '.js', new Blob([t], { type: 'text/javascript' })); msg('Descargado ' + slug() + '.js'); };
@@ -349,19 +506,21 @@
 
   /* ---------- Estado, autoguardado y arranque ---------- */
   function save() { try { const t = JSON.stringify(song); if (t !== last) { localStorage.setItem(SK, t); last = t; $('#saved').textContent = '✓ guardado'; } } catch (e) { /* sin almacenamiento */ } }
-  function changed() { E.refresh(song); commit(); $('#bars').textContent = song.bars; renderTracks(); renderDrawer(); draw(); checkLesson(); save(); }
-  function renderAll() { $('#ts').value = song.timeSig; $('#lpS').value = (song.loopStart || 0) + 1; $('#lpS').max = song.bars; $('#mon .dots').innerHTML = '<i></i>'.repeat(CS.sig(song).n); dots()[0]?.classList.add('first'); $('#title').value = song.title; $('#bpm').value = song.bpm; $('#bars').textContent = song.bars; renderTracks(); renderKeys(); renderDrawer(); draw(); checkLesson(); }
+  function changed() { E.refresh(song); commit(); $('#bars').textContent = song.bars; syncTempoBtn(); renderTracks(); renderDrawer(); draw(); checkLesson(); save(); }
+  function renderAll() { $('#ts').value = song.timeSig; $('#lpS').value = (song.loopStart || 0) + 1; $('#lpS').max = song.bars; $('#mon .dots').innerHTML = '<i></i>'.repeat(CS.sig(song).n); dots()[0]?.classList.add('first'); $('#title').value = song.title; $('#bpm').value = song.bpm; $('#bars').textContent = song.bars; syncTempoBtn(); if ($('#tdlg').open) renderTempo(); renderTracks(); renderKeys(); renderDrawer(); draw(); checkLesson(); }
   try { song = CS.song.normalize(JSON.parse(localStorage.getItem(SK))); } catch (e) { song = CS.song.demo(); }
   if (CS.errors.length) console.warn('Archivos de instrumento/efecto con problemas:\n' + CS.errors.join('\n'));
   renderAll(); commit(); addEventListener('pagehide', save); setInterval(save, 2000);
+  mergeDemos(); refreshDemos(true);
+  setInterval(() => { if ($('#dlg').open) refreshDemos(); }, 8000);
   (function frame() {
     const p = E.pos(), ph = $('#ph'), play = $('#play'), mon = $('#mon'), arm = $('#arm');
     if (E.playing && p != null && G.SW) {
       ph.style.display = 'block'; const X = G.LW + p * G.SW - sx; ph.style.left = X + 'px'; if (X > G.W - 30 || X < G.LW) { sx = clamp(p * G.SW - 60, 0, 1e9); draw(); }
       const sg = CS.sig(song), beat = Math.floor(p / sg.beat) % sg.n, rg = region(), lo = rg ? rg.from : 0, span = rg ? rg.to - rg.from : total();
       dots().forEach((d, i) => d.classList.toggle('cur', i === beat)); arm.setAttribute('transform', `rotate(${(Math.cos(Math.PI * p / sg.beat) * 24).toFixed(1)} 16 26)`);
-      mon.classList.add('live'); mon.classList.toggle('acc', p % sg.spb < 1); $('#monT').textContent = `${rg ? 'Sec. ' : 'Comp. '}${Math.floor(p / sg.spb) + 1}/${rg ? rg.to / sg.spb : song.bars}`; $('#monP').style.width = clamp((p - lo) / span * 100, 0, 100) + '%';
-    } else if (!E.playing) { ph.style.display = 'none'; mon.classList.remove('live', 'acc'); dots().forEach((d) => d.classList.remove('cur')); arm.setAttribute('transform', 'rotate(0 16 26)'); $('#monT').textContent = '—'; $('#monP').style.width = '0'; }
+      mon.classList.add('live'); mon.classList.toggle('acc', p % sg.spb < 1); $('#monT').textContent = `${rg ? 'Sec. ' : 'Comp. '}${Math.floor(p / sg.spb) + 1}/${rg ? rg.to / sg.spb : song.bars}`; $('#monB').textContent = '♩' + Math.round(CS.song.bpmAtStep(song, p)); $('#monP').style.width = clamp((p - lo) / span * 100, 0, 100) + '%';
+    } else if (!E.playing) { ph.style.display = 'none'; mon.classList.remove('live', 'acc'); dots().forEach((d) => d.classList.remove('cur')); arm.setAttribute('transform', 'rotate(0 16 26)'); $('#monT').textContent = '—'; $('#monB').textContent = ''; $('#monP').style.width = '0'; }
     play.classList.toggle('on', E.playing); play.textContent = E.playing ? '❚❚' : '▶'; requestAnimationFrame(frame);
   })();
 })();

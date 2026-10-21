@@ -24,7 +24,10 @@ label{color:var(--mut);display:inline-flex;gap:5px;align-items:center}
 #mon.live{opacity:1;border-color:var(--acc)}#mon.acc{box-shadow:0 0 8px #ff3d6e88}
 #mon .mb{fill:#1c2246;stroke:var(--acc);stroke-width:1.5}#mon .ma{stroke:var(--acc);stroke-width:2;stroke-linecap:round}#mon .mw{fill:var(--acc)}
 .dots{display:inline-flex;gap:3px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}.dots i.cur{background:var(--acc);box-shadow:0 0 6px var(--acc)}.dots i.first.cur{background:#ff3d6e;box-shadow:0 0 6px #ff3d6e}
-#monT{font:12px ui-monospace,monospace;min-width:54px;color:var(--tx)}
+#monT{font:12px ui-monospace,monospace;min-width:54px;color:var(--tx)}#monB{font:12px ui-monospace,monospace;min-width:38px;color:var(--acc)}
+#tdlg .trow{background:var(--row);border:1px solid var(--line);border-radius:8px;padding:4px 8px;margin:4px 0}
+#tdlg .trow b{width:auto;color:var(--tx);text-transform:none;font-size:14px}
+#tdlg .trow .hint{margin:0;flex:1}#tdlg .trow button{padding:2px 8px}
 .mbar{width:70px;height:6px;border-radius:3px;background:var(--line);overflow:hidden}.mbar i{display:block;height:100%;width:0;background:var(--acc)}
 main{display:grid;grid-template-columns:270px minmax(0,1fr);gap:8px;min-height:0}
 #left{display:flex;flex-direction:column;gap:6px;min-height:0;overflow:auto}
@@ -60,11 +63,16 @@ main{display:grid;grid-template-columns:270px minmax(0,1fr);gap:8px;min-height:0
 #keys.pads{display:grid;grid-template-columns:repeat(12,1fr);gap:6px}
 #keys.pads button{display:flex;flex-direction:column;justify-content:center;align-items:center;font-size:12px}
 kbd{font:11px ui-monospace,monospace;opacity:.7}
-dialog{background:var(--panel);color:var(--tx);border:1px solid var(--line);border-radius:12px;width:min(860px,92vw)}
+dialog{background:var(--panel);color:var(--tx);border:1px solid var(--line);border-radius:12px;width:min(860px,92vw);max-height:92vh;overflow:auto}
 dialog::backdrop{background:#000a}
 .sec{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}.sec b{width:130px;color:var(--acc);font-size:12px;text-transform:uppercase}
 .btn{border:1px solid var(--line);border-radius:6px;padding:3px 8px;cursor:pointer;color:var(--tx)}
 #out{width:100%;height:300px;font:12px ui-monospace,Menlo,Consolas,monospace}#msg{color:var(--mut);min-height:20px}
+#demoList{display:grid;gap:5px;max-height:190px;overflow:auto;margin:4px 0 8px;padding-right:2px}
+.demo{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--row)}
+.demo>span{min-width:0}.demo b{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.demo small{display:block;color:var(--mut);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.demo .dbtns{display:flex;gap:4px;flex:none}.demo button{padding:2px 8px}.demo .del{padding:2px 6px;color:var(--mut)}
 #tt{position:fixed;inset:auto;margin:0;border:1px solid var(--acc);background:#0b0d1cf2;color:var(--tx);padding:5px 9px;border-radius:7px;max-width:300px;font-size:12px;pointer-events:none}
 /* ---- Lecciones: fichas de nota, cajas, figuras, ejemplos ---- */
 #drawer{width:440px}

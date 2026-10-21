@@ -13,7 +13,7 @@ CS.Rig = class {
       this.fx[e.id] = n; if (n.setBpm) n.setBpm(bpm);
     }
   }
-  setBpm(b) { for (const n of Object.values(this.fx)) if (n.setBpm) n.setBpm(b); }
+  setBpm(b, t) { for (const n of Object.values(this.fx)) if (n.setBpm) n.setBpm(b, t); }
   pulse(d) {
     if (this.waves[d]) return this.waves[d];
     const N = 40, re = new Float32Array(N), im = new Float32Array(N);
@@ -44,7 +44,7 @@ CS.Rig = class {
     const ex = {}; if (n && n.slide && CS.midi(n.slide) != null) ex.fEnd = CS.hz(CS.midi(n.slide)); if (n && n.chord && CS.CHORDS[n.chord]) ex.offs = CS.CHORDS[n.chord];
     CS.voice(this, d, CS.hz(CS.midi(pitch)), t, dur, vel, g, ex);
   }
-  cut() { this.all.forEach((s) => s.g.disconnect()); this.all.clear(); this.strips = new WeakMap(); }   // silencia todo lo programado
+  cut() { this.all.forEach((s) => s.g.disconnect()); this.all.clear(); this.strips = new WeakMap(); for (const n of Object.values(this.fx)) if (n.cancel) n.cancel(this.ctx.currentTime); }   // silencia todo lo programado
 };
 
 /** Bucle perfecto: la cola (reverb, notas que suenan tras el final) se suma al inicio del tramo que se repite. */
@@ -69,11 +69,12 @@ CS.engine = (() => {
       timer = setInterval(E._tick, 25); E._tick();
     },
     _tick() {
-      if (!P) return; const s = P.song;
+      if (!P) return; const s = P.song, sg = CS.sig(s), tl = CS.song.timeline(s);
       while (!P.end && P.t < ctx.currentTime + 0.12) {
-        if (s.bpm !== lastBpm) { lastBpm = s.bpm; rig.setBpm(s.bpm); }
-        const sd = 60 / s.bpm / 4, so = E.solo(s), sg = CS.sig(s);
-        for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, n.len * sd, n.vel ?? 1, so, n);
+        const sd = tl.sd[P.step] || tl.sd[tl.steps - 1], bpm = 15 / sd;
+        if ((!lastBpm || P.step % sg.spb === 0) && Math.abs(bpm - lastBpm) > 0.01) { lastBpm = bpm; rig.setBpm(bpm, P.t); }
+        const so = E.solo(s), st = tl.t[Math.min(P.step, tl.steps)];
+        for (const tr of s.tracks) for (const n of tr.notes) if (n.step === P.step) rig.hit(tr, n.pitch, P.t, Math.max(0.01, tl.t[Math.min(P.step + n.len, tl.steps)] - st), n.vel ?? 1, so, n);
         if (E.metro && P.step % sg.beat === 0) E._click(P.t, P.step % sg.spb === 0);
         q.push({ s: P.step, t: P.t, sd }); P.t += sd; P.step++;
         const lim = Math.min(P.to || 1e9, s.bars * sg.spb); if (P.step >= lim) { if (P.loop) P.step = P.to ? P.from : (s.loopStart || 0) * sg.spb; else P.end = P.t + 1.5; }
@@ -92,10 +93,11 @@ CS.engine = (() => {
       const h = q[0]; return h && h.t <= n ? h.s + Math.min(1, (n - h.t) / h.sd) : null;
     },
     async wav(song, loopable) {
-      const sr = 44100, sd = 60 / song.bpm / 4, T = song.bars * CS.sig(song).spb * sd, oc = new OfflineAudioContext(2, Math.ceil((T + 2) * sr), sr), r = new CS.Rig(oc, song.bpm), so = E.solo(song), off = loopable ? 0 : 0.01;
-      for (const tr of song.tracks) for (const n of tr.notes) r.hit(tr, n.pitch, off + n.step * sd, n.len * sd, n.vel ?? 1, so, n);
+      const sr = 44100, sg = CS.sig(song), tl = CS.song.timeline(song), T = tl.t[tl.steps], oc = new OfflineAudioContext(2, Math.ceil((T + 2) * sr), sr), r = new CS.Rig(oc, song.bpm), so = E.solo(song), off = loopable ? 0 : 0.01;
+      for (let b = 1; b < tl.bars; b++) r.setBpm(15 / tl.sd[b * sg.spb], off + tl.t[b * sg.spb]);
+      for (const tr of song.tracks) for (const n of tr.notes) { const st = tl.t[Math.min(n.step, tl.steps)]; r.hit(tr, n.pitch, off + st, Math.max(0.01, tl.t[Math.min(n.step + n.len, tl.steps)] - st), n.vel ?? 1, so, n); }
       const b = await oc.startRendering(); let n = b.length, ch = [b.getChannelData(0), b.getChannelData(1)];
-      if (loopable) { const L = Math.round(T * sr), a = Math.round((song.loopStart || 0) * CS.sig(song).spb * sd * sr); ch = ch.map((c) => CS.foldLoop(c, L, a, n)); n = L - a; }
+      if (loopable) { const L = Math.round(T * sr), a = Math.round(tl.t[(song.loopStart || 0) * sg.spb] * sr); ch = ch.map((c) => CS.foldLoop(c, L, a, n)); n = L - a; }
       let pk = 0; for (const c of ch) for (let i = 0; i < n; i++) pk = Math.max(pk, Math.abs(c[i]));
       const k = pk > 0 ? 0.9 / pk : 1, a = new ArrayBuffer(44 + n * 4), v = new DataView(a), w = (o, t) => [...t].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)));
       w(0, 'RIFF'); v.setUint32(4, 36 + n * 4, true); w(8, 'WAVEfmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 2, true);

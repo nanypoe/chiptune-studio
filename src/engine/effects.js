@@ -8,7 +8,7 @@ CS.kinds.delay = (c, p) => {
   const i = c.createGain(), o = c.createGain(), d = c.createDelay(2), fb = c.createGain(), lp = c.createBiquadFilter();
   lp.frequency.value = p.tone || 3500; fb.gain.value = p.feedback ?? 0.35;
   i.connect(d); d.connect(o); d.connect(lp); lp.connect(fb); fb.connect(d);
-  return { input: i, output: o, setBpm: (b) => { d.delayTime.value = CS.clamp((60 / b) * (p.beats || 0.75), 0.01, 1.9); } };
+  return { input: i, output: o, setBpm: (b, t) => { const v = CS.clamp((60 / b) * (p.beats || 0.75), 0.01, 1.9); if (t == null) d.delayTime.value = v; else d.delayTime.setValueAtTime(v, t); }, cancel: (t) => d.delayTime.cancelScheduledValues(t) };
 };
 CS.kinds.chorus = (c, p) => {
   const i = c.createGain(), d = c.createDelay(0.05), l = c.createOscillator(), lg = c.createGain();

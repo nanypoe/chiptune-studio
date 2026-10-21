@@ -8,7 +8,7 @@
 </head>
 <body>
 <header id="top" class="panel">
-  <button id="menu" title="Menú: canción nueva, importar y exportar (JSON, JS, WAV), guía para IA y atajos">☰ Menú</button>
+  <button id="menu" title="Menú: demos de la carpeta demos/, canción nueva, importar y exportar (JSON, JS, WAV), guía para IA y atajos">☰ Menú</button>
   <h1>♫ CHIPTUNE STUDIO</h1>
   <input id="title" maxlength="60" aria-label="Título" title="Título de la canción (también será el nombre de los archivos que exportes)">
   <span class="grp"><button id="undo" title="Deshacer el último cambio (Ctrl+Z)" disabled>↶</button><button id="redo" title="Rehacer lo que acabas de deshacer (Ctrl+Y)" disabled>↷</button></span>
@@ -18,10 +18,10 @@
   <label class="tg" title="Activa el sonido del metrónomo: un clic por pulso, más agudo en el primer tiempo del compás"><input id="metro" type="checkbox"> Metrónomo</label>
   <div id="mon" title="Monitor: el péndulo marca cada pulso, los 4 puntos son los tiempos del compás, y la barra muestra el avance de la canción o de la sección">
     <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M9 29 13 5h6l4 24z" class="mb"/><g id="arm"><path d="M16 26V8" class="ma"/><circle cx="16" cy="12" r="2.6" class="mw"/></g></svg>
-    <span class="dots"><i></i><i></i><i></i><i></i></span><span id="monT">—</span><span class="mbar"><i id="monP"></i></span>
+    <span class="dots"><i></i><i></i><i></i><i></i></span><span id="monT">—</span><span id="monB" title="Tempo actual durante la reproducción"></span><span class="mbar"><i id="monP"></i></span>
   </div>
   <label title="Compás: cuántos pulsos tiene cada grupo. 4/4 marcha, 3/4 vals, 6/8 balanceo, 5/4 y 7/8 raros. El roll, el metrónomo y el monitor se adaptan">Compás <select id="ts"><option value="4/4">4/4</option><option value="3/4">3/4</option><option value="2/4">2/4</option><option value="5/4">5/4</option><option value="6/8">6/8</option><option value="12/8">12/8</option><option value="7/8">7/8</option></select></label>
-  <label title="Tempo: pulsos por minuto. Más alto = más rápido (40 a 240)">BPM <input id="bpm" type="number" min="40" max="240" value="120"></label>
+  <span class="grp" title="Tempo base: pulsos por minuto. Más alto = más rápido (40 a 240). El botón ♩ añade cambios de velocidad por compás"><label>BPM <input id="bpm" type="number" min="40" max="240" value="120"></label><button id="tempoBtn" title="Mapa de tempo: cambios de velocidad por compás, con saltos o acelerando/ritardando">♩</button></span>
   <span class="grp" title="Longitud de la canción, medida en compases">Longitud
     <button id="barM" title="Quitar el último compás">−</button><b id="bars">4</b><button id="barP" title="Añadir un compás al final">+</button><button id="dup" title="Duplicar toda la canción para alargarla (copia todo detrás)">×2</button></span>
   <span class="grp" title="Bucle de sección: repite solo los compases que indiques, ideal para practicar o grabar con el teclado">
@@ -69,6 +69,12 @@
   <div class="sec"><b>Canción</b>
     <button id="new" title="Empezar una canción en blanco (se puede deshacer)">Canción nueva</button>
     <button id="demo" title="Cargar una canción de ejemplo en La menor para escuchar y aprender">Cargar demo</button></div>
+  <div class="sec"><b>Demos</b>
+    <button id="demoRefresh" title="Volver a buscar los .json de la carpeta demos/. Con el servidor incluido, los archivos nuevos aparecen solos">↻ Buscar demos</button>
+    <label class="btn" title="Cargar todos los .json de una carpeta (útil al abrir la app con doble clic)">📂 Abrir carpeta <input id="demoDir" type="file" webkitdirectory multiple accept=".json" hidden></label>
+    <label class="btn" title="Cargar una demo .json concreta">📄 Abrir JSON <input id="demoFile" type="file" accept=".json" hidden></label></div>
+  <div id="demoList"></div>
+  <p class="hint">Carpeta <b>demos/</b>: deja ahí cualquier <b>.json</b>. Con <b>node tools/serve.js</b> se detecta solo; con doble clic usa «Abrir carpeta» o regenera <b>demos/demos.js</b>.</p>
   <div class="sec"><b>Importar</b>
     <label class="btn" title="Abrir un archivo .json o .js exportado antes, o creado por una IA">Abrir archivo <input id="open" type="file" accept=".json,.js,.txt" hidden></label>
     <button id="iText" title="Importar la canción que pegaste en el cuadro de texto de abajo">Importar texto</button></div>
@@ -87,6 +93,20 @@
   <p id="msg"></p>
   <details><summary>Atajos del teclado</summary><p class="hint">Espacio: reproducir/pausar · Z / X: bajar/subir octava · A W S E D F T G Y H U J K: tocar · Ctrl+Z / Ctrl+Y: deshacer/rehacer · Inicio: cursor al principio · Ctrl+rueda: zoom · rueda: desplazar · Mayús+clic en una nota: su fuerza · Clic derecho en el roll: borrar nota</p></details>
   <button id="close" title="Cerrar el menú">Cerrar</button>
+</dialog>
+<dialog id="tdlg">
+  <h2>♩ Tempo por compás</h2>
+  <p class="hint">La canción puede cambiar de velocidad sin dejar de sonar: una intro lenta, un estribillo rápido o un acelerando que llega al clímax. Los cambios ocurren al empezar el compás indicado. El roll marca cada cambio con una línea y «♩BPM» en la regla.</p>
+  <div class="sec"><b>Base</b><label>BPM <input id="tBase" type="number" min="40" max="240"></label><span class="hint">Velocidad del compás 1 y de todo lo que no tenga un cambio.</span></div>
+  <div id="tList"></div>
+  <div class="sec"><b>Nuevo cambio</b>
+    <label>Compás <input id="tBar" type="number" min="2" value="2" title="Compás (empezando en 1, debe ser 2 o posterior; el compás 1 usa el BPM base) donde ocurre el cambio"></label>
+    <label>BPM <input id="tBpm" type="number" min="40" max="240" value="140" title="Velocidad que tendrá la canción desde ese compás"></label>
+    <label class="tg" title="Gradual: en vez de saltar, la velocidad sube o baja poco a poco desde el cambio anterior hasta este compás (acelerando o ritardando)"><input id="tRamp" type="checkbox"> Gradual</label>
+    <button id="tAdd" title="Añadir o reemplazar el cambio de tempo en ese compás">＋ Añadir</button>
+  </div>
+  <p class="hint">💡 Un cambio sin «Gradual» salta de golpe (útil entre secciones). Con «Gradual» el tempo se interpola desde el cambio anterior: por ejemplo, de 90 a 150 a lo largo de 8 compases para un build-up.</p>
+  <button id="tClose" title="Cerrar el mapa de tempo">Cerrar</button>
 </dialog>
 <div id="tt" popover="manual" role="tooltip"></div>
 <script src="src/core/cs.js"></script>
@@ -119,6 +139,8 @@
 <script src="src/song/song.js"></script>
 <script src="src/theory/theory.js"></script>
 <script src="src/theory/lessons.js"></script>
+<!-- DEMOS: tools/build-demos.js copia aquí los .json de demos/ para que funcionen con doble clic -->
+<script src="demos/demos.js"></script>
 <script src="src/ui/app.js"></script>
 </body>
 </html>
