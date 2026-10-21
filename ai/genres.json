@@ -1,0 +1,8508 @@
+{
+  "schema": "chiptune-genres@1",
+  "updated": "2026-10-21",
+  "note": "Cada familia es una plantilla. Los géneros y perfiles de ai/genres/profiles.json heredan estos rasgos y solo cambian lo necesario. Los instrumentos son ids reales de Chiptune Studio. Los compases y escalas deben ser válidos en la app.",
+  "families": {
+    "medieval": {
+      "name": "Música medieval y canto",
+      "tempo": [
+        50,
+        90
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "dorian",
+        "phrygian",
+        "major",
+        "minor",
+        "aeolian"
+      ],
+      "harmony": "modal, bordón, organum paralelo, cadencias abiertas",
+      "rhythm": "libre o mensural; grupos de 2 y 3; sin swing",
+      "texture": "monofónica, heterofónica o polifonía temprana",
+      "form": "antífona, responsorio, conductus, danza estrófica",
+      "instruments": [
+        "pad",
+        "triangle",
+        "bell",
+        "strings",
+        "pluck",
+        "bass"
+      ],
+      "percussion": "none",
+      "fx": {
+        "reverb": 0.42,
+        "delay": 0.08
+      },
+      "emotions": [
+        "sacred",
+        "serene",
+        "mysterious",
+        "majestic"
+      ],
+      "keywords": [
+        "medieval",
+        "chant",
+        "canto",
+        "gregoriano",
+        "organum",
+        "ars antiqua",
+        "ars nova",
+        "motete",
+        "trovador",
+        "juglar",
+        "danza"
+      ],
+      "chiptune": "Pad y triangle hacen de coro u órgano; evita batería moderna y usa reverb larga. Deja que las frases respiren sin pulso pop.",
+      "avoid": "Progresiones funcionales cerradas, batería de rock y compresión agresiva."
+    },
+    "renaissance": {
+      "name": "Renacimiento",
+      "tempo": [
+        60,
+        110
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "dorian",
+        "major",
+        "minor",
+        "aeolian",
+        "mixolydian"
+      ],
+      "harmony": "contrapunto imitativo, modal con terceras, cadencias suaves",
+      "rhythm": "flujo polifónico, danzas binarias y ternarias",
+      "texture": "polifonía imitativa, madrigal, coro",
+      "form": "motete, misa, madrigal, chanson, danza",
+      "instruments": [
+        "pluck",
+        "strings",
+        "pad",
+        "triangle",
+        "bell",
+        "bass"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.36,
+        "delay": 0.06
+      },
+      "emotions": [
+        "serene",
+        "romantic",
+        "majestic",
+        "playful"
+      ],
+      "keywords": [
+        "renacimiento",
+        "madrigal",
+        "motete",
+        "misa",
+        "chanson",
+        "villancico",
+        "frottola",
+        "polifonía"
+      ],
+      "chiptune": "Dos o tres voces con pluck/pulse suaves; imita entradas escalonadas y deja el bajo discreto.",
+      "avoid": "Acordes de cuatro o cinco notas apretados y percusión protagonista."
+    },
+    "baroque": {
+      "name": "Barroco",
+      "tempo": [
+        60,
+        125
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "12/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "harmonicMinor"
+      ],
+      "harmony": "funcional, bajo continuo, círculos de quintas, secuencias",
+      "rhythm": "motor continuo, ornamentos, hemiolas",
+      "texture": "contrapunto y homofonía con bajo continuo",
+      "form": "fuga, suite, concerto grosso, aria da capo, ritornello",
+      "instruments": [
+        "strings",
+        "piano",
+        "pad",
+        "bass",
+        "pluck",
+        "brass"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.32,
+        "delay": 0.07
+      },
+      "emotions": [
+        "majestic",
+        "sacred",
+        "energetic",
+        "melancholic"
+      ],
+      "keywords": [
+        "barroco",
+        "fuga",
+        "suite",
+        "concerto",
+        "concierto",
+        "aria",
+        "continuo",
+        "bach",
+        "vivaldi",
+        "handel"
+      ],
+      "chiptune": "Bajo continuo con bass/pluck y contrapunto con pulse; los ornamentos son notas cortas, no adornos de producción.",
+      "avoid": "Riffs de guitarra distorsionada y batería de rock."
+    },
+    "classical": {
+      "name": "Clasicismo",
+      "tempo": [
+        70,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "2/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "harmonicMinor"
+      ],
+      "harmony": "funcional, forma sonata, periodos y cadencias",
+      "rhythm": "simetría, motivos, contrastes claros",
+      "texture": "homofonía con contrapunto ocasional",
+      "form": "sonata, sinfonía, cuarteto, concierto, tema y variaciones",
+      "instruments": [
+        "strings",
+        "piano",
+        "brass",
+        "bass",
+        "pluck",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.28,
+        "delay": 0.04
+      },
+      "emotions": [
+        "majestic",
+        "joyful",
+        "serene",
+        "playful"
+      ],
+      "keywords": [
+        "clasicismo",
+        "clásico",
+        "clasico",
+        "sonata",
+        "sinfonía",
+        "sinfonia",
+        "cuarteto",
+        "concierto",
+        "mozart",
+        "haydn"
+      ],
+      "chiptune": "Voces claras y simétricas; bajo Alberti con arp/pluck y contrastes por capas, no por saturación.",
+      "avoid": "Densidad de metal sinfónico y cromatismo romántico excesivo."
+    },
+    "romantic": {
+      "name": "Romanticismo",
+      "tempo": [
+        50,
+        150
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "12/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "harmonicMinor",
+        "melodicMinor",
+        "dorian"
+      ],
+      "harmony": "cromatismo funcional, modulaciones, acordes de séptima",
+      "rhythm": "rubato imaginado, frases amplias, polirritmia",
+      "texture": "densa, cuerdas amplias, piano protagonista",
+      "form": "lied, sinfonía, poema sinfónico, ópera",
+      "instruments": [
+        "strings",
+        "piano",
+        "brass",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.36,
+        "delay": 0.08
+      },
+      "emotions": [
+        "romantic",
+        "melancholic",
+        "heroic",
+        "majestic",
+        "nostalgic"
+      ],
+      "keywords": [
+        "romanticismo",
+        "romántico",
+        "romantico",
+        "lied",
+        "poema sinfónico",
+        "ópera",
+        "opera",
+        "chopin",
+        "liszt",
+        "wagner",
+        "tchaikovsky"
+      ],
+      "chiptune": "Cuerdas/pad para la masa y piano para el gesto; usa tempo map con rampas para el rubato.",
+      "avoid": "Saturar todos los registros a la vez; deja que la melodía respire."
+    },
+    "impressionist": {
+      "name": "Impresionismo musical",
+      "tempo": [
+        50,
+        100
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "wholeTone",
+        "pentMaj",
+        "major",
+        "lydian",
+        "dorian"
+      ],
+      "harmony": "paralelismo, acordes de color, escalas exóticas, ambigüedad tonal",
+      "rhythm": "flotante, sin acentos fuertes",
+      "texture": "capas de timbre, arpegios, pedal",
+      "form": "preludio, nocturno, poema orquestal",
+      "instruments": [
+        "piano",
+        "pad",
+        "strings",
+        "bell",
+        "pluck",
+        "bass"
+      ],
+      "percussion": "none",
+      "fx": {
+        "reverb": 0.48,
+        "delay": 0.15
+      },
+      "emotions": [
+        "dreamy",
+        "serene",
+        "mysterious",
+        "exotic"
+      ],
+      "keywords": [
+        "impresionismo",
+        "impresionista",
+        "debussy",
+        "ravel",
+        "nocturno",
+        "preludio",
+        "tono completo",
+        "paralelo"
+      ],
+      "chiptune": "Arpegios con pluck/arp y acordes paralelos en pad; poca o ninguna percusión; el color es la forma.",
+      "avoid": "Progresiones pop y riffs con acentos duros."
+    },
+    "expressionist": {
+      "name": "Expresionismo musical",
+      "tempo": [
+        50,
+        130
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "7/8"
+      ],
+      "scales": [
+        "chromatic",
+        "diminished",
+        "wholeTone",
+        "phrygian",
+        "locrian",
+        "minor"
+      ],
+      "harmony": "atonal libre, intervalos disonantes, contrapunto angular",
+      "rhythm": "irregular, acentos desplazados",
+      "texture": "fragmentada, densa, expresiva",
+      "form": "monodrama, pieza breve, ópera expresionista",
+      "instruments": [
+        "strings",
+        "brass",
+        "piano",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.08,
+        "drive": 0.08
+      },
+      "emotions": [
+        "tense",
+        "dark",
+        "chaotic",
+        "lonely"
+      ],
+      "keywords": [
+        "expresionismo",
+        "expresionista",
+        "atonal",
+        "schoenberg",
+        "berg",
+        "webern",
+        "monodrama"
+      ],
+      "chiptune": "Saltos amplios y silencios; evita un centro tonal claro y usa dinámicas extremas.",
+      "avoid": "Convertir la disonancia en ruido constante sin dirección."
+    },
+    "serialist": {
+      "name": "Dodecafonismo y serialismo",
+      "tempo": [
+        60,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "7/8"
+      ],
+      "scales": [
+        "chromatic",
+        "diminished",
+        "wholeTone"
+      ],
+      "harmony": "series, intervalos equivalentes, atonalidad, serialismo integral",
+      "rhythm": "series rítmicas, puntos, silencios",
+      "texture": "puntillista, contrapunto serial",
+      "form": "tema y variaciones seriales, estructura matemática",
+      "instruments": [
+        "piano",
+        "strings",
+        "bell",
+        "arp",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.26,
+        "delay": 0.06
+      },
+      "emotions": [
+        "tense",
+        "mysterious",
+        "chaotic",
+        "futuristic"
+      ],
+      "keywords": [
+        "dodecafonismo",
+        "serialismo",
+        "serial",
+        "doce tonos",
+        "twelve-tone",
+        "atonal",
+        "webern",
+        "boulez",
+        "stockhausen"
+      ],
+      "chiptune": "Cada nota es un evento; usa puntos y silencios, no progresiones. Puedes serializar alturas y duraciones.",
+      "avoid": "Repetir motivos tonales y resolver con cadencias."
+    },
+    "aleatoric": {
+      "name": "Música aleatoria y abierta",
+      "tempo": [
+        40,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "7/8",
+        "6/8"
+      ],
+      "scales": [
+        "chromatic",
+        "wholeTone",
+        "pentMin",
+        "hirajoshi",
+        "locrian"
+      ],
+      "harmony": "no funcional; clusters, drones, eventos",
+      "rhythm": "libre, gráfico, procesos",
+      "texture": "texturas, ruido, silencio",
+      "form": "abierta, móvil, instalación",
+      "instruments": [
+        "pad",
+        "crush",
+        "bell",
+        "triangle",
+        "bass",
+        "drums"
+      ],
+      "percussion": "free",
+      "fx": {
+        "reverb": 0.5,
+        "delay": 0.2,
+        "drive": 0.1
+      },
+      "emotions": [
+        "chaotic",
+        "mysterious",
+        "serene",
+        "tense"
+      ],
+      "keywords": [
+        "aleatoria",
+        "aleatorio",
+        "indeterminada",
+        "gráfica",
+        "grafica",
+        "cage",
+        "free",
+        "improvisación",
+        "improvisacion"
+      ],
+      "chiptune": "No todo aleatorio: define reglas, rangos y un marco. El contraste entre eventos y silencio es la forma.",
+      "avoid": "Ruido sin reglas ni puntos de referencia."
+    },
+    "electroacoustic": {
+      "name": "Música concreta y electroacústica",
+      "tempo": [
+        40,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "7/8",
+        "6/8"
+      ],
+      "scales": [
+        "chromatic",
+        "wholeTone",
+        "diminished"
+      ],
+      "harmony": "timbre como material; sin armonía funcional",
+      "rhythm": "pulsos internos, texturas",
+      "texture": "concreto, grabaciones, síntesis, espacio",
+      "form": "acousmatic, paisaje sonoro, collage",
+      "instruments": [
+        "pad",
+        "crush",
+        "bell",
+        "arp",
+        "bass",
+        "drums"
+      ],
+      "percussion": "free",
+      "fx": {
+        "reverb": 0.52,
+        "delay": 0.24,
+        "drive": 0.15
+      },
+      "emotions": [
+        "futuristic",
+        "lonely",
+        "mysterious",
+        "industrial"
+      ],
+      "keywords": [
+        "concreta",
+        "concreto",
+        "electroacústica",
+        "electroacustica",
+        "acousmatic",
+        "cinta",
+        "tape",
+        "paisaje sonoro",
+        "soundscape",
+        "académica",
+        "academica"
+      ],
+      "chiptune": "Simula concreto con ruido, bitcrush y ediciones; usa paneo y reverb para crear espacio.",
+      "avoid": "Usar la app como simple orquesta tonal."
+    },
+    "minimalist": {
+      "name": "Minimalismo y postminimalismo",
+      "tempo": [
+        70,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "mixolydian",
+        "pentMaj",
+        "pentMin"
+      ],
+      "harmony": "procesos, células, drones, armonía estática",
+      "rhythm": "pulso constante, desplazamiento, fases",
+      "texture": "capas repetitivas, pequeñas mutaciones",
+      "form": "proceso, ciclo, arco largo",
+      "instruments": [
+        "piano",
+        "arp",
+        "pluck",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.32,
+        "delay": 0.2
+      },
+      "emotions": [
+        "hypnotic",
+        "serene",
+        "dreamy",
+        "energetic"
+      ],
+      "keywords": [
+        "minimalismo",
+        "minimalista",
+        "postminimalismo",
+        "proceso",
+        "fase",
+        "repetitivo",
+        "reich",
+        "glass",
+        "riley",
+        "eno"
+      ],
+      "chiptune": "Células de 1-2 compases; añade y quita capas. El interés está en la textura y el desplazamiento, no en cambiar acordes.",
+      "avoid": "Variar todo cada compás y romper el proceso."
+    },
+    "opera-stage": {
+      "name": "Ópera, teatro y formas vocales",
+      "tempo": [
+        50,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "12/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "harmonicMinor",
+        "melodicMinor"
+      ],
+      "harmony": "funcional y expresiva, recitativos y arias",
+      "rhythm": "libre en recitativo, danza en números",
+      "texture": "voz protagonista y orquesta",
+      "form": "aria, recitativo, obertura, acto",
+      "instruments": [
+        "strings",
+        "brass",
+        "piano",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.4,
+        "delay": 0.06
+      },
+      "emotions": [
+        "romantic",
+        "majestic",
+        "joyful",
+        "melancholic",
+        "heroic"
+      ],
+      "keywords": [
+        "ópera",
+        "opera",
+        "opereta",
+        "zarzuela",
+        "oratorio",
+        "cantata",
+        "musical",
+        "teatro",
+        "cabaret",
+        "music hall",
+        "aria",
+        "recitativo"
+      ],
+      "chiptune": "Imagina la voz con pulse/strings y deja espacio para el texto. Los números de conjunto pueden usar más capas.",
+      "avoid": "Tapar la línea vocal con acompañamiento denso."
+    },
+    "blues": {
+      "name": "Blues",
+      "tempo": [
+        50,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "12/8",
+        "6/8"
+      ],
+      "scales": [
+        "blues",
+        "minor",
+        "pentMin",
+        "major",
+        "mixolydian"
+      ],
+      "harmony": "12 compases, I-IV-V, blue notes, dominantes",
+      "rhythm": "shuffle, swing, boogie, slow 12/8",
+      "texture": "voz o guitarra solista, bajo caminante, batería",
+      "form": "12-bar, 8-bar, call and response",
+      "instruments": [
+        "guitar",
+        "piano",
+        "bass",
+        "drums",
+        "brass",
+        "pulse"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.05,
+        "drive": 0.15
+      },
+      "emotions": [
+        "melancholic",
+        "funky",
+        "lonely",
+        "energetic"
+      ],
+      "keywords": [
+        "blues",
+        "delta",
+        "chicago",
+        "boogie",
+        "shuffle",
+        "blue note",
+        "12 compases",
+        "gospel blues"
+      ],
+      "chiptune": "Bajo shuffle con pluck, guitarra con pulse+drive y blue notes (b3, b5, b7). Deja respirar la voz.",
+      "avoid": "Convertirlo en rock genérico o perder el shuffle."
+    },
+    "gospel": {
+      "name": "Gospel y espirituales",
+      "tempo": [
+        60,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "pentMaj",
+        "blues",
+        "harmonicMinor"
+      ],
+      "harmony": "progresiones de acordes, dominantes secundarias, modulaciones",
+      "rhythm": "swing, palmas, 6/8, call and response",
+      "texture": "coro, órgano, piano, palmas",
+      "form": "verso-coro, vamp, shout",
+      "instruments": [
+        "piano",
+        "brass",
+        "pad",
+        "bass",
+        "drums",
+        "pulse"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.05
+      },
+      "emotions": [
+        "sacred",
+        "joyful",
+        "hopeful",
+        "energetic"
+      ],
+      "keywords": [
+        "gospel",
+        "espiritual",
+        "spiritual",
+        "work song",
+        "coro",
+        "órgano",
+        "organo",
+        "palmas",
+        "soul"
+      ],
+      "chiptune": "Acordes con piano/pad, coro con pulse y palmas con snare; el vamp puede repetir sin aburrir si añades voces.",
+      "avoid": "Usar gospel solo como escala mayor rápida sin groove."
+    },
+    "jazz": {
+      "name": "Jazz",
+      "tempo": [
+        60,
+        220
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "6/8",
+        "12/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "mixolydian",
+        "blues",
+        "diminished",
+        "wholeTone",
+        "melodicMinor"
+      ],
+      "harmony": "ii-V-I, sustituciones, extensiones, modal",
+      "rhythm": "swing, bebop, latin, compases impares",
+      "texture": "combo, solista y comping",
+      "form": "32-bar AABA, 12-bar blues, modal",
+      "instruments": [
+        "piano",
+        "bass",
+        "drums",
+        "brass",
+        "guitar",
+        "pluck"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.16,
+        "delay": 0.04
+      },
+      "emotions": [
+        "funky",
+        "romantic",
+        "melancholic",
+        "energetic",
+        "mysterious"
+      ],
+      "keywords": [
+        "jazz",
+        "swing",
+        "bebop",
+        "bop",
+        "ragtime",
+        "dixieland",
+        "big band",
+        "cool",
+        "hard bop",
+        "modal",
+        "free jazz",
+        "fusion",
+        "smooth",
+        "acid jazz"
+      ],
+      "chiptune": "Walking bass, ride swing y comping con piano/pluck. Deja espacio para un solo y varía el acompañamiento.",
+      "avoid": "Swing falso de semicorcheas rectas; si no cabe el swing, usa 12/8 o un groove latino."
+    },
+    "soul-rnb": {
+      "name": "Soul, R&B, funk y disco",
+      "tempo": [
+        60,
+        130
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "12/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "pentMin",
+        "blues"
+      ],
+      "harmony": "soul, dominantes, acordes extendidos, gospel",
+      "rhythm": "backbeat, groove, swing suave",
+      "texture": "voz, coros, bajo, batería",
+      "form": "verso-coro, vamp, bridge",
+      "instruments": [
+        "piano",
+        "bass",
+        "drums",
+        "brass",
+        "guitar",
+        "pad"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.24,
+        "delay": 0.05,
+        "drive": 0.05
+      },
+      "emotions": [
+        "romantic",
+        "funky",
+        "joyful",
+        "melancholic"
+      ],
+      "keywords": [
+        "soul",
+        "r&b",
+        "rnb",
+        "motown",
+        "funk",
+        "disco",
+        "doo-wop",
+        "doo wop",
+        "neo soul",
+        "groove"
+      ],
+      "chiptune": "Piano eléctrico con pluck, bajo redondo y coros con pad. El groove vive en el bajo y la batería.",
+      "avoid": "Sobrecomponer la melodía y tapar el groove."
+    },
+    "rock": {
+      "name": "Rock y derivados",
+      "tempo": [
+        80,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "7/8"
+      ],
+      "scales": [
+        "minor",
+        "major",
+        "dorian",
+        "mixolydian",
+        "pentMin",
+        "blues"
+      ],
+      "harmony": "power chords, riffs, progresiones modales",
+      "rhythm": "backbeat, corcheas motrices, half-time",
+      "texture": "guitarra, bajo y batería; capas",
+      "form": "intro-verso-coro-solo-puente",
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums",
+        "pulse",
+        "strings",
+        "piano"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.06,
+        "drive": 0.2
+      },
+      "emotions": [
+        "angry",
+        "energetic",
+        "heroic",
+        "melancholic",
+        "funky"
+      ],
+      "keywords": [
+        "rock",
+        "rock and roll",
+        "rockabilly",
+        "psicodélico",
+        "psicodelico",
+        "progresivo",
+        "sinfónico",
+        "sinfonico",
+        "hard rock",
+        "grunge",
+        "alternativo",
+        "indie",
+        "shoegaze",
+        "post-rock",
+        "emo",
+        "surf",
+        "garage",
+        "psychobilly"
+      ],
+      "chiptune": "Guitarra con guitar/pulse+drive, bajo con bass y batería acentuada. Un riff debe funcionar solo con bajo y batería.",
+      "avoid": "Muro de sonido sin articulación y solos sin dirección."
+    },
+    "metal": {
+      "name": "Heavy metal y subgéneros",
+      "tempo": [
+        100,
+        220
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "7/8",
+        "5/4"
+      ],
+      "scales": [
+        "minor",
+        "phrygian",
+        "locrian",
+        "harmonicMinor",
+        "hungarianMinor",
+        "diminished"
+      ],
+      "harmony": "power chords, riffs, tritonos, pedal",
+      "rhythm": "doble bombo, gallop, blast, breakdown",
+      "texture": "muros de guitarra, bajo distorsionado, batería densa",
+      "form": "intro-riff-verso-coro-solo-breakdown",
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums",
+        "pulse",
+        "strings",
+        "brass"
+      ],
+      "percussion": "full",
+      "fx": {
+        "drive": 0.35,
+        "reverb": 0.2,
+        "delay": 0.05
+      },
+      "emotions": [
+        "angry",
+        "dark",
+        "heroic",
+        "tense"
+      ],
+      "keywords": [
+        "metal",
+        "heavy",
+        "thrash",
+        "death",
+        "black metal",
+        "doom",
+        "power metal",
+        "nu metal",
+        "metalcore",
+        "djent",
+        "progresivo"
+      ],
+      "chiptune": "Usa guitar+drive o saw; dobla el riff con el bajo. Batería con kicks rápidos y crashes en los cambios.",
+      "avoid": "Distorsión sin riffs ni silencios; todo suena igual."
+    },
+    "punk": {
+      "name": "Punk y derivados",
+      "tempo": [
+        120,
+        200
+      ],
+      "meters": [
+        "4/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "pentMin",
+        "blues"
+      ],
+      "harmony": "power chords, I-IV-V, riffs simples",
+      "rhythm": "d-beat, backbeat rápido, gang vocals",
+      "texture": "crudo, directo, poca producción",
+      "form": "intro-verso-coro-verso-coro-puente",
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums",
+        "pulse",
+        "brass"
+      ],
+      "percussion": "full",
+      "fx": {
+        "drive": 0.25,
+        "reverb": 0.08,
+        "delay": 0.03
+      },
+      "emotions": [
+        "angry",
+        "rebellious",
+        "energetic",
+        "joyful"
+      ],
+      "keywords": [
+        "punk",
+        "hardcore",
+        "post-punk",
+        "post punk",
+        "new wave",
+        "ska punk",
+        "pop punk",
+        "emo pop",
+        "crust",
+        "oi"
+      ],
+      "chiptune": "Pocas capas y mucho ataque; pulse para la voz, guitarra para el riff y batería directa.",
+      "avoid": "Producción pulida y arreglos que quiten urgencia."
+    },
+    "pop": {
+      "name": "Pop y canción comercial",
+      "tempo": [
+        80,
+        150
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "pentMaj",
+        "pentMin"
+      ],
+      "harmony": "progresiones memorables, I-V-vi-IV, préstamos",
+      "rhythm": "backbeat, dance, balada",
+      "texture": "voz al frente, capas de acompañamiento",
+      "form": "intro-verso-pre-coro-coro-puente",
+      "instruments": [
+        "pulse",
+        "piano",
+        "bass",
+        "drums",
+        "strings",
+        "bell",
+        "pluck"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.25,
+        "delay": 0.1
+      },
+      "emotions": [
+        "joyful",
+        "romantic",
+        "nostalgic",
+        "energetic",
+        "playful"
+      ],
+      "keywords": [
+        "pop",
+        "dance-pop",
+        "electropop",
+        "k-pop",
+        "j-pop",
+        "city pop",
+        "synth-pop",
+        "synthpop",
+        "balada",
+        "hit"
+      ],
+      "chiptune": "Hook claro de 2 compases, coro con más capas y bajo simple. La melodía manda.",
+      "avoid": "Rellenar cada frecuencia y no dejar espacio para la voz."
+    },
+    "hiphop": {
+      "name": "Hip hop y rap",
+      "tempo": [
+        60,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "3/4"
+      ],
+      "scales": [
+        "minor",
+        "major",
+        "dorian",
+        "blues",
+        "pentMin",
+        "chromatic"
+      ],
+      "harmony": "loops, samples, pocos acordes, bajo 808",
+      "rhythm": "boom bap, trap, drill, swing",
+      "texture": "beat y voz; espacio",
+      "form": "intro-verso-coro-verso-coro-outro",
+      "instruments": [
+        "bass",
+        "drums",
+        "piano",
+        "pluck",
+        "pad",
+        "pulse"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.1,
+        "drive": 0.08
+      },
+      "emotions": [
+        "energetic",
+        "dark",
+        "funky",
+        "nostalgic",
+        "angry"
+      ],
+      "keywords": [
+        "hip hop",
+        "hip-hop",
+        "rap",
+        "boom bap",
+        "gangsta",
+        "trap",
+        "drill",
+        "grime",
+        "crunk",
+        "snap",
+        "hyphy",
+        "phonk",
+        "memphis",
+        "cloud rap",
+        "emo rap",
+        "lo-fi",
+        "jazz rap",
+        "conscious",
+        "political",
+        "horrorcore",
+        "miami bass",
+        "freestyle",
+        "turntablism",
+        "beatbox"
+      ],
+      "chiptune": "Bajo 808 con bass y slide, hi-hats rápidos y un sample melódico con piano/bell. Deja espacio para la voz.",
+      "avoid": "Llenar el beat de melodías y no dejar groove."
+    },
+    "reggae-caribbean": {
+      "name": "Reggae, ska y Caribe anglófono",
+      "tempo": [
+        60,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "6/8"
+      ],
+      "scales": [
+        "minor",
+        "major",
+        "dorian",
+        "pentMin"
+      ],
+      "harmony": "tres acordes, modal, ska",
+      "rhythm": "one-drop, steppers, skank, clave",
+      "texture": "bajo redondo, guitarra en contratiempo, vientos",
+      "form": "verso-coro, dub, dancehall",
+      "instruments": [
+        "bass",
+        "guitar",
+        "drums",
+        "brass",
+        "pulse",
+        "pad"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.35,
+        "delay": 0.25
+      },
+      "emotions": [
+        "joyful",
+        "serene",
+        "funky",
+        "energetic"
+      ],
+      "keywords": [
+        "reggae",
+        "roots",
+        "ska",
+        "rocksteady",
+        "dub",
+        "dancehall",
+        "ragga",
+        "calypso",
+        "soca",
+        "steelpan",
+        "punta",
+        "paranda",
+        "kompa",
+        "konpa",
+        "cadence-lypso",
+        "bouyon",
+        "zouk"
+      ],
+      "chiptune": "Bajo con slide, guitarra en offbeats y delay para dub. El bajo es el protagonista.",
+      "avoid": "Poner el acento en el tiempo fuerte y perder elskank."
+    },
+    "latin": {
+      "name": "Música latina y caribeña",
+      "tempo": [
+        70,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "12/8",
+        "3/4"
+      ],
+      "scales": [
+        "minor",
+        "major",
+        "dorian",
+        "phrygianDominant",
+        "pentMin"
+      ],
+      "harmony": "clave, montuno, dominantes, modal",
+      "rhythm": "clave 3-2/2-3, tumbao, son, rumba",
+      "texture": "percusión, piano montuno, vientos",
+      "form": "son, salsa, bolero, cumbia",
+      "instruments": [
+        "piano",
+        "bass",
+        "drums",
+        "brass",
+        "guitar",
+        "pluck"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.08
+      },
+      "emotions": [
+        "joyful",
+        "romantic",
+        "funky",
+        "festive",
+        "melancholic"
+      ],
+      "keywords": [
+        "salsa",
+        "son cubano",
+        "mambo",
+        "cha-cha",
+        "chachacha",
+        "bolero",
+        "rumba",
+        "guaracha",
+        "cumbia",
+        "vallenato",
+        "porro",
+        "mapalé",
+        "mapale",
+        "merengue",
+        "bachata",
+        "reggaeton",
+        "dembow",
+        "tango",
+        "milonga",
+        "chacarera",
+        "zamba",
+        "carnavalito",
+        "pasillo",
+        "bambuco",
+        "joropo",
+        "gaita",
+        "calipso",
+        "chicha",
+        "saya",
+        "tinku",
+        "baguala",
+        "vidala",
+        "chamamé",
+        "chamame",
+        "candombe",
+        "murga"
+      ],
+      "chiptune": "Clave con drums, bajo tumbao y piano montuno. No uses un 4/4 recto: el groove está en la clave.",
+      "avoid": "Convertir la clave en un ritmo genérico de rock."
+    },
+    "brazil": {
+      "name": "Música brasileña",
+      "tempo": [
+        60,
+        170
+      ],
+      "meters": [
+        "4/4",
+        "2/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "mixolydian",
+        "pentMin"
+      ],
+      "harmony": "bossa, samba, modal, cromatismo suave",
+      "rhythm": "samba, baião, frevo, bossa",
+      "texture": "guitarra de nylon, percusión, voz",
+      "form": "samba-enredo, canción, choro",
+      "instruments": [
+        "guitar",
+        "pluck",
+        "piano",
+        "bass",
+        "drums",
+        "brass"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.08
+      },
+      "emotions": [
+        "joyful",
+        "romantic",
+        "nostalgic",
+        "festive",
+        "melancholic"
+      ],
+      "keywords": [
+        "samba",
+        "bossa nova",
+        "mpb",
+        "choro",
+        "forró",
+        "forro",
+        "baião",
+        "baiao",
+        "frevo",
+        "maracatu",
+        "axé",
+        "axe",
+        "samba de roda",
+        "ciranda",
+        "coco",
+        "embolada",
+        "repente",
+        "cantoria",
+        "modinha",
+        "lundu",
+        "maxixe",
+        "seresta",
+        "toada",
+        "vanerão",
+        "vanerao",
+        "xote",
+        "xaxado",
+        "arrocha",
+        "pisadinha",
+        "tecnobrega",
+        "brega",
+        "lambada",
+        "carimbó",
+        "carimbo",
+        "guitarrada"
+      ],
+      "chiptune": "Guitarra con pluck, percusión de samba con drums y bajo sincopado. El fraseo debe balancearse.",
+      "avoid": "Ritmo recto y armonía de pop genérica."
+    },
+    "country-folk": {
+      "name": "Country, folk y americana",
+      "tempo": [
+        60,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "mixolydian",
+        "dorian",
+        "pentMaj",
+        "blues"
+      ],
+      "harmony": "I-IV-V, modal, bluegrass",
+      "rhythm": "train beat, shuffle, vals",
+      "texture": "acústico, armonías vocales, instrumentos orgánicos",
+      "form": "verso-coro, balada, reel",
+      "instruments": [
+        "guitar",
+        "pluck",
+        "piano",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.04
+      },
+      "emotions": [
+        "nostalgic",
+        "joyful",
+        "melancholic",
+        "romantic",
+        "adventurous"
+      ],
+      "keywords": [
+        "country",
+        "bluegrass",
+        "folk",
+        "americana",
+        "outlaw",
+        "country rock",
+        "western swing",
+        "honky tonk",
+        "zydeco",
+        "cajun",
+        "tex-mex",
+        "tejano",
+        "conjunto",
+        "swamp pop",
+        "surf rock",
+        "garage rock"
+      ],
+      "chiptune": "Pluck para banjo o guitarra, bajo simple y coros con pulse. La narración manda.",
+      "avoid": "Saturar con batería y distorsión."
+    },
+    "flamenco-lusophone": {
+      "name": "Flamenco, fado y lusofonía",
+      "tempo": [
+        60,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "12/8",
+        "6/8"
+      ],
+      "scales": [
+        "phrygianDominant",
+        "minor",
+        "harmonicMinor",
+        "dorian"
+      ],
+      "harmony": "cadencia andaluza, pedal, rasgueo",
+      "rhythm": "compás de 12, bulería, fado",
+      "texture": "guitarra, palmas, voz",
+      "form": "copla, falseta, fado",
+      "instruments": [
+        "guitar",
+        "pluck",
+        "piano",
+        "bass",
+        "drums",
+        "pulse"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.25,
+        "drive": 0.05
+      },
+      "emotions": [
+        "melancholic",
+        "romantic",
+        "tense",
+        "festive",
+        "lonely"
+      ],
+      "keywords": [
+        "flamenco",
+        "sevillanas",
+        "fado",
+        "copla",
+        "morna",
+        "coladeira",
+        "funaná",
+        "funana",
+        "batuque",
+        "semba",
+        "kizomba",
+        "kuduro",
+        "tarraxinha",
+        "ghetto zouk",
+        "coupé-décalé",
+        "coupe-decale",
+        "makossa",
+        "bikutsi",
+        "manele",
+        "turbo-folk",
+        "chalga",
+        "tallava",
+        "pop folk",
+        "raï",
+        "rai",
+        "kabyle",
+        "chaoui",
+        "malhun",
+        "aita",
+        "melhoun",
+        "andalusí",
+        "andalusi",
+        "nouba"
+      ],
+      "chiptune": "Guitarra con pluck/guitar, palmas con snare y cadencia frigia. La tensión y el silencio son parte del lenguaje.",
+      "avoid": "Aplanar el compás de 12 a un 4/4 pop."
+    },
+    "celtic": {
+      "name": "Música celta",
+      "tempo": [
+        70,
+        170
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "9/8",
+        "12/8"
+      ],
+      "scales": [
+        "dorian",
+        "mixolydian",
+        "major",
+        "minor",
+        "pentMaj"
+      ],
+      "harmony": "modal, drones, terceras",
+      "rhythm": "jig, reel, hornpipe",
+      "texture": "melodía ornamentada, drone, percusión ligera",
+      "form": "AABB, tune",
+      "instruments": [
+        "pluck",
+        "pulse",
+        "strings",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.25,
+        "delay": 0.1
+      },
+      "emotions": [
+        "adventurous",
+        "joyful",
+        "melancholic",
+        "majestic",
+        "festive"
+      ],
+      "keywords": [
+        "celta",
+        "celtic",
+        "jig",
+        "reel",
+        "hornpipe",
+        "irlanda",
+        "escocia",
+        "galicia",
+        "bretaña",
+        "bretona"
+      ],
+      "chiptune": "Melodía con pulse/pluck, drone con pad y jig en 6/8. Ornamenta con notas cortas, no con vibrato.",
+      "avoid": "Usar compases rectos y armonía pop."
+    },
+    "andean": {
+      "name": "Música andina y sudamericana",
+      "tempo": [
+        60,
+        150
+      ],
+      "meters": [
+        "4/4",
+        "2/4",
+        "6/8",
+        "3/4"
+      ],
+      "scales": [
+        "minor",
+        "pentMin",
+        "dorian",
+        "major"
+      ],
+      "harmony": "modal, pentatónica, paralelismo",
+      "rhythm": "huayno, sanjuanito, cueca, saya",
+      "texture": "quenas, charangos, percusión",
+      "form": "copla, carnaval, danza",
+      "instruments": [
+        "pluck",
+        "pulse",
+        "guitar",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.1
+      },
+      "emotions": [
+        "melancholic",
+        "festive",
+        "adventurous",
+        "ritual",
+        "nostalgic"
+      ],
+      "keywords": [
+        "andina",
+        "andino",
+        "huayno",
+        "sanjuanito",
+        "cueca",
+        "saya",
+        "tinku",
+        "baguala",
+        "vidala",
+        "chamamé",
+        "chamame",
+        "rasguido doble",
+        "milonga campera",
+        "candombe",
+        "murga uruguaya",
+        "chacarera",
+        "zamba",
+        "carnavalito"
+      ],
+      "chiptune": "Quena con pulse, charango con pluck y bombo con kick/tom. La melodía pentatónica manda.",
+      "avoid": "Ritmos genéricos y armonía funcional densa."
+    },
+    "mexican": {
+      "name": "Música mexicana",
+      "tempo": [
+        70,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "harmonicMinor",
+        "pentMaj",
+        "blues"
+      ],
+      "harmony": "corrido, ranchera, mariachi",
+      "rhythm": "son jalisciense, polka, vals",
+      "texture": "trompetas, guitarras, violines, voz",
+      "form": "corrido, ranchera, bolero",
+      "instruments": [
+        "brass",
+        "guitar",
+        "pluck",
+        "bass",
+        "drums",
+        "strings"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.25,
+        "delay": 0.04
+      },
+      "emotions": [
+        "romantic",
+        "melancholic",
+        "festive",
+        "heroic",
+        "nostalgic"
+      ],
+      "keywords": [
+        "mariachi",
+        "ranchera",
+        "norteño",
+        "norteno",
+        "banda sinaloense",
+        "corrido",
+        "corrido tumbado",
+        "tex-mex",
+        "tejano",
+        "conjunto",
+        "norteño-sax",
+        "norteno-sax"
+      ],
+      "chiptune": "Trompetas con brass, guitarra con pluck y bajo simple. El ritmo de polka o vals define el género.",
+      "avoid": "Convertirlo en pop latino genérico."
+    },
+    "asian": {
+      "name": "Músicas de Asia",
+      "tempo": [
+        50,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "2/4",
+        "3/4",
+        "6/8"
+      ],
+      "scales": [
+        "hirajoshi",
+        "insen",
+        "pentMin",
+        "pentMaj",
+        "dorian",
+        "phrygianDominant"
+      ],
+      "harmony": "modal, drone, pentatónica, raga",
+      "rhythm": "ciclos, libre, acentos",
+      "texture": "timbre protagonista, silencios, ornamentos",
+      "form": "raga, gagaku, ópera, canción",
+      "instruments": [
+        "pluck",
+        "bell",
+        "pad",
+        "pulse",
+        "bass",
+        "drums"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.35,
+        "delay": 0.15
+      },
+      "emotions": [
+        "serene",
+        "mysterious",
+        "exotic",
+        "ritual",
+        "majestic"
+      ],
+      "keywords": [
+        "china",
+        "japón",
+        "japon",
+        "japonesa",
+        "corea",
+        "india",
+        "india clásica",
+        "raga",
+        "carnatic",
+        "hindustani",
+        "dhrupad",
+        "khayal",
+        "thumri",
+        "gagaku",
+        "nōgaku",
+        "nogaku",
+        "kabuki",
+        "pansori",
+        "trot",
+        "enka",
+        "ópera de pekín",
+        "opera de pekin",
+        "guqin",
+        "sitar",
+        "sarod",
+        "santoor",
+        "sarangi",
+        "bansuri",
+        "shehnai",
+        "tabla",
+        "pakhawaj",
+        "veena",
+        "mridangam",
+        "ghatam",
+        "kanjira",
+        "nadaswaram",
+        "tavil"
+      ],
+      "chiptune": "Pluck/bell para cuerdas pulsadas, ornamentos con notas cortas y drone con pad. Respeta el ciclo rítmico.",
+      "avoid": "Usar una escala exótica como disfraz sin entender el fraseo."
+    },
+    "middle-east": {
+      "name": "Música de Oriente Medio y Asia Central",
+      "tempo": [
+        60,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "7/8",
+        "9/8"
+      ],
+      "scales": [
+        "phrygianDominant",
+        "doubleHarmonic",
+        "harmonicMinor",
+        "dorian",
+        "egyptian"
+      ],
+      "harmony": "maqam, drone, microtonal imaginado",
+      "rhythm": "maqsum, baladi, dabke, ciclos",
+      "texture": "voz, cuerdas, percusión manual",
+      "form": "taqsim, dabke, canción",
+      "instruments": [
+        "pluck",
+        "pulse",
+        "strings",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.1
+      },
+      "emotions": [
+        "exotic",
+        "ritual",
+        "melancholic",
+        "joyful",
+        "tense"
+      ],
+      "keywords": [
+        "maqam",
+        "mugham",
+        "shashmaqom",
+        "taqsim",
+        "dabke",
+        "baladi",
+        "saidi",
+        "shaabi",
+        "mahraganat",
+        "sufi",
+        "qawwali",
+        "ghazal",
+        "thumri",
+        "dadra",
+        "tappa",
+        "bhajan",
+        "kirtan",
+        "abhang",
+        "lavani",
+        "tamasha",
+        "baul",
+        "fakir",
+        "jhumair",
+        "chhau",
+        "bihu",
+        "borgeet",
+        "ojapali",
+        "sattriya",
+        "manipuri",
+        "kathak",
+        "bharatanatyam",
+        "kuchipudi",
+        "odissi",
+        "mohiniyattam",
+        "yakshagana",
+        "theyyam",
+        "padayani",
+        "chavittu nadakam",
+        "sopana",
+        "panchavadyam",
+        "chenda melam",
+        "thayambaka",
+        "idakka"
+      ],
+      "chiptune": "Ornamentos con pulse, percusión con drums y pedal. El maqam se sugiere con intervalos y adornos.",
+      "avoid": "Ritmo de rock y acordes funcionales."
+    },
+    "african": {
+      "name": "Músicas de África",
+      "tempo": [
+        60,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "12/8",
+        "3/4"
+      ],
+      "scales": [
+        "pentMin",
+        "pentMaj",
+        "dorian",
+        "mixolydian",
+        "major",
+        "minor"
+      ],
+      "harmony": "cíclica, pentatónica, call and response",
+      "rhythm": "polirritmia, clave, highlife, afrobeat",
+      "texture": "percusión en capas, guitarra, vientos",
+      "form": "ciclo, call-response, canción",
+      "instruments": [
+        "drums",
+        "bass",
+        "guitar",
+        "pluck",
+        "brass",
+        "pad"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.1
+      },
+      "emotions": [
+        "joyful",
+        "ritual",
+        "energetic",
+        "funky",
+        "festive"
+      ],
+      "keywords": [
+        "highlife",
+        "afrobeat",
+        "mbalax",
+        "mbaqanga",
+        "isicathamiya",
+        "soukous",
+        "rumba congoleña",
+        "rumba congolena",
+        "raï",
+        "rai",
+        "chaabi",
+        "gnawa",
+        "desert blues",
+        "taarab",
+        "benga",
+        "juju",
+        "fuji",
+        "amapiano",
+        "afro",
+        " África",
+        "africa"
+      ],
+      "chiptune": "Varias capas de drums, bajo sincopado y guitarra con pluck. La polirritmia debe ser clara, no densa.",
+      "avoid": "Un solo patrón de batería repetido sin variación."
+    },
+    "electronic": {
+      "name": "Música electrónica",
+      "tempo": [
+        70,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "7/8"
+      ],
+      "scales": [
+        "minor",
+        "major",
+        "dorian",
+        "phrygian",
+        "pentMin",
+        "chromatic"
+      ],
+      "harmony": "loops, drones, progresiones simples",
+      "rhythm": "four-on-the-floor, breakbeat, half-time",
+      "texture": "síntesis, capas, filtros",
+      "form": "intro-build-drop-break-drop-outro",
+      "instruments": [
+        "saw",
+        "bass",
+        "drums",
+        "arp",
+        "pad",
+        "pluck",
+        "pulse"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.2,
+        "drive": 0.1
+      },
+      "emotions": [
+        "energetic",
+        "futuristic",
+        "hypnotic",
+        "dreamy",
+        "dark"
+      ],
+      "keywords": [
+        "house",
+        "deep house",
+        "techno",
+        "trance",
+        "psytrance",
+        "drum and bass",
+        "drum & bass",
+        "dnb",
+        "jungle",
+        "dubstep",
+        "garage",
+        "breakbeat",
+        "ambient",
+        "downtempo",
+        "trip hop",
+        "idm",
+        "edm",
+        "hardstyle",
+        "gabber",
+        "vaporwave",
+        "synthwave",
+        "chiptune",
+        "new age"
+      ],
+      "chiptune": "Usa saw/pulse, capas que entran y salen y builds con tempo ramp. El drop necesita un contraste real.",
+      "avoid": "Mantener la misma densidad y el mismo timbre todo el tema."
+    },
+    "experimental": {
+      "name": "Experimental, ruido y drone",
+      "tempo": [
+        40,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "5/4",
+        "7/8",
+        "6/8"
+      ],
+      "scales": [
+        "chromatic",
+        "wholeTone",
+        "diminished",
+        "locrian"
+      ],
+      "harmony": "no funcional, texturas, ruido",
+      "rhythm": "libre, procesos",
+      "texture": "capas, ruido, silencio",
+      "form": "abierta, collage",
+      "instruments": [
+        "crush",
+        "pad",
+        "bell",
+        "saw",
+        "drums",
+        "bass"
+      ],
+      "percussion": "free",
+      "fx": {
+        "reverb": 0.45,
+        "delay": 0.25,
+        "drive": 0.15
+      },
+      "emotions": [
+        "chaotic",
+        "mysterious",
+        "tense",
+        "lonely",
+        "futuristic"
+      ],
+      "keywords": [
+        "experimental",
+        "noise",
+        "ruido",
+        "drone",
+        "free improvisation",
+        "improvisación libre",
+        "musique concrète",
+        "concreta",
+        "sound art",
+        "arte sonoro",
+        "field recording"
+      ],
+      "chiptune": "Trata el chip como material: texturas, ruido, ediciones y espacio. Define un marco aunque no haya tonalidad.",
+      "avoid": "Ruido sin forma ni contraste."
+    },
+    "chiptune-game": {
+      "name": "Chiptune y música de videojuegos",
+      "tempo": [
+        90,
+        180
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "7/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "mixolydian",
+        "pentMaj",
+        "pentMin",
+        "blues",
+        "harmonicMinor"
+      ],
+      "harmony": "melodía, bajo y arpegios; progresiones claras",
+      "rhythm": "pulso de juego, síncopas, loops",
+      "texture": "3-6 canales, roles claros",
+      "form": "loop de 8-32 compases, intro, A/B",
+      "instruments": [
+        "pulse",
+        "arp",
+        "triangle",
+        "bass",
+        "drums",
+        "bell",
+        "pluck"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.15,
+        "delay": 0.1
+      },
+      "emotions": [
+        "adventurous",
+        "joyful",
+        "heroic",
+        "mysterious",
+        "playful"
+      ],
+      "keywords": [
+        "chiptune",
+        "videojuego",
+        "video game",
+        "8-bit",
+        "16-bit",
+        "tracker",
+        "demoscene",
+        "game boy",
+        "nes",
+        "snes",
+        "arcade",
+        "jrpg"
+      ],
+      "chiptune": "Piensa en canales: lead, arpegio, bajo y ruido. El loop debe cerrar bien y el tema debe reconocerse en 4 compases.",
+      "avoid": "Usar todos los canales a la vez y no dejar espacio."
+    },
+    "screen-stage": {
+      "name": "Banda sonora y escena",
+      "tempo": [
+        50,
+        160
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "7/8",
+        "5/4"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "lydian",
+        "phrygian",
+        "harmonicMinor"
+      ],
+      "harmony": "temática, leitmotiv, funcional y cinemática",
+      "rhythm": "libre, hitos, pulsos",
+      "texture": "orquesta imaginaria, capas, silencios",
+      "form": "tema, desarrollo, clímax, coda",
+      "instruments": [
+        "strings",
+        "brass",
+        "piano",
+        "pad",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.35,
+        "delay": 0.1
+      },
+      "emotions": [
+        "heroic",
+        "mysterious",
+        "melancholic",
+        "tense",
+        "majestic",
+        "romantic"
+      ],
+      "keywords": [
+        "banda sonora",
+        "soundtrack",
+        "score",
+        "cine",
+        "película",
+        "pelicula",
+        "film",
+        "musical teatral",
+        "teatro",
+        "cabaret",
+        "music hall",
+        "ópera",
+        "opera",
+        "ballet"
+      ],
+      "chiptune": "Cuerdas/pad para la masa, piano/bell para el tema y tempo map para seguir la escena. El silencio también narra.",
+      "avoid": "Música de fondo genérica sin tema ni puntos de sincronía."
+    },
+    "european-folk": {
+      "name": "Folk europeo y balcánico",
+      "tempo": [
+        70,
+        170
+      ],
+      "meters": [
+        "4/4",
+        "3/4",
+        "6/8",
+        "7/8"
+      ],
+      "scales": [
+        "dorian",
+        "mixolydian",
+        "minor",
+        "major",
+        "phrygianDominant"
+      ],
+      "harmony": "modal, drone, acordes simples",
+      "rhythm": "danzas, compases irregulares",
+      "texture": "instrumentos acústicos, voz",
+      "form": "danza, canción estrófica",
+      "instruments": [
+        "pluck",
+        "pulse",
+        "strings",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "percussion": "light",
+      "fx": {
+        "reverb": 0.25,
+        "delay": 0.08
+      },
+      "emotions": [
+        "festive",
+        "melancholic",
+        "romantic",
+        "ritual",
+        "playful"
+      ],
+      "keywords": [
+        "klezmer",
+        "judía",
+        "judia",
+        "gitana",
+        "balcánica",
+        "balcanica",
+        "manele",
+        "turbo-folk",
+        "chalga",
+        "tallava",
+        "pop folk",
+        "copla",
+        "sevillanas",
+        "fado",
+        "morna",
+        "coladeira",
+        "funaná",
+        "funana"
+      ],
+      "chiptune": "Pluck para cuerdas, pulse para vientos y percusión simple. Los compases irregulares son parte de la identidad.",
+      "avoid": "Aplanar las danzas a 4/4."
+    },
+    "world-fusion": {
+      "name": "World music y fusión",
+      "tempo": [
+        60,
+        170
+      ],
+      "meters": [
+        "4/4",
+        "6/8",
+        "7/8",
+        "5/4"
+      ],
+      "scales": [
+        "dorian",
+        "phrygianDominant",
+        "pentMin",
+        "hirajoshi",
+        "major",
+        "minor"
+      ],
+      "harmony": "fusión modal, drones, progresiones",
+      "rhythm": "polirritmia, grooves híbridos",
+      "texture": "timbre acústico y electrónico",
+      "form": "viaje, suite, canción",
+      "instruments": [
+        "pluck",
+        "pulse",
+        "bass",
+        "drums",
+        "pad",
+        "bell"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.3,
+        "delay": 0.15
+      },
+      "emotions": [
+        "exotic",
+        "adventurous",
+        "mysterious",
+        "festive",
+        "dreamy"
+      ],
+      "keywords": [
+        "world music",
+        "world",
+        "fusión",
+        "fusion",
+        "global",
+        "étnico",
+        "etnico",
+        "intercultural"
+      ],
+      "chiptune": "Combina pluck orgánico con pads/saw. Cuida que el groove sea coherente aunque mezcles tradiciones.",
+      "avoid": "Mezclar culturas como decoración sin un pulso común."
+    },
+    "military": {
+      "name": "Marcha e himno",
+      "tempo": [
+        80,
+        140
+      ],
+      "meters": [
+        "4/4",
+        "2/4",
+        "6/8"
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "mixolydian"
+      ],
+      "harmony": "fanfarrias, marcha, bajo simple",
+      "rhythm": "marcha, redobles, acentos",
+      "texture": "metales, tambores, silbidos",
+      "form": "marcha, himno, desfile",
+      "instruments": [
+        "brass",
+        "drums",
+        "bass",
+        "pulse",
+        "strings",
+        "bell"
+      ],
+      "percussion": "full",
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.03
+      },
+      "emotions": [
+        "heroic",
+        "majestic",
+        "tense",
+        "festive"
+      ],
+      "keywords": [
+        "marcha",
+        "military",
+        "militar",
+        "himno",
+        "desfile",
+        "fanfarria",
+        "redoble"
+      ],
+      "chiptune": "Brass para la fanfarria, snare redoblante y bajo en negras. La claridad rítmica es todo.",
+      "avoid": "Ritmos sincopados que rompan la marcha."
+    }
+  },
+  "genres": {
+    "canto-gregoriano": {
+      "name": "Canto gregoriano",
+      "family": "medieval",
+      "aliases": [
+        "gregorian chant",
+        "canto llano",
+        "chant"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          72
+        ],
+        "meters": [
+          "4/4"
+        ],
+        "scales": [
+          "dorian",
+          "phrygian",
+          "ionian"
+        ],
+        "texture": "monofonía vocal, sin acompañamiento",
+        "rhythm": "libre, declamatorio, sin pulso regular",
+        "instruments": [
+          "pad",
+          "triangle",
+          "bell"
+        ],
+        "percussion": "none",
+        "form": "antífona, responsorio, himno",
+        "emotions": [
+          "sacred",
+          "serene",
+          "contemplative"
+        ],
+        "chiptune": "Una sola línea con pad/triangle y reverb amplia; deja silencios entre frases."
+      }
+    },
+    "organum": {
+      "name": "Organum",
+      "family": "medieval",
+      "aliases": [
+        "organum paralelo",
+        "organum melismático"
+      ],
+      "traits": {
+        "tempo": [
+          45,
+          70
+        ],
+        "meters": [
+          "4/4"
+        ],
+        "scales": [
+          "dorian",
+          "phrygian"
+        ],
+        "harmony": "cuartas y quintas paralelas, bordón",
+        "texture": "dos o tres voces",
+        "instruments": [
+          "pad",
+          "strings",
+          "triangle"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "sacred",
+          "majestic",
+          "mysterious"
+        ],
+        "chiptune": "Dos capas de pad/strings en intervalos abiertos; sin terceras modernas."
+      }
+    },
+    "ars-antiqua": {
+      "name": "Ars Antiqua",
+      "family": "medieval",
+      "aliases": [
+        "ars antiqua"
+      ],
+      "traits": {
+        "tempo": [
+          55,
+          90
+        ],
+        "meters": [
+          "3/4",
+          "6/8"
+        ],
+        "texture": "polifonía temprana, conductus, motete",
+        "rhythm": "modos rítmicos, grupos ternarios",
+        "instruments": [
+          "pluck",
+          "strings",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "sacred",
+          "majestic",
+          "serene"
+        ],
+        "chiptune": "Voces con pluck/pulse y un bordón; el ritmo ternario es la firma."
+      }
+    },
+    "ars-nova": {
+      "name": "Ars Nova",
+      "family": "medieval",
+      "aliases": [
+        "ars nova"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          100
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8"
+        ],
+        "harmony": "cadencias más definidas, terceras",
+        "rhythm": "mensural, síncopas, isorritmia",
+        "texture": "polifonía de 2-4 voces",
+        "instruments": [
+          "pluck",
+          "strings",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "sacred",
+          "romantic",
+          "majestic"
+        ],
+        "chiptune": "Contrapunto con pluck/pulse y cadencias suaves; añade síncopas con moderación."
+      }
+    },
+    "motete": {
+      "name": "Motete",
+      "family": "renaissance",
+      "aliases": [
+        "motet",
+        "motete renacentista"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          100
+        ],
+        "meters": [
+          "4/4",
+          "3/4"
+        ],
+        "texture": "polifonía imitativa, texto",
+        "form": "motete",
+        "instruments": [
+          "pluck",
+          "strings",
+          "pad",
+          "triangle",
+          "bass"
+        ],
+        "emotions": [
+          "sacred",
+          "serene",
+          "majestic"
+        ],
+        "chiptune": "Entradas escalonadas de pluck/pulse; el bajo sostiene sin protagonismo."
+      }
+    },
+    "madrigal": {
+      "name": "Madrigal",
+      "family": "renaissance",
+      "aliases": [
+        "madrigal renacentista"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          110
+        ],
+        "meters": [
+          "4/4",
+          "3/4"
+        ],
+        "texture": "polifonía imitativa, texto expresivo",
+        "form": "madrigal",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "strings",
+          "pad",
+          "bass"
+        ],
+        "emotions": [
+          "romantic",
+          "serene",
+          "playful",
+          "melancholic"
+        ],
+        "chiptune": "Dos o tres voces con pluck/pulse y cadencias expresivas; deja que el texto imaginado respire."
+      }
+    },
+    "barroco": {
+      "name": "Barroco",
+      "family": "baroque",
+      "aliases": [
+        "baroque"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          120
+        ],
+        "emotions": [
+          "majestic",
+          "sacred",
+          "energetic",
+          "melancholic"
+        ]
+      }
+    },
+    "fuga": {
+      "name": "Fuga",
+      "family": "baroque",
+      "aliases": [
+        "fugue",
+        "fuga barroca"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          110
+        ],
+        "texture": "contrapunto imitativo, sujeto y respuesta",
+        "form": "exposición, desarrollo, estretto",
+        "instruments": [
+          "piano",
+          "pluck",
+          "strings",
+          "bass"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "majestic",
+          "mysterious",
+          "energetic"
+        ],
+        "chiptune": "Tres voces con piano/pluck/pulse; el sujeto debe ser reconocible en cada entrada."
+      }
+    },
+    "clasicismo": {
+      "name": "Clasicismo",
+      "family": "classical",
+      "aliases": [
+        "classical",
+        "clásico",
+        "clasico"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          140
+        ],
+        "emotions": [
+          "majestic",
+          "joyful",
+          "serene",
+          "playful"
+        ]
+      }
+    },
+    "sinfonia": {
+      "name": "Sinfonía",
+      "family": "classical",
+      "aliases": [
+        "symphony",
+        "sinfonia clásica",
+        "sinfonia clasica"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          150
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "2/4",
+          "6/8"
+        ],
+        "form": "sonata, adagio, scherzo, finale",
+        "instruments": [
+          "strings",
+          "brass",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "majestic",
+          "heroic",
+          "melancholic",
+          "joyful"
+        ],
+        "chiptune": "Contrasta movimientos por tempo, densidad y modo; usa tempo map para los cambios."
+      }
+    },
+    "cuarteto-cuerdas": {
+      "name": "Cuarteto de cuerda",
+      "family": "classical",
+      "aliases": [
+        "string quartet",
+        "cuarteto de cuerdas"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          140
+        ],
+        "texture": "cuatro voces de cuerda, contrapunto y homofonía",
+        "instruments": [
+          "strings",
+          "pluck",
+          "piano",
+          "bass"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "serene",
+          "melancholic",
+          "majestic",
+          "romantic"
+        ],
+        "chiptune": "Cuatro capas de strings/pluck; no añadas batería."
+      }
+    },
+    "concierto": {
+      "name": "Concierto",
+      "family": "classical",
+      "aliases": [
+        "concerto",
+        "concierto solista"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          160
+        ],
+        "form": "ritornello, cadenza, tutti",
+        "instruments": [
+          "piano",
+          "strings",
+          "brass",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "heroic",
+          "majestic",
+          "energetic",
+          "romantic"
+        ],
+        "chiptune": "Distingue solista (pulse/piano) y tutti (strings/brass); deja una cadenza."
+      }
+    },
+    "sonata": {
+      "name": "Sonata",
+      "family": "classical",
+      "aliases": [
+        "sonata clásica",
+        "sonata clasica"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          140
+        ],
+        "form": "exposición, desarrollo, recapitulación",
+        "instruments": [
+          "piano",
+          "strings",
+          "pluck",
+          "bass"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "serene",
+          "dramatic",
+          "majestic"
+        ],
+        "chiptune": "Un instrumento protagonista y acompañamiento claro; el desarrollo transforma el motivo."
+      }
+    },
+    "romanticismo": {
+      "name": "Romanticismo",
+      "family": "romantic",
+      "aliases": [
+        "romantic",
+        "música romántica",
+        "musica romantica"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          140
+        ],
+        "emotions": [
+          "romantic",
+          "melancholic",
+          "heroic",
+          "majestic",
+          "nostalgic"
+        ]
+      }
+    },
+    "impresionismo": {
+      "name": "Impresionismo musical",
+      "family": "impressionist",
+      "aliases": [
+        "impressionism",
+        "impresionista"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          95
+        ],
+        "emotions": [
+          "dreamy",
+          "serene",
+          "mysterious",
+          "exotic"
+        ]
+      }
+    },
+    "expresionismo": {
+      "name": "Expresionismo musical",
+      "family": "expressionist",
+      "aliases": [
+        "expressionism",
+        "expresionista"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          120
+        ],
+        "emotions": [
+          "tense",
+          "dark",
+          "chaotic",
+          "lonely"
+        ]
+      }
+    },
+    "dodecafonismo": {
+      "name": "Dodecafonismo",
+      "family": "serialist",
+      "aliases": [
+        "twelve-tone",
+        "doce tonos",
+        "dodecafonia"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          130
+        ],
+        "scales": [
+          "chromatic"
+        ],
+        "harmony": "serie de 12 alturas, inversiones, retrogradaciones",
+        "instruments": [
+          "piano",
+          "strings",
+          "bell",
+          "arp",
+          "bass"
+        ],
+        "emotions": [
+          "tense",
+          "mysterious",
+          "chaotic"
+        ],
+        "chiptune": "Escribe una serie y úsala completa antes de repetir una altura; serializa también el ritmo."
+      }
+    },
+    "serialismo": {
+      "name": "Serialismo integral",
+      "family": "serialist",
+      "aliases": [
+        "serialism",
+        "serialismo integral"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          140
+        ],
+        "scales": [
+          "chromatic"
+        ],
+        "rhythm": "series de duraciones y dinámicas",
+        "instruments": [
+          "piano",
+          "strings",
+          "bell",
+          "arp",
+          "drums"
+        ],
+        "emotions": [
+          "tense",
+          "futuristic",
+          "chaotic"
+        ],
+        "chiptune": "Organiza alturas, duraciones, velocidades y timbres con reglas; el resultado debe tener textura, no solo matemáticas."
+      }
+    },
+    "musica-aleatoria": {
+      "name": "Música aleatoria",
+      "family": "aleatoric",
+      "aliases": [
+        "aleatoric",
+        "chance music",
+        "indeterminate"
+      ],
+      "traits": {
+        "tempo": [
+          40,
+          160
+        ],
+        "emotions": [
+          "chaotic",
+          "mysterious",
+          "serene"
+        ]
+      }
+    },
+    "musica-concreta": {
+      "name": "Música concreta",
+      "family": "electroacoustic",
+      "aliases": [
+        "musique concrète",
+        "musique concrete",
+        "concrete music"
+      ],
+      "traits": {
+        "tempo": [
+          40,
+          120
+        ],
+        "scales": [
+          "chromatic"
+        ],
+        "texture": "grabaciones transformadas, collage, textura",
+        "instruments": [
+          "crush",
+          "pad",
+          "bell",
+          "drums",
+          "bass"
+        ],
+        "percussion": "free",
+        "emotions": [
+          "industrial",
+          "mysterious",
+          "lonely",
+          "futuristic"
+        ],
+        "chiptune": "Simula cintas y objetos con ruido, crush y ediciones; crea un paisaje, no una canción pop."
+      }
+    },
+    "electronica-academica": {
+      "name": "Música electrónica académica",
+      "family": "electroacoustic",
+      "aliases": [
+        "acousmatic",
+        "electronic academic",
+        "electroacústica",
+        "electroacustica"
+      ],
+      "traits": {
+        "tempo": [
+          40,
+          150
+        ],
+        "texture": "síntesis, espacio, acusmática",
+        "instruments": [
+          "pad",
+          "crush",
+          "bell",
+          "arp",
+          "bass"
+        ],
+        "percussion": "free",
+        "emotions": [
+          "futuristic",
+          "mysterious",
+          "lonely",
+          "tense"
+        ],
+        "chiptune": "Trabaja el timbre y la espacialización; el paneo y la reverb son parte de la composición."
+      }
+    },
+    "minimalismo": {
+      "name": "Minimalismo",
+      "family": "minimalist",
+      "aliases": [
+        "minimalism",
+        "minimalista"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          130
+        ],
+        "emotions": [
+          "hypnotic",
+          "serene",
+          "dreamy"
+        ]
+      }
+    },
+    "postminimalismo": {
+      "name": "Postminimalismo",
+      "family": "minimalist",
+      "aliases": [
+        "postminimalism",
+        "post-minimalismo"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          140
+        ],
+        "harmony": "procesos repetitivos con armonía más rica",
+        "instruments": [
+          "piano",
+          "arp",
+          "pluck",
+          "pad",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "hypnotic",
+          "nostalgic",
+          "serene",
+          "energetic"
+        ],
+        "chiptune": "Parte de una célula minimalista y añade color armónico y capas sin perder el pulso."
+      }
+    },
+    "opera": {
+      "name": "Ópera",
+      "family": "opera-stage",
+      "aliases": [
+        "opera",
+        "ópera"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          140
+        ],
+        "form": "obertura, aria, recitativo, concertante",
+        "instruments": [
+          "strings",
+          "brass",
+          "piano",
+          "pad",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "romantic",
+          "majestic",
+          "melancholic",
+          "heroic"
+        ],
+        "chiptune": "Imagina la voz con pulse/strings; el recitativo puede ser casi hablado y el aria más lírica."
+      }
+    },
+    "opereta": {
+      "name": "Opereta",
+      "family": "opera-stage",
+      "aliases": [
+        "operetta"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          150
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8"
+        ],
+        "form": "obertura, canción, vals, final",
+        "instruments": [
+          "strings",
+          "brass",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "joyful",
+          "romantic",
+          "playful",
+          "majestic"
+        ],
+        "chiptune": "Números ligeros, vals y melodías claras; menos densidad orquestal que la ópera."
+      }
+    },
+    "zarzuela": {
+      "name": "Zarzuela",
+      "family": "opera-stage",
+      "aliases": [
+        "zarzuela española",
+        "zarzuela espanola"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          150
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8"
+        ],
+        "form": "preludio, romanza, coro, intermedio",
+        "instruments": [
+          "strings",
+          "brass",
+          "piano",
+          "guitar",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "romantic",
+          "joyful",
+          "melancholic",
+          "festive"
+        ],
+        "chiptune": "Combina lírica y ritmos populares españoles; deja espacio a la copla."
+      }
+    },
+    "oratorio": {
+      "name": "Oratorio",
+      "family": "opera-stage",
+      "aliases": [
+        "oratorio sacro"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          130
+        ],
+        "form": "recitativo, aria, coro, obertura",
+        "instruments": [
+          "strings",
+          "brass",
+          "pad",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "sacred",
+          "majestic",
+          "melancholic",
+          "heroic"
+        ],
+        "chiptune": "Coro y solistas imaginarios; la narración puede alternar recitativo y números."
+      }
+    },
+    "cantata": {
+      "name": "Cantata",
+      "family": "opera-stage",
+      "aliases": [
+        "cantata sacra",
+        "cantata profana"
+      ],
+      "traits": {
+        "tempo": [
+          55,
+          130
+        ],
+        "form": "arias, recitativos, coros, coral",
+        "instruments": [
+          "strings",
+          "brass",
+          "pad",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "sacred",
+          "majestic",
+          "serene",
+          "melancholic"
+        ],
+        "chiptune": "Contraste entre coral y aria; usa capas para el coro y una voz solista clara."
+      }
+    },
+    "blues-delta": {
+      "name": "Delta blues",
+      "family": "blues",
+      "aliases": [
+        "delta blues",
+        "blues rural",
+        "rural blues",
+        "blues acústico",
+        "blues acustico"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          100
+        ],
+        "meters": [
+          "4/4",
+          "12/8"
+        ],
+        "texture": "voz y guitarra solitaria, slide",
+        "instruments": [
+          "guitar",
+          "pulse",
+          "bass",
+          "drums"
+        ],
+        "percussion": "light",
+        "emotions": [
+          "lonely",
+          "melancholic",
+          "ritual"
+        ],
+        "chiptune": "Guitarra con pluck/guitar y slide; deja silencios y ruido de cuerda."
+      }
+    },
+    "chicago-blues": {
+      "name": "Chicago blues",
+      "family": "blues",
+      "aliases": [
+        "chicago blues",
+        "blues urbano",
+        "urban blues"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          140
+        ],
+        "texture": "banda eléctrica, armónica, guitarra",
+        "instruments": [
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "pulse"
+        ],
+        "emotions": [
+          "energetic",
+          "melancholic",
+          "funky"
+        ],
+        "chiptune": "Banda completa con guitarra distorsionada y piano; el shuffle debe ser claro."
+      }
+    },
+    "boogie-woogie": {
+      "name": "Boogie-woogie",
+      "family": "blues",
+      "aliases": [
+        "boogie woogie",
+        "boogie"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          160
+        ],
+        "meters": [
+          "4/4"
+        ],
+        "rhythm": "bajo ostinato en corcheas, mano izquierda",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "funky",
+          "joyful"
+        ],
+        "chiptune": "Piano con patrón de boogie en corcheas; bajo y batería sostienen sin tapar."
+      }
+    },
+    "jump-blues": {
+      "name": "Jump blues",
+      "family": "blues",
+      "aliases": [
+        "jump blues"
+      ],
+      "traits": {
+        "tempo": [
+          110,
+          170
+        ],
+        "texture": "banda pequeña, saxos, shuffle",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "funky"
+        ],
+        "chiptune": "Metales con brass y piano; ritmo shuffle y riffs cortos."
+      }
+    },
+    "gospel": {
+      "name": "Gospel",
+      "family": "gospel",
+      "aliases": [
+        "gospel music",
+        "gospel tradicional"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          140
+        ],
+        "emotions": [
+          "sacred",
+          "joyful",
+          "hopeful"
+        ]
+      }
+    },
+    "spirituals": {
+      "name": "Spirituals",
+      "family": "gospel",
+      "aliases": [
+        "spiritual",
+        "negro spiritual"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          90
+        ],
+        "texture": "coro a capela, call and response",
+        "instruments": [
+          "pad",
+          "pulse",
+          "triangle",
+          "bass"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "sacred",
+          "melancholic",
+          "hopeful",
+          "lonely"
+        ],
+        "chiptune": "Coro con pad/pulse y fraseo de llamada-respuesta; sin batería."
+      }
+    },
+    "work-songs": {
+      "name": "Work songs",
+      "family": "gospel",
+      "aliases": [
+        "work song",
+        "canción de trabajo",
+        "cancion de trabajo"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          110
+        ],
+        "rhythm": "pulso de trabajo, llamada-respuesta",
+        "texture": "voz grupal, percusión corporal",
+        "instruments": [
+          "pulse",
+          "drums",
+          "bass",
+          "pad"
+        ],
+        "emotions": [
+          "ritual",
+          "melancholic",
+          "energetic",
+          "hopeful"
+        ],
+        "chiptune": "Pulso constante y frases cortas; la percusión puede ser palmas y pies."
+      }
+    },
+    "jazz": {
+      "name": "Jazz",
+      "family": "jazz",
+      "aliases": [
+        "jazz music"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          200
+        ],
+        "emotions": [
+          "funky",
+          "romantic",
+          "energetic",
+          "mysterious"
+        ]
+      }
+    },
+    "ragtime": {
+      "name": "Ragtime",
+      "family": "jazz",
+      "aliases": [
+        "rag",
+        "ragtime piano"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          140
+        ],
+        "meters": [
+          "4/4",
+          "2/4"
+        ],
+        "rhythm": "síncopa rag, bajo marcha, melodía sincopada",
+        "instruments": [
+          "piano",
+          "pluck",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "playful",
+          "joyful",
+          "nostalgic"
+        ],
+        "chiptune": "Piano con bajo en negras y melodía sincopada; la síncopa es la personalidad."
+      }
+    },
+    "dixieland": {
+      "name": "Dixieland",
+      "family": "jazz",
+      "aliases": [
+        "hot jazz",
+        "jazz tradicional",
+        "new orleans jazz"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          160
+        ],
+        "texture": "front line de vientos, banjo, tuba",
+        "instruments": [
+          "brass",
+          "pluck",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "joyful",
+          "playful",
+          "energetic",
+          "nostalgic"
+        ],
+        "chiptune": "Varios vientos con brass/pulse improvisando alrededor de la melodía; bajo y batería simples."
+      }
+    },
+    "swing": {
+      "name": "Swing",
+      "family": "jazz",
+      "aliases": [
+        "swing jazz",
+        "era del swing"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          180
+        ],
+        "rhythm": "swing, ride, walking bass",
+        "texture": "big band o combo",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "joyful",
+          "energetic",
+          "romantic",
+          "funky"
+        ],
+        "chiptune": "Ride con swing y walking bass; los metales responden en bloques."
+      }
+    },
+    "big-band": {
+      "name": "Big band",
+      "family": "jazz",
+      "aliases": [
+        "big band jazz",
+        "orquesta de jazz"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          180
+        ],
+        "texture": "secciones de metales y maderas, riffs",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "majestic",
+          "romantic"
+        ],
+        "chiptune": "Alterna tuttis y solos; usa brass para la masa y piano para el comping."
+      }
+    },
+    "bebop": {
+      "name": "Bebop",
+      "family": "jazz",
+      "aliases": [
+        "bop",
+        "bebop jazz"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          220
+        ],
+        "harmony": "ii-V-I, sustituciones, cromatismo",
+        "rhythm": "semicorcheas, acentos irregulares",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "tense",
+          "funky",
+          "mysterious"
+        ],
+        "chiptune": "Líneas rápidas con cromatismo y ritmo desplazado; deja el tema reconocible al inicio y al final."
+      }
+    },
+    "cool-jazz": {
+      "name": "Cool jazz",
+      "family": "jazz",
+      "aliases": [
+        "cool",
+        "west coast jazz"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          120
+        ],
+        "texture": "arreglos suaves, timbres claros, espacio",
+        "instruments": [
+          "piano",
+          "brass",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "serene",
+          "romantic",
+          "melancholic",
+          "nostalgic"
+        ],
+        "chiptune": "Dinámica suave y arreglos transparentes; evita saturar."
+      }
+    },
+    "hard-bop": {
+      "name": "Hard bop",
+      "family": "jazz",
+      "aliases": [
+        "hardbop"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          180
+        ],
+        "harmony": "blues, gospel, ii-V-I",
+        "rhythm": "swing con acentos funky",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "funky",
+          "energetic",
+          "melancholic",
+          "joyful"
+        ],
+        "chiptune": "Combina lenguaje bebop con blues y gospel; el groove debe pesar."
+      }
+    },
+    "modal-jazz": {
+      "name": "Modal jazz",
+      "family": "jazz",
+      "aliases": [
+        "modal jazz",
+        "jazz modal"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          150
+        ],
+        "scales": [
+          "dorian",
+          "mixolydian",
+          "minor",
+          "pentMin"
+        ],
+        "harmony": "pocos acordes, pedal, escalas modales",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "guitar"
+        ],
+        "emotions": [
+          "mysterious",
+          "serene",
+          "hypnotic",
+          "tense"
+        ],
+        "chiptune": "Quédate en un centro modal y explora el color; el interés está en el fraseo y la textura."
+      }
+    },
+    "free-jazz": {
+      "name": "Free jazz",
+      "family": "jazz",
+      "aliases": [
+        "freejazz",
+        "jazz libre"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          200
+        ],
+        "scales": [
+          "chromatic",
+          "wholeTone",
+          "diminished"
+        ],
+        "harmony": "atonal, colectivo, sin grid fijo",
+        "rhythm": "pulso libre, polirritmia",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "sax"
+        ],
+        "percussion": "free",
+        "emotions": [
+          "chaotic",
+          "angry",
+          "mysterious",
+          "energetic"
+        ],
+        "chiptune": "Define gestos y deja que las capas se crucen; no todo tiene que sonar a la vez."
+      }
+    },
+    "fusion-jazz": {
+      "name": "Fusion jazz",
+      "family": "jazz",
+      "aliases": [
+        "jazz fusion",
+        "fusion",
+        "jazz-rock"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          180
+        ],
+        "scales": [
+          "dorian",
+          "mixolydian",
+          "minor",
+          "pentMin"
+        ],
+        "harmony": "modal, grooves eléctricos, odd meters",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "piano",
+          "brass",
+          "saw"
+        ],
+        "emotions": [
+          "energetic",
+          "futuristic",
+          "funky",
+          "tense"
+        ],
+        "chiptune": "Combina groove eléctrico, bajo activo y solos; puedes usar compases impares."
+      }
+    },
+    "latin-jazz": {
+      "name": "Latin jazz",
+      "family": "jazz",
+      "aliases": [
+        "jazz latino",
+        "afro-cuban jazz"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          180
+        ],
+        "meters": [
+          "4/4",
+          "6/8",
+          "12/8"
+        ],
+        "rhythm": "clave, montuno, swing latino",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "guitar"
+        ],
+        "emotions": [
+          "joyful",
+          "funky",
+          "energetic",
+          "romantic"
+        ],
+        "chiptune": "Clave y montuno con piano; el swing viene del cruce de corcheas y tresillo."
+      }
+    },
+    "smooth-jazz": {
+      "name": "Smooth jazz",
+      "family": "jazz",
+      "aliases": [
+        "smooth",
+        "jazz suave"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          110
+        ],
+        "texture": "producción limpia, sax o guitarra melódica",
+        "instruments": [
+          "piano",
+          "brass",
+          "bass",
+          "drums",
+          "guitar",
+          "pad"
+        ],
+        "emotions": [
+          "serene",
+          "romantic",
+          "nostalgic"
+        ],
+        "chiptune": "Groove suave y melodía simple; evita saturar y cuida el espacio."
+      }
+    },
+    "acid-jazz": {
+      "name": "Acid jazz",
+      "family": "jazz",
+      "aliases": [
+        "acid-jazz"
+      ],
+      "traits": {
+        "tempo": [
+          95,
+          125
+        ],
+        "rhythm": "funk, hip hop, jazz",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "guitar",
+          "saw"
+        ],
+        "emotions": [
+          "funky",
+          "energetic",
+          "joyful",
+          "nostalgic"
+        ],
+        "chiptune": "Samplea el gesto del jazz con piano/pluck y monta un groove funky."
+      }
+    },
+    "soul": {
+      "name": "Soul",
+      "family": "soul-rnb",
+      "aliases": [
+        "soul music"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          120
+        ],
+        "emotions": [
+          "romantic",
+          "melancholic",
+          "joyful",
+          "funky"
+        ]
+      }
+    },
+    "rnb": {
+      "name": "R&B",
+      "family": "soul-rnb",
+      "aliases": [
+        "r&b",
+        "rnb",
+        "rhythm and blues"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          120
+        ],
+        "meters": [
+          "4/4",
+          "6/8"
+        ],
+        "harmony": "acordes extendidos, soul, gospel",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "pad",
+          "guitar",
+          "brass"
+        ],
+        "emotions": [
+          "romantic",
+          "melancholic",
+          "funky",
+          "nostalgic"
+        ],
+        "chiptune": "Piano eléctrico y coros con pad; el bajo y la batería sostienen el groove."
+      }
+    },
+    "motown": {
+      "name": "Motown",
+      "family": "soul-rnb",
+      "aliases": [
+        "motown sound"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          140
+        ],
+        "texture": "producción brillante, coros, bajo activo",
+        "instruments": [
+          "bass",
+          "drums",
+          "piano",
+          "brass",
+          "guitar",
+          "pad"
+        ],
+        "emotions": [
+          "joyful",
+          "romantic",
+          "energetic",
+          "nostalgic"
+        ],
+        "chiptune": "Bajo melódico, palmas y coros; la batería debe tener backbeat claro."
+      }
+    },
+    "funk": {
+      "name": "Funk",
+      "family": "soul-rnb",
+      "aliases": [
+        "funk music",
+        "funkadelic"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          125
+        ],
+        "rhythm": "semicorcheas con silencios, contratiempos, slap",
+        "texture": "bajo protagonista, guitarra rítmica, metales",
+        "instruments": [
+          "bass",
+          "guitar",
+          "drums",
+          "brass",
+          "piano",
+          "pluck"
+        ],
+        "emotions": [
+          "funky",
+          "energetic",
+          "joyful",
+          "rebellious"
+        ],
+        "chiptune": "Escribe un riff de bajo de 1 compás y respétalo; la guitarra responde con acordes cortos."
+      }
+    },
+    "disco": {
+      "name": "Disco",
+      "family": "soul-rnb",
+      "aliases": [
+        "disco music"
+      ],
+      "traits": {
+        "tempo": [
+          110,
+          130
+        ],
+        "rhythm": "four-on-the-floor, hi-hat abierto, cuerdas",
+        "instruments": [
+          "bass",
+          "drums",
+          "strings",
+          "brass",
+          "piano",
+          "guitar"
+        ],
+        "emotions": [
+          "joyful",
+          "energetic",
+          "romantic",
+          "festive"
+        ],
+        "chiptune": "Kick en cada negra, bajo octavado y cuerdas en acordes; el brillo es parte del estilo."
+      }
+    },
+    "doo-wop": {
+      "name": "Doo-wop",
+      "family": "soul-rnb",
+      "aliases": [
+        "doo wop"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          120
+        ],
+        "rhythm": "balada o swing suave, coros vocales",
+        "instruments": [
+          "pulse",
+          "pad",
+          "piano",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "romantic",
+          "nostalgic",
+          "joyful",
+          "melancholic"
+        ],
+        "chiptune": "Coros con pulse/pad en acordes cerrados y bajo sencillo; deja la melodía al frente."
+      }
+    },
+    "rock-and-roll": {
+      "name": "Rock and roll",
+      "family": "rock",
+      "aliases": [
+        "rock n roll",
+        "rock'n'roll",
+        "rock and roll clásico"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          180
+        ],
+        "harmony": "I-IV-V, blues, dominantes",
+        "rhythm": "backbeat, shuffle, boogie",
+        "instruments": [
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "rebellious",
+          "romantic"
+        ],
+        "chiptune": "Guitarra limpia con drive suave, piano y backbeat; el bajo camina."
+      }
+    },
+    "rockabilly": {
+      "name": "Rockabilly",
+      "family": "rock",
+      "aliases": [
+        "rockabilly",
+        "psychobilly"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          190
+        ],
+        "rhythm": "slapback, shuffle, boogie",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "piano",
+          "pulse"
+        ],
+        "emotions": [
+          "energetic",
+          "rebellious",
+          "playful",
+          "nostalgic"
+        ],
+        "chiptune": "Guitarra con slapback (delay corto), bajo slap y batería simple."
+      }
+    },
+    "rock-psicodelico": {
+      "name": "Rock psicodélico",
+      "family": "rock",
+      "aliases": [
+        "psychedelic rock",
+        "acid rock",
+        "rock psicodelico"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          150
+        ],
+        "scales": [
+          "dorian",
+          "mixolydian",
+          "phrygian",
+          "minor"
+        ],
+        "harmony": "modal, drones, efectos",
+        "instruments": [
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "saw",
+          "pad"
+        ],
+        "emotions": [
+          "mysterious",
+          "dreamy",
+          "energetic",
+          "exotic"
+        ],
+        "chiptune": "Usa delay, chorus y cambios de textura; el riff puede repetirse y transformarse."
+      }
+    },
+    "rock-progresivo": {
+      "name": "Rock progresivo",
+      "family": "rock",
+      "aliases": [
+        "progressive rock",
+        "prog rock",
+        "rock sinfónico",
+        "rock sinfonico"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          170
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "5/4",
+          "7/8",
+          "6/8"
+        ],
+        "scales": [
+          "minor",
+          "dorian",
+          "mixolydian",
+          "phrygian",
+          "harmonicMinor"
+        ],
+        "harmony": "suites, cambios de compás, contrapunto, modal",
+        "form": "suite, tema y variaciones, movimientos",
+        "instruments": [
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "strings",
+          "pad",
+          "brass"
+        ],
+        "emotions": [
+          "heroic",
+          "mysterious",
+          "melancholic",
+          "majestic",
+          "tense"
+        ],
+        "chiptune": "Piensa en movimientos con tempos y compases distintos; unifica con un motivo recurrente."
+      }
+    },
+    "hard-rock": {
+      "name": "Hard rock",
+      "family": "rock",
+      "aliases": [
+        "hardrock"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          170
+        ],
+        "rhythm": "riffs, backbeat, potencia",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "strings"
+        ],
+        "emotions": [
+          "angry",
+          "energetic",
+          "heroic",
+          "rebellious"
+        ],
+        "chiptune": "Riff de guitarra y bajo al unísono; batería con acentos y crashes."
+      }
+    },
+    "grunge": {
+      "name": "Grunge",
+      "family": "rock",
+      "aliases": [
+        "grunge rock"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          150
+        ],
+        "scales": [
+          "minor",
+          "pentMin",
+          "blues"
+        ],
+        "harmony": "power chords, cromatismo, contraste suave-fuerte",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "angry",
+          "melancholic",
+          "lonely",
+          "rebellious"
+        ],
+        "chiptune": "Alterna versos contenidos y estribillos distorsionados; no pulas demasiado."
+      }
+    },
+    "rock-alternativo": {
+      "name": "Rock alternativo",
+      "family": "rock",
+      "aliases": [
+        "alternative rock",
+        "alt rock",
+        "indie rock",
+        "indie"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          160
+        ],
+        "harmony": "riffs, modal, ruido controlado",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "piano",
+          "saw"
+        ],
+        "emotions": [
+          "melancholic",
+          "angry",
+          "energetic",
+          "nostalgic"
+        ],
+        "chiptune": "Busca un timbre propio y un riff sencillo; el contraste de dinámica es clave."
+      }
+    },
+    "shoegaze": {
+      "name": "Shoegaze",
+      "family": "rock",
+      "aliases": [
+        "shoegazer",
+        "dream pop"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          120
+        ],
+        "texture": "muros de guitarra, reverb, voz difusa",
+        "instruments": [
+          "guitar",
+          "pad",
+          "bass",
+          "drums",
+          "pulse",
+          "strings"
+        ],
+        "emotions": [
+          "dreamy",
+          "nostalgic",
+          "melancholic",
+          "romantic"
+        ],
+        "chiptune": "Capas de guitarra/pad con reverb y delay; la melodía emerge del ruido."
+      }
+    },
+    "post-rock": {
+      "name": "Post-rock",
+      "family": "rock",
+      "aliases": [
+        "postrock"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          140
+        ],
+        "meters": [
+          "4/4",
+          "6/8",
+          "7/8"
+        ],
+        "harmony": "modal, crescendos, texturas",
+        "form": "arco largo, clímax, coda",
+        "instruments": [
+          "guitar",
+          "strings",
+          "pad",
+          "bass",
+          "drums",
+          "piano"
+        ],
+        "emotions": [
+          "melancholic",
+          "majestic",
+          "hypnotic",
+          "hopeful"
+        ],
+        "chiptune": "Construye por capas y usa tempo map; el clímax llega por acumulación, no por un riff nuevo."
+      }
+    },
+    "emo": {
+      "name": "Emo",
+      "family": "rock",
+      "aliases": [
+        "emo rock",
+        "emo pop",
+        "emocore"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          170
+        ],
+        "scales": [
+          "minor",
+          "major",
+          "pentMin"
+        ],
+        "harmony": "acordes abiertos, dinámica suave-fuerte",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "piano"
+        ],
+        "emotions": [
+          "melancholic",
+          "angry",
+          "romantic",
+          "lonely"
+        ],
+        "chiptune": "Versos íntimos y estribillos amplios; usa arpegios y cambios de dinámica."
+      }
+    },
+    "surf-rock": {
+      "name": "Surf rock",
+      "family": "rock",
+      "aliases": [
+        "surf",
+        "surf music"
+      ],
+      "traits": {
+        "tempo": [
+          110,
+          170
+        ],
+        "meters": [
+          "4/4",
+          "6/8"
+        ],
+        "scales": [
+          "major",
+          "dorian",
+          "pentMaj",
+          "mixolydian"
+        ],
+        "rhythm": "reverb, tremolo, batería con groove",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "brass"
+        ],
+        "emotions": [
+          "joyful",
+          "adventurous",
+          "nostalgic",
+          "playful"
+        ],
+        "chiptune": "Guitarra con reverb/delay y melodía de vibrato; bajo y batería sencillos."
+      }
+    },
+    "heavy-metal": {
+      "name": "Heavy metal",
+      "family": "metal",
+      "aliases": [
+        "heavy metal",
+        "metal"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          180
+        ],
+        "emotions": [
+          "angry",
+          "heroic",
+          "dark",
+          "energetic"
+        ]
+      }
+    },
+    "thrash-metal": {
+      "name": "Thrash metal",
+      "family": "metal",
+      "aliases": [
+        "thrash",
+        "thrash metal"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          220
+        ],
+        "rhythm": "galope, riffs rápidos, doble bombo",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "angry",
+          "energetic",
+          "chaotic",
+          "rebellious"
+        ],
+        "chiptune": "Riffs de semicorcheas y batería agresiva; deja un breakdown o un cambio de tempo."
+      }
+    },
+    "death-metal": {
+      "name": "Death metal",
+      "family": "metal",
+      "aliases": [
+        "deathmetal",
+        "death"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          220
+        ],
+        "scales": [
+          "phrygian",
+          "locrian",
+          "diminished",
+          "harmonicMinor"
+        ],
+        "rhythm": "blast beats, riffs cromáticos, guturales",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "dark",
+          "angry",
+          "chaotic",
+          "tense"
+        ],
+        "chiptune": "Riffs densos y batería extrema; contrástalos con un pasaje lento y pesado."
+      }
+    },
+    "black-metal": {
+      "name": "Black metal",
+      "family": "metal",
+      "aliases": [
+        "blackmetal",
+        "black"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          200
+        ],
+        "scales": [
+          "minor",
+          "phrygian",
+          "locrian",
+          "harmonicMinor"
+        ],
+        "rhythm": "tremolo, blast, atmósfera",
+        "texture": "producción cruda, capas de guitarra, teclados",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "dark",
+          "lonely",
+          "mysterious",
+          "angry"
+        ],
+        "chiptune": "Tremolo con notas repetidas rápidas, reverb y una atmósfera de teclado; no todo es velocidad."
+      }
+    },
+    "doom-metal": {
+      "name": "Doom metal",
+      "family": "metal",
+      "aliases": [
+        "doom",
+        "doommetal"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          100
+        ],
+        "scales": [
+          "minor",
+          "phrygian",
+          "locrian",
+          "harmonicMinor"
+        ],
+        "rhythm": "tempo lento, riffs pesados, silencios",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pad"
+        ],
+        "emotions": [
+          "dark",
+          "melancholic",
+          "tense",
+          "ritual"
+        ],
+        "chiptune": "Deja que las notas largas y la distorsión pesen; el silencio entre riffs es parte del género."
+      }
+    },
+    "power-metal": {
+      "name": "Power metal",
+      "family": "metal",
+      "aliases": [
+        "powermetal",
+        "metal épico",
+        "metal epico"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          200
+        ],
+        "scales": [
+          "major",
+          "minor",
+          "dorian",
+          "harmonicMinor"
+        ],
+        "harmony": "himnos, coros épicos, doble bombo",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "strings",
+          "brass",
+          "pulse"
+        ],
+        "emotions": [
+          "heroic",
+          "majestic",
+          "joyful",
+          "energetic"
+        ],
+        "chiptune": "Coros épicos con pulse/strings y guitarra rápida; la melodía debe ser cantable."
+      }
+    },
+    "nu-metal": {
+      "name": "Nu metal",
+      "family": "metal",
+      "aliases": [
+        "numetal",
+        "nu metal"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          150
+        ],
+        "rhythm": "riffs sincopados, groove, rapeado",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "saw"
+        ],
+        "emotions": [
+          "angry",
+          "energetic",
+          "dark",
+          "rebellious"
+        ],
+        "chiptune": "Riff sincopado y bajo groove; alterna partes rapeadas y coros melódicos."
+      }
+    },
+    "metalcore": {
+      "name": "Metalcore",
+      "family": "metal",
+      "aliases": [
+        "metal core"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          200
+        ],
+        "rhythm": "breakdowns, riffs, doble bombo",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse",
+          "strings"
+        ],
+        "emotions": [
+          "angry",
+          "melancholic",
+          "energetic",
+          "tense"
+        ],
+        "chiptune": "Alterna riffs rápidos y breakdowns; usa un coro melódico para contrastar."
+      }
+    },
+    "punk": {
+      "name": "Punk",
+      "family": "punk",
+      "aliases": [
+        "punk rock"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          200
+        ],
+        "emotions": [
+          "angry",
+          "rebellious",
+          "energetic"
+        ]
+      }
+    },
+    "hardcore-punk": {
+      "name": "Hardcore punk",
+      "family": "punk",
+      "aliases": [
+        "hardcore",
+        "hc"
+      ],
+      "traits": {
+        "tempo": [
+          160,
+          240
+        ],
+        "rhythm": "d-beat, blast, urgencia",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "angry",
+          "chaotic",
+          "rebellious",
+          "energetic"
+        ],
+        "chiptune": "Corto, directo y sin adornos; la energía importa más que la producción."
+      }
+    },
+    "post-punk": {
+      "name": "Post-punk",
+      "family": "punk",
+      "aliases": [
+        "postpunk"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          160
+        ],
+        "scales": [
+          "minor",
+          "dorian",
+          "phrygian"
+        ],
+        "rhythm": "bajo motor, batería seca, guitarras angulares",
+        "instruments": [
+          "bass",
+          "guitar",
+          "drums",
+          "pulse",
+          "saw",
+          "pad"
+        ],
+        "emotions": [
+          "dark",
+          "tense",
+          "melancholic",
+          "rebellious"
+        ],
+        "chiptune": "Bajo protagonista, guitarras con delay y batería mecánica; la atmósfera es fría."
+      }
+    },
+    "new-wave": {
+      "name": "New wave",
+      "family": "punk",
+      "aliases": [
+        "new wave",
+        "newwave"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          150
+        ],
+        "rhythm": "pulso bailable, sintetizadores",
+        "instruments": [
+          "saw",
+          "pulse",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "nostalgic",
+          "playful",
+          "melancholic"
+        ],
+        "chiptune": "Sintetizadores brillantes y bajo con groove; la actitud punk se vuelve pop."
+      }
+    },
+    "synth-pop": {
+      "name": "Synth-pop",
+      "family": "pop",
+      "aliases": [
+        "synthpop",
+        "synth pop"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          130
+        ],
+        "rhythm": "pulso electrónico, caja clara, arpegios",
+        "instruments": [
+          "saw",
+          "pulse",
+          "bass",
+          "drums",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "romantic",
+          "nostalgic",
+          "energetic",
+          "dreamy"
+        ],
+        "chiptune": "Arpegios de saw/pulse, bajo octavado y batería electrónica; melodía simple y memorable."
+      }
+    },
+    "gothic": {
+      "name": "Gótico",
+      "family": "punk",
+      "aliases": [
+        "goth",
+        "gothic rock",
+        "darkwave"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          140
+        ],
+        "scales": [
+          "minor",
+          "phrygian",
+          "harmonicMinor",
+          "dorian"
+        ],
+        "rhythm": "bajo motor, batería con reverb, atmósfera",
+        "instruments": [
+          "bass",
+          "guitar",
+          "drums",
+          "pad",
+          "pulse",
+          "bell"
+        ],
+        "emotions": [
+          "dark",
+          "melancholic",
+          "romantic",
+          "mysterious"
+        ],
+        "chiptune": "Bajo profundo, guitarras con chorus y teclados; la reverb crea la catedral."
+      }
+    },
+    "industrial": {
+      "name": "Industrial",
+      "family": "electronic",
+      "aliases": [
+        "industrial music",
+        "industrial rock"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          160
+        ],
+        "scales": [
+          "phrygian",
+          "locrian",
+          "minor",
+          "chromatic"
+        ],
+        "rhythm": "pulso mecánico, ruido, samples",
+        "instruments": [
+          "saw",
+          "bass",
+          "drums",
+          "crush",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "industrial",
+          "angry",
+          "dark",
+          "tense"
+        ],
+        "chiptune": "Percusión metálica, bitcrush y capas frías; el ruido debe tener groove."
+      }
+    },
+    "pop": {
+      "name": "Pop",
+      "family": "pop",
+      "aliases": [
+        "pop music",
+        "música pop",
+        "musica pop"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          130
+        ],
+        "emotions": [
+          "joyful",
+          "romantic",
+          "nostalgic",
+          "playful"
+        ]
+      }
+    },
+    "dance-pop": {
+      "name": "Dance-pop",
+      "family": "pop",
+      "aliases": [
+        "dance pop"
+      ],
+      "traits": {
+        "tempo": [
+          110,
+          130
+        ],
+        "rhythm": "four-on-the-floor, sintetizadores, ganchos",
+        "instruments": [
+          "saw",
+          "pulse",
+          "bass",
+          "drums",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "joyful",
+          "energetic",
+          "romantic",
+          "festive"
+        ],
+        "chiptune": "Kick en cada negra, bajo octavado y hook de sintetizador; el coro debe explotar."
+      }
+    },
+    "electropop": {
+      "name": "Electropop",
+      "family": "pop",
+      "aliases": [
+        "electro pop",
+        "electro-pop"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          130
+        ],
+        "rhythm": "síntesis, pulso bailable, voces procesadas",
+        "instruments": [
+          "saw",
+          "pulse",
+          "bass",
+          "drums",
+          "pad",
+          "arp"
+        ],
+        "emotions": [
+          "energetic",
+          "futuristic",
+          "playful",
+          "romantic"
+        ],
+        "chiptune": "Sonidos brillantes y arpegios; usa paneo y delay para el brillo."
+      }
+    },
+    "k-pop": {
+      "name": "K-pop",
+      "family": "pop",
+      "aliases": [
+        "kpop",
+        "k pop"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          140
+        ],
+        "form": "intro, verso, pre-coro, coro, rap, puente, dance break",
+        "instruments": [
+          "saw",
+          "pulse",
+          "bass",
+          "drums",
+          "pad",
+          "brass",
+          "bell"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "romantic",
+          "futuristic"
+        ],
+        "chiptune": "Cambios de sección marcados y hooks repetidos; deja un dance break instrumental."
+      }
+    },
+    "j-pop": {
+      "name": "J-pop",
+      "family": "pop",
+      "aliases": [
+        "jpop",
+        "j pop",
+        "city pop",
+        "citypop"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          140
+        ],
+        "harmony": "acordes extendidos, city pop, cambios de color",
+        "instruments": [
+          "piano",
+          "saw",
+          "bass",
+          "drums",
+          "guitar",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "nostalgic",
+          "romantic",
+          "energetic",
+          "dreamy"
+        ],
+        "chiptune": "City pop usa acordes de séptima, bajo melódico y un brillo nostálgico."
+      }
+    },
+    "hip-hop": {
+      "name": "Hip hop",
+      "family": "hiphop",
+      "aliases": [
+        "hiphop",
+        "hip hop music"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          100
+        ],
+        "emotions": [
+          "energetic",
+          "funky",
+          "dark",
+          "nostalgic"
+        ]
+      }
+    },
+    "boom-bap": {
+      "name": "Boom bap",
+      "family": "hiphop",
+      "aliases": [
+        "boombap",
+        "boom bap"
+      ],
+      "traits": {
+        "tempo": [
+          85,
+          100
+        ],
+        "rhythm": "kick/snare con swing, sample chops",
+        "instruments": [
+          "drums",
+          "bass",
+          "piano",
+          "pluck",
+          "pad"
+        ],
+        "emotions": [
+          "nostalgic",
+          "funky",
+          "energetic",
+          "melancholic"
+        ],
+        "chiptune": "Batería con swing y sample melódico de 2 compases; deja espacio para la voz."
+      }
+    },
+    "trap": {
+      "name": "Trap",
+      "family": "hiphop",
+      "aliases": [
+        "trap music",
+        "trap beat"
+      ],
+      "traits": {
+        "tempo": [
+          130,
+          160
+        ],
+        "rhythm": "808, hi-hats rápidos, half-time",
+        "instruments": [
+          "bass",
+          "drums",
+          "piano",
+          "bell",
+          "pad",
+          "pluck"
+        ],
+        "emotions": [
+          "dark",
+          "energetic",
+          "tense",
+          "futuristic"
+        ],
+        "chiptune": "Bajo 808 con slide, hats en semicorcheas y melodía oscura; el kick y el snare marcan el half-time."
+      }
+    },
+    "drill": {
+      "name": "Drill",
+      "family": "hiphop",
+      "aliases": [
+        "drill music",
+        "uk drill",
+        "ny drill"
+      ],
+      "traits": {
+        "tempo": [
+          130,
+          150
+        ],
+        "rhythm": "hi-hats deslizantes, bajo 808, snare desplazado",
+        "instruments": [
+          "bass",
+          "drums",
+          "bell",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "dark",
+          "tense",
+          "aggressive",
+          "energetic"
+        ],
+        "chiptune": "Slides de 808 y hats con tresillos; la melodía debe ser fría y repetitiva."
+      }
+    },
+    "grime": {
+      "name": "Grime",
+      "family": "hiphop",
+      "aliases": [
+        "grime music"
+      ],
+      "traits": {
+        "tempo": [
+          130,
+          145
+        ],
+        "rhythm": "pulso roto, bajo sub, sintetizadores agresivos",
+        "instruments": [
+          "bass",
+          "drums",
+          "saw",
+          "pulse",
+          "arp"
+        ],
+        "emotions": [
+          "energetic",
+          "angry",
+          "futuristic",
+          "tense"
+        ],
+        "chiptune": "Ritmo entrecortado y sintetizadores filosos; la energía es más importante que la armonía."
+      }
+    },
+    "phonk": {
+      "name": "Phonk",
+      "family": "hiphop",
+      "aliases": [
+        "phonk music",
+        "drift phonk"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          160
+        ],
+        "rhythm": "cowbell, 808, samples oscuros",
+        "instruments": [
+          "bass",
+          "drums",
+          "bell",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "dark",
+          "energetic",
+          "industrial",
+          "hypnotic"
+        ],
+        "chiptune": "Cowbell y bajo distorsionado; repite el hook y usa paneo para el efecto drift."
+      }
+    },
+    "lo-fi-hip-hop": {
+      "name": "Lo-fi hip hop",
+      "family": "hiphop",
+      "aliases": [
+        "lofi",
+        "lo fi hip hop",
+        "chillhop"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          90
+        ],
+        "harmony": "jazz, soul, acordes suaves",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "pluck",
+          "pad"
+        ],
+        "emotions": [
+          "nostalgic",
+          "serene",
+          "melancholic",
+          "dreamy"
+        ],
+        "chiptune": "Sample con piano/pluck, ruido suave y batería relajada; no hace falta llenar."
+      }
+    },
+    "jazz-rap": {
+      "name": "Jazz rap",
+      "family": "hiphop",
+      "aliases": [
+        "jazzrap",
+        "jazz hip hop"
+      ],
+      "traits": {
+        "tempo": [
+          85,
+          100
+        ],
+        "harmony": "jazz, soul, samples",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "pluck"
+        ],
+        "emotions": [
+          "nostalgic",
+          "funky",
+          "serene",
+          "energetic"
+        ],
+        "chiptune": "Sample de jazz con piano/brass y batería boom bap; deja respirar el groove."
+      }
+    },
+    "reggae": {
+      "name": "Reggae",
+      "family": "reggae-caribbean",
+      "aliases": [
+        "reggae music",
+        "roots reggae"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          100
+        ],
+        "emotions": [
+          "joyful",
+          "serene",
+          "ritual",
+          "funky"
+        ]
+      }
+    },
+    "ska": {
+      "name": "Ska",
+      "family": "reggae-caribbean",
+      "aliases": [
+        "ska music",
+        "ska punk",
+        "ska-punk"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          180
+        ],
+        "rhythm": "skank en contratiempo, vientos, batería rápida",
+        "instruments": [
+          "guitar",
+          "brass",
+          "bass",
+          "drums",
+          "pulse",
+          "piano"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "rebellious",
+          "playful"
+        ],
+        "chiptune": "Guitarra/piano en contratiempo y vientos con brass; la batería empuja."
+      }
+    },
+    "dub": {
+      "name": "Dub",
+      "family": "reggae-caribbean",
+      "aliases": [
+        "dub music",
+        "dub reggae"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          90
+        ],
+        "rhythm": "one-drop, delay, reverb, espacio",
+        "texture": "bajo profundo, ecos, fragmentos",
+        "instruments": [
+          "bass",
+          "drums",
+          "guitar",
+          "brass",
+          "pad"
+        ],
+        "emotions": [
+          "mysterious",
+          "serene",
+          "ritual",
+          "hypnotic"
+        ],
+        "chiptune": "Usa delay y reverb como instrumentos; quita capas y deja que el eco hable."
+      }
+    },
+    "dancehall": {
+      "name": "Dancehall",
+      "family": "reggae-caribbean",
+      "aliases": [
+        "dancehall reggae",
+        "ragga"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          110
+        ],
+        "rhythm": "riddim, kick/snare, bajo sub",
+        "instruments": [
+          "bass",
+          "drums",
+          "saw",
+          "pulse",
+          "brass"
+        ],
+        "emotions": [
+          "energetic",
+          "funky",
+          "joyful",
+          "rebellious"
+        ],
+        "chiptune": "Riddim repetitivo con bajo fuerte; el patrón de batería es el hook."
+      }
+    },
+    "salsa": {
+      "name": "Salsa",
+      "family": "latin",
+      "aliases": [
+        "salsa music",
+        "salsa dura"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          200
+        ],
+        "rhythm": "clave, tumbao, montuno",
+        "instruments": [
+          "piano",
+          "bass",
+          "drums",
+          "brass",
+          "guitar"
+        ],
+        "emotions": [
+          "joyful",
+          "energetic",
+          "festive",
+          "romantic"
+        ],
+        "chiptune": "Piano montuno, bajo tumbao y metales; la clave debe estar clara."
+      }
+    },
+    "son-cubano": {
+      "name": "Son cubano",
+      "family": "latin",
+      "aliases": [
+        "son",
+        "son cubano"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          160
+        ],
+        "rhythm": "clave, tresillo, guitarra y percusión",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "bass",
+          "drums",
+          "brass",
+          "piano"
+        ],
+        "emotions": [
+          "romantic",
+          "joyful",
+          "nostalgic",
+          "festive"
+        ],
+        "chiptune": "Guitarra con pluck, bajo anticipado y percusión de son; más íntimo que la salsa."
+      }
+    },
+    "mambo": {
+      "name": "Mambo",
+      "family": "latin",
+      "aliases": [
+        "mambo music"
+      ],
+      "traits": {
+        "tempo": [
+          150,
+          200
+        ],
+        "rhythm": "clave, tumbao, metales",
+        "instruments": [
+          "brass",
+          "piano",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "festive",
+          "funky"
+        ],
+        "chiptune": "Metales en riffs y piano montuno; la energía no baja."
+      }
+    },
+    "bolero": {
+      "name": "Bolero",
+      "family": "latin",
+      "aliases": [
+        "bolero latino",
+        "bolero romántico",
+        "bolero romantico"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          90
+        ],
+        "rhythm": "romántico, guitarra, cuerdas",
+        "instruments": [
+          "guitar",
+          "strings",
+          "piano",
+          "bass",
+          "drums",
+          "pad"
+        ],
+        "emotions": [
+          "romantic",
+          "melancholic",
+          "nostalgic",
+          "serene"
+        ],
+        "chiptune": "Guitarra con arpegios y cuerdas/pad; la melodía es íntima."
+      }
+    },
+    "cumbia": {
+      "name": "Cumbia",
+      "family": "latin",
+      "aliases": [
+        "cumbia colombiana",
+        "cumbia sonidera",
+        "cumbia rebajada",
+        "cumbia amazónica",
+        "cumbia amazonica"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          120
+        ],
+        "rhythm": "guacharaca, tambora, bajo caminante",
+        "instruments": [
+          "pluck",
+          "guitar",
+          "bass",
+          "drums",
+          "brass",
+          "piano"
+        ],
+        "emotions": [
+          "joyful",
+          "romantic",
+          "festive",
+          "nostalgic"
+        ],
+        "chiptune": "Guacharaca con shaker/hats, bajo caminante y melodía de acordeón con pluck/pulse."
+      }
+    },
+    "vallenato": {
+      "name": "Vallenato",
+      "family": "latin",
+      "aliases": [
+        "vallenato colombiano"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          130
+        ],
+        "rhythm": "caja, guacharaca, acordeón",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "bass",
+          "drums",
+          "piano"
+        ],
+        "emotions": [
+          "romantic",
+          "festive",
+          "nostalgic",
+          "joyful"
+        ],
+        "chiptune": "Acordeón con pulse/pluck y caja vallenata; el bajo marca el caminado."
+      }
+    },
+    "tango": {
+      "name": "Tango",
+      "family": "latin",
+      "aliases": [
+        "tango argentino",
+        "tango rioplatense"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          120
+        ],
+        "meters": [
+          "4/4",
+          "2/4"
+        ],
+        "scales": [
+          "minor",
+          "phrygianDominant",
+          "harmonicMinor"
+        ],
+        "harmony": "cromatismo, cadencia andaluza, bandoneón",
+        "rhythm": "marcato, síncopas, 3-3-2",
+        "instruments": [
+          "strings",
+          "piano",
+          "bass",
+          "pluck",
+          "pulse",
+          "drums"
+        ],
+        "emotions": [
+          "tense",
+          "romantic",
+          "melancholic",
+          "dark"
+        ],
+        "chiptune": "Bandoneón con pulse/strings, marcato en bajo y síncopas; el drama está en los silencios."
+      }
+    },
+    "bossa-nova": {
+      "name": "Bossa nova",
+      "family": "brazil",
+      "aliases": [
+        "bossa",
+        "bossanova"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          110
+        ],
+        "harmony": "acordes extendidos, cromatismo suave, modal",
+        "rhythm": "bossa, guitarra sincopada",
+        "instruments": [
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "serene",
+          "romantic",
+          "nostalgic",
+          "dreamy"
+        ],
+        "chiptune": "Guitarra con acordes sincopados y bajo suave; la batería debe ser discreta."
+      }
+    },
+    "samba": {
+      "name": "Samba",
+      "family": "brazil",
+      "aliases": [
+        "samba brasileña",
+        "samba-enredo",
+        "samba de roda"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          150
+        ],
+        "rhythm": "samba, surdo, tamborim",
+        "instruments": [
+          "drums",
+          "guitar",
+          "pluck",
+          "bass",
+          "brass",
+          "piano"
+        ],
+        "emotions": [
+          "joyful",
+          "festive",
+          "energetic",
+          "nostalgic"
+        ],
+        "chiptune": "Surdo con kick/tom y tamborim con hats; la síncopa es esencial."
+      }
+    },
+    "choro": {
+      "name": "Choro",
+      "family": "brazil",
+      "aliases": [
+        "chorinho"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          160
+        ],
+        "harmony": "cromatismo, modulaciones, virtuosismo",
+        "rhythm": "choro, síncopas",
+        "instruments": [
+          "pluck",
+          "guitar",
+          "piano",
+          "bass",
+          "drums",
+          "pulse"
+        ],
+        "emotions": [
+          "nostalgic",
+          "joyful",
+          "melancholic",
+          "playful"
+        ],
+        "chiptune": "Melodía virtuosa con pluck/pulse y bajo sincopado; deja espacio para el solo."
+      }
+    },
+    "forro": {
+      "name": "Forró",
+      "family": "brazil",
+      "aliases": [
+        "forró",
+        "baiao",
+        "baião",
+        "xote",
+        "xaxado",
+        "vanerão",
+        "vanerao",
+        "pisadinha"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          150
+        ],
+        "rhythm": "baião, zabumba, triángulo",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "bass",
+          "drums",
+          "piano"
+        ],
+        "emotions": [
+          "festive",
+          "joyful",
+          "romantic",
+          "nostalgic"
+        ],
+        "chiptune": "Zabumba con kick/tom, triángulo con hats y acordeón con pluck/pulse."
+      }
+    },
+    "country": {
+      "name": "Country",
+      "family": "country-folk",
+      "aliases": [
+        "country music",
+        "outlaw country",
+        "country rock",
+        "honky tonk",
+        "western swing"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          140
+        ],
+        "rhythm": "train beat, shuffle, vals",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "piano",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "nostalgic",
+          "romantic",
+          "melancholic",
+          "joyful"
+        ],
+        "chiptune": "Guitarra con pluck, bajo simple y coros; la narración manda."
+      }
+    },
+    "bluegrass": {
+      "name": "Bluegrass",
+      "family": "country-folk",
+      "aliases": [
+        "bluegrass music"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          170
+        ],
+        "rhythm": "train beat, tresillo de cuerdas",
+        "instruments": [
+          "pluck",
+          "guitar",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "nostalgic",
+          "adventurous"
+        ],
+        "chiptune": "Pluck para banjo/mandolina y bajo caminante; los solos pasan de un instrumento a otro."
+      }
+    },
+    "folk": {
+      "name": "Folk",
+      "family": "country-folk",
+      "aliases": [
+        "folk music",
+        "americana",
+        "indie folk"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          130
+        ],
+        "harmony": "acordes simples, modal",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "piano",
+          "bass",
+          "strings",
+          "drums"
+        ],
+        "emotions": [
+          "melancholic",
+          "hopeful",
+          "nostalgic",
+          "serene"
+        ],
+        "chiptune": "Guitarra/pluck y voz; deja espacio y evita sobreproducir."
+      }
+    },
+    "flamenco": {
+      "name": "Flamenco",
+      "family": "flamenco-lusophone",
+      "aliases": [
+        "flamenco music",
+        "sevillanas"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          180
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "12/8"
+        ],
+        "scales": [
+          "phrygianDominant",
+          "minor",
+          "harmonicMinor"
+        ],
+        "harmony": "cadencia andaluza, pedal, rasgueo",
+        "rhythm": "compás de 12, bulería, soleá",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "pulse",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "tense",
+          "melancholic",
+          "festive",
+          "romantic"
+        ],
+        "chiptune": "Guitarra con pluck/guitar, palmas con snare y cadencia frigia; el compás de 12 es la clave."
+      }
+    },
+    "fado": {
+      "name": "Fado",
+      "family": "flamenco-lusophone",
+      "aliases": [
+        "fado portugués",
+        "fado portugues",
+        "morna"
+      ],
+      "traits": {
+        "tempo": [
+          55,
+          90
+        ],
+        "scales": [
+          "minor",
+          "dorian",
+          "harmonicMinor"
+        ],
+        "harmony": "melancolía, guitarra portuguesa, modulación",
+        "rhythm": "balada, sin urgencia",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "strings",
+          "bass",
+          "pulse"
+        ],
+        "emotions": [
+          "melancholic",
+          "lonely",
+          "romantic",
+          "nostalgic"
+        ],
+        "chiptune": "Guitarra con pluck y una voz solitaria; la tristeza es contenida."
+      }
+    },
+    "klezmer": {
+      "name": "Klezmer",
+      "family": "european-folk",
+      "aliases": [
+        "klezmer music"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          160
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8"
+        ],
+        "scales": [
+          "phrygianDominant",
+          "dorian",
+          "minor",
+          "harmonicMinor"
+        ],
+        "harmony": "modal, dominantes, ornamentos",
+        "rhythm": "freylekh, bulgar, hora",
+        "instruments": [
+          "pulse",
+          "pluck",
+          "brass",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "festive",
+          "melancholic",
+          "playful",
+          "ritual"
+        ],
+        "chiptune": "Clarinete con pulse, violín con strings y tuba con bass; los ornamentos son gestos."
+      }
+    },
+    "celtic": {
+      "name": "Música celta",
+      "family": "celtic",
+      "aliases": [
+        "celtic music",
+        "irish traditional",
+        "jig",
+        "reel"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          170
+        ],
+        "meters": [
+          "6/8",
+          "9/8",
+          "4/4",
+          "12/8"
+        ],
+        "rhythm": "jig, reel, hornpipe",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "strings",
+          "bass",
+          "drums",
+          "bell"
+        ],
+        "emotions": [
+          "adventurous",
+          "joyful",
+          "melancholic",
+          "festive"
+        ],
+        "chiptune": "Melodía con pulse/pluck y drone; usa 6/8 para jig y 4/4 para reel."
+      }
+    },
+    "andean": {
+      "name": "Música andina",
+      "family": "andean",
+      "aliases": [
+        "andina",
+        "huayno",
+        "sanjuanito",
+        "cueca",
+        "saya",
+        "tinku"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          140
+        ],
+        "meters": [
+          "4/4",
+          "2/4",
+          "6/8",
+          "3/4"
+        ],
+        "scales": [
+          "pentMin",
+          "minor",
+          "dorian"
+        ],
+        "rhythm": "huayno, sanjuanito, cueca",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "guitar",
+          "bass",
+          "drums",
+          "bell"
+        ],
+        "emotions": [
+          "melancholic",
+          "festive",
+          "ritual",
+          "nostalgic"
+        ],
+        "chiptune": "Quena con pulse, charango con pluck y bombo; la pentatónica es el color."
+      }
+    },
+    "mariachi": {
+      "name": "Mariachi",
+      "family": "mexican",
+      "aliases": [
+        "mariachi music",
+        "ranchera",
+        "corrido",
+        "corrido tumbado"
+      ],
+      "traits": {
+        "tempo": [
+          80,
+          160
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8"
+        ],
+        "harmony": "ranchera, dominantes, bolero",
+        "rhythm": "son jalisciense, vals, polka",
+        "instruments": [
+          "brass",
+          "guitar",
+          "pluck",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "romantic",
+          "melancholic",
+          "festive",
+          "heroic"
+        ],
+        "chiptune": "Trompetas con brass, guitarras con pluck y violines con strings; el grito es opcional."
+      }
+    },
+    "norteno": {
+      "name": "Norteño",
+      "family": "mexican",
+      "aliases": [
+        "norteño-sax",
+        "norteno-sax",
+        "banda sinaloense",
+        "tex-mex",
+        "tejano",
+        "conjunto"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          150
+        ],
+        "rhythm": "polka, redova, bajo sexto",
+        "instruments": [
+          "pluck",
+          "brass",
+          "bass",
+          "drums",
+          "guitar"
+        ],
+        "emotions": [
+          "festive",
+          "romantic",
+          "nostalgic",
+          "energetic"
+        ],
+        "chiptune": "Acordeón con pluck/pulse, bajo sexto con guitar y tuba con bass; el ritmo de polka manda."
+      }
+    },
+    "chinese-concert": {
+      "name": "Música de concierto china",
+      "family": "asian",
+      "aliases": [
+        "música de concierto china",
+        "musica de concierto china",
+        "guqin",
+        "ópera de pekín",
+        "opera de pekin"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          120
+        ],
+        "scales": [
+          "pentMaj",
+          "pentMin",
+          "hirajoshi"
+        ],
+        "harmony": "pentatónica, drone, heterofonía",
+        "rhythm": "libre, cíclico",
+        "instruments": [
+          "pluck",
+          "bell",
+          "pulse",
+          "pad",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "serene",
+          "majestic",
+          "ritual",
+          "mysterious"
+        ],
+        "chiptune": "Pluck/bell para guqin/pipa, pad para la orquesta y ornamentos vocales."
+      }
+    },
+    "gagaku": {
+      "name": "Gagaku",
+      "family": "asian",
+      "aliases": [
+        "gagaku",
+        "nōgaku",
+        "nogaku",
+        "kabuki"
+      ],
+      "traits": {
+        "tempo": [
+          40,
+          80
+        ],
+        "meters": [
+          "4/4",
+          "6/8"
+        ],
+        "scales": [
+          "hirajoshi",
+          "insen",
+          "pentMin"
+        ],
+        "harmony": "drone, heterofonía, intervalos abiertos",
+        "rhythm": "libre, ciclos lentos",
+        "instruments": [
+          "pad",
+          "pluck",
+          "bell",
+          "pulse",
+          "bass",
+          "drums"
+        ],
+        "emotions": [
+          "ritual",
+          "majestic",
+          "mysterious",
+          "serene"
+        ],
+        "chiptune": "Capas lentas con pad/bell, flauta con pulse y percusión ceremonial."
+      }
+    },
+    "pansori": {
+      "name": "Pansori",
+      "family": "asian",
+      "aliases": [
+        "pansori",
+        "trot",
+        "enka"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          100
+        ],
+        "scales": [
+          "pentMin",
+          "minor",
+          "dorian"
+        ],
+        "harmony": "modal, vocal, drum",
+        "rhythm": "jangdan, respiración",
+        "instruments": [
+          "pulse",
+          "drums",
+          "pad",
+          "bass",
+          "pluck"
+        ],
+        "emotions": [
+          "melancholic",
+          "ritual",
+          "lonely",
+          "hopeful"
+        ],
+        "chiptune": "Voz con pulse y tambor con drums; deja silencios largos."
+      }
+    },
+    "raga": {
+      "name": "Raga (clásica india)",
+      "family": "asian",
+      "aliases": [
+        "raga",
+        "carnatic",
+        "hindustani",
+        "dhrupad",
+        "khayal",
+        "thumri",
+        "sitar",
+        "tabla"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          160
+        ],
+        "meters": [
+          "4/4",
+          "6/8",
+          "7/8"
+        ],
+        "scales": [
+          "phrygianDominant",
+          "dorian",
+          "pentMin",
+          "harmonicMinor",
+          "doubleHarmonic"
+        ],
+        "harmony": "drone (tanpura), raga, ornamentos",
+        "rhythm": "tala, ciclos, aceleración",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "bass",
+          "drums",
+          "pad",
+          "bell"
+        ],
+        "emotions": [
+          "ritual",
+          "serene",
+          "mysterious",
+          "energetic"
+        ],
+        "chiptune": "Sitar con pluck, flauta con pulse y tabla con drums; un drone de fondo y desarrollo por ciclos."
+      }
+    },
+    "maqam": {
+      "name": "Maqam",
+      "family": "middle-east",
+      "aliases": [
+        "maqam",
+        "mugham",
+        "shashmaqom",
+        "taqsim",
+        "dabke"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          140
+        ],
+        "meters": [
+          "4/4",
+          "6/8",
+          "7/8",
+          "9/8"
+        ],
+        "scales": [
+          "phrygianDominant",
+          "doubleHarmonic",
+          "harmonicMinor",
+          "egyptian"
+        ],
+        "harmony": "maqam, drone, microtonal imaginado",
+        "rhythm": "maqsum, baladi, dabke",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "strings",
+          "drums",
+          "bass",
+          "bell"
+        ],
+        "emotions": [
+          "exotic",
+          "ritual",
+          "melancholic",
+          "joyful"
+        ],
+        "chiptune": "Ornamentos con pulse y percusión de dabke; el maqam se sugiere con segundas aumentadas."
+      }
+    },
+    "highlife": {
+      "name": "Highlife",
+      "family": "african",
+      "aliases": [
+        "highlife music"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          130
+        ],
+        "rhythm": "highlife, guitarra interlocking",
+        "instruments": [
+          "guitar",
+          "pluck",
+          "bass",
+          "drums",
+          "brass",
+          "pulse"
+        ],
+        "emotions": [
+          "joyful",
+          "romantic",
+          "festive",
+          "nostalgic"
+        ],
+        "chiptune": "Guitarra con pluck en frases entrelazadas y vientos; el groove es elegante."
+      }
+    },
+    "afrobeat": {
+      "name": "Afrobeat",
+      "family": "african",
+      "aliases": [
+        "afrobeat music",
+        "afro beat"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          130
+        ],
+        "rhythm": "polirritmia, guitarra rítmica, vientos",
+        "instruments": [
+          "drums",
+          "bass",
+          "guitar",
+          "brass",
+          "piano",
+          "pluck"
+        ],
+        "emotions": [
+          "funky",
+          "energetic",
+          "joyful",
+          "rebellious"
+        ],
+        "chiptune": "Capas de percusión, bajo sincopado y metales en riffs largos; la repetición crea el trance."
+      }
+    },
+    "amapiano": {
+      "name": "Amapiano",
+      "family": "african",
+      "aliases": [
+        "amapiano music"
+      ],
+      "traits": {
+        "tempo": [
+          110,
+          120
+        ],
+        "rhythm": "log drum, shakers, deep house",
+        "instruments": [
+          "bass",
+          "drums",
+          "piano",
+          "pad",
+          "pluck",
+          "saw"
+        ],
+        "emotions": [
+          "hypnotic",
+          "joyful",
+          "serene",
+          "energetic"
+        ],
+        "chiptune": "Log drum con bajo y shakers; deja espacio y repite el groove."
+      }
+    },
+    "rai": {
+      "name": "Raï",
+      "family": "flamenco-lusophone",
+      "aliases": [
+        "rai",
+        "raï",
+        "raï n'bi",
+        "rai nbi",
+        "kabyle",
+        "chaoui",
+        "gnawa",
+        "desert blues"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          140
+        ],
+        "scales": [
+          "phrygianDominant",
+          "minor",
+          "dorian"
+        ],
+        "harmony": "modal, dominantes, ornamentos",
+        "rhythm": "groove magrebí, 6/8",
+        "instruments": [
+          "pluck",
+          "pulse",
+          "bass",
+          "drums",
+          "strings"
+        ],
+        "emotions": [
+          "exotic",
+          "romantic",
+          "melancholic",
+          "energetic"
+        ],
+        "chiptune": "Cuerdas con pluck, voz con pulse y percusión de 6/8; usa ornamentos."
+      }
+    },
+    "house": {
+      "name": "House",
+      "family": "electronic",
+      "aliases": [
+        "house music",
+        "deep house",
+        "acid house"
+      ],
+      "traits": {
+        "tempo": [
+          115,
+          130
+        ],
+        "rhythm": "four-on-the-floor, hi-hat offbeat, bajo",
+        "instruments": [
+          "bass",
+          "drums",
+          "piano",
+          "pad",
+          "saw",
+          "pluck"
+        ],
+        "emotions": [
+          "energetic",
+          "joyful",
+          "hypnotic",
+          "romantic"
+        ],
+        "chiptune": "Kick en cada negra, hats en contratiempo y acordes de piano; el groove es constante."
+      }
+    },
+    "techno": {
+      "name": "Techno",
+      "family": "electronic",
+      "aliases": [
+        "techno music",
+        "detroit techno"
+      ],
+      "traits": {
+        "tempo": [
+          120,
+          150
+        ],
+        "scales": [
+          "minor",
+          "phrygian",
+          "chromatic"
+        ],
+        "rhythm": "four-on-the-floor, percusión metálica, loops",
+        "instruments": [
+          "drums",
+          "bass",
+          "saw",
+          "pad",
+          "arp",
+          "crush"
+        ],
+        "emotions": [
+          "industrial",
+          "hypnotic",
+          "futuristic",
+          "dark"
+        ],
+        "chiptune": "Menos armonía y más textura; usa filtros, paneo y pequeñas mutaciones."
+      }
+    },
+    "trance": {
+      "name": "Trance",
+      "family": "electronic",
+      "aliases": [
+        "trance music",
+        "psytrance",
+        "psy-trance"
+      ],
+      "traits": {
+        "tempo": [
+          128,
+          150
+        ],
+        "scales": [
+          "minor",
+          "dorian",
+          "phrygian",
+          "pentMin"
+        ],
+        "rhythm": "four-on-the-floor, arpegios, builds",
+        "instruments": [
+          "saw",
+          "arp",
+          "bass",
+          "drums",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "hypnotic",
+          "energetic",
+          "dreamy",
+          "futuristic"
+        ],
+        "chiptune": "Arpegios en 16avos, build con tempo ramp y drop con capas nuevas."
+      }
+    },
+    "drum-and-bass": {
+      "name": "Drum and bass",
+      "family": "electronic",
+      "aliases": [
+        "dnb",
+        "drum & bass",
+        "jungle",
+        "breakbeat"
+      ],
+      "traits": {
+        "tempo": [
+          160,
+          180
+        ],
+        "rhythm": "breakbeat, sub bass, amen",
+        "instruments": [
+          "drums",
+          "bass",
+          "pad",
+          "saw",
+          "arp",
+          "pluck"
+        ],
+        "emotions": [
+          "energetic",
+          "futuristic",
+          "dark",
+          "hypnotic"
+        ],
+        "chiptune": "Batería rota con kicks y snares desplazados y bajo sub; deja que el break respire."
+      }
+    },
+    "dubstep": {
+      "name": "Dubstep",
+      "family": "electronic",
+      "aliases": [
+        "dubstep music",
+        "brostep"
+      ],
+      "traits": {
+        "tempo": [
+          140,
+          150
+        ],
+        "rhythm": "half-time, wobble bass, sub",
+        "instruments": [
+          "bass",
+          "drums",
+          "saw",
+          "pad",
+          "pulse"
+        ],
+        "emotions": [
+          "dark",
+          "energetic",
+          "futuristic",
+          "tense"
+        ],
+        "chiptune": "Half-time con snare en el 3 y bajo wobble; el drop necesita espacio antes."
+      }
+    },
+    "ambient": {
+      "name": "Ambient",
+      "family": "electronic",
+      "aliases": [
+        "ambient music",
+        "new age",
+        "drone",
+        "downtempo"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          90
+        ],
+        "scales": [
+          "lydian",
+          "major",
+          "dorian",
+          "pentMaj",
+          "wholeTone"
+        ],
+        "harmony": "drones, capas, sin progresión funcional",
+        "rhythm": "sin pulso o pulso mínimo",
+        "instruments": [
+          "pad",
+          "bell",
+          "piano",
+          "strings",
+          "triangle",
+          "bass"
+        ],
+        "percussion": "none",
+        "emotions": [
+          "serene",
+          "dreamy",
+          "lonely",
+          "mysterious"
+        ],
+        "chiptune": "Capas largas, reverb y cambios lentos; el silencio y el espacio son material."
+      }
+    },
+    "trip-hop": {
+      "name": "Trip hop",
+      "family": "electronic",
+      "aliases": [
+        "trip-hop",
+        "triphop"
+      ],
+      "traits": {
+        "tempo": [
+          70,
+          100
+        ],
+        "rhythm": "breakbeat lento, samples, atmósfera",
+        "instruments": [
+          "drums",
+          "bass",
+          "piano",
+          "pad",
+          "pluck",
+          "brass"
+        ],
+        "emotions": [
+          "dark",
+          "melancholic",
+          "mysterious",
+          "hypnotic"
+        ],
+        "chiptune": "Batería lenta y sampled, bajo profundo y capas de reverb; la melancolía es el centro."
+      }
+    },
+    "idm": {
+      "name": "IDM",
+      "family": "electronic",
+      "aliases": [
+        "intelligent dance music",
+        "braindance"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          180
+        ],
+        "scales": [
+          "chromatic",
+          "wholeTone",
+          "minor",
+          "dorian"
+        ],
+        "rhythm": "ritmos complejos, edits, texturas",
+        "instruments": [
+          "drums",
+          "bass",
+          "saw",
+          "pad",
+          "arp",
+          "crush"
+        ],
+        "emotions": [
+          "futuristic",
+          "chaotic",
+          "hypnotic",
+          "mysterious"
+        ],
+        "chiptune": "Programa ritmos irregulares y texturas; el detalle importa más que el hook."
+      }
+    },
+    "hardstyle": {
+      "name": "Hardstyle",
+      "family": "electronic",
+      "aliases": [
+        "hardstyle music",
+        "gabber",
+        "hardcore electronic"
+      ],
+      "traits": {
+        "tempo": [
+          150,
+          180
+        ],
+        "rhythm": "kick distorsionado, reverse bass, breakdown",
+        "instruments": [
+          "drums",
+          "bass",
+          "saw",
+          "pulse",
+          "pad"
+        ],
+        "emotions": [
+          "energetic",
+          "angry",
+          "heroic",
+          "futuristic"
+        ],
+        "chiptune": "Kick duro y reverse bass; contrástalo con un breakdown melódico."
+      }
+    },
+    "vaporwave": {
+      "name": "Vaporwave",
+      "family": "electronic",
+      "aliases": [
+        "vaporwave music",
+        "mallsoft"
+      ],
+      "traits": {
+        "tempo": [
+          60,
+          100
+        ],
+        "harmony": "acordes suaves, samples ralentizados, nostalgia",
+        "rhythm": "pulso lento, reverb, delay",
+        "instruments": [
+          "piano",
+          "pad",
+          "saw",
+          "bass",
+          "drums",
+          "bell"
+        ],
+        "emotions": [
+          "nostalgic",
+          "dreamy",
+          "lonely",
+          "serene"
+        ],
+        "chiptune": "Acordes de séptima, reverb y un pulso lento; la textura vale más que la melodía."
+      }
+    },
+    "chiptune": {
+      "name": "Chiptune",
+      "family": "chiptune-game",
+      "aliases": [
+        "chip music",
+        "8-bit",
+        "8 bit",
+        "tracker music",
+        "demoscene"
+      ],
+      "traits": {
+        "tempo": [
+          100,
+          180
+        ],
+        "instruments": [
+          "pulse",
+          "arp",
+          "triangle",
+          "bass",
+          "drums",
+          "bell"
+        ],
+        "emotions": [
+          "playful",
+          "adventurous",
+          "heroic",
+          "nostalgic"
+        ],
+        "chiptune": "Limita los timbres y usa los canales con intención; el arpegio y el slide son parte del lenguaje."
+      }
+    },
+    "video-game-music": {
+      "name": "Música de videojuegos",
+      "family": "chiptune-game",
+      "aliases": [
+        "video game music",
+        "game music",
+        "música de videojuegos",
+        "musica de videojuegos"
+      ],
+      "traits": {
+        "tempo": [
+          90,
+          170
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8",
+          "7/8"
+        ],
+        "scales": [
+          "major",
+          "minor",
+          "dorian",
+          "mixolydian",
+          "pentMin"
+        ],
+        "form": "loop, tema A/B, exploración, combate",
+        "instruments": [
+          "pulse",
+          "arp",
+          "bass",
+          "drums",
+          "strings",
+          "bell",
+          "pad"
+        ],
+        "emotions": [
+          "adventurous",
+          "heroic",
+          "mysterious",
+          "playful"
+        ],
+        "chiptune": "Debe funcionar en loop y comunicar el estado de juego; usa capas para exploración y combate."
+      }
+    },
+    "soundtrack": {
+      "name": "Banda sonora",
+      "family": "screen-stage",
+      "aliases": [
+        "film score",
+        "score",
+        "banda sonora",
+        "soundtrack",
+        "musical teatral",
+        "cabaret",
+        "music hall"
+      ],
+      "traits": {
+        "tempo": [
+          50,
+          150
+        ],
+        "meters": [
+          "4/4",
+          "3/4",
+          "6/8",
+          "7/8"
+        ],
+        "form": "tema, desarrollo, clímax, coda",
+        "instruments": [
+          "strings",
+          "brass",
+          "piano",
+          "pad",
+          "bass",
+          "drums",
+          "bell"
+        ],
+        "emotions": [
+          "heroic",
+          "mysterious",
+          "melancholic",
+          "tense",
+          "majestic"
+        ],
+        "chiptune": "Tema claro y puntos de sincronía; el tempo map sigue la escena."
+      }
+    },
+    "experimental": {
+      "name": "Música experimental",
+      "family": "experimental",
+      "aliases": [
+        "experimental music",
+        "noise",
+        "ruido",
+        "free improvisation",
+        "improvisación libre"
+      ],
+      "traits": {
+        "tempo": [
+          40,
+          160
+        ],
+        "scales": [
+          "chromatic",
+          "wholeTone",
+          "diminished",
+          "locrian"
+        ],
+        "harmony": "no funcional, texturas",
+        "rhythm": "libre, procesos",
+        "instruments": [
+          "crush",
+          "pad",
+          "bell",
+          "saw",
+          "drums",
+          "bass"
+        ],
+        "emotions": [
+          "chaotic",
+          "mysterious",
+          "tense",
+          "futuristic"
+        ],
+        "chiptune": "Define un marco y trabaja el contraste; el ruido debe tener intención."
+      }
+    }
+  },
+  "catalog": {
+    "medieval": [
+      "Canto gregoriano",
+      "Música medieval",
+      "Musica medieval",
+      "Organum",
+      "Ars Antiqua",
+      "Ars Nova",
+      "Motete medieval",
+      "Conductus",
+      "Antífona",
+      "Responsorio",
+      "Trovadores",
+      "Juglares",
+      "Danza medieval",
+      "Estampie",
+      "Saltarello"
+    ],
+    "renaissance": [
+      "Renacimiento",
+      "Madrigal",
+      "Motete",
+      "Misa",
+      "Chanson",
+      "Villancico",
+      "Frottola",
+      "Canzona",
+      "Ricercar",
+      "Danza renacentista",
+      "Pavana",
+      "Galliarda"
+    ],
+    "baroque": [
+      "Barroco",
+      "Fuga",
+      "Suite barroca",
+      "Concerto grosso",
+      "Concierto barroco",
+      "Aria da capo",
+      "Recitativo",
+      "Cantata barroca",
+      "Oratorio barroco",
+      "Ópera seria",
+      "Opera seria",
+      "Preludio",
+      "Tocata",
+      "Passacaglia",
+      "Chacona"
+    ],
+    "classical": [
+      "Clasicismo",
+      "Música clásica",
+      "Musica clasica",
+      "Sinfonía",
+      "Sinfonia",
+      "Sonata",
+      "Cuarteto de cuerda",
+      "Cuarteto de cuerdas",
+      "Concierto",
+      "Concierto solista",
+      "Tema y variaciones",
+      "Serenata",
+      "Divertimento",
+      "Ópera buffa",
+      "Opera buffa"
+    ],
+    "romantic": [
+      "Romanticismo",
+      "Música romántica",
+      "Musica romantica",
+      "Lied",
+      "Poema sinfónico",
+      "Poema sinfonico",
+      "Ballet romántico",
+      "Ballet romantico",
+      "Nocturno",
+      "Balada romántica",
+      "Balada romantica",
+      "Virtuosismo",
+      "Ópera romántica",
+      "Opera romantica",
+      "Sinfonía romántica",
+      "Sinfonia romantica"
+    ],
+    "impressionist": [
+      "Impresionismo musical",
+      "Impresionismo",
+      "Música impresionista",
+      "Musica impresionista",
+      "Preludio impresionista",
+      "Nocturno impresionista",
+      "Paisaje sonoro impresionista"
+    ],
+    "expressionist": [
+      "Expresionismo musical",
+      "Expresionismo",
+      "Música expresionista",
+      "Musica expresionista",
+      "Atonalismo libre",
+      "Monodrama",
+      "Sprechgesang",
+      "Ópera expresionista",
+      "Opera expresionista"
+    ],
+    "serialist": [
+      "Dodecafonismo",
+      "Serialismo",
+      "Serialismo integral",
+      "Música serial",
+      "Musica serial",
+      "Doce tonos",
+      "Twelve-tone",
+      "Puntillismo",
+      "Serialismo integral"
+    ],
+    "aleatoric": [
+      "Música aleatoria",
+      "Musica aleatoria",
+      "Música indeterminada",
+      "Musica indeterminada",
+      "Música gráfica",
+      "Musica grafica",
+      "Free improvisation",
+      "Improvisación libre",
+      "Improvisacion libre",
+      "Música abierta",
+      "Musica abierta"
+    ],
+    "electroacoustic": [
+      "Música concreta",
+      "Musica concreta",
+      "Musique concrète",
+      "Musique concrete",
+      "Música electrónica académica",
+      "Musica electronica academica",
+      "Música electroacústica",
+      "Musica electroacustica",
+      "Acusmática",
+      "Acusmatica",
+      "Cinta magnética",
+      "Cinta magnetica",
+      "Paisaje sonoro",
+      "Soundscape",
+      "Arte sonoro",
+      "Sound art"
+    ],
+    "minimalist": [
+      "Minimalismo",
+      "Música minimalista",
+      "Musica minimalista",
+      "Postminimalismo",
+      "Postminimalista",
+      "Música de proceso",
+      "Musica de proceso",
+      "Música repetitiva",
+      "Musica repetitiva",
+      "Drone",
+      "Música drone",
+      "Musica drone"
+    ],
+    "opera-stage": [
+      "Ópera",
+      "Opera",
+      "Opereta",
+      "Zarzuela",
+      "Oratorio",
+      "Cantata",
+      "Musical teatral",
+      "Teatro musical",
+      "Cabaret",
+      "Music hall",
+      "Ballet",
+      "Música vocal",
+      "Musica vocal",
+      "Aria",
+      "Recitativo"
+    ],
+    "blues": [
+      "Blues",
+      "Blues rural",
+      "Blues acústico",
+      "Blues acustico",
+      "Delta blues",
+      "Piedmont blues",
+      "Blues urbano",
+      "Chicago blues",
+      "Jump blues",
+      "Boogie-woogie",
+      "Boogie woogie",
+      "Piano blues",
+      "Harmonica blues",
+      "Blues eléctrico",
+      "Blues electrico",
+      "Blues rock"
+    ],
+    "gospel": [
+      "Gospel",
+      "Gospel tradicional",
+      "Gospel moderno",
+      "Spirituals",
+      "Spiritual",
+      "Work songs",
+      "Canciones de trabajo",
+      "Coro gospel",
+      "Música sacra",
+      "Musica sacra",
+      "Himno",
+      "Himno religioso"
+    ],
+    "jazz": [
+      "Jazz",
+      "Ragtime",
+      "Dixieland",
+      "Hot jazz",
+      "Swing",
+      "Big band",
+      "Bebop",
+      "Bop",
+      "Cool jazz",
+      "Hard bop",
+      "Modal jazz",
+      "Free jazz",
+      "Fusion jazz",
+      "Jazz fusión",
+      "Jazz fusion",
+      "Latin jazz",
+      "Jazz latino",
+      "Smooth jazz",
+      "Acid jazz",
+      "Jazz fusión",
+      "Jazz de vanguardia",
+      "Jazz experimental"
+    ],
+    "soul-rnb": [
+      "R&B",
+      "RnB",
+      "Rhythm and blues",
+      "Soul",
+      "Motown",
+      "Funk",
+      "Disco",
+      "Doo-wop",
+      "Doo wop",
+      "Neo soul",
+      "Soul psicodélico",
+      "Soul psicodelico",
+      "Funk rock",
+      "P-funk",
+      "Boogie funk",
+      "Quiet storm"
+    ],
+    "rock": [
+      "Rock and roll",
+      "Rock and roll clásico",
+      "Rock and roll clasico",
+      "Rockabilly",
+      "Rock",
+      "Rock psicodélico",
+      "Rock psicodelico",
+      "Rock progresivo",
+      "Rock sinfónico",
+      "Rock sinfonico",
+      "Hard rock",
+      "Grunge",
+      "Rock alternativo",
+      "Indie rock",
+      "Shoegaze",
+      "Dream pop",
+      "Post-rock",
+      "Postrock",
+      "Emo",
+      "Emo pop",
+      "Surf rock",
+      "Garage rock",
+      "Psychobilly",
+      "Rock gótico",
+      "Rock gotico",
+      "Rock industrial",
+      "Rock experimental",
+      "Rock instrumental",
+      "Rock latino",
+      "Rock en español",
+      "Rock en espanol",
+      "Rock cristiano",
+      "Rock sureño",
+      "Rock sureño",
+      "Southern rock",
+      "Stoner rock",
+      "Desert rock",
+      "Math rock",
+      "Post-hardcore",
+      "Post hardcore",
+      "Screamo",
+      "Rock alternativo",
+      "Indie pop",
+      "Dream pop"
+    ],
+    "metal": [
+      "Heavy metal",
+      "Metal",
+      "Thrash metal",
+      "Death metal",
+      "Black metal",
+      "Doom metal",
+      "Power metal",
+      "Nu metal",
+      "Metalcore",
+      "Deathcore",
+      "Grindcore",
+      "Sludge metal",
+      "Stoner metal",
+      "Symphonic metal",
+      "Metal sinfónico",
+      "Metal sinfonico",
+      "Folk metal",
+      "Viking metal",
+      "Gothic metal",
+      "Metal gótico",
+      "Metal gotico",
+      "Industrial metal",
+      "Metal industrial",
+      "Progressive metal",
+      "Metal progresivo",
+      "Djent",
+      "Speed metal",
+      "Groove metal",
+      "Alternative metal",
+      "Metal alternativo",
+      "Avant-garde metal",
+      "Metal de vanguardia"
+    ],
+    "punk": [
+      "Punk",
+      "Punk rock",
+      "Hardcore punk",
+      "Hardcore",
+      "Post-punk",
+      "Postpunk",
+      "New wave",
+      "No wave",
+      "Ska punk",
+      "Pop punk",
+      "Emo punk",
+      "Crust punk",
+      "D-beat",
+      "Oi!",
+      "Horror punk",
+      "Psychobilly",
+      "Gothic rock",
+      "Gótico",
+      "Gotico",
+      "Darkwave",
+      "Coldwave",
+      "Industrial",
+      "Industrial rock",
+      "EBM"
+    ],
+    "pop": [
+      "Pop",
+      "Dance-pop",
+      "Dance pop",
+      "Electropop",
+      "Electro pop",
+      "Synth-pop",
+      "Synthpop",
+      "K-pop",
+      "Kpop",
+      "J-pop",
+      "Jpop",
+      "City pop",
+      "Citypop",
+      "Pop rock",
+      "Pop punk",
+      "Indie pop",
+      "Dream pop",
+      "Art pop",
+      "Baroque pop",
+      "Chamber pop",
+      "Sophisti-pop",
+      "Europop",
+      "Latin pop",
+      "Pop latino",
+      "Teen pop",
+      "Bubblegum pop",
+      "Sunshine pop",
+      "Hyperpop",
+      "Bedroom pop"
+    ],
+    "hiphop": [
+      "Hip hop",
+      "Hip-hop",
+      "Rap",
+      "Boom bap",
+      "Gangsta rap",
+      "Trap",
+      "Drill",
+      "Grime",
+      "Crunk",
+      "Snap",
+      "Hyphy",
+      "Phonk",
+      "Memphis rap",
+      "Cloud rap",
+      "Emo rap",
+      "Lo-fi hip hop",
+      "Lofi hip hop",
+      "Jazz rap",
+      "Conscious rap",
+      "Political hip hop",
+      "Horrorcore",
+      "Miami bass",
+      "Freestyle",
+      "Electro",
+      "Breakdance",
+      "Turntablism",
+      "Beatboxing",
+      "Spoken word",
+      "Slam poetry",
+      "Latin trap",
+      "Trap latino",
+      "Rap rock",
+      "Rap metal",
+      "G-funk",
+      "Dirty south",
+      "Underground hip hop",
+      "Abstract hip hop",
+      "Instrumental hip hop"
+    ],
+    "reggae-caribbean": [
+      "Reggae",
+      "Roots reggae",
+      "Reggae roots",
+      "Ska",
+      "Rocksteady",
+      "Dub",
+      "Dancehall",
+      "Ragga",
+      "Calypso",
+      "Soca",
+      "Steelpan",
+      "Steel drum",
+      "Punta",
+      "Paranda",
+      "Kompa",
+      "Konpa",
+      "Cadence-lypso",
+      "Bouyon",
+      "Zouk",
+      "Reggaeton",
+      "Reguetón",
+      "Dembow",
+      "Dembow dominicano",
+      "Música jamaicana",
+      "Musica jamaicana",
+      "Caribbean music",
+      "Música caribeña",
+      "Musica caribena"
+    ],
+    "latin": [
+      "Salsa",
+      "Son cubano",
+      "Mambo",
+      "Cha-cha-chá",
+      "Cha cha cha",
+      "Bolero",
+      "Rumba",
+      "Guaracha",
+      "Cumbia",
+      "Cumbia colombiana",
+      "Cumbia villera",
+      "Cumbia sonidera",
+      "Cumbia rebajada",
+      "Cumbia amazónica",
+      "Cumbia amazonica",
+      "Vallenato",
+      "Porro",
+      "Mapalé",
+      "Mapale",
+      "Merengue",
+      "Merengue típico",
+      "Merengue tipico",
+      "Perico ripiao",
+      "Bachata",
+      "Bachata dominicana",
+      "Dembow dominicano",
+      "Reggaeton",
+      "Reguetón",
+      "Latin trap",
+      "Trap latino",
+      "Tango",
+      "Milonga",
+      "Milonga campera",
+      "Chacarera",
+      "Zamba",
+      "Carnavalito",
+      "Pasillo",
+      "Bambuco",
+      "Joropo",
+      "Gaita zuliana",
+      "Calipso venezolano",
+      "Punta",
+      "Paranda",
+      "Saya",
+      "Tinku",
+      "Baguala",
+      "Vidala",
+      "Chamamé",
+      "Chamame",
+      "Rasguido doble",
+      "Candombe",
+      "Murga uruguaya",
+      "Música latina",
+      "Musica latina",
+      "Música tropical",
+      "Musica tropical"
+    ],
+    "brazil": [
+      "Samba",
+      "Samba-enredo",
+      "Samba de roda",
+      "Bossa nova",
+      "Bossa",
+      "MPB",
+      "Música popular brasileña",
+      "Musica popular brasileira",
+      "Choro",
+      "Chorinho",
+      "Forró",
+      "Forro",
+      "Baião",
+      "Baiao",
+      "Frevo",
+      "Maracatu",
+      "Axé",
+      "Axe",
+      "Ciranda",
+      "Coco",
+      "Embolada",
+      "Repente",
+      "Cantoria",
+      "Modinha",
+      "Lundu",
+      "Maxixe",
+      "Seresta",
+      "Toada",
+      "Vanerão",
+      "Vanerao",
+      "Xote",
+      "Xaxado",
+      "Arrocha",
+      "Pisadinha",
+      "Tecnobrega",
+      "Brega",
+      "Lambada",
+      "Carimbó",
+      "Carimbo",
+      "Guitarrada",
+      "Pagode",
+      "Partido alto"
+    ],
+    "country-folk": [
+      "Country",
+      "Bluegrass",
+      "Folk",
+      "Americana",
+      "Outlaw country",
+      "Country rock",
+      "Country alternativo",
+      "Western swing",
+      "Honky tonk",
+      "Zydeco",
+      "Cajun",
+      "Swamp pop",
+      "Tex-mex",
+      "Tejano",
+      "Conjunto",
+      "Norteño-sax",
+      "Norteno-sax",
+      "Norteño",
+      "Norteno",
+      "Corrido",
+      "Corrido tumbado",
+      "Banda sinaloense",
+      "Mariachi",
+      "Ranchera",
+      "Música mexicana",
+      "Musica mexicana",
+      "Música tejana",
+      "Musica tejana",
+      "Folk rock",
+      "Indie folk",
+      "Anti-folk",
+      "Freak folk",
+      "Appalachian folk",
+      "Old-time music",
+      "Sea shanty",
+      "Canción de autor",
+      "Cancion de autor"
+    ],
+    "flamenco-lusophone": [
+      "Flamenco",
+      "Sevillanas",
+      "Copla",
+      "Fado",
+      "Morna",
+      "Coladeira",
+      "Funaná",
+      "Funana",
+      "Batuque",
+      "Semba",
+      "Kizomba",
+      "Kuduro",
+      "Tarraxinha",
+      "Ghetto zouk",
+      "Coupé-décalé",
+      "Coupe-decale",
+      "Makossa",
+      "Bikutsi",
+      "Manele",
+      "Turbo-folk",
+      "Chalga",
+      "Tallava",
+      "Pop folk",
+      "Raï",
+      "Rai",
+      "Raï n'bi",
+      "Rai nbi",
+      "Kabyle",
+      "Chaoui",
+      "Gnawa",
+      "Malhun",
+      "Aita",
+      "Melhoun",
+      "Andalusí",
+      "Andalusi",
+      "Nouba",
+      "Música lusófona",
+      "Musica lusofona"
+    ],
+    "celtic": [
+      "Música celta",
+      "Musica celta",
+      "Celtic",
+      "Jig",
+      "Reel",
+      "Hornpipe",
+      "Música irlandesa",
+      "Musica irlandesa",
+      "Música escocesa",
+      "Musica escocesa",
+      "Música gallega",
+      "Musica gallega",
+      "Música bretona",
+      "Musica bretona",
+      "Folk celta",
+      "Danza celta",
+      "Sean-nós",
+      "Sean nos"
+    ],
+    "andean": [
+      "Música andina",
+      "Musica andina",
+      "Huayno",
+      "Sanjuanito",
+      "Cueca",
+      "Saya",
+      "Tinku",
+      "Baguala",
+      "Vidala",
+      "Chamamé",
+      "Chamame",
+      "Rasguido doble",
+      "Milonga campera",
+      "Candombe",
+      "Murga uruguaya",
+      "Música sudamericana",
+      "Musica sudamericana",
+      "Música altiplánica",
+      "Musica altiplanica",
+      "Quena",
+      "Charango",
+      "Bombo"
+    ],
+    "mexican": [
+      "Mariachi",
+      "Ranchera",
+      "Norteño",
+      "Norteno",
+      "Banda sinaloense",
+      "Corrido",
+      "Corrido tumbado",
+      "Tex-mex",
+      "Tejano",
+      "Conjunto",
+      "Norteño-sax",
+      "Norteno-sax",
+      "Música mexicana",
+      "Musica mexicana",
+      "Son jarocho",
+      "Son huasteco",
+      "Huapango",
+      "Bolero mexicano"
+    ],
+    "asian": [
+      "Música de concierto china",
+      "Musica de concierto china",
+      "Ópera de Pekín",
+      "Opera de Pekin",
+      "Guqin",
+      "Gagaku",
+      "Nōgaku",
+      "Nogaku",
+      "Kabuki",
+      "Pansori",
+      "Trot",
+      "Enka",
+      "Música japonesa",
+      "Musica japonesa",
+      "Música china",
+      "Musica china",
+      "Música coreana",
+      "Musica coreana",
+      "Raga",
+      "Carnatic",
+      "Carnática",
+      "Carnatica",
+      "Hindustani",
+      "Dhrupad",
+      "Khayal",
+      "Thumri",
+      "Dadra",
+      "Tappa",
+      "Bhajan",
+      "Kirtan",
+      "Abhang",
+      "Lavani",
+      "Tamasha",
+      "Baul",
+      "Fakir",
+      "Jhumair",
+      "Chhau",
+      "Bihu",
+      "Borgeet",
+      "Ojapali",
+      "Sattriya",
+      "Manipuri",
+      "Kathak",
+      "Bharatanatyam",
+      "Kuchipudi",
+      "Odissi",
+      "Mohiniyattam",
+      "Yakshagana",
+      "Theyyam",
+      "Padayani",
+      "Chavittu nadakam",
+      "Sopana",
+      "Panchavadyam",
+      "Chenda melam",
+      "Thayambaka",
+      "Idakka",
+      "Nadaswaram",
+      "Tavil",
+      "Mridangam",
+      "Ghatam",
+      "Kanjira",
+      "Veena",
+      "Sitar",
+      "Sarod",
+      "Santoor",
+      "Sarangi",
+      "Bansuri",
+      "Shehnai",
+      "Tabla",
+      "Pakhawaj",
+      "Dhamar",
+      "Hori",
+      "Chaiti",
+      "Kajri",
+      "Sawani",
+      "Jhoola",
+      "Lori",
+      "Sohar",
+      "Sanskar",
+      "Yaman",
+      "Bhairav",
+      "Bhairavi",
+      "Todi",
+      "Puriya",
+      "Marwa",
+      "Kafi",
+      "Sindhi",
+      "Pilu",
+      "Desh",
+      "Tilak Kamod",
+      "Malhar",
+      "Mian Ki Malhar",
+      "Darbari",
+      "Adana",
+      "Bihag",
+      "Khamaj",
+      "Kalingada",
+      "Shree",
+      "Gujari Todi",
+      "Lalit",
+      "Jayjaywanti",
+      "Maru Bihag",
+      "Bhoopali",
+      "Durga",
+      "Desi",
+      "Jog",
+      "Jogiya",
+      "Ahir Bhairav",
+      "Nataraj",
+      "Kirwani",
+      "Charukeshi",
+      "Simhendramadhyamam",
+      "Mayamalavagowla",
+      "Shankarabharanam",
+      "Kalyani",
+      "Harikambhoji",
+      "Kharaharapriya",
+      "Natabhairavi",
+      "Chakravakam",
+      "Shanmukhapriya",
+      "Keervani",
+      "Hemavati",
+      "Dhanyasi",
+      "Begada",
+      "Kambhoji",
+      "Saveri",
+      "Arabhi",
+      "Kedaragowla",
+      "Bilahari",
+      "Mohana",
+      "Hamsadhwani",
+      "Vasanta",
+      "Brindavana Saranga",
+      "Kadanakuthuhalam",
+      "Nalinakanthi",
+      "Ravi Chandrika",
+      "Bahudari",
+      "Valaji",
+      "Sunadavinodini",
+      "Chandrajyoti",
+      "Jujahuli",
+      "Sindhu Bhairavi",
+      "Misra Pahadi",
+      "Bageshri",
+      "Shuddha Sarang",
+      "Miyan Ki Sarang",
+      "Brindabani Sarang",
+      "Bahar",
+      "Hindol",
+      "Shuddha Kalyan",
+      "Puriya Dhanashri",
+      "Puriya Kalyan",
+      "Basant",
+      "Paraj",
+      "Gunakri",
+      "Abhogi",
+      "Bhatiyar",
+      "Malkauns",
+      "Chandrakauns",
+      "Dhaani",
+      "Kaunsi Kanhra",
+      "Bageshri Kanhra",
+      "Siddhi",
+      "Nand",
+      "Kaushik Dhwani",
+      "Wahid",
+      "Sohini",
+      "Maru Behag",
+      "Shuddha Basant",
+      "Jait",
+      "Jait Kalyan",
+      "Jhinjhoti",
+      "Tilang",
+      "Bhimpalasi",
+      "Dhanashri",
+      "Patdeep",
+      "Multani",
+      "Madhuvanti"
+    ],
+    "middle-east": [
+      "Maqam",
+      "Maqam iraquí",
+      "Maqam iraqui",
+      "Mugham",
+      "Shashmaqom",
+      "Taqsim",
+      "Dabke",
+      "Baladi",
+      "Saidi",
+      "Shaabi",
+      "Mahraganat",
+      "Sufi",
+      "Qawwali",
+      "Ghazal",
+      "Música persa",
+      "Musica persa",
+      "Música árabe",
+      "Musica arabe",
+      "Música turca",
+      "Musica turca",
+      "Música judía",
+      "Musica judia",
+      "Klezmer",
+      "Danza del vientre",
+      "Belly dance",
+      "Raqs sharqi"
+    ],
+    "african": [
+      "Highlife",
+      "Afrobeat",
+      "Mbalax",
+      "Mbaqanga",
+      "Isicathamiya",
+      "Soukous",
+      "Rumba congoleña",
+      "Rumba congolena",
+      "Raï",
+      "Rai",
+      "Chaabi",
+      "Gnawa",
+      "Desert blues",
+      "Taarab",
+      "Benga",
+      "Juju",
+      "Fuji",
+      "Amapiano",
+      "Afro house",
+      "Afro pop",
+      "Afropop",
+      "Gqom",
+      "Kwaito",
+      "Mapouka",
+      "Ndombolo",
+      "Makossa",
+      "Bikutsi",
+      "Coupe-decale",
+      "Coupé-décalé",
+      "Música africana",
+      "Musica africana",
+      "Música del norte de África",
+      "Musica del norte de Africa",
+      "Música subsahariana",
+      "Musica subsahariana"
+    ],
+    "electronic": [
+      "House",
+      "Deep house",
+      "Acid house",
+      "Tech house",
+      "Progressive house",
+      "Techno",
+      "Detroit techno",
+      "Minimal techno",
+      "Trance",
+      "Psytrance",
+      "Progressive trance",
+      "Drum and bass",
+      "Drum & bass",
+      "DnB",
+      "Jungle",
+      "Dubstep",
+      "Garage",
+      "UK garage",
+      "2-step",
+      "Breakbeat",
+      "Big beat",
+      "Ambient",
+      "Ambient techno",
+      "Downtempo",
+      "Trip hop",
+      "Trip-hop",
+      "IDM",
+      "EDM",
+      "Hardstyle",
+      "Gabber",
+      "Hardcore electronic",
+      "Vaporwave",
+      "Synthwave",
+      "Retrowave",
+      "Chiptune",
+      "New age",
+      "Música electrónica",
+      "Musica electronica",
+      "Electrónica",
+      "Electronica",
+      "Electro",
+      "Miami bass",
+      "Freestyle",
+      "Breakdance",
+      "Turntablism",
+      "Beatboxing",
+      "Future bass",
+      "Trap electronic",
+      "Glitch",
+      "Glitch hop",
+      "Breakcore",
+      "Speedcore",
+      "Makina",
+      "Happy hardcore",
+      "Eurodance",
+      "Italo disco",
+      "Hi-NRG",
+      "Space disco"
+    ],
+    "experimental": [
+      "Música experimental",
+      "Musica experimental",
+      "Experimental",
+      "Noise",
+      "Ruido",
+      "Drone",
+      "Free improvisation",
+      "Improvisación libre",
+      "Improvisacion libre",
+      "Musique concrète",
+      "Musique concrete",
+      "Música concreta",
+      "Musica concreta",
+      "Sound art",
+      "Arte sonoro",
+      "Field recording",
+      "Grabación de campo",
+      "Grabacion de campo",
+      "Industrial",
+      "Noise rock",
+      "No wave",
+      "Avant-garde",
+      "Vanguardia",
+      "Música incidental",
+      "Musica incidental"
+    ],
+    "chiptune-game": [
+      "Chiptune",
+      "Chip music",
+      "8-bit",
+      "8 bit",
+      "16-bit",
+      "16 bit",
+      "Tracker music",
+      "Demoscene",
+      "Música de videojuegos",
+      "Musica de videojuegos",
+      "Video game music",
+      "Game music",
+      "Música de consola",
+      "Musica de consola",
+      "NES",
+      "SNES",
+      "Game Boy",
+      "Arcade",
+      "JRPG",
+      "Música de jefe",
+      "Musica de jefe",
+      "Boss music",
+      "Overworld",
+      "Dungeon music",
+      "Battle music",
+      "Loop de juego",
+      "Game loop"
+    ],
+    "screen-stage": [
+      "Banda sonora",
+      "Soundtrack",
+      "Film score",
+      "Score",
+      "Música de cine",
+      "Musica de cine",
+      "Música incidental",
+      "Musica incidental",
+      "Musical teatral",
+      "Teatro musical",
+      "Cabaret",
+      "Music hall",
+      "Ballet",
+      "Ópera",
+      "Opera",
+      "Música para videojuegos",
+      "Musica para videojuegos",
+      "Música para escena",
+      "Musica para escena",
+      "Leitmotiv",
+      "Tema principal",
+      "Main theme"
+    ],
+    "european-folk": [
+      "Klezmer",
+      "Música celta",
+      "Musica celta",
+      "Flamenco",
+      "Sevillanas",
+      "Copla",
+      "Fado",
+      "Morna",
+      "Coladeira",
+      "Funaná",
+      "Funana",
+      "Manele",
+      "Turbo-folk",
+      "Chalga",
+      "Tallava",
+      "Pop folk",
+      "Música balcánica",
+      "Musica balcanica",
+      "Música gitana",
+      "Musica gitana",
+      "Música judía",
+      "Musica judia",
+      "Música escandinava",
+      "Musica escandinava",
+      "Polka",
+      "Vals",
+      "Marcha",
+      "Himno",
+      "Música renacentista",
+      "Musica renacentista"
+    ],
+    "world-fusion": [
+      "World music",
+      "World",
+      "Música del mundo",
+      "Musica del mundo",
+      "Fusión",
+      "Fusion",
+      "World fusion",
+      "Global bass",
+      "Ethno electronic",
+      "Folktronica",
+      "Música intercultural",
+      "Musica intercultural",
+      "Música global",
+      "Musica global"
+    ],
+    "military": [
+      "Marcha militar",
+      "Marcha",
+      "Himno",
+      "Fanfarria",
+      "Música militar",
+      "Musica militar",
+      "Desfile",
+      "Redoble",
+      "Tocata militar",
+      "Bugle call"
+    ]
+  },
+  "fallback": {
+    "method": "Si el estilo no está en el catálogo: (1) busca la familia por palabras clave y contexto; (2) hereda sus rasgos; (3) ajusta tempo, compás, escala, instrumentos y forma con lo que pida el brief; (4) si mezcla dos tradiciones, elige una primaria y una secundaria; (5) escribe los supuestos en el plan y no inventes una autenticidad que no puedes verificar.",
+    "defaultFamily": "screen-stage",
+    "keywordToFamily": {
+      "medieval": [
+        "chant",
+        "canto",
+        "gregoriano",
+        "organum",
+        "ars",
+        "motete",
+        "trovador",
+        "juglar",
+        "medieval"
+      ],
+      "renaissance": [
+        "renacimiento",
+        "madrigal",
+        "chanson",
+        "villancico",
+        "polifonía",
+        "polifonia"
+      ],
+      "baroque": [
+        "barroco",
+        "fuga",
+        "suite",
+        "concerto",
+        "continuo",
+        "aria",
+        "bach",
+        "vivaldi"
+      ],
+      "classical": [
+        "clásico",
+        "clasico",
+        "sonata",
+        "sinfonía",
+        "sinfonia",
+        "cuarteto",
+        "concierto",
+        "mozart",
+        "haydn"
+      ],
+      "romantic": [
+        "romántico",
+        "romantico",
+        "lied",
+        "poema sinfónico",
+        "chopin",
+        "liszt",
+        "wagner"
+      ],
+      "impressionist": [
+        "impresionista",
+        "debussy",
+        "ravel",
+        "tono completo",
+        "paralelo"
+      ],
+      "expressionist": [
+        "expresionista",
+        "atonal",
+        "schoenberg",
+        "berg",
+        "webern",
+        "sprechgesang"
+      ],
+      "serialist": [
+        "serial",
+        "dodecafon",
+        "doce tonos",
+        "twelve-tone",
+        "puntillista"
+      ],
+      "aleatoric": [
+        "aleatorio",
+        "indeterminado",
+        "gráfica",
+        "grafica",
+        "cage",
+        "azar"
+      ],
+      "electroacoustic": [
+        "concreta",
+        "concreto",
+        "electroacústica",
+        "electroacustica",
+        "acousmatic",
+        "cinta",
+        "paisaje sonoro"
+      ],
+      "minimalist": [
+        "minimal",
+        "proceso",
+        "fase",
+        "repetición",
+        "repeticion",
+        "reich",
+        "glass",
+        "riley"
+      ],
+      "opera-stage": [
+        "ópera",
+        "opera",
+        "opereta",
+        "zarzuela",
+        "oratorio",
+        "cantata",
+        "musical",
+        "cabaret",
+        "aria",
+        "recitativo"
+      ],
+      "blues": [
+        "blues",
+        "delta",
+        "chicago",
+        "boogie",
+        "shuffle",
+        "blue note"
+      ],
+      "gospel": [
+        "gospel",
+        "espiritual",
+        "spiritual",
+        "work song",
+        "coro",
+        "himno"
+      ],
+      "jazz": [
+        "jazz",
+        "swing",
+        "bebop",
+        "bop",
+        "ragtime",
+        "dixieland",
+        "big band",
+        "fusion",
+        "bossa"
+      ],
+      "soul-rnb": [
+        "soul",
+        "r&b",
+        "rnb",
+        "motown",
+        "funk",
+        "disco",
+        "doo-wop",
+        "groove"
+      ],
+      "rock": [
+        "rock",
+        "grunge",
+        "indie",
+        "shoegaze",
+        "post-rock",
+        "emo",
+        "surf",
+        "garage",
+        "punk rock"
+      ],
+      "metal": [
+        "metal",
+        "thrash",
+        "death",
+        "black metal",
+        "doom",
+        "power metal",
+        "metalcore",
+        "djent"
+      ],
+      "punk": [
+        "punk",
+        "hardcore",
+        "post-punk",
+        "new wave",
+        "gótico",
+        "gotico",
+        "industrial"
+      ],
+      "pop": [
+        "pop",
+        "k-pop",
+        "j-pop",
+        "city pop",
+        "synth-pop",
+        "electropop",
+        "dance-pop",
+        "hit"
+      ],
+      "hiphop": [
+        "hip hop",
+        "hip-hop",
+        "rap",
+        "trap",
+        "drill",
+        "grime",
+        "boom bap",
+        "phonk",
+        "808"
+      ],
+      "reggae-caribbean": [
+        "reggae",
+        "ska",
+        "rocksteady",
+        "dub",
+        "dancehall",
+        "calypso",
+        "soca",
+        "zouk",
+        "kompa"
+      ],
+      "latin": [
+        "salsa",
+        "son cubano",
+        "mambo",
+        "bolero",
+        "cumbia",
+        "vallenato",
+        "merengue",
+        "bachata",
+        "reggaeton",
+        "tango",
+        "milonga",
+        "chacarera",
+        "zamba",
+        "carnavalito"
+      ],
+      "brazil": [
+        "samba",
+        "bossa",
+        "mpb",
+        "choro",
+        "forró",
+        "forro",
+        "baião",
+        "baiao",
+        "frevo",
+        "maracatu",
+        "axé",
+        "axe"
+      ],
+      "country-folk": [
+        "country",
+        "bluegrass",
+        "folk",
+        "americana",
+        "outlaw",
+        "zydeco",
+        "cajun",
+        "tex-mex",
+        "tejano"
+      ],
+      "flamenco-lusophone": [
+        "flamenco",
+        "sevillanas",
+        "fado",
+        "morna",
+        "kizomba",
+        "kuduro",
+        "raï",
+        "rai",
+        "gnawa",
+        "maqam",
+        "mugham"
+      ],
+      "celtic": [
+        "celta",
+        "celtic",
+        "jig",
+        "reel",
+        "irlandesa",
+        "escocesa",
+        "gallega"
+      ],
+      "andean": [
+        "andina",
+        "huayno",
+        "sanjuanito",
+        "cueca",
+        "saya",
+        "tinku",
+        "chamamé",
+        "chamame",
+        "candombe",
+        "murga"
+      ],
+      "mexican": [
+        "mariachi",
+        "ranchera",
+        "norteño",
+        "norteno",
+        "banda sinaloense",
+        "corrido",
+        "tejano"
+      ],
+      "asian": [
+        "china",
+        "japón",
+        "japon",
+        "corea",
+        "india",
+        "raga",
+        "carnatic",
+        "hindustani",
+        "gagaku",
+        "kabuki",
+        "pansori",
+        "enka",
+        "sitar",
+        "tabla"
+      ],
+      "middle-east": [
+        "maqam",
+        "mugham",
+        "shashmaqom",
+        "taqsim",
+        "dabke",
+        "árabe",
+        "arabe",
+        "persa",
+        "turca",
+        "sufi",
+        "qawwali"
+      ],
+      "african": [
+        "highlife",
+        "afrobeat",
+        "mbalax",
+        "mbaqanga",
+        "soukous",
+        "rumba congoleña",
+        "amapiano",
+        "juju",
+        "fuji",
+        "africa",
+        "áfrica"
+      ],
+      "electronic": [
+        "house",
+        "techno",
+        "trance",
+        "drum and bass",
+        "dnb",
+        "jungle",
+        "dubstep",
+        "ambient",
+        "trip hop",
+        "idm",
+        "edm",
+        "hardstyle",
+        "vaporwave",
+        "synthwave",
+        "electrónica",
+        "electronica"
+      ],
+      "experimental": [
+        "experimental",
+        "noise",
+        "ruido",
+        "drone",
+        "free improvisation",
+        "arte sonoro",
+        "field recording"
+      ],
+      "chiptune-game": [
+        "chiptune",
+        "videojuego",
+        "video game",
+        "8-bit",
+        "16-bit",
+        "tracker",
+        "demoscene",
+        "nes",
+        "snes",
+        "game boy",
+        "arcade",
+        "jrpg"
+      ],
+      "screen-stage": [
+        "banda sonora",
+        "soundtrack",
+        "film score",
+        "cine",
+        "película",
+        "pelicula",
+        "teatro",
+        "musical",
+        "ballet",
+        "escena"
+      ],
+      "european-folk": [
+        "klezmer",
+        "balcánica",
+        "balcanica",
+        "gitana",
+        "polka",
+        "vals",
+        "manele",
+        "chalga"
+      ],
+      "world-fusion": [
+        "world music",
+        "fusión",
+        "fusion",
+        "global",
+        "intercultural",
+        "folktronica"
+      ],
+      "military": [
+        "marcha",
+        "militar",
+        "himno",
+        "fanfarria",
+        "desfile",
+        "redoble"
+      ]
+    },
+    "fusion": "Si hay dos géneros, usa 70% familia primaria y 30% secundaria en ritmo, instrumentación o armonía; no mezcles los dos al 50% sin una razón.",
+    "originality": "Las influencias se traducen a rasgos abstractos (tempo, textura, instrumentación, lenguaje armónico, forma). No copies melodías, riffs, progresiones reconocibles ni arreglos completos."
+  }
+}

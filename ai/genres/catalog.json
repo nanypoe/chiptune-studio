@@ -1,0 +1,123 @@
+{
+  "schema": "chiptune-genre-catalog@1",
+  "note": "Nombres de géneros, subgéneros, formas, danzas y tradiciones agrupados por familia. No todos tienen perfil propio: si falta, hereda la familia y el nombre se usa como matiz. Para estilos que no aparezcan aquí, aplica el procedimiento de fallback de ai/GENRES.md.",
+  "catalog": {
+    "medieval": [
+      "Canto gregoriano", "Música medieval", "Musica medieval", "Organum", "Ars Antiqua", "Ars Nova", "Motete medieval", "Conductus", "Antífona", "Responsorio", "Trovadores", "Juglares", "Danza medieval", "Estampie", "Saltarello"
+    ],
+    "renaissance": [
+      "Renacimiento", "Madrigal", "Motete", "Misa", "Chanson", "Villancico", "Frottola", "Canzona", "Ricercar", "Danza renacentista", "Pavana", "Galliarda"
+    ],
+    "baroque": [
+      "Barroco", "Fuga", "Suite barroca", "Concerto grosso", "Concierto barroco", "Aria da capo", "Recitativo", "Cantata barroca", "Oratorio barroco", "Ópera seria", "Opera seria", "Preludio", "Tocata", "Passacaglia", "Chacona"
+    ],
+    "classical": [
+      "Clasicismo", "Música clásica", "Musica clasica", "Sinfonía", "Sinfonia", "Sonata", "Cuarteto de cuerda", "Cuarteto de cuerdas", "Concierto", "Concierto solista", "Tema y variaciones", "Serenata", "Divertimento", "Ópera buffa", "Opera buffa"
+    ],
+    "romantic": [
+      "Romanticismo", "Música romántica", "Musica romantica", "Lied", "Poema sinfónico", "Poema sinfonico", "Ballet romántico", "Ballet romantico", "Nocturno", "Balada romántica", "Balada romantica", "Virtuosismo", "Ópera romántica", "Opera romantica", "Sinfonía romántica", "Sinfonia romantica"
+    ],
+    "impressionist": [
+      "Impresionismo musical", "Impresionismo", "Música impresionista", "Musica impresionista", "Preludio impresionista", "Nocturno impresionista", "Paisaje sonoro impresionista"
+    ],
+    "expressionist": [
+      "Expresionismo musical", "Expresionismo", "Música expresionista", "Musica expresionista", "Atonalismo libre", "Monodrama", "Sprechgesang", "Ópera expresionista", "Opera expresionista"
+    ],
+    "serialist": [
+      "Dodecafonismo", "Serialismo", "Serialismo integral", "Música serial", "Musica serial", "Doce tonos", "Twelve-tone", "Puntillismo", "Serialismo integral"
+    ],
+    "aleatoric": [
+      "Música aleatoria", "Musica aleatoria", "Música indeterminada", "Musica indeterminada", "Música gráfica", "Musica grafica", "Free improvisation", "Improvisación libre", "Improvisacion libre", "Música abierta", "Musica abierta"
+    ],
+    "electroacoustic": [
+      "Música concreta", "Musica concreta", "Musique concrète", "Musique concrete", "Música electrónica académica", "Musica electronica academica", "Música electroacústica", "Musica electroacustica", "Acusmática", "Acusmatica", "Cinta magnética", "Cinta magnetica", "Paisaje sonoro", "Soundscape", "Arte sonoro", "Sound art"
+    ],
+    "minimalist": [
+      "Minimalismo", "Música minimalista", "Musica minimalista", "Postminimalismo", "Postminimalista", "Música de proceso", "Musica de proceso", "Música repetitiva", "Musica repetitiva", "Drone", "Música drone", "Musica drone"
+    ],
+    "opera-stage": [
+      "Ópera", "Opera", "Opereta", "Zarzuela", "Oratorio", "Cantata", "Musical teatral", "Teatro musical", "Cabaret", "Music hall", "Ballet", "Música vocal", "Musica vocal", "Aria", "Recitativo"
+    ],
+    "blues": [
+      "Blues", "Blues rural", "Blues acústico", "Blues acustico", "Delta blues", "Piedmont blues", "Blues urbano", "Chicago blues", "Jump blues", "Boogie-woogie", "Boogie woogie", "Piano blues", "Harmonica blues", "Blues eléctrico", "Blues electrico", "Blues rock"
+    ],
+    "gospel": [
+      "Gospel", "Gospel tradicional", "Gospel moderno", "Spirituals", "Spiritual", "Work songs", "Canciones de trabajo", "Coro gospel", "Música sacra", "Musica sacra", "Himno", "Himno religioso"
+    ],
+    "jazz": [
+      "Jazz", "Ragtime", "Dixieland", "Hot jazz", "Swing", "Big band", "Bebop", "Bop", "Cool jazz", "Hard bop", "Modal jazz", "Free jazz", "Fusion jazz", "Jazz fusión", "Jazz fusion", "Latin jazz", "Jazz latino", "Smooth jazz", "Acid jazz", "Jazz fusión", "Jazz de vanguardia", "Jazz experimental"
+    ],
+    "soul-rnb": [
+      "R&B", "RnB", "Rhythm and blues", "Soul", "Motown", "Funk", "Disco", "Doo-wop", "Doo wop", "Neo soul", "Soul psicodélico", "Soul psicodelico", "Funk rock", "P-funk", "Boogie funk", "Quiet storm"
+    ],
+    "rock": [
+      "Rock and roll", "Rock and roll clásico", "Rock and roll clasico", "Rockabilly", "Rock", "Rock psicodélico", "Rock psicodelico", "Rock progresivo", "Rock sinfónico", "Rock sinfonico", "Hard rock", "Grunge", "Rock alternativo", "Indie rock", "Shoegaze", "Dream pop", "Post-rock", "Postrock", "Emo", "Emo pop", "Surf rock", "Garage rock", "Psychobilly", "Rock gótico", "Rock gotico", "Rock industrial", "Rock experimental", "Rock instrumental", "Rock latino", "Rock en español", "Rock en espanol", "Rock cristiano", "Rock sureño", "Rock sureño", "Southern rock", "Stoner rock", "Desert rock", "Math rock", "Post-hardcore", "Post hardcore", "Screamo", "Rock alternativo", "Indie pop", "Dream pop"
+    ],
+    "metal": [
+      "Heavy metal", "Metal", "Thrash metal", "Death metal", "Black metal", "Doom metal", "Power metal", "Nu metal", "Metalcore", "Deathcore", "Grindcore", "Sludge metal", "Stoner metal", "Symphonic metal", "Metal sinfónico", "Metal sinfonico", "Folk metal", "Viking metal", "Gothic metal", "Metal gótico", "Metal gotico", "Industrial metal", "Metal industrial", "Progressive metal", "Metal progresivo", "Djent", "Speed metal", "Groove metal", "Alternative metal", "Metal alternativo", "Avant-garde metal", "Metal de vanguardia"
+    ],
+    "punk": [
+      "Punk", "Punk rock", "Hardcore punk", "Hardcore", "Post-punk", "Postpunk", "New wave", "No wave", "Ska punk", "Pop punk", "Emo punk", "Crust punk", "D-beat", "Oi!", "Horror punk", "Psychobilly", "Gothic rock", "Gótico", "Gotico", "Darkwave", "Coldwave", "Industrial", "Industrial rock", "EBM"
+    ],
+    "pop": [
+      "Pop", "Dance-pop", "Dance pop", "Electropop", "Electro pop", "Synth-pop", "Synthpop", "K-pop", "Kpop", "J-pop", "Jpop", "City pop", "Citypop", "Pop rock", "Pop punk", "Indie pop", "Dream pop", "Art pop", "Baroque pop", "Chamber pop", "Sophisti-pop", "Europop", "Latin pop", "Pop latino", "Teen pop", "Bubblegum pop", "Sunshine pop", "Hyperpop", "Bedroom pop"
+    ],
+    "hiphop": [
+      "Hip hop", "Hip-hop", "Rap", "Boom bap", "Gangsta rap", "Trap", "Drill", "Grime", "Crunk", "Snap", "Hyphy", "Phonk", "Memphis rap", "Cloud rap", "Emo rap", "Lo-fi hip hop", "Lofi hip hop", "Jazz rap", "Conscious rap", "Political hip hop", "Horrorcore", "Miami bass", "Freestyle", "Electro", "Breakdance", "Turntablism", "Beatboxing", "Spoken word", "Slam poetry", "Latin trap", "Trap latino", "Rap rock", "Rap metal", "G-funk", "Dirty south", "Underground hip hop", "Abstract hip hop", "Instrumental hip hop"
+    ],
+    "reggae-caribbean": [
+      "Reggae", "Roots reggae", "Reggae roots", "Ska", "Rocksteady", "Dub", "Dancehall", "Ragga", "Calypso", "Soca", "Steelpan", "Steel drum", "Punta", "Paranda", "Kompa", "Konpa", "Cadence-lypso", "Bouyon", "Zouk", "Reggaeton", "Reguetón", "Dembow", "Dembow dominicano", "Música jamaicana", "Musica jamaicana", "Caribbean music", "Música caribeña", "Musica caribena"
+    ],
+    "latin": [
+      "Salsa", "Son cubano", "Mambo", "Cha-cha-chá", "Cha cha cha", "Bolero", "Rumba", "Guaracha", "Cumbia", "Cumbia colombiana", "Cumbia villera", "Cumbia sonidera", "Cumbia rebajada", "Cumbia amazónica", "Cumbia amazonica", "Vallenato", "Porro", "Mapalé", "Mapale", "Merengue", "Merengue típico", "Merengue tipico", "Perico ripiao", "Bachata", "Bachata dominicana", "Dembow dominicano", "Reggaeton", "Reguetón", "Latin trap", "Trap latino", "Tango", "Milonga", "Milonga campera", "Chacarera", "Zamba", "Carnavalito", "Pasillo", "Bambuco", "Joropo", "Gaita zuliana", "Calipso venezolano", "Punta", "Paranda", "Saya", "Tinku", "Baguala", "Vidala", "Chamamé", "Chamame", "Rasguido doble", "Candombe", "Murga uruguaya", "Música latina", "Musica latina", "Música tropical", "Musica tropical"
+    ],
+    "brazil": [
+      "Samba", "Samba-enredo", "Samba de roda", "Bossa nova", "Bossa", "MPB", "Música popular brasileña", "Musica popular brasileira", "Choro", "Chorinho", "Forró", "Forro", "Baião", "Baiao", "Frevo", "Maracatu", "Axé", "Axe", "Ciranda", "Coco", "Embolada", "Repente", "Cantoria", "Modinha", "Lundu", "Maxixe", "Seresta", "Toada", "Vanerão", "Vanerao", "Xote", "Xaxado", "Arrocha", "Pisadinha", "Tecnobrega", "Brega", "Lambada", "Carimbó", "Carimbo", "Guitarrada", "Pagode", "Partido alto"
+    ],
+    "country-folk": [
+      "Country", "Bluegrass", "Folk", "Americana", "Outlaw country", "Country rock", "Country alternativo", "Western swing", "Honky tonk", "Zydeco", "Cajun", "Swamp pop", "Tex-mex", "Tejano", "Conjunto", "Norteño-sax", "Norteno-sax", "Norteño", "Norteno", "Corrido", "Corrido tumbado", "Banda sinaloense", "Mariachi", "Ranchera", "Música mexicana", "Musica mexicana", "Música tejana", "Musica tejana", "Folk rock", "Indie folk", "Anti-folk", "Freak folk", "Appalachian folk", "Old-time music", "Sea shanty", "Canción de autor", "Cancion de autor"
+    ],
+    "flamenco-lusophone": [
+      "Flamenco", "Sevillanas", "Copla", "Fado", "Morna", "Coladeira", "Funaná", "Funana", "Batuque", "Semba", "Kizomba", "Kuduro", "Tarraxinha", "Ghetto zouk", "Coupé-décalé", "Coupe-decale", "Makossa", "Bikutsi", "Manele", "Turbo-folk", "Chalga", "Tallava", "Pop folk", "Raï", "Rai", "Raï n'bi", "Rai nbi", "Kabyle", "Chaoui", "Gnawa", "Malhun", "Aita", "Melhoun", "Andalusí", "Andalusi", "Nouba", "Música lusófona", "Musica lusofona"
+    ],
+    "celtic": [
+      "Música celta", "Musica celta", "Celtic", "Jig", "Reel", "Hornpipe", "Música irlandesa", "Musica irlandesa", "Música escocesa", "Musica escocesa", "Música gallega", "Musica gallega", "Música bretona", "Musica bretona", "Folk celta", "Danza celta", "Sean-nós", "Sean nos"
+    ],
+    "andean": [
+      "Música andina", "Musica andina", "Huayno", "Sanjuanito", "Cueca", "Saya", "Tinku", "Baguala", "Vidala", "Chamamé", "Chamame", "Rasguido doble", "Milonga campera", "Candombe", "Murga uruguaya", "Música sudamericana", "Musica sudamericana", "Música altiplánica", "Musica altiplanica", "Quena", "Charango", "Bombo"
+    ],
+    "mexican": [
+      "Mariachi", "Ranchera", "Norteño", "Norteno", "Banda sinaloense", "Corrido", "Corrido tumbado", "Tex-mex", "Tejano", "Conjunto", "Norteño-sax", "Norteno-sax", "Música mexicana", "Musica mexicana", "Son jarocho", "Son huasteco", "Huapango", "Bolero mexicano"
+    ],
+    "asian": [
+      "Música de concierto china", "Musica de concierto china", "Ópera de Pekín", "Opera de Pekin", "Guqin", "Gagaku", "Nōgaku", "Nogaku", "Kabuki", "Pansori", "Trot", "Enka", "Música japonesa", "Musica japonesa", "Música china", "Musica china", "Música coreana", "Musica coreana", "Raga", "Carnatic", "Carnática", "Carnatica", "Hindustani", "Dhrupad", "Khayal", "Thumri", "Dadra", "Tappa", "Bhajan", "Kirtan", "Abhang", "Lavani", "Tamasha", "Baul", "Fakir", "Jhumair", "Chhau", "Bihu", "Borgeet", "Ojapali", "Sattriya", "Manipuri", "Kathak", "Bharatanatyam", "Kuchipudi", "Odissi", "Mohiniyattam", "Yakshagana", "Theyyam", "Padayani", "Chavittu nadakam", "Sopana", "Panchavadyam", "Chenda melam", "Thayambaka", "Idakka", "Nadaswaram", "Tavil", "Mridangam", "Ghatam", "Kanjira", "Veena", "Sitar", "Sarod", "Santoor", "Sarangi", "Bansuri", "Shehnai", "Tabla", "Pakhawaj", "Dhamar", "Hori", "Chaiti", "Kajri", "Sawani", "Jhoola", "Lori", "Sohar", "Sanskar", "Yaman", "Bhairav", "Bhairavi", "Todi", "Puriya", "Marwa", "Kafi", "Sindhi", "Pilu", "Desh", "Tilak Kamod", "Malhar", "Mian Ki Malhar", "Darbari", "Adana", "Bihag", "Khamaj", "Kalingada", "Shree", "Gujari Todi", "Lalit", "Jayjaywanti", "Maru Bihag", "Bhoopali", "Durga", "Desi", "Jog", "Jogiya", "Ahir Bhairav", "Nataraj", "Kirwani", "Charukeshi", "Simhendramadhyamam", "Mayamalavagowla", "Shankarabharanam", "Kalyani", "Harikambhoji", "Kharaharapriya", "Natabhairavi", "Chakravakam", "Shanmukhapriya", "Keervani", "Hemavati", "Dhanyasi", "Begada", "Kambhoji", "Saveri", "Arabhi", "Kedaragowla", "Bilahari", "Mohana", "Hamsadhwani", "Vasanta", "Brindavana Saranga", "Kadanakuthuhalam", "Nalinakanthi", "Ravi Chandrika", "Bahudari", "Valaji", "Sunadavinodini", "Chandrajyoti", "Jujahuli", "Sindhu Bhairavi", "Misra Pahadi", "Bageshri", "Shuddha Sarang", "Miyan Ki Sarang", "Brindabani Sarang", "Bahar", "Hindol", "Shuddha Kalyan", "Puriya Dhanashri", "Puriya Kalyan", "Basant", "Paraj", "Gunakri", "Abhogi", "Bhatiyar", "Malkauns", "Chandrakauns", "Dhaani", "Kaunsi Kanhra", "Bageshri Kanhra", "Siddhi", "Nand", "Kaushik Dhwani", "Wahid", "Sohini", "Maru Behag", "Shuddha Basant", "Jait", "Jait Kalyan", "Jhinjhoti", "Tilang", "Bhimpalasi", "Dhanashri", "Patdeep", "Multani", "Madhuvanti"
+    ],
+    "middle-east": [
+      "Maqam", "Maqam iraquí", "Maqam iraqui", "Mugham", "Shashmaqom", "Taqsim", "Dabke", "Baladi", "Saidi", "Shaabi", "Mahraganat", "Sufi", "Qawwali", "Ghazal", "Música persa", "Musica persa", "Música árabe", "Musica arabe", "Música turca", "Musica turca", "Música judía", "Musica judia", "Klezmer", "Danza del vientre", "Belly dance", "Raqs sharqi"
+    ],
+    "african": [
+      "Highlife", "Afrobeat", "Mbalax", "Mbaqanga", "Isicathamiya", "Soukous", "Rumba congoleña", "Rumba congolena", "Raï", "Rai", "Chaabi", "Gnawa", "Desert blues", "Taarab", "Benga", "Juju", "Fuji", "Amapiano", "Afro house", "Afro pop", "Afropop", "Gqom", "Kwaito", "Mapouka", "Ndombolo", "Makossa", "Bikutsi", "Coupe-decale", "Coupé-décalé", "Música africana", "Musica africana", "Música del norte de África", "Musica del norte de Africa", "Música subsahariana", "Musica subsahariana"
+    ],
+    "electronic": [
+      "House", "Deep house", "Acid house", "Tech house", "Progressive house", "Techno", "Detroit techno", "Minimal techno", "Trance", "Psytrance", "Progressive trance", "Drum and bass", "Drum & bass", "DnB", "Jungle", "Dubstep", "Garage", "UK garage", "2-step", "Breakbeat", "Big beat", "Ambient", "Ambient techno", "Downtempo", "Trip hop", "Trip-hop", "IDM", "EDM", "Hardstyle", "Gabber", "Hardcore electronic", "Vaporwave", "Synthwave", "Retrowave", "Chiptune", "New age", "Música electrónica", "Musica electronica", "Electrónica", "Electronica", "Electro", "Miami bass", "Freestyle", "Breakdance", "Turntablism", "Beatboxing", "Future bass", "Trap electronic", "Glitch", "Glitch hop", "Breakcore", "Speedcore", "Makina", "Happy hardcore", "Eurodance", "Italo disco", "Hi-NRG", "Space disco"
+    ],
+    "experimental": [
+      "Música experimental", "Musica experimental", "Experimental", "Noise", "Ruido", "Drone", "Free improvisation", "Improvisación libre", "Improvisacion libre", "Musique concrète", "Musique concrete", "Música concreta", "Musica concreta", "Sound art", "Arte sonoro", "Field recording", "Grabación de campo", "Grabacion de campo", "Industrial", "Noise rock", "No wave", "Avant-garde", "Vanguardia", "Música incidental", "Musica incidental"
+    ],
+    "chiptune-game": [
+      "Chiptune", "Chip music", "8-bit", "8 bit", "16-bit", "16 bit", "Tracker music", "Demoscene", "Música de videojuegos", "Musica de videojuegos", "Video game music", "Game music", "Música de consola", "Musica de consola", "NES", "SNES", "Game Boy", "Arcade", "JRPG", "Música de jefe", "Musica de jefe", "Boss music", "Overworld", "Dungeon music", "Battle music", "Loop de juego", "Game loop"
+    ],
+    "screen-stage": [
+      "Banda sonora", "Soundtrack", "Film score", "Score", "Música de cine", "Musica de cine", "Música incidental", "Musica incidental", "Musical teatral", "Teatro musical", "Cabaret", "Music hall", "Ballet", "Ópera", "Opera", "Música para videojuegos", "Musica para videojuegos", "Música para escena", "Musica para escena", "Leitmotiv", "Tema principal", "Main theme"
+    ],
+    "european-folk": [
+      "Klezmer", "Música celta", "Musica celta", "Flamenco", "Sevillanas", "Copla", "Fado", "Morna", "Coladeira", "Funaná", "Funana", "Manele", "Turbo-folk", "Chalga", "Tallava", "Pop folk", "Música balcánica", "Musica balcanica", "Música gitana", "Musica gitana", "Música judía", "Musica judia", "Música escandinava", "Musica escandinava", "Polka", "Vals", "Marcha", "Himno", "Música renacentista", "Musica renacentista"
+    ],
+    "world-fusion": [
+      "World music", "World", "Música del mundo", "Musica del mundo", "Fusión", "Fusion", "World fusion", "Global bass", "Ethno electronic", "Folktronica", "Música intercultural", "Musica intercultural", "Música global", "Musica global"
+    ],
+    "military": [
+      "Marcha militar", "Marcha", "Himno", "Fanfarria", "Música militar", "Musica militar", "Desfile", "Redoble", "Tocata militar", "Bugle call"
+    ]
+  }
+}

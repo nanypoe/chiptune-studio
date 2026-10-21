@@ -13,7 +13,7 @@ const CH = {
 };
 const song = {
   format: 'chiptune-studio', version: 2, title: 'Metropolis of Mirrors',
-  bpm: 78, bars: 40, timeSig: '7/8', loopStart: 0, tempo: [],
+  bpm: 78, bars: 40, timeSig: '7/8', key: 'D', scale: 'minor', loopStart: 0, tempo: [],
   tracks: []
 };
 const tr = (name, instrument, volume, pan, fx) => { const t = { name, instrument, volume, pan, fx, notes: [] }; song.tracks.push(t); return t; };

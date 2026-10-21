@@ -15,16 +15,23 @@ src/engine/effects.js      Algoritmos de efectos (reverb, delay, chorus, drive)
 src/engine/engine.js       Rig (grafo de audio), reproductor con reloj de audio, metrónomo, exportación WAV
 src/instruments/*.js       UN archivo por instrumento (JSON puro dentro de CS.registerInstrument)
 src/effects/*.js           UN archivo por efecto
-src/song/song.js           Formato de canción, importación v1/v2, guía para IA (se genera sola)
+src/song/song.js           Formato de canción, importación v1/v2, guía y brief para IA
 src/theory/theory.js       Escalas, grados, acordes
 src/theory/lessons.js      Ruta de aprendizaje editable, con comprobación automática
 src/ui/app.js              Interfaz: piano roll, teclado, pistas, aprendizaje, archivo
+ai/                        Base de géneros, emociones, influencias, método y prompts para IA
+ai/genres.json             Base generada: familias, perfiles y catálogo de géneros
+ai/genres/                 Piezas editables de la base (familias, perfiles, catálogo)
+ai/examples/               Briefs de ejemplo (lore, influencias, técnico)
+tools/ai-compose.js        Planifica, genera esbozos, valida y consulta géneros/emociones
+tools/build-genres.js      Regenera ai/genres.json desde ai/genres/
 demos/*.json               Demos: cualquier .json nuevo aparece en Menú → Demos
 demos/demos.js             Copia inline generada para que las demos funcionen con doble clic
 tools/serve.js             Servidor local sin dependencias; lista demos/ al vuelo
 tools/build-demos.js       Regenera demos/index.json y demos/demos.js (--watch)
-tools/check-demo.js        Valida una demo con el normalizador y los rangos de la app
+tools/check-demo.js        Valida una demo con el normalizador, la teoría y los rangos de la app
 tools/make-demo.js         Generador de la demo «Metropolis of Mirrors»
+AGENTS.md                  Reglas obligatorias para agentes que compongan o modifiquen la app
 ```
 
 ## Añadir un instrumento
@@ -46,10 +53,11 @@ Copia un archivo de `src/effects/`. Si usa un `kind` existente (reverb, delay, c
 para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, output })` en `src/engine/effects.js`. Los efectos son envíos por pista (sliders en la tarjeta de pista).
 
 ## Formato de canción v2
-`{"format":"chiptune-studio","version":2,"title","bpm","tempo":[...],"bars","timeSig","tracks":[{"name","instrument","volume","pan","fx":{"reverb":0.15},"notes":[{"step","len","pitch","vel","slide","chord"}]}]}`
+`{"format":"chiptune-studio","version":2,"title","bpm","tempo":[...],"bars","timeSig","key","scale","tracks":[{"name","instrument","volume","pan","fx":{"reverb":0.15},"notes":[{"step","len","pitch","vel","slide","chord"}]}]}`
 
 - La rejilla es de semicorcheas (1 paso = 1/16). `timeSig` (opcional, por defecto `"4/4"`) fija los pasos por compás: **4/4 = 16, 3/4 = 12, 2/4 = 8, 5/4 = 20, 6/8 = 12, 12/8 = 24, 7/8 = 14**. El compás *n* empieza en el paso (n−1) × pasos por compás.
 - `loopStart` (opcional, compás 0-based, por defecto 0): al terminar, la canción vuelve a ese compás (intro + parte que se repite). **Menú → WAV en bucle perfecto** exporta solo el tramo que se repite, con la cola del final mezclada sobre el inicio (sin salto al repetir).
+- `key` y `scale` (opcionales): declaran tonalidad y modo. `key` acepta `"C"`, `"D"`, `"Eb"`, `"F#"` o un pc 0–11; `scale` usa los ids de `ai/CORE.md` (`major`, `minor`, `dorian`, `phrygian`, `lydian`, `mixolydian`, `locrian`, `harmonicMinor`, pentatónicas, blues, tono completo, disminuida, etc.). La app los usa para resaltar el tono, para los acordes y para la guía de IA; no cambian las alturas de las notas.
 - `tempo` (opcional): cambios de velocidad por compás. `[{"bar":8,"bpm":140}]` salta a 140 BPM al empezar el compás 9; `[{"bar":8,"bpm":140,"ramp":true}]` llega a 140 poco a poco desde el cambio anterior (acelerando o ritardando). `bar` es 0-based y debe ser ≥ 1; el compás 1 usa `bpm`. Afecta a la reproducción, al metrónomo, al monitor y al WAV (las notas que cruzan un cambio conservan su duración real).
 - Se importan canciones v1 y v2 sin `timeSig` (se leen como 4/4). Alias de ids antiguos: flute→triangle, bass2→pluck, lead→saw, pulse25/50→pulse, pulse12→arp, organ/choir→pad.
 - Cambiar el compás en el estudio reacomoda las notas compás por compás (las que no caben se quitan; se puede deshacer).
@@ -63,8 +71,29 @@ La carpeta `demos/` es la lista de demos de la app: deja ahí cualquier canción
 - **Detección automática (recomendado):** `node tools/serve.js` y abre `http://127.0.0.1:8080/`. El servidor genera `/demos/index.json` y el listado de la carpeta al vuelo; cualquier `.json` nuevo aparece en el menú sin reiniciar. La lista se refresca sola cada pocos segundos mientras el menú está abierto. También funciona con un servidor estático que muestre el listado de `demos/` o que sirva `demos/index.json`.
 - **Doble clic (`file://`):** por seguridad, el navegador no permite leer una carpeta local desde una página `file://`. La app usa `demos/demos.js`, una copia inline generada por `node tools/build-demos.js`. Para añadir una demo nueva sin servidor, ejecuta ese comando y recarga, o usa **Menú → Demos → Abrir carpeta / Abrir JSON** (la demo queda guardada en el navegador).
 - `node tools/build-demos.js --watch` regenera la copia inline al guardar un `.json` (recarga la app para verla).
-- `node tools/check-demo.js [archivo]` valida compases, rangos de instrumento y duración con el mismo código de la app.
+- `node tools/check-demo.js [archivo]` valida compases, tonalidad/escala, rangos de instrumento y duración con el mismo código de la app.
 - `node tools/make-demo.js` vuelve a generar la demo incluida (herramienta de composición).
+
+## Componer con una IA
+
+La carpeta `ai/` contiene la base de géneros, emociones e influencias y el método para que una IA componga canciones originales de cualquier género. Empieza por `ai/README.md`; las reglas para agentes están en `AGENTS.md`.
+
+```bash
+node tools/ai-compose.js brief --out brief.md
+node tools/ai-compose.js plan ai/examples/lore-brief.json --out plan.json
+node tools/ai-compose.js sketch ai/examples/lore-brief.json --out cancion.json --plan-out plan.json
+node tools/ai-compose.js check cancion.json
+node tools/ai-compose.js genres "folk metal"
+node tools/ai-compose.js moods "melancólico"
+```
+
+- `plan` elige género/familia, emoción, forma, tonalidad, escala, tempo, compás e instrumentación, y escribe los supuestos. Revísalo antes de generar notas.
+- `sketch` crea un esbozo válido y editable: melodía, bajo, batería, armonía, arpegio, textura, `slide`, `chord` y cambios de tempo. No es una entrega final; hay que escucharlo y refinarlo.
+- `check` valida el formato, los rangos, las piezas de batería, el tempo, el loop, la densidad y la coherencia de la escala declarada.
+- `genres` y `moods` consultan la base sin cargarla entera en el contexto.
+- La base se edita en `ai/genres/*.json` y se regenera con `node tools/build-genres.js`. `ai/genres.json` es generado.
+- Las influencias (bandas, bandas sonoras, videojuegos, canciones) se traducen a rasgos abstractos. No se copian melodías, riffs ni arreglos: ver `ai/ORIGINALITY.md`.
+- En la app, **Menú → Guía para IA** incluye la guía técnica completa y el botón **Brief** para generar una plantilla.
 
 ## Pantalla
 - **Cabecera:** ☰ Menú (demos, canción nueva, importar/exportar JSON·JS·WAV, guía para IA, atajos) · título · deshacer/rehacer · reproducir/detener · repetir · metrónomo (sonido) · **monitor** (péndulo, 4 tiempos y avance) · BPM y **♩ mapa de tempo** · compases · **bucle de sección** · tono y escala · volumen · 📖 Aprender.

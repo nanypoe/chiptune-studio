@@ -6,14 +6,18 @@ const load = (p) => vm.runInThisContext(fs.readFileSync(path.join(root, p), 'utf
 load('src/core/cs.js'); load('src/engine/schema.js'); load('src/engine/voice.js');
 for (const f of fs.readdirSync(path.join(root, 'src/effects'))) if (f.endsWith('.js')) load('src/effects/' + f);
 for (const f of fs.readdirSync(path.join(root, 'src/instruments'))) if (f.endsWith('.js')) load('src/instruments/' + f);
+load('src/theory/theory.js');
 load('src/song/song.js');
 const target = process.argv[2] || path.join(root, 'demos/progressive-metal-dream-theater.json');
 const s = CS.song.normalize(JSON.parse(fs.readFileSync(target, 'utf8')));
 const tl = CS.song.timeline(s), spb = CS.sig(s).spb, steps = s.bars * spb;
 const secs = tl.t[steps], dur = `${Math.floor(secs / 60)}:${String(Math.round(secs % 60)).padStart(2, '0')}`;
-console.log(`«${s.title}» · ${s.bars} compases ${s.timeSig} · ${s.tracks.length} pistas · ${s.tracks.reduce((n, t) => n + t.notes.length, 0)} notas · ${dur}`);
-console.log('Tempo:', [{ bar: 0, bpm: s.bpm }, ...(s.tempo || [])].map((e) => `${e.bar + 1}:${e.bpm}${e.ramp ? '↗' : ''}`).join(' → '));
 const errors = [];
+if (s.scale && !CS.theory.scales[s.scale]) errors.push(`Escala desconocida: ${s.scale}`);
+if (s.key == null) errors.push('La demo no declara tonalidad (key).');
+console.log(`«${s.title}» · ${s.bars} compases ${s.timeSig} · ${s.tracks.length} pistas · ${s.tracks.reduce((n, t) => n + t.notes.length, 0)} notas · ${dur}`);
+console.log(`Tonalidad: ${s.key || '—'} ${s.scale || ''} · loopStart: ${s.loopStart}`);
+console.log('Tempo:', [{ bar: 0, bpm: s.bpm }, ...(s.tempo || [])].map((e) => `${e.bar + 1}:${e.bpm}${e.ramp ? '↗' : ''}`).join(' → '));
 for (const t of s.tracks) {
   const inst = CS.getInst(t.instrument), drum = inst.id === 'drums';
   let bad = 0, min = Infinity, max = -Infinity;

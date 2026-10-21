@@ -1,0 +1,1145 @@
+{
+  "schema": "chiptune-moods@1",
+  "updated": "2026-10-21",
+  "howToUse": "Busca la emoción por nombre o alias. valence = agrado (-1 oscuro/negativo, +1 luminoso/positivo); energy = impulso (0 quieto, 1 eufórico); tension = fricción armónica/rítmica; warmth = cercanía tímbrica. Son guías, no etiquetas rígidas: combina varias y escribe el matiz en el brief.",
+  "moods": {
+    "heroic": {
+      "name": "Heroico",
+      "aliases": [
+        "heroico",
+        "heroica",
+        "épico",
+        "epico",
+        "valiente",
+        "heroic",
+        "epic",
+        "triumphant",
+        "triunfal"
+      ],
+      "valence": 0.7,
+      "energy": 0.85,
+      "tension": 0.35,
+      "warmth": 0.55,
+      "tempo": [
+        100,
+        160
+      ],
+      "scales": [
+        "major",
+        "dorian",
+        "mixolydian",
+        "harmonicMinor"
+      ],
+      "families": [
+        "metal",
+        "rock",
+        "screen-stage",
+        "classical",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "brass",
+        "strings",
+        "pulse",
+        "drums",
+        "bass",
+        "bell"
+      ],
+      "texture": "tema amplio, bajo firme, fanfarria y percusión con espacio para respirar",
+      "rhythm": "pulsos claros, síncopas puntuales, fills al final de frase",
+      "tips": "Haz que el tema suba por grados conjuntos y salte una sexta o una octava en el clímax. Deja un compás de silencio antes del golpe final.",
+      "avoid": "Fanfarria constante sin contraste; todo fuerte todo el tiempo."
+    },
+    "adventurous": {
+      "name": "Aventurero",
+      "aliases": [
+        "aventurero",
+        "aventura",
+        "exploración",
+        "exploracion",
+        "adventure",
+        "journey",
+        "viaje"
+      ],
+      "valence": 0.5,
+      "energy": 0.7,
+      "tension": 0.35,
+      "warmth": 0.45,
+      "tempo": [
+        95,
+        150
+      ],
+      "scales": [
+        "dorian",
+        "major",
+        "mixolydian",
+        "pentMaj"
+      ],
+      "families": [
+        "chiptune-game",
+        "screen-stage",
+        "rock",
+        "celtic",
+        "world-fusion"
+      ],
+      "instruments": [
+        "pulse",
+        "pluck",
+        "strings",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "texture": "capas que entran por relevos, melodía memorable y un pulso que invita a moverse",
+      "rhythm": "ostinato de corcheas con acentos cambiantes",
+      "tips": "Usa un motivo de 2 compases y reordénalo en cada sección. Cambia el bajo de raíz a quinta para dar sensación de camino.",
+      "avoid": "Mezclar demasiados timbres protagonistas a la vez."
+    },
+    "mysterious": {
+      "name": "Misterioso",
+      "aliases": [
+        "misterioso",
+        "misterio",
+        "enigma",
+        "mysterious",
+        "mystery",
+        "secreto",
+        "oculto"
+      ],
+      "valence": -0.2,
+      "energy": 0.35,
+      "tension": 0.7,
+      "warmth": 0.25,
+      "tempo": [
+        65,
+        110
+      ],
+      "scales": [
+        "dorian",
+        "phrygian",
+        "locrian",
+        "harmonicMinor",
+        "wholeTone",
+        "hirajoshi"
+      ],
+      "families": [
+        "electronic",
+        "experimental",
+        "screen-stage",
+        "chiptune-game",
+        "jazz"
+      ],
+      "instruments": [
+        "pad",
+        "bell",
+        "bass",
+        "arp",
+        "triangle",
+        "drums"
+      ],
+      "texture": "espacio, notas aisladas, resonancias y capas que se esconden",
+      "rhythm": "pulsos irregulares o un pulso mínimo con silencios largos",
+      "tips": "Deja silencios reales. Usa intervalos de segunda menor y tritono con resolución retardada; el oyente debe preguntarse qué viene.",
+      "avoid": "Llenar todos los huecos; el misterio vive en lo que no suena."
+    },
+    "tense": {
+      "name": "Tenso",
+      "aliases": [
+        "tenso",
+        "tensión",
+        "tension",
+        "suspenso",
+        "suspense",
+        "amenaza",
+        "thriller",
+        "peligro"
+      ],
+      "valence": -0.45,
+      "energy": 0.65,
+      "tension": 0.95,
+      "warmth": 0.15,
+      "tempo": [
+        80,
+        150
+      ],
+      "scales": [
+        "phrygian",
+        "locrian",
+        "harmonicMinor",
+        "diminished",
+        "chromatic"
+      ],
+      "families": [
+        "screen-stage",
+        "experimental",
+        "metal",
+        "electronic",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "strings",
+        "pad",
+        "bass",
+        "drums",
+        "arp",
+        "triangle"
+      ],
+      "texture": "ostinato inquieto, cuerdas en registro agudo, golpes secos",
+      "rhythm": "acentos desplazados, pedal rítmico, silencios que cortan",
+      "tips": "Mantén una nota pedal y mueve solo una voz. Añade un golpe de percusión en el punto donde el oyente espera resolver.",
+      "avoid": "Resolver demasiado pronto; la tensión necesita demora."
+    },
+    "dark": {
+      "name": "Oscuro",
+      "aliases": [
+        "oscuro",
+        "oscuridad",
+        "dark",
+        "sombrío",
+        "sombrio",
+        "siniestro",
+        "ominous",
+        "malvado"
+      ],
+      "valence": -0.75,
+      "energy": 0.55,
+      "tension": 0.7,
+      "warmth": 0.15,
+      "tempo": [
+        60,
+        130
+      ],
+      "scales": [
+        "minor",
+        "phrygian",
+        "locrian",
+        "harmonicMinor",
+        "hungarianMinor"
+      ],
+      "families": [
+        "metal",
+        "rock",
+        "screen-stage",
+        "electronic",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "bass",
+        "pad",
+        "strings",
+        "drums",
+        "pulse",
+        "bell"
+      ],
+      "texture": "graves densos, timbres graves y agudos sin centro",
+      "rhythm": "pulsos pesados, espacios amplios, golpes de tambor",
+      "tips": "Haz que el bajo tenga la última palabra. Usa la sexta menor y la segunda menor como color, sin abusar del cromatismo.",
+      "avoid": "Confundir oscuridad con ruido sin dirección."
+    },
+    "melancholic": {
+      "name": "Melancólico",
+      "aliases": [
+        "melancólico",
+        "melancolico",
+        "melancolía",
+        "melancolia",
+        "triste",
+        "sad",
+        "sorrowful",
+        "dolor",
+        "luto"
+      ],
+      "valence": -0.55,
+      "energy": 0.3,
+      "tension": 0.45,
+      "warmth": 0.5,
+      "tempo": [
+        55,
+        95
+      ],
+      "scales": [
+        "minor",
+        "dorian",
+        "aeolian",
+        "pentMin",
+        "harmonicMinor"
+      ],
+      "families": [
+        "romantic",
+        "blues",
+        "country-folk",
+        "screen-stage",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "piano",
+        "strings",
+        "pad",
+        "bell",
+        "bass",
+        "triangle"
+      ],
+      "texture": "melodía cantable, acompañamiento sencillo, silencios expresivos",
+      "rhythm": "frases largas, respiración humana, arpegios lentos",
+      "tips": "Una melodía triste no necesita muchas notas: repite una célula y cámbiale solo la última nota. Deja que el bajo camine hacia la dominante.",
+      "avoid": "Exagerar el vibrato o el dramatismo; la contención conmueve más."
+    },
+    "nostalgic": {
+      "name": "Nostálgico",
+      "aliases": [
+        "nostálgico",
+        "nostalgico",
+        "nostalgia",
+        "recuerdo",
+        "memory",
+        "añoranza",
+        "anhelo",
+        "bittersweet",
+        "agridulce"
+      ],
+      "valence": 0.05,
+      "energy": 0.35,
+      "tension": 0.35,
+      "warmth": 0.75,
+      "tempo": [
+        60,
+        105
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "pentMaj"
+      ],
+      "families": [
+        "pop",
+        "chiptune-game",
+        "screen-stage",
+        "country-folk",
+        "jazz"
+      ],
+      "instruments": [
+        "piano",
+        "bell",
+        "pad",
+        "strings",
+        "pluck",
+        "bass"
+      ],
+      "texture": "timbres cálidos, reverb media, armonía que se inclina entre mayor y menor",
+      "rhythm": "balanceo suave, arpegios y notas de adorno",
+      "tips": "Mezcla un acorde mayor con la sexta menor o usa un préstamo del modo paralelo. Que la melodía recuerde una canción que nunca existió.",
+      "avoid": "Copiar una melodía conocida; busca el gesto, no la cita."
+    },
+    "serene": {
+      "name": "Sereno",
+      "aliases": [
+        "sereno",
+        "serenidad",
+        "calma",
+        "tranquilo",
+        "peaceful",
+        "relax",
+        "contemplativo",
+        "contemplative"
+      ],
+      "valence": 0.55,
+      "energy": 0.15,
+      "tension": 0.15,
+      "warmth": 0.7,
+      "tempo": [
+        50,
+        85
+      ],
+      "scales": [
+        "major",
+        "lydian",
+        "pentMaj",
+        "dorian"
+      ],
+      "families": [
+        "electronic",
+        "classical",
+        "screen-stage",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "pad",
+        "piano",
+        "bell",
+        "strings",
+        "triangle",
+        "bass"
+      ],
+      "texture": "capas lentas, ataques suaves, espacio para la respiración",
+      "rhythm": "sin percusión o con un pulso mínimo; frases que no corren",
+      "tips": "Trabaja con pedales y variaciones de dinámica más que con notas nuevas. Un cambio de acorde cada 2 o 4 compases ya es suficiente.",
+      "avoid": "Añadir fills o elementos que rompan la calma."
+    },
+    "sacred": {
+      "name": "Sacro / ritual",
+      "aliases": [
+        "sacro",
+        "sagrado",
+        "religioso",
+        "ritual",
+        "ceremonial",
+        "sacred",
+        "litúrgico",
+        "liturgico",
+        "místico",
+        "mistico"
+      ],
+      "valence": 0.25,
+      "energy": 0.35,
+      "tension": 0.3,
+      "warmth": 0.8,
+      "tempo": [
+        50,
+        90
+      ],
+      "scales": [
+        "dorian",
+        "phrygian",
+        "ionian",
+        "aeolian",
+        "harmonicMinor"
+      ],
+      "families": [
+        "medieval",
+        "renaissance",
+        "gospel",
+        "asian",
+        "middle-east",
+        "screen-stage"
+      ],
+      "instruments": [
+        "pad",
+        "triangle",
+        "bell",
+        "strings",
+        "bass"
+      ],
+      "texture": "monofonía o coro imaginario, drones, reverberación amplia",
+      "rhythm": "libre o procesional; acentos en grupos de 2 y 3",
+      "tips": "Una sola línea puede ser suficiente. Si añades armonía, que sea por cuartas/quintas o un bordón, no una progresión pop.",
+      "avoid": "Ritmos de baile modernos y compresiones agresivas."
+    },
+    "romantic": {
+      "name": "Romántico",
+      "aliases": [
+        "romántico",
+        "romantico",
+        "amor",
+        "romance",
+        "romantic",
+        "íntimo",
+        "intimo",
+        "tender",
+        "tierno"
+      ],
+      "valence": 0.55,
+      "energy": 0.35,
+      "tension": 0.25,
+      "warmth": 0.9,
+      "tempo": [
+        55,
+        95
+      ],
+      "scales": [
+        "major",
+        "minor",
+        "dorian",
+        "harmonicMajor"
+      ],
+      "families": [
+        "romantic",
+        "pop",
+        "jazz",
+        "screen-stage",
+        "latin"
+      ],
+      "instruments": [
+        "piano",
+        "strings",
+        "pad",
+        "bell",
+        "bass",
+        "pluck"
+      ],
+      "texture": "melodía cercana, acompañamiento arpegiado, cuerdas cálidas",
+      "rhythm": "rubato imaginado, frases de 4 u 8 compases",
+      "tips": "Haz que la melodía respire y que el acompañamiento tenga una nota pedal. Una tensión armónica que se resuelve al final vale más que muchos adornos.",
+      "avoid": "Saturación de voces y ornamentos innecesarios."
+    },
+    "joyful": {
+      "name": "Alegre",
+      "aliases": [
+        "alegre",
+        "feliz",
+        "joyful",
+        "happy",
+        "celebración",
+        "celebracion",
+        "fiesta",
+        "festive",
+        "festivo"
+      ],
+      "valence": 0.9,
+      "energy": 0.8,
+      "tension": 0.1,
+      "warmth": 0.7,
+      "tempo": [
+        105,
+        170
+      ],
+      "scales": [
+        "major",
+        "lydian",
+        "mixolydian",
+        "pentMaj"
+      ],
+      "families": [
+        "pop",
+        "chiptune-game",
+        "reggae-caribbean",
+        "latin",
+        "country-folk",
+        "african"
+      ],
+      "instruments": [
+        "pulse",
+        "brass",
+        "piano",
+        "pluck",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "texture": "tema saltarín, bajo activo, percusión brillante",
+      "rhythm": "síncopas, contratiempos, palmas o claps",
+      "tips": "Usa el registro agudo con moderación y deja que el bajo lleve el movimiento. Un coro de tres notas bien repetido funciona mejor que una melodía complicada.",
+      "avoid": "Que todo sea brillante sin un momento de respiro."
+    },
+    "playful": {
+      "name": "Juguetón",
+      "aliases": [
+        "juguetón",
+        "jugueton",
+        "playful",
+        "divertido",
+        "gracioso",
+        "quirky",
+        "peculiar",
+        "cómico",
+        "comico"
+      ],
+      "valence": 0.75,
+      "energy": 0.75,
+      "tension": 0.2,
+      "warmth": 0.6,
+      "tempo": [
+        100,
+        165
+      ],
+      "scales": [
+        "major",
+        "pentMaj",
+        "mixolydian",
+        "lydian"
+      ],
+      "families": [
+        "chiptune-game",
+        "pop",
+        "reggae-caribbean",
+        "screen-stage",
+        "electronic"
+      ],
+      "instruments": [
+        "chirp",
+        "pluck",
+        "pulse",
+        "bass",
+        "drums",
+        "bell"
+      ],
+      "texture": "saltos, staccato, respuestas entre instrumentos",
+      "rhythm": "síncopas y silencios cómicos",
+      "tips": "Escribe un motivo corto y respóndele con otro timbre una octava arriba. Los silencios y los cambios de registro son el chiste.",
+      "avoid": "Rellenar cada pulso; el humor necesita timing."
+    },
+    "angry": {
+      "name": "Enojado / agresivo",
+      "aliases": [
+        "enojado",
+        "enfadado",
+        "agresivo",
+        "angry",
+        "aggressive",
+        "rabia",
+        "furia",
+        "rebelde",
+        "rebellious"
+      ],
+      "valence": -0.6,
+      "energy": 0.95,
+      "tension": 0.85,
+      "warmth": 0.1,
+      "tempo": [
+        130,
+        220
+      ],
+      "scales": [
+        "minor",
+        "phrygian",
+        "locrian",
+        "harmonicMinor",
+        "blues"
+      ],
+      "families": [
+        "metal",
+        "punk",
+        "rock",
+        "electronic",
+        "experimental"
+      ],
+      "instruments": [
+        "guitar",
+        "bass",
+        "drums",
+        "saw",
+        "pulse",
+        "brass"
+      ],
+      "texture": "riffs densos, distorsión, batería contundente",
+      "rhythm": "gallop, blast, acentos en contratiempo, dinámica en bloques",
+      "tips": "Contrasta la potencia con un breakdown o un silencio. La agresividad gana fuerza cuando hay algo que se rompe.",
+      "avoid": "Distorsión sin articulación; todo suena igual si no hay silencios y dinámicas."
+    },
+    "energetic": {
+      "name": "Enérgico",
+      "aliases": [
+        "enérgico",
+        "energico",
+        "energía",
+        "energia",
+        "energetic",
+        "drive",
+        "impulso",
+        "rápido",
+        "rapido"
+      ],
+      "valence": 0.45,
+      "energy": 0.9,
+      "tension": 0.4,
+      "warmth": 0.5,
+      "tempo": [
+        120,
+        190
+      ],
+      "scales": [
+        "minor",
+        "dorian",
+        "mixolydian",
+        "pentMin",
+        "major"
+      ],
+      "families": [
+        "electronic",
+        "rock",
+        "metal",
+        "hiphop",
+        "chiptune-game",
+        "latin"
+      ],
+      "instruments": [
+        "drums",
+        "bass",
+        "pulse",
+        "arp",
+        "pluck",
+        "saw"
+      ],
+      "texture": "capas rítmicas, bajo y batería como motor",
+      "rhythm": "corcheas o semicorcheas constantes, síncopas",
+      "tips": "Construye por capas: primero batería y bajo, luego armonía, luego melodía. Retira una capa en el breakdown para que el retorno golpee.",
+      "avoid": "Mantener la misma densidad de principio a fin."
+    },
+    "hypnotic": {
+      "name": "Hipnótico",
+      "aliases": [
+        "hipnótico",
+        "hipnotico",
+        "hypnotic",
+        "repetitivo",
+        "trance",
+        "trance-like",
+        "meditativo",
+        "obsesivo"
+      ],
+      "valence": 0.1,
+      "energy": 0.6,
+      "tension": 0.45,
+      "warmth": 0.45,
+      "tempo": [
+        90,
+        150
+      ],
+      "scales": [
+        "dorian",
+        "minor",
+        "mixolydian",
+        "pentMin"
+      ],
+      "families": [
+        "electronic",
+        "minimalist",
+        "experimental",
+        "african"
+      ],
+      "instruments": [
+        "arp",
+        "bass",
+        "drums",
+        "pad",
+        "pluck",
+        "triangle"
+      ],
+      "texture": "ostinato, capas que se suman y se restan, pequeñas mutaciones",
+      "rhythm": "pulso estable, variaciones sutiles, polirritmia opcional",
+      "tips": "Elige una célula de 1 o 2 compases y cambia una sola cosa cada 4 u 8 compases. El interés viene de la textura, no de la armonía.",
+      "avoid": "Variar todo a la vez y romper el trance."
+    },
+    "dreamy": {
+      "name": "Onírico / etéreo",
+      "aliases": [
+        "onírico",
+        "onirico",
+        "sueño",
+        "sueno",
+        "dreamy",
+        "etéreo",
+        "etereo",
+        "flotante",
+        "celestial",
+        "ambient"
+      ],
+      "valence": 0.45,
+      "energy": 0.2,
+      "tension": 0.2,
+      "warmth": 0.65,
+      "tempo": [
+        55,
+        95
+      ],
+      "scales": [
+        "lydian",
+        "major",
+        "dorian",
+        "wholeTone",
+        "pentMaj"
+      ],
+      "families": [
+        "electronic",
+        "impressionist",
+        "screen-stage",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "pad",
+        "bell",
+        "piano",
+        "strings",
+        "arp",
+        "triangle"
+      ],
+      "texture": "reverb larga, ataques suaves, acordes abiertos",
+      "rhythm": "sin pulso marcado o con un pulso flotante",
+      "tips": "Usa voces en registro agudo y deja que las notas se solapen. Cambia el color armónico cada 4 compases sin necesidad de una progresión funcional.",
+      "avoid": "Percusión dura y líneas demasiado articuladas."
+    },
+    "lonely": {
+      "name": "Solitario / aislado",
+      "aliases": [
+        "solitario",
+        "soledad",
+        "aislado",
+        "aislamiento",
+        "lonely",
+        "isolation",
+        "abandono",
+        "vacío",
+        "vacio"
+      ],
+      "valence": -0.65,
+      "energy": 0.2,
+      "tension": 0.4,
+      "warmth": 0.25,
+      "tempo": [
+        50,
+        85
+      ],
+      "scales": [
+        "minor",
+        "dorian",
+        "phrygian",
+        "locrian",
+        "pentMin"
+      ],
+      "families": [
+        "electronic",
+        "experimental",
+        "screen-stage",
+        "jazz",
+        "chiptune-game"
+      ],
+      "instruments": [
+        "piano",
+        "pad",
+        "bell",
+        "triangle",
+        "bass"
+      ],
+      "texture": "una voz solitaria, silencios largos, espacio",
+      "rhythm": "frases irregulares, sin un pulso que sostenga",
+      "tips": "Deja que la melodía se quede sola. Un bajo lejano o un eco puede sugerir un espacio enorme sin llenarlo.",
+      "avoid": "Acompañamientos completos que disimulen la soledad."
+    },
+    "industrial": {
+      "name": "Industrial / urbano",
+      "aliases": [
+        "industrial",
+        "urbano",
+        "ciudad",
+        "fábrica",
+        "fabrica",
+        "maquinaria",
+        "cyberpunk",
+        "distopía",
+        "distopia"
+      ],
+      "valence": -0.45,
+      "energy": 0.8,
+      "tension": 0.75,
+      "warmth": 0.1,
+      "tempo": [
+        90,
+        160
+      ],
+      "scales": [
+        "phrygian",
+        "locrian",
+        "minor",
+        "diminished",
+        "chromatic"
+      ],
+      "families": [
+        "electronic",
+        "metal",
+        "experimental",
+        "hiphop"
+      ],
+      "instruments": [
+        "saw",
+        "bass",
+        "drums",
+        "crush",
+        "pad",
+        "pulse"
+      ],
+      "texture": "ruido controlado, golpes metálicos, capas frías",
+      "rhythm": "pulso mecánico, acentos irregulares, samples de percusión",
+      "tips": "Piensa en un motor: un pulso constante y golpes que entran y salen. Usa el bitcrush y la distorsión como textura, no como volumen.",
+      "avoid": "Ruido sin groove; incluso la máquina necesita un pulso."
+    },
+    "futuristic": {
+      "name": "Futurista / sci-fi",
+      "aliases": [
+        "futurista",
+        "futuro",
+        "sci-fi",
+        "science fiction",
+        "espacial",
+        "space",
+        "nave",
+        "alien",
+        "tecnológico",
+        "tecnologico"
+      ],
+      "valence": 0.2,
+      "energy": 0.6,
+      "tension": 0.5,
+      "warmth": 0.15,
+      "tempo": [
+        80,
+        150
+      ],
+      "scales": [
+        "lydian",
+        "dorian",
+        "wholeTone",
+        "diminished",
+        "phrygian",
+        "chromatic"
+      ],
+      "families": [
+        "electronic",
+        "screen-stage",
+        "chiptune-game",
+        "experimental"
+      ],
+      "instruments": [
+        "pad",
+        "arp",
+        "bass",
+        "bell",
+        "saw",
+        "drums"
+      ],
+      "texture": "síntesis fría, arpegios, reverberación amplia, capas de ruido",
+      "rhythm": "pulsos electrónicos, secuencias de 16avos, silencios abruptos",
+      "tips": "Combina un timbre limpio con otro sucio. Usa el tono completo o el lidio para sonar extraño sin perder centro.",
+      "avoid": "Clichés de naves espaciales sin una idea musical que los sostenga."
+    },
+    "exotic": {
+      "name": "Exótico / lejano",
+      "aliases": [
+        "exótico",
+        "exotico",
+        "oriental",
+        "lejano",
+        "tribal",
+        "ancestral",
+        "étnico",
+        "etnico",
+        "folclórico",
+        "folklorico"
+      ],
+      "valence": 0.15,
+      "energy": 0.5,
+      "tension": 0.4,
+      "warmth": 0.55,
+      "tempo": [
+        70,
+        140
+      ],
+      "scales": [
+        "phrygianDominant",
+        "doubleHarmonic",
+        "hirajoshi",
+        "insen",
+        "egyptian",
+        "dorian",
+        "pentMin"
+      ],
+      "families": [
+        "asian",
+        "middle-east",
+        "african",
+        "andean",
+        "celtic",
+        "latin",
+        "world-fusion"
+      ],
+      "instruments": [
+        "pluck",
+        "bell",
+        "pulse",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "texture": "ornamentos, timbres de cuerda pulsada, percusión manual",
+      "rhythm": "ciclos, polirritmias, acentos en grupos de 2 y 3",
+      "tips": "Investiga el gesto rítmico y el adorno antes de añadir notas. No uses una escala exótica como disfraz: haz que la frase respire como la tradición que inspira.",
+      "avoid": "Mezclar culturas como decoración sin entender el pulso."
+    },
+    "ritual": {
+      "name": "Ritual / ceremonial",
+      "aliases": [
+        "ritual",
+        "ceremonia",
+        "ceremonial",
+        "tribal",
+        "ancestral",
+        "procesión",
+        "procesion",
+        "mágico",
+        "magico"
+      ],
+      "valence": 0.1,
+      "energy": 0.55,
+      "tension": 0.55,
+      "warmth": 0.45,
+      "tempo": [
+        60,
+        120
+      ],
+      "scales": [
+        "dorian",
+        "phrygian",
+        "doubleHarmonic",
+        "pentMin",
+        "egyptian"
+      ],
+      "families": [
+        "african",
+        "middle-east",
+        "asian",
+        "andean",
+        "medieval",
+        "experimental"
+      ],
+      "instruments": [
+        "drums",
+        "pad",
+        "pluck",
+        "bell",
+        "bass",
+        "triangle"
+      ],
+      "texture": "percusión cíclica, voz o coro imaginario, drone",
+      "rhythm": "ciclos de 3, 5 o 7; acentos repetidos y variaciones",
+      "tips": "Construye un ciclo de percusión y deja que un instrumento melódico lo comente. La repetición es el hechizo.",
+      "avoid": "Cambiar de compás cada compás; el ritual necesita un ciclo reconocible."
+    },
+    "funky": {
+      "name": "Funky / groove",
+      "aliases": [
+        "funky",
+        "funk",
+        "groove",
+        "groovy",
+        "bailable",
+        "danceable",
+        "sexiness",
+        "swagger"
+      ],
+      "valence": 0.65,
+      "energy": 0.8,
+      "tension": 0.25,
+      "warmth": 0.6,
+      "tempo": [
+        95,
+        125
+      ],
+      "scales": [
+        "dorian",
+        "minor",
+        "mixolydian",
+        "blues",
+        "pentMin"
+      ],
+      "families": [
+        "soul-rnb",
+        "jazz",
+        "pop",
+        "hiphop",
+        "latin"
+      ],
+      "instruments": [
+        "bass",
+        "guitar",
+        "brass",
+        "drums",
+        "piano",
+        "pluck"
+      ],
+      "texture": "bajo protagonista, rítmica de acordes cortos, metales",
+      "rhythm": "semicorcheas con silencios, contratiempos, 'chank'",
+      "tips": "El bajo y la batería son el tema. Escribe un riff de bajo de 1 compás y respétalo; la melodía puede ser mínima.",
+      "avoid": "Sobrecomponer la melodía y tapar el groove."
+    },
+    "majestic": {
+      "name": "Majestuoso",
+      "aliases": [
+        "majestuoso",
+        "majestic",
+        "grandioso",
+        "solemne",
+        "regio",
+        "noble",
+        "imponente"
+      ],
+      "valence": 0.6,
+      "energy": 0.65,
+      "tension": 0.35,
+      "warmth": 0.6,
+      "tempo": [
+        60,
+        110
+      ],
+      "scales": [
+        "major",
+        "dorian",
+        "mixolydian",
+        "harmonicMajor"
+      ],
+      "families": [
+        "classical",
+        "romantic",
+        "screen-stage",
+        "metal",
+        "opera-stage"
+      ],
+      "instruments": [
+        "strings",
+        "brass",
+        "piano",
+        "pad",
+        "bass",
+        "drums"
+      ],
+      "texture": "acordes amplios, registro grave sólido, melodía que se eleva",
+      "rhythm": "pulsos lentos y amplios, fanfarrias, silencios solemnes",
+      "tips": "Usa voicings abiertos y deja que el registro grave sostenga. Un crescendo de 8 compases vale más que un golpe fuerte.",
+      "avoid": "Saturar el registro medio y perder claridad."
+    },
+    "chaotic": {
+      "name": "Caótico / experimental",
+      "aliases": [
+        "caótico",
+        "caotico",
+        "chaos",
+        "experimental",
+        "ruido",
+        "noise",
+        "aleatorio",
+        "imprevisible",
+        "raro"
+      ],
+      "valence": -0.2,
+      "energy": 0.8,
+      "tension": 0.9,
+      "warmth": 0.1,
+      "tempo": [
+        70,
+        180
+      ],
+      "scales": [
+        "chromatic",
+        "wholeTone",
+        "diminished",
+        "locrian"
+      ],
+      "families": [
+        "experimental",
+        "aleatoric",
+        "electronic",
+        "electroacoustic"
+      ],
+      "instruments": [
+        "crush",
+        "saw",
+        "drums",
+        "pulse",
+        "pad",
+        "arp"
+      ],
+      "texture": "capas contradictorias, ruido, eventos imprevisibles",
+      "rhythm": "pulsos que se rompen, silencios, superposición de ciclos",
+      "tips": "El caos también se compone: decide qué se mantiene estable (un drone, un pulso) y qué se libera. Deja que el oyente encuentre un ancla.",
+      "avoid": "Ruido aleatorio sin contraste ni forma."
+    }
+  }
+}

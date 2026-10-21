@@ -1,0 +1,25 @@
+{
+  "title": "La ciudad que olvidó el sol",
+  "project": "Nivel 4 — Distrito de las campanas",
+  "premise": "Una ciudad subterránea que lleva generaciones sin ver la luz. El jugador llega cuando las campanas de emergencia empiezan a sonar y descubre que el mecanismo que mantiene el aire está hecho de recuerdos. La canción debe sentirse como caminar por calles vacías, con una esperanza lejana bajo la piedra.",
+  "emotions": ["misterioso", "melancólico", "tenso", "esperanzador"],
+  "influences": ["Metroid Prime", "Hollow Knight", "ambient de exploración"],
+  "genre": "música de videojuegos",
+  "mustInclude": ["una campana recurrente", "un cambio de tempo al entrar en la sala del mecanismo", "un loop que cierre sin salto"],
+  "avoid": ["épica de batalla", "coros triunfales", "saturación de batería"],
+  "technical": {
+    "timeSig": "4/4",
+    "bars": 32,
+    "loop": true,
+    "loopStartBar": 8,
+    "bpmRange": [72, 104],
+    "key": "D",
+    "scale": "dorian",
+    "maxTracks": 8
+  },
+  "originality": {
+    "statement": "Usar la instrumentación y el espacio de la atmósfera de referencia, pero con un motivo melódico propio de cuatro notas y una progresión modal que no aparezca en las obras citadas.",
+    "nonNegotiables": ["sin citas melódicas", "sin copiar el tema de Metroid Prime"]
+  },
+  "deliverables": ["plan", "song", "check"]
+}

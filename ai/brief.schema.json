@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chiptune-studio.local/ai/brief.schema.json",
+  "title": "Brief creativo para Chiptune Studio",
+  "description": "Entrada flexible para una IA compositora. Solo title o premise son recomendables; todo lo demás es opcional. Si falta un dato, la IA debe proponerlo y anotarlo en assumptions.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "title": { "type": "string", "maxLength": 80, "description": "Título provisional de la canción." },
+    "project": { "type": "string", "description": "Juego, álbum, nivel, escena o proyecto." },
+    "premise": { "type": "string", "description": "Historia, lore, evento, nivel o emoción que la canción debe evocar." },
+    "description": { "type": "string", "description": "Alias de premise." },
+    "emotions": {
+      "type": ["array", "string"],
+      "items": { "type": "string" },
+      "description": "Emociones o sensaciones: heroico, misterioso, melancólico, tenso, etc."
+    },
+    "feel": { "type": "string", "description": "Sensación física o atmósfera: frío, cálido, flotante, mecánico." },
+    "influences": {
+      "type": ["array", "string"],
+      "items": { "type": ["string", "object"] },
+      "description": "Bandas, canciones, bandas sonoras, videojuegos o géneros. Se traducen a rasgos abstractos; no se copian."
+    },
+    "genre": { "type": ["string", "array"], "items": { "type": "string" }, "description": "Género o subgénero deseado. Si no existe en el catálogo, se usa el fallback." },
+    "subgenre": { "type": "string" },
+    "references": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Obras de referencia para entender el encargo, no para copiar."
+    },
+    "mustInclude": { "type": "array", "items": { "type": "string" }, "description": "Elementos obligatorios: un motivo, un instrumento, un cambio de tempo, un compás." },
+    "avoid": { "type": "array", "items": { "type": "string" }, "description": "Clichés, técnicas o emociones que deben evitarse." },
+    "technical": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "bpm": { "type": "number", "minimum": 40, "maximum": 240 },
+        "bpmRange": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+        "timeSig": { "type": "string", "enum": ["4/4", "3/4", "2/4", "5/4", "6/8", "12/8", "7/8"] },
+        "bars": { "type": "integer", "minimum": 1, "maximum": 64 },
+        "duration": { "type": "number", "description": "Duración deseada en segundos." },
+        "loop": { "type": "boolean" },
+        "loopStartBar": { "type": "integer", "minimum": 0, "maximum": 63 },
+        "key": { "type": ["string", "number"], "description": "Tonalidad: C, D, Eb, F#, etc. o pitch class 0-11." },
+        "scale": { "type": "string", "description": "Id de escala/modo: major, minor, dorian, phrygian, lydian, mixolydian, locrian, harmonicMinor, melodicMinor, pentMaj, pentMin, blues, wholeTone, diminished, hirajoshi, insen, egyptian, chromatic." },
+        "maxTracks": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "mustChangeTempo": { "type": "boolean" },
+        "instrumentation": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "originality": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "statement": { "type": "string", "description": "Cómo se asegurará que la obra sea original." },
+        "nonNegotiables": { "type": "array", "items": { "type": "string" } },
+        "noDirectQuotes": { "type": "boolean", "default": true }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["plan", "song", "brief", "check", "notes"] }
+    },
+    "assumptions": { "type": "array", "items": { "type": "string" } },
+    "notes": { "type": "string" }
+  },
+  "anyOf": [
+    { "required": ["premise"] },
+    { "required": ["description"] },
+    { "required": ["influences"] },
+    { "required": ["genre"] },
+    { "required": ["title"] }
+  ]
+}

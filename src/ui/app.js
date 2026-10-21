@@ -221,20 +221,22 @@
     $('#learnBtn').textContent = `📖 Aprender ${done.size}/${CS.lessons.length}`;
     if (s) { s.textContent = ok ? '✓ ¡Logrado!' : 'Pendiente…'; s.className = ok ? 'ok' : ''; }
   }
+  const progSet = () => { const sg = sc(), id = $('#scale').value; if (!sg || sg.s.length !== 7) return null; return T.base(id) === 'major' ? 'major' : T.base(id) === 'minor' ? 'minor' : 'modal'; };
   function renderChords() {
-    const s = sc(), id = $('#scale').value, B = $('#dbody'), mj = id === 'major';
-    if (s.s.length < 7) { B.innerHTML = '<div class="box warn">Elige la escala <b>Mayor</b> o <b>Menor natural</b> (arriba) para ver los 7 acordes de la tonalidad.</div>'; return; }
-    const R = rootV(), U = T.use[mj ? 'major' : 'minor'], ty = { M: ['mayor', 'fundamental + 3ª mayor (4 filas) + 5ª justa (7 filas)'], m: ['menor', 'fundamental + 3ª menor (3 filas) + 5ª justa (7 filas)'], dim: ['disminuido', 'fundamental + 3ª menor (3) + 5ª disminuida (6)'], aug: ['aumentado', 'fundamental + 3ª mayor (4) + 5ª aumentada (8)'] };
+    const s = sc(), id = $('#scale').value, B = $('#dbody');
+    if (s.s.length < 7) { B.innerHTML = '<div class="box warn">Elige una escala de <b>7 notas</b> (Mayor, Menor, Dórico, Frigio, Lidio, Mixolidio, Locrio, armónicas…) para ver los acordes de la tonalidad. Las pentatónicas, el blues, el tono completo y la cromática se usan mejor como melodía o color.</div>'; return; }
+    const R = rootV(), U = T.use[s.s.includes(4) ? 'major' : 'minor'], ty = { M: ['mayor', 'fundamental + 3ª mayor (4 filas) + 5ª justa (7 filas)'], m: ['menor', 'fundamental + 3ª menor (3 filas) + 5ª justa (7 filas)'], dim: ['disminuido', 'fundamental + 3ª menor (3) + 5ª disminuida (6)'], aug: ['aumentado', 'fundamental + 3ª mayor (4) + 5ª aumentada (8)'] };
     let h = `<div class="box tip">💡 Estás en <b>${T.keyName(R, id)}</b>. Un <b>acorde del tono</b> es una tríada (3 notas) construida sobre cada nota de la escala: los 7 suenan bien juntos. <b>Intenta ponerlos tú primero</b> con las instrucciones y compara con ＋.</div>`;
     s.rn.forEach((rn, i) => {
-      const ns = T.triad(R, oct, s, i), t = T.triadType(ns), sp = ns.map((m) => T.spell(m, R, id)), u = U[i];
+      const ns = T.triad(R, oct, s, i), t = T.triadType(ns), sp = ns.map((m) => T.spell(m, R, id)), u = U[i], tt = ty[t?.type] || ['?', 'tríada no estándar'];
       h += `<button class="chh ${i === chOpen ? 'open' : ''}" data-o="${i}" title="Ver sus notas, dónde se usa y cómo ponerlo"><b>${rn}</b> · ${T.label(ns, R, id)} <small>${sp.map((x) => x.sol).join(' – ')}</small></button>`;
-      if (i === chOpen) h += `<div class="exc"><p><b>Notas:</b> ${sp.map((x, k) => chip(x.full) + (ns[k] >= 12 * (oct + 2) ? '<small>↑ octava siguiente</small>' : '')).join(' ')}</p><p><b>Cómo se forma:</b> ${ty[t.type][1]} → acorde <b>${ty[t.type][0]}</b>.</p><p>${u.e}</p><p><b>Dónde se usa:</b> ${u.w}</p>
+      if (i === chOpen) h += `<div class="exc"><p><b>Notas:</b> ${sp.map((x, k) => chip(x.full) + (ns[k] >= 12 * (oct + 2) ? '<small>↑ octava siguiente</small>' : '')).join(' ')}</p><p><b>Cómo se forma:</b> ${tt[1]} → acorde <b>${tt[0]}</b>.</p><p>${u.e}</p><p><b>Dónde se usa:</b> ${u.w}</p>
         <b>🛠️ Hazlo tú:</b><ol class="how"><li>Elige una pista melódica (Piano, Guitarra…).</li><li>En <b>Nota</b> elige <b>1</b> (un compás entero).</li><li>Clic en la regla para poner el cursor en el compás que quieras.</li><li>En esa <b>misma columna</b> haz clic en ${sp.map((x) => chip(x.full)).join(' ')} (usa ▲▼ si alguna está en otra octava).</li><li>Pulsa ▶ y compáralo con el botón ＋.</li></ol>
         <div class="nav"><button data-c="${i}" title="Escuchar este acorde">🔊 Escuchar</button><button data-i="${i}" title="Insertar este acorde en el compás del cursor de la pista elegida">＋ Insertar</button></div></div>`;
     });
-    h += '<h3>🎼 Progresiones famosas en esta tonalidad</h3><p class="hint">Un acorde por compás. Escúchalas, inserta la que te guste y cámbiale el ritmo o la melodía.</p>';
-    T.progs[mj ? 'major' : 'minor'].forEach((p, k) => { h += `<div class="exc"><span class="tag">${p.w}</span><b>${p.n}</b><p>${p.d.map((d) => s.rn[d]).join(' – ')} → <b>${p.d.map((d) => T.label(T.triad(R, oct, s, d), R, id)).join(' – ')}</b></p><div class="nav"><button data-pp="${k}" title="Escuchar la progresión completa">🔊 Escuchar</button><button data-pi="${k}" title="Insertar la progresión, un acorde por compás desde el cursor (alarga la canción si hace falta)">＋ Insertar (${p.d.length} compases)</button></div></div>`; });
+    const set = progSet(), modal = set === 'modal';
+    h += `<h3>${modal ? '🎼 Progresiones modales' : '🎼 Progresiones famosas en esta tonalidad'}</h3><p class="hint">Un acorde por compás. Escúchalas, inserta la que te guste y cámbiale el ritmo o la melodía.</p>`;
+    T.progs[set].forEach((p, k) => { h += `<div class="exc"><span class="tag">${p.w}</span><b>${p.n}</b><p>${p.d.map((d) => s.rn[d]).join(' – ')} → <b>${p.d.map((d) => T.label(T.triad(R, oct, s, d), R, id)).join(' – ')}</b></p><div class="nav"><button data-pp="${k}" title="Escuchar la progresión completa">🔊 Escuchar</button><button data-pi="${k}" title="Insertar la progresión, un acorde por compás desde el cursor (alarga la canción si hace falta)">＋ Insertar (${p.d.length} compases)</button></div></div>`; });
     B.innerHTML = h;
   }
   const IV = ['Unísono', '2ª menor', '2ª mayor', '3ª menor', '3ª mayor', '4ª justa', 'Tritono', '5ª justa', '6ª menor', '6ª mayor', '7ª menor', '7ª mayor', 'Octava'];
@@ -279,7 +281,7 @@
     $('#dbody').innerHTML = head + body + `<p><b>${fb}</b></p><p class="hint">${statLine()}</p>`; $('#earMode').value = earMode;
   }
   const insProg = (k) => {
-    if (isD()) return say('Elige una pista melódica para insertar acordes'); const mj = $('#scale').value === 'major', p = T.progs[mj ? 'major' : 'minor'][k], s = sc(), st = barOf();
+    if (isD()) return say('Elige una pista melódica para insertar acordes'); const set = progSet(); if (!set) return say('Elige una escala de 7 notas para insertar progresiones'); const p = T.progs[set][k], s = sc(), st = barOf();
     song.bars = clamp(Math.max(song.bars, st + p.d.length), 1, 64); p.d.forEach((d, b) => { if (st + b < song.bars) T.triad(rootV(), oct, s, d).forEach((m) => tr().notes.push({ step: (st + b) * spb(), len: spb(), pitch: name(m) })); });
     say(`Progresión «${p.n}» insertada desde el compás ${st + 1}`); changed();
   };
@@ -293,7 +295,7 @@
     } else if (tab === 'cho') {
       const s = sc();
       if (D.o !== undefined) { chOpen = chOpen === +D.o ? -1 : +D.o; return renderDrawer(); }
-      if (D.pp !== undefined || D.pi !== undefined) { const k = +(D.pp ?? D.pi); if (D.pi !== undefined) return insProg(k); const p = T.progs[$('#scale').value === 'major' ? 'major' : 'minor'][k]; return playTemp({ bpm: 90, bars: p.d.length, timeSig: song.timeSig, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: p.d.flatMap((d, bb) => T.triad(rootV(), oct, s, d).map((m) => ({ step: bb * spb(), len: spb(), pitch: name(m) }))) }] }); }
+      if (D.pp !== undefined || D.pi !== undefined) { const k = +(D.pp ?? D.pi); if (D.pi !== undefined) return insProg(k); const set = progSet(); if (!set) return; const p = T.progs[set][k]; return playTemp({ bpm: 90, bars: p.d.length, timeSig: song.timeSig, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: p.d.flatMap((d, bb) => T.triad(rootV(), oct, s, d).map((m) => ({ step: bb * spb(), len: spb(), pitch: name(m) }))) }] }); }
       const i = +(D.c ?? D.i), ns = T.triad(rootV(), oct, s, i);
       if (D.c !== undefined) playTemp({ bpm: 90, bars: 1, tracks: [{ instrument: syncInst(), volume: 0.9, fx: { reverb: 0.12 }, notes: ns.map((m) => ({ step: 0, len: 12, pitch: name(m) })) }] });
       else { if (isD()) return say('Elige una pista melódica para insertar acordes'); const st = barOf() * spb(); ns.forEach((m) => tr().notes.push({ step: st, len: Math.min(spb(), total() - st), pitch: name(m) })); say(`Acorde insertado en el compás ${barOf() + 1}`); changed(); }
@@ -309,7 +311,7 @@
   /* ---------- Cabecera y transporte ---------- */
   $('#root').innerHTML = CS.NOTE.map((n, i) => `<option value="${i}">${n} · ${SOL[i]}</option>`).join(''); $('#root').value = 9;
   $('#scale').innerHTML = Object.entries(T.scales).map(([k, v]) => `<option value="${k}">${v.n}</option>`).join('');
-  $('#root').onchange = $('#scale').onchange = () => { renderKeys(); renderDrawer(); draw(); checkLesson(); };
+  $('#root').onchange = $('#scale').onchange = () => { song.key = CS.NOTE[+$('#root').value]; song.scale = $('#scale').value; renderKeys(); renderDrawer(); draw(); checkLesson(); commit(); save(); };
   const toggle = () => { if (E.playing) return E.stop(); const rg = region(); E.play(song, rg ? { loop: true, from: rg.from, to: rg.to } : { loop: $('#loop').checked, from: cur }); };
   $('#play').onclick = toggle; $('#stop').onclick = () => E.stop();
   $('#metro').onchange = (e) => (E.metro = e.target.checked); $('#vol').oninput = (e) => E.setVol(+e.target.value);
@@ -384,7 +386,7 @@
   const msg = (t) => ($('#msg').textContent = t);
   const dl = (n, b) => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = n; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); };
   const slug = () => (song.title || 'cancion').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'cancion';
-  const load = (s) => { E.stop(); delete song.tempo; Object.assign(song, s); sel = 0; cur = 0; z = 1; sx = 0; renderAll(); commit(); save(); };
+  const load = (s) => { E.stop(); delete song.tempo; delete song.key; delete song.scale; Object.assign(song, s); sel = 0; cur = 0; z = 1; sx = 0; renderAll(); commit(); save(); };
 
   /* ---------- Demos: cualquier .json de la carpeta demos/ ---------- */
   const DEMOK = 'cs2_demos';
@@ -492,6 +494,7 @@
   $('#iText').onclick = () => { try { load(CS.song.parse($('#out').value)); msg('Importada «' + song.title + '».'); $('#dlg').close(); } catch (e) { msg('No se pudo importar: ' + e.message); } };
   $('#open').onchange = async (e) => { const f = e.target.files[0]; if (f) { $('#out').value = await f.text(); $('#iText').click(); } e.target.value = ''; };
   $('#guide').onclick = () => { $('#out').value = CS.song.guide(); msg('Pega esta guía en la conversación con una IA y pídele la canción.'); };
+  $('#brief').onclick = () => { $('#out').value = CS.song.brief(); msg('Rellena el brief (o pégalo con la guía) y pídele a la IA un plan y una canción original.'); };
   $('#clr').onclick = () => { $('#out').value = ''; msg(''); };
 
   /* ---------- Descripciones emergentes para todos los botones (rápidas y visibles sobre el menú) ---------- */
@@ -507,7 +510,7 @@
   /* ---------- Estado, autoguardado y arranque ---------- */
   function save() { try { const t = JSON.stringify(song); if (t !== last) { localStorage.setItem(SK, t); last = t; $('#saved').textContent = '✓ guardado'; } } catch (e) { /* sin almacenamiento */ } }
   function changed() { E.refresh(song); commit(); $('#bars').textContent = song.bars; syncTempoBtn(); renderTracks(); renderDrawer(); draw(); checkLesson(); save(); }
-  function renderAll() { $('#ts').value = song.timeSig; $('#lpS').value = (song.loopStart || 0) + 1; $('#lpS').max = song.bars; $('#mon .dots').innerHTML = '<i></i>'.repeat(CS.sig(song).n); dots()[0]?.classList.add('first'); $('#title').value = song.title; $('#bpm').value = song.bpm; $('#bars').textContent = song.bars; syncTempoBtn(); if ($('#tdlg').open) renderTempo(); renderTracks(); renderKeys(); renderDrawer(); draw(); checkLesson(); }
+  function renderAll() { $('#ts').value = song.timeSig; $('#lpS').value = (song.loopStart || 0) + 1; $('#lpS').max = song.bars; $('#mon .dots').innerHTML = '<i></i>'.repeat(CS.sig(song).n); dots()[0]?.classList.add('first'); $('#title').value = song.title; $('#bpm').value = song.bpm; $('#bars').textContent = song.bars; const rk = song.key != null ? CS.NOTE.indexOf(song.key) : -1; if (rk >= 0) $('#root').value = rk; if (song.scale && T.scales[song.scale]) $('#scale').value = song.scale; syncTempoBtn(); if ($('#tdlg').open) renderTempo(); renderTracks(); renderKeys(); renderDrawer(); draw(); checkLesson(); }
   try { song = CS.song.normalize(JSON.parse(localStorage.getItem(SK))); } catch (e) { song = CS.song.demo(); }
   if (CS.errors.length) console.warn('Archivos de instrumento/efecto con problemas:\n' + CS.errors.join('\n'));
   renderAll(); commit(); addEventListener('pagehide', save); setInterval(save, 2000);

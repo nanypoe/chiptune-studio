@@ -1,0 +1,272 @@
+{
+  "schema": "chiptune-influences@1",
+  "updated": "2026-10-21",
+  "rule": "Estos perfiles NO contienen melodías, riffs ni arreglos. Describen rasgos abstractos para inspirarse sin copiar. Si el brief nombra una canción, banda, película o videojuego, traduce la influencia a estos rasgos y escribe una estrategia de originalidad. No imites la identidad de un artista vivo ni reproduzcas material protegido.",
+  "profiles": {
+    "metroid-prime": {
+      "name": "Metroid Prime (atmósfera)",
+      "aliases": ["metroid prime", "metroid", "metroidvania espacial"],
+      "families": ["electronic", "chiptune-game", "ambient", "screen-stage"],
+      "traits": {
+        "tempo": [70, 120],
+        "meters": ["4/4", "7/8", "5/4"],
+        "scales": ["dorian", "phrygian", "locrian", "pentMin"],
+        "harmony": "drones, intervalos abiertos, color modal, disonancia controlada",
+        "rhythm": "pulsos lentos, percusión orgánica, silencios amplios",
+        "texture": "capas de pad, arpegios cristalinos, bajo profundo, ruido textural",
+        "instruments": ["pad", "bell", "arp", "bass", "drums", "triangle"],
+        "fx": { "reverb": 0.5, "delay": 0.22, "drive": 0.05 },
+        "emotions": ["mysterious", "lonely", "futuristic", "ritual"],
+        "keywords": ["espacio", "ruinas", "alien", "escaneo", "exploración", "exploracion", "soledad"],
+        "chiptune": "Menos notas y más espacio; un pad oscuro, un arpegio de bell y un pulso irregular. La tensión se construye por capas, no por saturación."
+      }
+    },
+    "mago-de-oz": {
+      "name": "Mago de Oz (folk metal)",
+      "aliases": ["mago de oz", "folk metal español", "folk metal espanol"],
+      "families": ["metal", "celtic", "rock", "european-folk"],
+      "traits": {
+        "tempo": [110, 170],
+        "meters": ["4/4", "6/8", "3/4"],
+        "scales": ["minor", "dorian", "mixolydian", "harmonicMinor"],
+        "harmony": "power chords, melodía folk, cadencia épica",
+        "rhythm": "galope, jig, doble bombo, coros",
+        "texture": "guitarra distorsionada + flauta/violín imaginarios, coros épicos",
+        "instruments": ["guitar", "bass", "drums", "pulse", "strings", "brass"],
+        "fx": { "drive": 0.3, "reverb": 0.25, "delay": 0.1 },
+        "emotions": ["heroic", "adventurous", "festive", "melancholic"],
+        "keywords": ["folk metal", "espada", "leyenda", "taberna", "batalla", "coro", "flauta"],
+        "chiptune": "Combina un riff de metal con una melodía de jig en 6/8; el contraste entre distorsión y flauta/pulse es la firma."
+      }
+    },
+    "dream-theater": {
+      "name": "Dream Theater (metal progresivo)",
+      "aliases": ["dream theater", "metal progresivo", "progressive metal"],
+      "families": ["metal", "rock", "jazz"],
+      "traits": {
+        "tempo": [90, 180],
+        "meters": ["4/4", "5/4", "7/8", "6/8", "12/8"],
+        "scales": ["minor", "dorian", "mixolydian", "phrygian", "harmonicMinor"],
+        "harmony": "cambios de compás, contrapunto, acordes extendidos, modal",
+        "rhythm": "riffs desplazados, doble bombo, grooves impares",
+        "texture": "guitarra, teclados, bajo activo, batería virtuosa",
+        "instruments": ["guitar", "piano", "bass", "drums", "strings", "pad"],
+        "fx": { "drive": 0.28, "reverb": 0.2, "delay": 0.15 },
+        "emotions": ["heroic", "tense", "mysterious", "melancholic"],
+        "keywords": ["progresivo", "virtuosismo", "compás impar", "suite", "solo", "metrópolis", "metropolis"],
+        "chiptune": "Unifica los cambios de compás con un motivo; usa el bajo para marcar el riff y deja que el teclado/pulse haga contrapunto."
+      }
+    },
+    "zelda": {
+      "name": "Zelda (aventura)",
+      "aliases": ["zelda", "the legend of zelda", "hyrule"],
+      "families": ["chiptune-game", "screen-stage", "celtic"],
+      "traits": {
+        "tempo": [90, 150],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["major", "dorian", "mixolydian", "pentMaj"],
+        "harmony": "modal, fanfarrias, temas de aventura",
+        "rhythm": "pulso claro, 6/8, síncopas de viaje",
+        "instruments": ["pulse", "pluck", "strings", "bass", "drums", "bell"],
+        "emotions": ["adventurous", "heroic", "mysterious", "playful"],
+        "chiptune": "Tema cantable, arpa/pluck y fanfarria de brass/pulse; el mapa emocional cambia por zonas."
+      }
+    },
+    "chrono-trigger": {
+      "name": "Chrono Trigger (JRPG)",
+      "aliases": ["chrono trigger", "chrono", "jrpg clásico", "jrpg clasico"],
+      "families": ["chiptune-game", "screen-stage", "jazz"],
+      "traits": {
+        "tempo": [80, 160],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["major", "minor", "dorian", "lydian"],
+        "harmony": "progresiones coloridas, cambios modales, temas memorables",
+        "rhythm": "pulso de aventura, 6/8, síncopas",
+        "instruments": ["pulse", "arp", "strings", "bass", "drums", "bell"],
+        "emotions": ["adventurous", "nostalgic", "heroic", "mysterious"],
+        "chiptune": "Combina un tema principal fuerte con texturas de teclado y percusión; usa variaciones por época."
+      }
+    },
+    "final-fantasy": {
+      "name": "Final Fantasy (épica JRPG)",
+      "aliases": ["final fantasy", "final fantasy vii", "nobuo uematsu"],
+      "families": ["screen-stage", "chiptune-game", "classical", "rock"],
+      "traits": {
+        "tempo": [70, 160],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["major", "minor", "dorian", "harmonicMinor"],
+        "harmony": "temas líricos, modulaciones, cromatismo romántico",
+        "rhythm": "arpegios, marchas, 6/8",
+        "instruments": ["piano", "strings", "brass", "pulse", "bass", "drums"],
+        "emotions": ["heroic", "melancholic", "romantic", "majestic"],
+        "chiptune": "Tema con piano/strings y contrapunto de pulse; alterna intimidad y clímax orquestal."
+      }
+    },
+    "hollow-knight": {
+      "name": "Hollow Knight (melancolía de insectos)",
+      "aliases": ["hollow knight", "hallownest"],
+      "families": ["screen-stage", "chiptune-game", "classical", "ambient"],
+      "traits": {
+        "tempo": [50, 100],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["minor", "dorian", "phrygian", "harmonicMinor"],
+        "harmony": "cámara, modal, cromatismo suave",
+        "rhythm": "pulsos lentos, arpegios, silencios",
+        "instruments": ["piano", "strings", "bell", "pad", "bass"],
+        "percussion": "none",
+        "emotions": ["melancholic", "lonely", "mysterious", "serene"],
+        "chiptune": "Cámara íntima: piano, cuerdas y campanas; deja que el vacío hable."
+      }
+    },
+    "celeste": {
+      "name": "Celeste (indie emocional)",
+      "aliases": ["celeste", "lena raine"],
+      "families": ["chiptune-game", "electronic", "pop", "screen-stage"],
+      "traits": {
+        "tempo": [90, 150],
+        "meters": ["4/4", "6/8"],
+        "scales": ["major", "minor", "dorian", "lydian"],
+        "harmony": "piano, sintetizadores, progresiones emocionales",
+        "rhythm": "pulso de plataformas, arpegios, builds",
+        "instruments": ["piano", "saw", "pad", "bass", "drums", "bell"],
+        "emotions": ["hopeful", "tense", "melancholic", "energetic"],
+        "chiptune": "Combina piano acústico con sintetizadores y un pulso que sube con la dificultad."
+      }
+    },
+    "hades": {
+      "name": "Hades (acción mitológica)",
+      "aliases": ["hades", "supergiant"],
+      "families": ["screen-stage", "rock", "metal", "chiptune-game"],
+      "traits": {
+        "tempo": [110, 170],
+        "meters": ["4/4", "6/8", "7/8"],
+        "scales": ["minor", "phrygian", "dorian", "harmonicMinor"],
+        "harmony": "riffs, modal, folk oscuro",
+        "rhythm": "percusión potente, síncopas, compases impares",
+        "instruments": ["guitar", "bass", "drums", "strings", "brass", "pulse"],
+        "emotions": ["angry", "heroic", "energetic", "dark"],
+        "chiptune": "Riff de guitarra, percusión tribal y cuerdas; la energía debe sentirse en el cuerpo."
+      }
+    },
+    "castlevania": {
+      "name": "Castlevania (gótico de acción)",
+      "aliases": ["castlevania", "sotn", "symphony of the night"],
+      "families": ["chiptune-game", "metal", "baroque", "screen-stage"],
+      "traits": {
+        "tempo": [110, 170],
+        "meters": ["4/4", "6/8", "3/4"],
+        "scales": ["minor", "harmonicMinor", "phrygian", "dorian"],
+        "harmony": "contrapunto barroco, riffs, cromatismo",
+        "rhythm": "galope, 6/8, arpegios rápidos",
+        "instruments": ["pulse", "arp", "guitar", "bass", "drums", "strings"],
+        "emotions": ["dark", "heroic", "mysterious", "energetic"],
+        "chiptune": "Arpegios barrocos y bajo motor; la guitarra puede doblar el riff sin tapar el arpa."
+      }
+    },
+    "mega-man": {
+      "name": "Mega Man (acción 8-bit)",
+      "aliases": ["mega man", "megaman", "rockman"],
+      "families": ["chiptune-game", "rock", "electronic"],
+      "traits": {
+        "tempo": [130, 180],
+        "meters": ["4/4", "6/8"],
+        "scales": ["major", "minor", "dorian", "pentMaj"],
+        "harmony": "progresiones rápidas, riffs, tema heroico",
+        "rhythm": "corcheas motrices, síncopas",
+        "instruments": ["pulse", "arp", "bass", "drums", "bell"],
+        "emotions": ["heroic", "energetic", "playful", "adventurous"],
+        "chiptune": "Tema de 8 compases, bajo activo y arpegios; cada sección puede ser un nivel distinto."
+      }
+    },
+    "sonic": {
+      "name": "Sonic (velocidad y funk)",
+      "aliases": ["sonic", "sonic the hedgehog", "green hill"],
+      "families": ["chiptune-game", "funk", "pop", "electronic"],
+      "traits": {
+        "tempo": [130, 180],
+        "meters": ["4/4", "6/8"],
+        "scales": ["major", "dorian", "mixolydian", "pentMaj"],
+        "harmony": "funk, jazz-pop, progresiones brillantes",
+        "rhythm": "groove rápido, síncopas, bajo activo",
+        "instruments": ["pulse", "bass", "drums", "brass", "piano", "bell"],
+        "emotions": ["energetic", "joyful", "adventurous", "playful"],
+        "chiptune": "Bajo funk, batería viva y melodía brillante; el groove manda más que la distorsión."
+      }
+    },
+    "undertale": {
+      "name": "Undertale (sencillez emocional)",
+      "aliases": ["undertale", "toby fox"],
+      "families": ["chiptune-game", "pop", "screen-stage"],
+      "traits": {
+        "tempo": [80, 140],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["major", "minor", "dorian"],
+        "harmony": "melodía simple, acordes claros, cambios de modo",
+        "rhythm": "pulso sencillo, silencios, temas cortos",
+        "instruments": ["pulse", "piano", "bass", "drums", "bell"],
+        "emotions": ["nostalgic", "hopeful", "melancholic", "playful"],
+        "chiptune": "Una melodía fuerte y un acompañamiento mínimo; el contraste mayor/menor cambia el significado."
+      }
+    },
+    "hans-zimmer": {
+      "name": "Hans Zimmer (épica cinematográfica)",
+      "aliases": ["hans zimmer", "zimmer", "épica cinematográfica", "epica cinematografica"],
+      "families": ["screen-stage", "electronic", "classical"],
+      "traits": {
+        "tempo": [70, 130],
+        "meters": ["4/4", "3/4", "7/8"],
+        "scales": ["minor", "dorian", "phrygian", "major"],
+        "harmony": "pedales, ostinatos, clímax por capas",
+        "rhythm": "pulsos repetidos, percusión épica, aceleración",
+        "instruments": ["strings", "brass", "pad", "bass", "drums", "piano"],
+        "emotions": ["heroic", "tense", "majestic", "mysterious"],
+        "chiptune": "Ostinato de cuerdas/pad y percusión en capas; usa tempo ramp para el clímax."
+      }
+    },
+    "john-williams": {
+      "name": "John Williams (tema sinfónico)",
+      "aliases": ["john williams", "williams", "fanfarria sinfónica", "fanfarria sinfonica"],
+      "families": ["screen-stage", "classical", "romantic"],
+      "traits": {
+        "tempo": [80, 150],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["major", "minor", "lydian", "dorian"],
+        "harmony": "funcional, modulaciones, fanfarrias",
+        "rhythm": "motivos rítmicos, marchas, 6/8",
+        "instruments": ["strings", "brass", "piano", "bass", "drums", "bell"],
+        "emotions": ["heroic", "adventurous", "majestic", "mysterious"],
+        "chiptune": "Tema de fanfarria, contrapunto de cuerdas y bajo claro; el motivo debe sobrevivir a cualquier instrumentación."
+      }
+    },
+    "ennio-morricone": {
+      "name": "Ennio Morricone (western y lírica)",
+      "aliases": ["ennio morricone", "morricone", "spaghetti western"],
+      "families": ["screen-stage", "country-folk", "romantic"],
+      "traits": {
+        "tempo": [60, 120],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["minor", "dorian", "major"],
+        "harmony": "modal, pedal, melodía lírica",
+        "rhythm": "pulso de western, silbidos, campanas",
+        "instruments": ["guitar", "pulse", "strings", "bell", "bass", "drums"],
+        "emotions": ["lonely", "nostalgic", "mysterious", "romantic"],
+        "chiptune": "Silbido con pulse, guitarra con pluck y cuerdas; el desierto se sugiere con espacio."
+      }
+    },
+    "danny-elfman": {
+      "name": "Danny Elfman (fantasía oscura)",
+      "aliases": ["danny elfman", "elfman", "fantasía oscura", "fantasia oscura"],
+      "families": ["screen-stage", "expressionist", "pop"],
+      "traits": {
+        "tempo": [70, 140],
+        "meters": ["4/4", "3/4", "6/8"],
+        "scales": ["minor", "harmonicMinor", "phrygian", "diminished"],
+        "harmony": "cromatismo, coros, acordes de color",
+        "rhythm": "pulsos excéntricos, 6/8, marchas",
+        "instruments": ["strings", "brass", "piano", "bell", "bass", "drums"],
+        "emotions": ["mysterious", "playful", "dark", "whimsical"],
+        "chiptune": "Combina coro con pad/pulse y una marcha extraña; lo raro debe ser pegadizo."
+      }
+    }
+  }
+}

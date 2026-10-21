@@ -5,6 +5,8 @@
  "bpm": 78,
  "bars": 64,
  "timeSig": "7/8",
+ "key": "D",
+ "scale": "minor",
  "loopStart": 0,
  "tempo": [
   {

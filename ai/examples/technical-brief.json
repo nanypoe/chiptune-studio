@@ -1,0 +1,23 @@
+{
+  "title": "Sincronía 7",
+  "premise": "Pieza instrumental para un jefe mecánico. Debe empezar con un pulso de reloj, crecer en capas y terminar con un acelerando que se corte en seco. Quiero un riff en 7/8 y un solo de lead con slide.",
+  "emotions": ["tenso", "industrial", "futurista", "agresivo"],
+  "genre": "metal progresivo",
+  "influences": ["Dream Theater", "industrial", "chiptune de acción"],
+  "mustInclude": ["7/8", "slide en el lead", "cambio de tempo", "final en seco"],
+  "avoid": ["resolución mayor", "coros", "loop"],
+  "technical": {
+    "timeSig": "7/8",
+    "bars": 28,
+    "bpm": 126,
+    "key": "F#",
+    "scale": "phrygian",
+    "maxTracks": 10,
+    "mustChangeTempo": true
+  },
+  "originality": {
+    "statement": "El riff usa un motivo de cinco semicorcheas y desplazamiento de acentos; no se basa en riffs existentes de Dream Theater.",
+    "nonNegotiables": ["sin citas", "sin copiar el riff de Metropolis"]
+  },
+  "deliverables": ["plan", "song", "check"]
+}

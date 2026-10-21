@@ -1,0 +1,26 @@
+{
+  "title": "Herrería de estrellas",
+  "premise": "Tema para una taberna-forja en un juego de fantasía. Quiero que recuerde a Mago de Oz por la mezcla de metal y folk, pero que sea una canción original y que funcione como loop de 24 compases.",
+  "emotions": ["festivo", "heroico", "aventurero", "cálido"],
+  "influences": [
+    { "name": "Mago de Oz", "aspects": ["folk metal", "violín y flauta", "coros épicos", "jigs"] },
+    { "name": "música celta", "aspects": ["6/8", "drones", "ornamentos"] }
+  ],
+  "genre": ["folk metal", "música celta"],
+  "mustInclude": ["un riff de guitarra", "una melodía tipo jig en 6/8", "un coro cantable"],
+  "avoid": ["copiar una melodía existente", "solos largos", "producción demasiado limpia"],
+  "technical": {
+    "timeSig": "6/8",
+    "bars": 24,
+    "loop": true,
+    "bpm": 138,
+    "key": "E",
+    "scale": "minor",
+    "maxTracks": 9
+  },
+  "originality": {
+    "statement": "Traducir Mago de Oz a rasgos: contraste metal/folk, 6/8, flauta y violín imaginarios, coros. La melodía se construye con un motivo propio de tres notas y un ritmo de jig que no cite ninguna canción de la banda.",
+    "nonNegotiables": ["sin melodías de Mago de Oz", "sin riffs reconocibles"]
+  },
+  "deliverables": ["plan", "song", "check"]
+}
