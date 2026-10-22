@@ -1,0 +1,154 @@
+{
+  "schema": "chiptune-plan@1",
+  "title": "Postes de luz",
+  "genre": {
+    "id": "city-pop",
+    "name": "City Pop",
+    "status": "validated",
+    "confidence": 0.72,
+    "spec": "../dossiers/library/city-pop/SPEC.json",
+    "note": "Se usa la célula boogie/AOR del spec: 4/4, 96–124 BPM, bajo slap en octavas, acordes con séptima, brass y textura limpia."
+  },
+  "brief": {
+    "premise": "Nostalgia de un camino rural que se urbaniza. No se extraña el campo: se extraña la ruta, el umbral y lo que la ruta fue antes del asfalto, las banquetas y los postes de luz.",
+    "emotions": ["nostalgia", "dulzura", "extrañeza", "euforia contenida", "aceptación"],
+    "function": "canción de álbum",
+    "assumptions": [
+      "La nostalgia es del trayecto y del cambio, no del paisaje rural.",
+      "El city pop aporta el brillo y el groove; la melancolía se expresa con el fraseo, la armonía y los silencios, no con un modo menor oscuro.",
+      "No hay voces: la melodía de PWM ocupa el lugar de la voz.",
+      "Duración de canción completa, no loop de juego; loopStart 0 por si se reproduce en bucle."
+    ]
+  },
+  "meter": "4/4",
+  "bars": 64,
+  "key": "F",
+  "scale": "major",
+  "tempo": {
+    "base": 104,
+    "map": [
+      { "bar": 8, "bpm": 108 },
+      { "bar": 16, "bpm": 110, "ramp": true },
+      { "bar": 24, "bpm": 114 },
+      { "bar": 32, "bpm": 108 },
+      { "bar": 40, "bpm": 112 },
+      { "bar": 48, "bpm": 116 },
+      { "bar": 56, "bpm": 100 }
+    ],
+    "drama": "Intro a 104; verso a 108; el pre-coro acelera a 110; el coro llega a 114; el break baja a 108; el verso 2 sube a 112; el coro final a 116; el outro se despide a 100."
+  },
+  "form": [
+    {
+      "name": "Intro",
+      "bars": "1–8",
+      "startBar": 0,
+      "energy": 0.45,
+      "density": "18–24",
+      "layers": "batería, bajo, pluck, arpegio; piano y cuerdas entran en el compás 3",
+      "function": "El camino al amanecer; todavía no hay melodía, solo tránsito."
+    },
+    {
+      "name": "Verso A",
+      "bars": "9–16",
+      "startBar": 8,
+      "energy": 0.55,
+      "density": "26–34",
+      "layers": "+ lead, piano; cuerdas solo en la segunda frase",
+      "function": "Se enuncia el motivo y la memoria del camino de tierra."
+    },
+    {
+      "name": "Pre-coro",
+      "bars": "17–24",
+      "startBar": 16,
+      "energy": 0.72,
+      "density": "30–38",
+      "layers": "+ guitarra, brass; cuerdas completas",
+      "function": "Llega la obra: tensión armónica, iv menor prestado y síncopas."
+    },
+    {
+      "name": "Coro",
+      "bars": "25–32",
+      "startBar": 24,
+      "energy": 1.0,
+      "density": "34–42",
+      "layers": "todas menos guitarra en la segunda mitad",
+      "function": "La avenida iluminada: euforia y pérdida al mismo tiempo."
+    },
+    {
+      "name": "Break / solo",
+      "bars": "33–40",
+      "startBar": 32,
+      "energy": 0.8,
+      "density": "24–34",
+      "layers": "lead al frente; base reducida; dropout tonal en la segunda mitad del compás 40",
+      "function": "Mirar atrás sin poder volver; el solo recuerda el motivo."
+    },
+    {
+      "name": "Verso A2",
+      "bars": "41–48",
+      "startBar": 40,
+      "energy": 0.68,
+      "density": "30–38",
+      "layers": "+ guitarra y brass desde el inicio",
+      "function": "Aceptación: el camino ya es otro, pero sigue siendo el mismo trayecto."
+    },
+    {
+      "name": "Coro final",
+      "bars": "49–56",
+      "startBar": 48,
+      "energy": 1.0,
+      "density": "34–42",
+      "layers": "todas; melodía más alta; brass refuerza el cierre de frases",
+      "function": "El clímax emocional, no el más denso: la melodía se abre."
+    },
+    {
+      "name": "Outro",
+      "bars": "57–64",
+      "startBar": 56,
+      "energy": 0.35,
+      "density": "12–22",
+      "layers": "piano y cuerdas; batería se retira; falso final y toms",
+      "function": "El camino queda; no hay crash final."
+    }
+  ],
+  "harmony": {
+    "progressions": [
+      "Verso: IVM7 – V7 – iii7 – vi7 (Bbmaj7 – C7 – Am7 – Dm7)",
+      "Pre-coro: ii7 – V7 – IM7 – vi7 – ii7 – ivm7 – iii7 – V7 (Gm7 – C7 – Fmaj7 – Dm7 – Gm7 – Bbm7 – Am7 – C7)",
+      "Coro: IVM7 – V7 – iii7 – vi7 – IVM7 – V7 – IM7 – V7",
+      "Outro: I – iii – IV – V – I – iii – IV – I"
+    ],
+    "cadence": "El coro final resuelve en Fmaj7; el outro deja la tónica abierta con un final de toms, sin crash.",
+    "color": "Séptimas mayores y menores, novena repartida en cuerdas, iv menor prestado en el pre-coro."
+  },
+  "motif": {
+    "notes": ["D5", "A5", "G5", "F5", "E5"],
+    "description": "Salto ascendente de quinta, descenso por grados conjuntos y anticipación en el paso 15. Se reconoce en el verso, se amplía en el coro y se fragmenta en el solo y el outro.",
+    "variations": ["Ascenso al coro: F5–C6–Bb5–A5–G5", "Pre-coro: G5–C6–Bb5–A5–G5", "Outro: A5–C6–A5–F5"]
+  },
+  "instrumentation": [
+    { "role": "lead", "instrument": "pwm", "pan": 0, "volume": 0.78, "fx": { "reverb": 0.22, "delay": 0.24 } },
+    { "role": "harmony", "instrument": "piano", "pan": -0.28, "volume": 0.62, "fx": { "chorus": 0.4, "reverb": 0.18 } },
+    { "role": "pad_strings", "instrument": "strings", "pan": 0.32, "volume": 0.42, "fx": { "reverb": 0.3 } },
+    { "role": "bass", "instrument": "bass", "pan": 0, "volume": 0.8, "fx": { "reverb": 0.05 } },
+    { "role": "bass_attack", "instrument": "pluck", "pan": 0.08, "volume": 0.72, "fx": { "drive": 0.12, "reverb": 0.08 } },
+    { "role": "brass", "instrument": "brass", "pan": 0.42, "volume": 0.52, "fx": { "reverb": 0.28 } },
+    { "role": "rhythm", "instrument": "guitar", "pan": -0.55, "volume": 0.38, "fx": { "chorus": 0.3, "reverb": 0.15 } },
+    { "role": "drums", "instrument": "drums", "pan": 0, "volume": 0.82, "fx": { "reverb": 0.1 } },
+    { "role": "ornament", "instrument": "arp", "pan": 0.28, "volume": 0.24, "fx": { "delay": 0.22, "reverb": 0.25 } }
+  ],
+  "silence": [
+    "Compás 24: los tonales y la batería callan en los dos últimos pasos; el coro entra con crash.",
+    "Compás 40: dropout tonal en la segunda mitad; solo toms; crash en el compás 41.",
+    "Compás 63: falso final; la banda calla en la segunda mitad.",
+    "Compás 64: acorde final en la primera mitad y cierre de toms, sin crash."
+  ],
+  "originality": {
+    "statement": "El motivo es propio (D–A–G–F–E) y la armonía usa esquemas del spec sin citar una canción. El brief cambia la ciudad por el camino que lleva a ella: el brillo city pop se usa como ironía afectiva, no como copia de un original.",
+    "changesVsInfluences": [
+      "Respecto al city pop de Tokio: se cambia el objeto (no la noche urbana, sino el trayecto rural que se urbaniza) y se reduce la densidad del coro para que la melodía respire.",
+      "Respecto a la balada AOR: se conserva el fraseo melancólico, pero se cambia el tempo y el groove a boogie de 104–116 BPM.",
+      "Respecto a bandas sonoras de carretera: se toma la sensación de tránsito, sin copiar temas ni arreglos."
+    ]
+  }
+}

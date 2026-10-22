@@ -1,0 +1,33 @@
+{
+  "schema": "chiptune-song-catalog@1",
+  "updated": "2026-10-22",
+  "songs": [
+    {
+      "id": "postes-de-luz",
+      "title": "Postes de luz",
+      "file": "demos/postes-de-luz.json",
+      "genre": "city-pop",
+      "genreName": "City Pop",
+      "genreStatus": "validated",
+      "status": "composed-pending-listen",
+      "bars": 64,
+      "bpm": 104,
+      "timeSig": "4/4",
+      "key": "F",
+      "scale": "major",
+      "duration": "2:21",
+      "tracks": 9,
+      "notes": 2641,
+      "form": "Intro 8 · Verso A 8 · Pre-coro 8 · Coro 8 · Break/solo 8 · Verso A2 8 · Coro final 8 · Outro 8",
+      "tempoMap": "104 → 108 → 110 (ramp) → 114 → 108 → 112 → 116 → 100",
+      "themes": [
+        "nostalgia del camino",
+        "urbanización",
+        "memoria del trayecto"
+      ],
+      "created": "2026-10-22",
+      "updated": "2026-10-22",
+      "notes": "Validada técnicamente con check (100/100) y check-demo. Escucha humana pendiente."
+    }
+  ]
+}

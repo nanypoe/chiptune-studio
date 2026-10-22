@@ -1,0 +1,27 @@
+{
+  "title": "",
+  "premise": "",
+  "emotions": [],
+  "function": "",
+  "genre": "",
+  "subgenre": "",
+  "influences": [],
+  "references": [],
+  "mustInclude": [],
+  "avoid": [],
+  "technical": {
+    "bpmRange": [0, 0],
+    "timeSig": "4/4",
+    "bars": 0,
+    "maxTracks": 12,
+    "key": "",
+    "scale": "",
+    "loop": false,
+    "loopStartBar": 0
+  },
+  "originality": {
+    "statement": ""
+  },
+  "notes": "",
+  "deliverables": []
+}

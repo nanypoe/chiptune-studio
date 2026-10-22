@@ -1,6 +1,6 @@
 {
   "schema": "chiptune-genre-catalog@1",
-  "note": "Nombres de géneros, subgéneros, formas, danzas y tradiciones agrupados por familia. No todos tienen perfil propio: si falta, hereda la familia y el nombre se usa como matiz. Para estilos que no aparezcan aquí, aplica el procedimiento de fallback de ai/GENRES.md.",
+  "note": "Nombres de géneros, subgéneros, formas, danzas y tradiciones agrupados por familia. No todos tienen perfil propio: si falta, hereda la familia y el nombre se usa como matiz. Para estilos que no aparezcan aquí, aplica el procedimiento de fallback de ai/song-maker/WORKFLOW.md.",
   "catalog": {
     "medieval": [
       "Canto gregoriano", "Música medieval", "Musica medieval", "Organum", "Ars Antiqua", "Ars Nova", "Motete medieval", "Conductus", "Antífona", "Responsorio", "Trovadores", "Juglares", "Danza medieval", "Estampie", "Saltarello"

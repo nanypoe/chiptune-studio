@@ -8,7 +8,10 @@ for (const f of fs.readdirSync(path.join(root, 'src/effects'))) if (f.endsWith('
 for (const f of fs.readdirSync(path.join(root, 'src/instruments'))) if (f.endsWith('.js')) load('src/instruments/' + f);
 load('src/theory/theory.js');
 load('src/song/song.js');
-const target = process.argv[2] || path.join(root, 'demos/progressive-metal-dream-theater.json');
+const demos = fs.readdirSync(path.join(root, 'demos')).filter((f) => /\.json$/i.test(f) && f.toLowerCase() !== 'index.json').sort();
+const arg = process.argv[2];
+if (!arg && !demos.length) { console.log('No hay demos en demos/.'); process.exit(0); }
+const target = arg ? path.resolve(process.cwd(), arg) : path.join(root, 'demos', demos[0]);
 const s = CS.song.normalize(JSON.parse(fs.readFileSync(target, 'utf8')));
 const tl = CS.song.timeline(s), spb = CS.sig(s).spb, steps = s.bars * spb;
 const secs = tl.t[steps], dur = `${Math.floor(secs / 60)}:${String(Math.round(secs % 60)).padStart(2, '0')}`;

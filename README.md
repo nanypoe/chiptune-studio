@@ -19,18 +19,24 @@ src/song/song.js           Formato de canción, importación v1/v2, guía y brie
 src/theory/theory.js       Escalas, grados, acordes
 src/theory/lessons.js      Ruta de aprendizaje editable, con comprobación automática
 src/ui/app.js              Interfaz: piano roll, teclado, pistas, aprendizaje, archivo
-ai/                        Base de géneros, emociones, influencias, método y prompts para IA
-ai/genres.json             Base generada: familias, perfiles y catálogo de géneros
-ai/genres/                 Piezas editables de la base (familias, perfiles, catálogo)
-ai/examples/               Briefs de ejemplo (lore, influencias, técnico)
+ai/APP-CONTRACT.md         Contrato real de la app: límites, formato, instrumentos, efectos y escalas
+ai/APP-CONTRACT-QUICK.md   Resumen operativo del contrato para sesiones cortas
+ai/dossiers/               Flujo 1: investigación y specs de género
+ai/dossiers/inbox/         Investigación cruda que deja el humano
+ai/dossiers/library/       Dossiers y specs curados por género
+ai/song-maker/             Flujo 2: composición de canciones
+ai/song-maker/data/        Catálogos machine-readable de géneros, emociones e influencias
+ai/song-maker/examples/    Briefs de ejemplo (lore, influencias, técnico)
 tools/ai-compose.js        Planifica, genera esbozos, valida y consulta géneros/emociones
-tools/build-genres.js      Regenera ai/genres.json desde ai/genres/
+tools/build-genres.js      Regenera ai/song-maker/data/genres.json desde ai/song-maker/data/genres/
+tools/dossier.js           Crea, valida, promueve e indexa dossiers de género
+tools/song-summary.js      Resumen compacto de una canción para no cargar el JSON completo
 demos/*.json               Demos: cualquier .json nuevo aparece en Menú → Demos
 demos/demos.js             Copia inline generada para que las demos funcionen con doble clic
 tools/serve.js             Servidor local sin dependencias; lista demos/ al vuelo
 tools/build-demos.js       Regenera demos/index.json y demos/demos.js (--watch)
 tools/check-demo.js        Valida una demo con el normalizador, la teoría y los rangos de la app
-tools/make-demo.js         Generador de la demo «Metropolis of Mirrors»
+tools/make-demo.js         Generador de ejemplo de metal progresivo (herramienta, no demo cargada)
 AGENTS.md                  Reglas obligatorias para agentes que compongan o modifiquen la app
 ```
 
@@ -57,7 +63,7 @@ para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, 
 
 - La rejilla es de semicorcheas (1 paso = 1/16). `timeSig` (opcional, por defecto `"4/4"`) fija los pasos por compás: **4/4 = 16, 3/4 = 12, 2/4 = 8, 5/4 = 20, 6/8 = 12, 12/8 = 24, 7/8 = 14**. El compás *n* empieza en el paso (n−1) × pasos por compás.
 - `loopStart` (opcional, compás 0-based, por defecto 0): al terminar, la canción vuelve a ese compás (intro + parte que se repite). **Menú → WAV en bucle perfecto** exporta solo el tramo que se repite, con la cola del final mezclada sobre el inicio (sin salto al repetir).
-- `key` y `scale` (opcionales): declaran tonalidad y modo. `key` acepta `"C"`, `"D"`, `"Eb"`, `"F#"` o un pc 0–11; `scale` usa los ids de `ai/CORE.md` (`major`, `minor`, `dorian`, `phrygian`, `lydian`, `mixolydian`, `locrian`, `harmonicMinor`, pentatónicas, blues, tono completo, disminuida, etc.). La app los usa para resaltar el tono, para los acordes y para la guía de IA; no cambian las alturas de las notas.
+- `key` y `scale` (opcionales): declaran tonalidad y modo. `key` acepta `"C"`, `"D"`, `"Eb"`, `"F#"` o un pc 0–11; `scale` usa los ids de `ai/APP-CONTRACT.md` (`major`, `minor`, `dorian`, `phrygian`, `lydian`, `mixolydian`, `locrian`, `harmonicMinor`, pentatónicas, blues, tono completo, disminuida, etc.). La app los usa para resaltar el tono, para los acordes y para la guía de IA; no cambian las alturas de las notas.
 - `tempo` (opcional): cambios de velocidad por compás. `[{"bar":8,"bpm":140}]` salta a 140 BPM al empezar el compás 9; `[{"bar":8,"bpm":140,"ramp":true}]` llega a 140 poco a poco desde el cambio anterior (acelerando o ritardando). `bar` es 0-based y debe ser ≥ 1; el compás 1 usa `bpm`. Afecta a la reproducción, al metrónomo, al monitor y al WAV (las notas que cruzan un cambio conservan su duración real).
 - Se importan canciones v1 y v2 sin `timeSig` (se leen como 4/4). Alias de ids antiguos: flute→triangle, bass2→pluck, lead→saw, pulse25/50→pulse, pulse12→arp, organ/choir→pad.
 - Cambiar el compás en el estudio reacomoda las notas compás por compás (las que no caben se quitan; se puede deshacer).
@@ -66,33 +72,54 @@ para un algoritmo nuevo, añade `CS.kinds.miEfecto = (ctx, params) => ({ input, 
 Con el botón **♩** de la cabecera se abre el mapa de tempo: permite que cada sección vaya a una velocidad distinta (intro lenta → estribillo rápido → puente lento) o que el tempo cambie gradualmente (un build-up que acelera, un final que ritarda). Los cambios se guardan por compás, así que sobreviven a transponer, copiar compases o cambiar el compás. En el roll, el compás con cambio se marca con una línea y `♩BPM` (↗/↘ si es gradual). Durante la reproducción, el monitor muestra el BPM actual.
 
 ## Demos y la carpeta `demos/`
-La carpeta `demos/` es la lista de demos de la app: deja ahí cualquier canción `.json` y aparecerá en **Menú → Demos**. Incluye **«Metropolis of Mirrors»**, una pieza instrumental de metal progresivo en 7/8 (64 compases, 7 pistas, 1:59) con riff pesado, unísonos, tema, solo, breakdown y un final que acelera y ritarda. Es un homenaje al estilo de Dream Theater, no una transcripción.
+La carpeta `demos/` es la lista de demos de la app: deja ahí cualquier canción `.json` y aparecerá en **Menú → Demos**. Ahora está vacía a propósito: el catálogo se reconstruirá desde los specs de género validados. `tools/make-demo.js` sigue siendo un generador de ejemplo de metal progresivo, pero no carga ninguna demo por sí solo.
 
 - **Detección automática (recomendado):** `node tools/serve.js` y abre `http://127.0.0.1:8080/`. El servidor genera `/demos/index.json` y el listado de la carpeta al vuelo; cualquier `.json` nuevo aparece en el menú sin reiniciar. La lista se refresca sola cada pocos segundos mientras el menú está abierto. También funciona con un servidor estático que muestre el listado de `demos/` o que sirva `demos/index.json`.
 - **Doble clic (`file://`):** por seguridad, el navegador no permite leer una carpeta local desde una página `file://`. La app usa `demos/demos.js`, una copia inline generada por `node tools/build-demos.js`. Para añadir una demo nueva sin servidor, ejecuta ese comando y recarga, o usa **Menú → Demos → Abrir carpeta / Abrir JSON** (la demo queda guardada en el navegador).
 - `node tools/build-demos.js --watch` regenera la copia inline al guardar un `.json` (recarga la app para verla).
 - `node tools/check-demo.js [archivo]` valida compases, tonalidad/escala, rangos de instrumento y duración con el mismo código de la app.
-- `node tools/make-demo.js` vuelve a generar la demo incluida (herramienta de composición).
+- `node tools/make-demo.js` genera una pieza de ejemplo de metal progresivo en `demos/` (herramienta de composición, no una demo cargada por defecto).
 
 ## Componer con una IA
 
-La carpeta `ai/` contiene la base de géneros, emociones e influencias y el método para que una IA componga canciones originales de cualquier género. Empieza por `ai/README.md`; las reglas para agentes están en `AGENTS.md`.
+La IA trabaja en dos flujos separados. No los mezcles.
+
+### 1. Dossiers de género — `ai/dossiers/`
+
+Investiga un género, valida fuentes, tradúcelo a las capacidades reales de la app y produce un `SPEC.json` más una prueba mínima.
+
+- El humano ejecuta `ai/dossiers/RESEARCH-PROMPT.md` y guarda la salida en `ai/dossiers/inbox/<slug>.md`.
+- OpenCode se inicia en `ai/dossiers` y sigue `ai/dossiers/AGENTS.md`.
+- El catálogo y los estados (`draft`, `tested`, `validated`) están en `ai/dossiers/index.json`.
+- `node tools/dossier.js` crea, valida, promueve e indexa dossiers. Desde `ai/dossiers`, usa `node ../../tools/dossier.js`.
+
+### 2. Canciones — `ai/song-maker/`
+
+Compón canciones originales y emocionalmente claras usando los specs validados del flujo anterior.
+
+- OpenCode se inicia en `ai/song-maker` y sigue `ai/song-maker/AGENTS.md`.
+- El brief, el plan, la forma, la densidad y el silencio mandan sobre el género.
+- Si falta un género, se abre una sesión de dossiers; no se inventa aquí.
+
+Desde la raíz del repo:
 
 ```bash
 node tools/ai-compose.js brief --out brief.md
-node tools/ai-compose.js plan ai/examples/lore-brief.json --out plan.json
-node tools/ai-compose.js sketch ai/examples/lore-brief.json --out cancion.json --plan-out plan.json
+node tools/ai-compose.js plan ai/song-maker/examples/lore-brief.json --out plan.json
+node tools/ai-compose.js sketch ai/song-maker/examples/lore-brief.json --out cancion.json --plan-out plan.json
 node tools/ai-compose.js check cancion.json
 node tools/ai-compose.js genres "folk metal"
 node tools/ai-compose.js moods "melancólico"
+node tools/song-summary.js cancion.json
 ```
 
 - `plan` elige género/familia, emoción, forma, tonalidad, escala, tempo, compás e instrumentación, y escribe los supuestos. Revísalo antes de generar notas.
 - `sketch` crea un esbozo válido y editable: melodía, bajo, batería, armonía, arpegio, textura, `slide`, `chord` y cambios de tempo. No es una entrega final; hay que escucharlo y refinarlo.
 - `check` valida el formato, los rangos, las piezas de batería, el tempo, el loop, la densidad y la coherencia de la escala declarada.
+- `song-summary` imprime forma, tempo, densidad y pistas sin cargar todo el JSON.
 - `genres` y `moods` consultan la base sin cargarla entera en el contexto.
-- La base se edita en `ai/genres/*.json` y se regenera con `node tools/build-genres.js`. `ai/genres.json` es generado.
-- Las influencias (bandas, bandas sonoras, videojuegos, canciones) se traducen a rasgos abstractos. No se copian melodías, riffs ni arreglos: ver `ai/ORIGINALITY.md`.
+- La base se edita en `ai/song-maker/data/genres/*.json` y se regenera con `node tools/build-genres.js`.
+- Las influencias se traducen a rasgos abstractos: ver `ai/song-maker/ORIGINALITY.md`.
 - En la app, **Menú → Guía para IA** incluye la guía técnica completa y el botón **Brief** para generar una plantilla.
 
 ## Pantalla

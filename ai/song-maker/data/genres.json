@@ -1,7 +1,7 @@
 {
   "schema": "chiptune-genres@1",
   "updated": "2026-10-21",
-  "note": "Cada familia es una plantilla. Los géneros y perfiles de ai/genres/profiles.json heredan estos rasgos y solo cambian lo necesario. Los instrumentos son ids reales de Chiptune Studio. Los compases y escalas deben ser válidos en la app.",
+  "note": "Cada familia es una plantilla. Los géneros y perfiles de ai/song-maker/data/genres/profiles.json heredan estos rasgos y solo cambian lo necesario. Los instrumentos son ids reales de Chiptune Studio. Los compases y escalas deben ser válidos en la app.",
   "families": {
     "medieval": {
       "name": "Música medieval y canto",

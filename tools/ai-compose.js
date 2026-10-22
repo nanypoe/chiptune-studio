@@ -20,9 +20,9 @@ const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const readJSON = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
-const GENRES = readJSON('ai/genres.json');
-const MOODS = readJSON('ai/moods.json');
-const INFLUENCES = readJSON('ai/influences.json');
+const GENRES = readJSON('ai/song-maker/data/genres.json');
+const MOODS = readJSON('ai/song-maker/data/moods.json');
+const INFLUENCES = readJSON('ai/song-maker/data/influences.json');
 
 const VALID_SCALES = ['major', 'minor', 'dorian', 'phrygian', 'lydian', 'mixolydian', 'locrian', 'harmonicMinor', 'melodicMinor', 'harmonicMajor', 'phrygianDominant', 'doubleHarmonic', 'hungarianMinor', 'pentMin', 'pentMaj', 'blues', 'wholeTone', 'diminished', 'hirajoshi', 'insen', 'egyptian', 'chromatic'];
 const VALID_METERS = ['4/4', '3/4', '2/4', '5/4', '6/8', '12/8', '7/8'];
@@ -1049,7 +1049,7 @@ function listGenres(query, family, emotion) {
 }
 
 function humanGenres(rows) {
-  if (!rows.length) return 'No encontré ese género. Usa el fallback de ai/GENRES.md: familia cercana + supuestos.';
+  if (!rows.length) return 'No encontré ese género. Usa una familia cercana con supuestos, o investígalo en ai/dossiers/.';
   return rows.slice(0, 60).map((r) => `- ${r.name} [${r.family}] · ${r.tempo?.[0]}–${r.tempo?.[1]} BPM · ${(r.scales || []).slice(0, 5).join(', ')} · ${(r.instruments || []).slice(0, 6).join(', ')}${r.source === 'catálogo' ? ' · (catálogo)' : ''}`).join('\n') + (rows.length > 60 ? `\n... y ${rows.length - 60} más.` : '');
 }
 
@@ -1101,11 +1101,11 @@ function main() {
   node tools/ai-compose.js genres [consulta] [--family latin] [--emotion misterioso] [--json]
   node tools/ai-compose.js moods [consulta] [--json]
   node tools/ai-compose.js brief [--out brief.md]
-Documentación: ai/README.md · ai/CORE.md · ai/COMPOSE.md · ai/GENRES.md`);
+Documentación: ai/APP-CONTRACT.md · ai/song-maker/COMPOSE.md · ai/dossiers/`);
     return;
   }
   if (cmd === 'plan') {
-    const file = pos[0]; if (!file) throw new Error('Falta el brief: node tools/ai-compose.js plan ai/examples/lore-brief.json');
+    const file = pos[0]; if (!file) throw new Error('Falta el brief: node tools/ai-compose.js plan ai/song-maker/examples/lore-brief.json');
     const b = readBrief(file);
     if (flags.genre) b.genre = [flags.genre];
     const plan = buildPlan(b, { form: flags.form });
@@ -1115,7 +1115,7 @@ Documentación: ai/README.md · ai/CORE.md · ai/COMPOSE.md · ai/GENRES.md`);
     return;
   }
   if (cmd === 'sketch') {
-    const file = pos[0]; if (!file) throw new Error('Falta el brief: node tools/ai-compose.js sketch ai/examples/lore-brief.json');
+    const file = pos[0]; if (!file) throw new Error('Falta el brief: node tools/ai-compose.js sketch ai/song-maker/examples/lore-brief.json');
     let plan;
     if (flags.plan) plan = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), flags.plan), 'utf8'));
     else { const b = readBrief(file); if (flags.genre) b.genre = [flags.genre]; plan = buildPlan(b, { form: flags.form }); }

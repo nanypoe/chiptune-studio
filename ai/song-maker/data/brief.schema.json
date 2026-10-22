@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://chiptune-studio.local/ai/brief.schema.json",
+  "$id": "https://chiptune-studio.local/ai/song-maker/data/brief.schema.json",
   "title": "Brief creativo para Chiptune Studio",
   "description": "Entrada flexible para una IA compositora. Solo title o premise son recomendables; todo lo demás es opcional. Si falta un dato, la IA debe proponerlo y anotarlo en assumptions.",
   "type": "object",

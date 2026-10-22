@@ -1,0 +1,18 @@
+{
+  "schema": "chiptune-dossier-catalog@1",
+  "updated": "2026-10-22",
+  "source": "ai/dossiers/index.json",
+  "genres": [
+    {
+      "id": "city-pop",
+      "name": "City Pop",
+      "family": "funk-disco-aor",
+      "status": "validated",
+      "confidence": 0.72,
+      "updated": "2026-10-22",
+      "dossier": "../dossiers/library/city-pop/DOSSIER.md",
+      "spec": "../dossiers/library/city-pop/SPEC.json",
+      "test": "../dossiers/library/city-pop/TEST.json"
+    }
+  ]
+}

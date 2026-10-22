@@ -147,7 +147,7 @@ NOTAS:
 
 ---
 INSTRUCCIONES PARA LA IA
-1. Lee ai/CORE.md, ai/COMPOSE.md y ai/GENRES.md.
+1. Lee ai/APP-CONTRACT.md, ai/song-maker/COMPOSE.md y ai/dossiers/index.json.
 2. Usa node tools/ai-compose.js plan <brief> para ordenar las decisiones.
 3. Genera un esbozo con node tools/ai-compose.js sketch <brief> y refínalo; no entregues el esqueleto sin escucharlo.
 4. Valida con node tools/ai-compose.js check <cancion.json>.
@@ -192,7 +192,7 @@ ${S}
 
 PROCESO CREATIVO
 1. Lee el brief y separa hechos, emociones, función, influencias y restricciones. Si falta algo, propón y anótalo en "assumptions".
-2. Elige género y familia. Consulta ai/genres.json o ai/GENRES.md. Si el estilo no existe, usa el fallback: familia cercana, ajusta tempo/compás/escala/instrumentos y declara que es una fusión estimada.
+2. Elige género y familia. Consulta ai/dossiers/index.json o ai/song-maker/data/genres.json. Si el estilo no existe, usa una familia cercana, ajusta tempo/compás/escala/instrumentos y declara que es una fusión estimada.
 3. Define una forma con contraste: intro, A, B, desarrollo, clímax, coda o loop. Cada sección necesita función, energía, textura, armonía y motivo.
 4. Elige tonalidad/modo y una progresión coherente. En modos heptatónicos usa acordes diatónicos; en pentatónicas, blues, tono completo, disminuida o cromática usa drones, intervalos abiertos, ostinatos y color melódico.
 5. Escribe un motivo de 3–5 notas, repítelo con variación y deja silencios. Apoya las notas del acorde en tiempos fuertes.
@@ -221,7 +221,7 @@ HERRAMIENTAS (si tienes terminal)
 - node tools/ai-compose.js check <cancion.json>
 - node tools/ai-compose.js genres "<género>"
 - node tools/ai-compose.js moods "<emoción>"
-- Documentación: ai/CORE.md, ai/COMPOSE.md, ai/GENRES.md, ai/ORIGINALITY.md, ai/CHECKLIST.md.
+- Documentación: ai/APP-CONTRACT.md, ai/song-maker/COMPOSE.md, ai/song-maker/ORIGINALITY.md, ai/song-maker/CHECKLIST.md.
 - Si es una demo, guárdala en demos/ y ejecuta node tools/build-demos.js.
 
 ENTREGA

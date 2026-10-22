@@ -1,6 +1,6 @@
 {
   "schema": "chiptune-genre-profiles@1",
-  "note": "Perfiles que heredan de ai/genres/families.json. 'traits' solo contiene diferencias; el generador fusiona familia + perfil + brief + influencia. Si un género no está aquí, usa su familia y adapta el nombre: eso también es una respuesta válida.",
+  "note": "Perfiles que heredan de ai/song-maker/data/genres/families.json. 'traits' solo contiene diferencias; el generador fusiona familia + perfil + brief + influencia. Si un género no está aquí, usa su familia y adapta el nombre: eso también es una respuesta válida.",
   "profiles": {
     "canto-gregoriano": {
       "name": "Canto gregoriano",

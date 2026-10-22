@@ -1,0 +1,437 @@
+{
+  "schema": "chiptune-genre-spec@1",
+  "id": "city-pop",
+  "name": "City Pop",
+  "family": "funk-disco-aor",
+  "status": "validated",
+  "confidence": 0.72,
+  "updated": "2026-10-22",
+  "aliases": [
+    "Japanese City Pop",
+    "Tokyo AOR",
+    "Bubble-era boogie"
+  ],
+  "tags": [
+    "1980s",
+    "japan",
+    "funk",
+    "disco",
+    "aor",
+    "boogie",
+    "synthpop"
+  ],
+  "summary": "Pop urbano japonés de finales de los 70 y los 80: groove disco-funk de semicorcheas, armonía jazzy con séptimas y novenas, bajo slap en octavas y producción brillante.",
+  "context": {
+    "region": "Tokio, Japón",
+    "era": "1978-1986",
+    "function": "Ocio urbano, radio FM, clubes nocturnos y conducción; música de consumo sofisticado"
+  },
+  "meter": {
+    "primary": "4/4",
+    "allowed": [
+      "4/4"
+    ],
+    "feel": "Binario recto con hi-hat en semicorcheas; el empuje viene del bajo en contratiempos, no del swing"
+  },
+  "tempo": {
+    "range": [
+      96,
+      124
+    ],
+    "typical": 112,
+    "map": []
+  },
+  "key": {
+    "common": [
+      "C major",
+      "F major",
+      "G major",
+      "A minor",
+      "Bb major"
+    ],
+    "scales": [
+      "major",
+      "mixolydian",
+      "dorian",
+      "minor"
+    ],
+    "modality": "Mayor brillante con color aeolio (royal road), dominantes secundarias y préstamo del iv menor"
+  },
+  "form": [
+    {
+      "id": "intro",
+      "bars": 8,
+      "role": "Batería y bajo; entran piano y strings",
+      "energy": 0.5,
+      "density": [
+        18,
+        28
+      ],
+      "returns": false
+    },
+    {
+      "id": "verse_a",
+      "bars": 8,
+      "role": "Melodía principal sobre base limpia",
+      "energy": 0.6,
+      "density": [
+        24,
+        36
+      ],
+      "returns": true
+    },
+    {
+      "id": "pre_chorus",
+      "bars": 8,
+      "role": "Tensión armónica y síncopas; entran brass",
+      "energy": 0.75,
+      "density": [
+        28,
+        40
+      ],
+      "returns": true
+    },
+    {
+      "id": "chorus",
+      "bars": 8,
+      "role": "Clímax con brass, hi-hat abierto y melodía aguda",
+      "energy": 1,
+      "density": [
+        34,
+        46
+      ],
+      "returns": true
+    },
+    {
+      "id": "break_solo",
+      "bars": 8,
+      "role": "Solo de lead con dropout antes de volver",
+      "energy": 0.85,
+      "density": [
+        28,
+        42
+      ],
+      "returns": false
+    },
+    {
+      "id": "outro",
+      "bars": 8,
+      "role": "Repetición con capas que salen y cierre percusivo",
+      "energy": 0.4,
+      "density": [
+        18,
+        30
+      ],
+      "returns": false
+    }
+  ],
+  "rhythm": {
+    "grid": "16th",
+    "patterns": [
+      {
+        "name": "four_on_floor_funk",
+        "steps": "Kick 0,8 (10 opcional); snare 4,12; hat 0-15; openhat 6,14",
+        "accents": [
+          0,
+          4,
+          6,
+          8,
+          12,
+          14
+        ]
+      },
+      {
+        "name": "slap_bass_octaves",
+        "steps": "Raíz 0,4,8,12; octava aguda 3,7,11,15; cromatismo de paso en 14 al cambiar de acorde",
+        "accents": [
+          0,
+          3,
+          4,
+          7,
+          8,
+          11,
+          12,
+          15
+        ]
+      },
+      {
+        "name": "rhodes_stabs",
+        "steps": "Acordes cortos en 2,6,10,14; 0 y 8 quedan para el kick",
+        "accents": [
+          2,
+          6,
+          10,
+          14
+        ]
+      },
+      {
+        "name": "brass_call",
+        "steps": "Stab de dos notas en 12 y 14 del último compás de cada frase de cuatro",
+        "accents": [
+          12,
+          14
+        ]
+      }
+    ],
+    "groove": "Pulso recto y bailable; la síncopa está en el bajo y en los stabs, la caja se mantiene asentada en 2 y 4",
+    "claves": []
+  },
+  "harmony": {
+    "progressions": [
+      "IVM7 -> V7 -> iii7 -> vi7 (royal road; en C: Fmaj7-G7-Em7-Am7)",
+      "ii7 -> V9 -> iii7 -> vi7 (turnaround AOR; en C: Dm7-G9-Em7-Am7)",
+      "IVM7 -> IVm7 -> iii7 -> vi7 (descenso con iv prestado)",
+      "iii7 -> VI7 -> ii7 -> V7 (turnaround de jazz-funk)"
+    ],
+    "cadences": [
+      "ii7 -> V7 -> IM7",
+      "IVM7 -> V7 -> IM7",
+      "IVm7 -> I (plagal menor)"
+    ],
+    "borrowed": [
+      "IVm7",
+      "bVII7",
+      "V7/iii"
+    ],
+    "notes": "Evitar tríadas desnudas; el mínimo es séptima. La 9ª se reparte en strings o arp porque el campo chord no la admite."
+  },
+  "melody": {
+    "range": "C4-C6",
+    "motif": "3-5 notas: salto ascendente de 4ª o 6ª, descenso por grados conjuntos y anticipación en el paso 15 del compás anterior",
+    "phrasing": "Frases de 2 o 4 compases con respiración; llamada del lead y respuesta de brass al final",
+    "ornaments": [
+      "notas de paso cromáticas",
+      "saltos de octava",
+      "slide a la nota siguiente"
+    ],
+    "avoid": [
+      "melodía de marcha sin síncopa",
+      "frases que llenan todos los pasos",
+      "escalas menores armónicas oscuras"
+    ]
+  },
+  "roles": [
+    {
+      "role": "lead",
+      "instruments": [
+        "pwm",
+        "pulse"
+      ],
+      "range": "C4-C6",
+      "behavior": "Melodía sincopada y solos con notas ligadas; deja respirar al groove"
+    },
+    {
+      "role": "bass",
+      "instruments": [
+        "pluck",
+        "bass"
+      ],
+      "range": "C1-C3",
+      "behavior": "Pluck da el ataque slap en octavas; bass sostiene la raíz en los tiempos fuertes"
+    },
+    {
+      "role": "harmony",
+      "instruments": [
+        "piano",
+        "guitar"
+      ],
+      "range": "C3-C5",
+      "behavior": "Stabs de acorde en 2,6,10,14; guitarra funk opcional con cortes secos"
+    },
+    {
+      "role": "pad_strings",
+      "instruments": [
+        "strings",
+        "pad"
+      ],
+      "range": "C3-C6",
+      "behavior": "Sostiene 5ª y 9ª para completar el voicing sin saturar el medio"
+    },
+    {
+      "role": "brass",
+      "instruments": [
+        "brass"
+      ],
+      "range": "C4-C6",
+      "behavior": "Stabs cortos en 12 y 14 al final de frases; nunca fanfarria continua"
+    },
+    {
+      "role": "drums",
+      "instruments": [
+        "drums"
+      ],
+      "range": "—",
+      "behavior": "Kick 0/8, snare 4/12, hats en semicorcheas con openhat 6/14 y fills de toms en dropouts"
+    }
+  ],
+  "instrumentation": {
+    "required": [
+      "pluck",
+      "bass",
+      "piano",
+      "strings",
+      "pwm",
+      "drums"
+    ],
+    "optional": [
+      "brass",
+      "guitar",
+      "pad",
+      "bell",
+      "arp"
+    ],
+    "avoid": [
+      "saw"
+    ]
+  },
+  "production": {
+    "effects": [
+      "chorus",
+      "reverb",
+      "delay",
+      "drive"
+    ],
+    "texture": "Limpia, brillante y amplia; sin crush ni distorsión pesada",
+    "mix": "Bajo centrado y definido, caja nítida, piano a la izquierda, strings y brass a la derecha, lead al centro"
+  },
+  "chiptune": {
+    "translation": "Groove disco-funk de 16avos con bajo pluck+bass en octavas, stabs de piano con chorus, strings que completan el voicing y lead pwm con delay corto",
+    "constraints": [
+      "No hay voces ni coros",
+      "No hay automatización de filtros ni pitch bend por nota; solo slide",
+      "El campo chord no admite 9ª ni 11ª; solo tríadas, séptimas, sus4 y power",
+      "No hay acordes sostenidos reales: chord es un arpegio rápido"
+    ],
+    "workarounds": [
+      "Repartir el voicing: piano 3ª/7ª y strings 5ª/9ª",
+      "Duplicar el ataque del bajo con pluck y el cuerpo con bass",
+      "Escribir la 9ª como nota de strings o arp, no como chord",
+      "Usar slide para aproximar glissandos del lead"
+    ]
+  },
+  "silence": {
+    "breaks": [
+      {
+        "section": "break_solo",
+        "bars": "segunda mitad del compás 8 de la frase",
+        "whatStops": "Cortar bass, pluck, piano y strings; solo queda drums con fill de toms"
+      },
+      {
+        "section": "outro",
+        "bars": "segunda mitad del último compás",
+        "whatStops": "Los tonales paran y la batería cierra con toms, sin crash final"
+      }
+    ],
+    "dropouts": [
+      "Dropout tonal en la segunda mitad del compás 8, con tomhi-tommid-tomlo y crash en el compás siguiente",
+      "Silencio de dos pasos antes del coro para acentuar la reentrada",
+      "El piano y los strings pueden desaparecer durante la estrofa si el lead necesita espacio"
+    ],
+    "rules": [
+      "Al menos un dropout cada 8 compases",
+      "El silencio se hace dejando de tocar, no bajando el volumen",
+      "No dejar dos secciones seguidas con la misma instrumentación y densidad"
+    ]
+  },
+  "must": [
+    "Usar acordes con séptima (M7, m7, 7) y 9ª repartida en strings cuando se pueda",
+    "Bajo en octavas con síncopa de semicorchea: raíz en 0,4,8,12 y octava en 3,7,11,15",
+    "Hi-hat en semicorcheas con openhat en 6 y 14",
+    "Respuesta de brass al final de frases de 2 o 4 compases",
+    "Textura limpia con chorus y reverb, sin crush",
+    "Anticipación melódica en el paso 15 y respiración al final de frase",
+    "Dropout con fill de toms antes del coro o del cierre"
+  ],
+  "avoid": [
+    "Tríadas desnudas 1-3-5 sin tensión",
+    "Bajo en negras a tiempo fuerte, sin octavas ni síncopas",
+    "Drive alto o crush: convierten el city pop en rock o chiptune industrial",
+    "Melodía de marcha sin síncopa ni respiración",
+    "Power chords o riffs de guitarra rock",
+    "Copiar melodías, riffs o progresiones de obras existentes"
+  ],
+  "acceptance": [
+    "En los compases 1-2 se reconoce la base disco-funk/boogie por el bajo en octavas y el hi-hat con apertura en contratiempo",
+    "En los compases 3-4 el piano con chorus y los acordes con séptima dan la sofisticación AOR, no pop infantil",
+    "En los compases 5-8 la melodía entra con salto y anticipación, y el brass responde sin taparla",
+    "En el compás 12 el corte tonal y el fill de toms crean expectativa; el crash del 13 resuelve",
+    "En el compás 16 el segundo dropout deja silencio real, no un simple descenso de volumen",
+    "Si se quita el bajo slap se nota que falta la célula; si se quita el piano se nota que falta el color armónico"
+  ],
+  "sources": [
+    {
+      "title": "Pacific Breeze: Japanese City Pop, AOR & Boogie 1976-1986",
+      "author": "Light in the Attic Records",
+      "year": "2019",
+      "url": "https://lightintheattic.net/products/pacific-breeze-japanese-city-pop-aor-boogie-1976-1986",
+      "type": "Liner notes / compilatorio",
+      "claim": "City Pop surge a mediados de los 70 y domina los 80; mezcla groove, boogie, techno-pop y AOR; música sofisticada ligada a la prosperidad urbana."
+    },
+    {
+      "title": "Japanese Popular Music: Culture, Authenticity and Power",
+      "author": "Carolyn S. Stevens",
+      "year": "2008",
+      "isbn": "978-0415492218",
+      "doi": "10.4324/9780203945018",
+      "type": "Libro académico",
+      "claim": "Contexto de producción, tecnología y asimilación de técnicas occidentales en la música popular japonesa; no es un análisis específico de city pop."
+    },
+    {
+      "title": "The Royal Road Progression in Japanese Popular Music",
+      "author": "Maxwell Ramage",
+      "year": "2023",
+      "doi": "10.1093/mts/mtad008",
+      "url": "https://doi.org/10.1093/mts/mtad008",
+      "type": "Artículo académico",
+      "claim": "La royal road es IVM7-V7-iii7-vi7 (arquetipo F-G-Em-Am) y es central en la música popular japonesa, incluido city pop."
+    },
+    {
+      "title": "Hiroshi Nagai: Paintings for Music",
+      "author": "Japan Foundation",
+      "year": "2020",
+      "url": "https://sydney.jpf.go.jp/jpf/jpfmedia/JPF-HNCatalogue-R7-Issuu.pdf",
+      "type": "Ensayo curatorial",
+      "claim": "City pop como mezcla pulida de synth-pop, disco, funk, boogie, jazz-fusion y R&B; el término es retrospectivo."
+    },
+    {
+      "title": "Feeling Déjà Vu in Japanese: Discovering City Pop, Japanese Jazz Fusion, and their origins in Black American Music",
+      "author": "Reem Numan",
+      "year": "2026",
+      "url": "https://blog.iias.asia/pop-pacific/feeling-deja-vu-japanese-discovering-city-pop-japanese-jazz-fusion-and-their-origins-black-american",
+      "type": "Ensayo divulgativo",
+      "claim": "Influencia de funk, disco, soul, R&B y bossa nova; uso de slap bass y de la progresión ii-V-iii-vi."
+    },
+    {
+      "title": "シティポップの名フレーズ40 (Bass Magazine Archive Series 2)",
+      "author": "Bass Magazine Japan",
+      "year": "2017",
+      "isbn": "978-4-8456-2986-2",
+      "type": "Método de análisis",
+      "claim": "Vocabulario de bajo del género: frases de octavas, slap y articulación rítmica."
+    },
+    {
+      "title": "Japanese City Pop: Selected 500 over titles of albums",
+      "author": "木村ユタカ (Yutaka Kimura)",
+      "year": "2008",
+      "isbn": "978-4401617738",
+      "type": "Guía discográfica",
+      "claim": "Delimitación discográfica y periodización del repertorio; no es un tratado armónico."
+    },
+    {
+      "title": "Chord Progressions by Genre: All 29 Compared",
+      "author": "chordprogressions.org",
+      "year": "2026",
+      "url": "https://chordprogressions.org/genres/",
+      "type": "Base de datos web (secundaria)",
+      "claim": "Tempo orientativo de city pop 92-118 BPM y presencia de acordes con séptima; fuente de baja confianza, solo para contraste."
+    }
+  ],
+  "openQuestions": [
+    "El tempo tiene dos lecturas: 92-118 BPM (tabla secundaria) y 110-128 BPM (variante boogie). Se eligió 96-124 con típico 112; falta confirmar con escucha.",
+    "No hay una fuente verificada para el patrón exacto de stabs 2,6,10,14; es una inferencia del funk/disco, no una transcripción.",
+    "La combinación pluck+bass puede emborronar graves en altavoces pequeños; el test usa pluck una octava arriba para separar.",
+    "El campo chord no admite 9ª/11ª. El test resuelve con séptimas y deja las extensiones a strings; falta escuchar si alcanza.",
+    "El término city pop es retrospectivo y amplio. Este spec cubre la célula boogie/AOR de Tokio, no las baladas ni el neo-city-pop posterior.",
+    "Se eliminaron fuentes inventadas del inbox (Sayonara City Pop, guía chip-audio, DOI de Kawamoto); la confianza baja a 0.72 y varias afirmaciones de producción quedan como inferencia."
+  ]
+}

@@ -1,14 +1,14 @@
 #!/usr/bin/env node
-/* Une las piezas legibles de ai/genres/ en ai/genres.json (base consultable por la IA y por ai-compose.js). */
+/* Une las piezas legibles de ai/song-maker/data/genres/ en ai/song-maker/data/genres.json (base consultable por la IA y por ai-compose.js). */
 'use strict';
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 
-const families = read('ai/genres/families.json');
-const profiles = read('ai/genres/profiles.json');
-const catalog = read('ai/genres/catalog.json');
+const families = read('ai/song-maker/data/genres/families.json');
+const profiles = read('ai/song-maker/data/genres/profiles.json');
+const catalog = read('ai/song-maker/data/genres/catalog.json');
 
 const familyIds = new Set(Object.keys(families.families));
 const errors = [];
@@ -80,7 +80,7 @@ const out = {
   catalog: catalog.catalog,
   fallback
 };
-fs.writeFileSync(path.join(ROOT, 'ai/genres.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');
+fs.writeFileSync(path.join(ROOT, 'ai/song-maker/data/genres.json'), JSON.stringify(out, null, 2) + '\n', 'utf8');
 
 const count = Object.values(out.catalog).reduce((n, a) => n + a.length, 0) + Object.keys(out.genres).length;
-console.log(`ai/genres.json generado: ${Object.keys(out.families).length} familias, ${Object.keys(out.genres).length} perfiles, ${count} nombres de catálogo/perfil.`);
+console.log(`ai/song-maker/data/genres.json generado: ${Object.keys(out.families).length} familias, ${Object.keys(out.genres).length} perfiles, ${count} nombres de catálogo/perfil.`);
