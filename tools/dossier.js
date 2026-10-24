@@ -26,6 +26,7 @@ const INDEX = path.join(AI, 'index.json');
 const SONG_CATALOG = path.join(ROOT, 'ai', 'song-maker', 'data', 'dossiers.json');
 
 const METERS = ['4/4', '3/4', '2/4', '5/4', '6/8', '12/8', '7/8'];
+const METER_STEPS = { '4/4': 16, '3/4': 12, '2/4': 8, '5/4': 20, '6/8': 12, '12/8': 24, '7/8': 14 };
 const SCALES = ['major', 'minor', 'dorian', 'phrygian', 'lydian', 'mixolydian', 'locrian', 'harmonicMinor', 'melodicMinor', 'harmonicMajor', 'phrygianDominant', 'doubleHarmonic', 'hungarianMinor', 'pentMin', 'pentMaj', 'blues', 'wholeTone', 'diminished', 'hirajoshi', 'insen', 'egyptian', 'chromatic'];
 const EFFECTS = ['reverb', 'delay', 'chorus', 'drive', 'crush'];
 const STATUSES = ['inbox', 'draft', 'tested', 'validated'];
@@ -185,6 +186,7 @@ function validateSpec(spec, expected) {
     need(isStr(spec.key.modality), 'Falta key.modality.');
   }
 
+  const formIds = new Set();
   need(Array.isArray(spec.form) && spec.form.length > 0, 'form debe ser un array no vacío.');
   if (Array.isArray(spec.form)) {
     let bars = 0;
@@ -193,6 +195,7 @@ function validateSpec(spec, expected) {
       need(isObj(f), `${tag} debe ser un objeto.`);
       if (!isObj(f)) continue;
       need(isStr(f.id), `${tag}.id falta.`);
+      if (isStr(f.id)) formIds.add(f.id);
       need(Number.isInteger(f.bars) && f.bars > 0, `${tag}.bars debe ser un entero > 0.`);
       if (Number.isInteger(f.bars)) bars += f.bars;
       need(isStr(f.role), `${tag}.role falta.`);
@@ -212,6 +215,38 @@ function validateSpec(spec, expected) {
     need(isStr(spec.rhythm.grid), 'Falta rhythm.grid.');
     need(Array.isArray(spec.rhythm.patterns) && spec.rhythm.patterns.length > 0, 'rhythm.patterns debe ser un array no vacío.');
     need(isStr(spec.rhythm.groove), 'Falta rhythm.groove.');
+    /* Campos opcionales verificables por check-genre: map (batería), attacks+instrument (melódico), applies (secciones). */
+    const spb = METER_STEPS[spec.meter && spec.meter.primary] || 16;
+    const drumPieces = ['kick', 'snare', 'rim', 'clap', 'hat', 'openhat', 'shaker', 'ride', 'crash', 'tomlo', 'tommid', 'tomhi'];
+    const drumFamilies = ['toms'];
+    const stepOk = (n) => Number.isInteger(n) && n >= 0 && n < spb;
+    if (Array.isArray(spec.rhythm.patterns)) for (const [i, p] of spec.rhythm.patterns.entries()) {
+      const tag = `rhythm.patterns[${i}]`;
+      need(isObj(p), `${tag} debe ser un objeto.`);
+      if (!isObj(p)) continue;
+      warn(isStr(p.name), `${tag}.name falta.`);
+      if (p.map != null) {
+        need(isObj(p.map), `${tag}.map debe ser un objeto {pieza:[pasos]}.`);
+        if (isObj(p.map)) {
+          for (const [piece, steps] of Object.entries(p.map)) {
+            need(drumPieces.includes(piece) || drumFamilies.includes(piece), `${tag}.map: pieza desconocida "${piece}" (usa ${drumPieces.join(', ')} o familia ${drumFamilies.join(', ')}).`);
+            need(Array.isArray(steps) && steps.length > 0, `${tag}.map.${piece} debe ser un array no vacío de pasos.`);
+            if (Array.isArray(steps)) for (const st of steps) need(stepOk(st), `${tag}.map.${piece}: paso inválido ${st} (0–${spb - 1}).`);
+          }
+          warn(Object.keys(p.map).length > 0, `${tag}.map está vacío.`);
+        }
+      }
+      if (p.attacks != null) {
+        need(Array.isArray(p.attacks) && p.attacks.length > 0, `${tag}.attacks debe ser un array no vacío de pasos.`);
+        if (Array.isArray(p.attacks)) for (const st of p.attacks) need(stepOk(st), `${tag}.attacks: paso inválido ${st} (0–${spb - 1}).`);
+      }
+      if (p.instrument != null) need(isStr(p.instrument) && Object.prototype.hasOwnProperty.call(INSTRUMENTS, p.instrument), `${tag}.instrument inválido: ${p.instrument}.`);
+      if (p.applies != null) {
+        need(Array.isArray(p.applies) && p.applies.length > 0, `${tag}.applies debe ser un array no vacío de ids de sección.`);
+        if (Array.isArray(p.applies)) for (const id of p.applies) need(isStr(id) && formIds.has(id), `${tag}.applies: sección desconocida "${id}" (debe existir en form).`);
+      }
+      warn(p.map != null || p.attacks != null, `${tag} (${p.name || 'sin nombre'}): sin map/attacks, check-genre no puede verificarlo.`);
+    }
   }
 
   need(isObj(spec.harmony), 'Falta harmony.');
@@ -275,6 +310,10 @@ function validateSpec(spec, expected) {
 
   for (const k of ['must', 'avoid', 'acceptance']) {
     need(Array.isArray(spec[k]) && spec[k].length > 0, `${k} debe ser un array no vacío.`);
+  }
+  /* acceptance debe ser relativo a secciones del form: los números de compás fijos se rompen con otras formas/duraciones. */
+  if (Array.isArray(spec.acceptance)) for (const [i, t] of spec.acceptance.entries()) {
+    if (isStr(t) && /comp[aá]s(es)?\s*\d/i.test(t)) warnings.push(`acceptance[${i}]: usa secciones del form (p. ej. "Entrada de chorus"), no números de compás absolutos.`);
   }
 
   need(Array.isArray(spec.sources), 'sources debe ser un array.');

@@ -97,7 +97,7 @@ if (asJson) {
   console.log(JSON.stringify({
     title: s.title, bpm: s.bpm, bars: s.bars, timeSig: s.timeSig, key: s.key, scale: s.scale,
     loopStart: s.loopStart, duration: +duration.toFixed(2), tracks: s.tracks.length, notes: totalNotes,
-    density: +density.toFixed(1), tempo, windows: counts, spark, trackList: tracks, warnings,
+    density: +density.toFixed(1), tempo, sections: s.sections || [], windows: counts, spark, trackList: tracks, warnings,
   }, null, 2));
   process.exit(0);
 }
@@ -106,6 +106,7 @@ const mm = Math.floor(duration / 60), ss = String(Math.round(duration % 60)).pad
 console.log(`«${s.title || path.basename(target)}» · ${s.bars} compases ${s.timeSig} · ${s.tracks.length} pistas · ${totalNotes} notas · ${mm}:${ss}`);
 console.log(`Tonalidad: ${s.key ?? '—'} ${s.scale || ''} · loopStart: ${s.loopStart} · densidad media: ${density.toFixed(1)} notas/compás`);
 console.log(`Tempo: ${tempo.map((e) => `${e.bar + 1}:${e.bpm}${e.ramp ? '↗' : ''}`).join(' → ')}`);
+if (s.sections && s.sections.length) console.log(`Secciones: ${s.sections.map((e) => `${e.id}@${e.bar}`).join(' → ')}`);
 console.log(`Densidad cada ${windowBars} compases: ${spark}  (${counts.join(' · ')})`);
 console.log('Pistas:');
 for (const t of tracks) {

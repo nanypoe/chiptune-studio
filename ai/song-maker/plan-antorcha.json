@@ -1,0 +1,794 @@
+{
+  "schema": "chiptune-plan@1",
+  "title": "Antorcha sobre el río",
+  "brief": {
+    "title": "Antorcha sobre el río",
+    "project": "Demo de validación de género — Chiptune Studio",
+    "premise": "Una comitiva sube la colina del pueblo con antorchas para encender la hoguera de verano. Los primeros compases son una marcha casi fúnebre con una melodía sola; cuando la multitud entra, la misma melodía se convierte en himno de estadio. La canción tiene que sentirse como un pueblo que se vuelve cuerpo.",
+    "emotions": [
+      "orgullo",
+      "hermandad",
+      "fiesta",
+      "euforia",
+      "nostalgia que se vuelve fuerza"
+    ],
+    "feel": "peso, brasa, aire frío sobre el agua",
+    "function": "canción / himno de concierto",
+    "genre": [
+      "folk-metal-espanol"
+    ],
+    "influences": [],
+    "references": [],
+    "mustInclude": [
+      "backbeat claro con snare en 2 y 4",
+      "riff de corcheas con acentos en los pasos 3 y 11",
+      "progresión i-VI-III-VII en la estrofa",
+      "melodía diatónica coreable en C4-C6",
+      "contraste de densidad entre intro folk y estribillo metal",
+      "break de batería sola y dropout antes del cierre",
+      "melodía doblada una octava abajo por una segunda capa de saw en el estribillo",
+      "motivo propio de 4 notas reconocible en la intro"
+    ],
+    "avoid": [
+      "compases irregulares o cambios de compás",
+      "blast beats y tremolo picking",
+      "polka o ritmos de cabra escandinava",
+      "cromatismo o virtuosismo en la melodía",
+      "brass como melodía principal",
+      "crush excesivo en la melodía",
+      "fundidos largos en lugar de cierre rítmico",
+      "copia de riffs, melodías o progresiones de obras existentes"
+    ],
+    "technical": {
+      "bpm": 128,
+      "bpmRange": [
+        100,
+        150
+      ],
+      "timeSig": "4/4",
+      "bars": 60,
+      "maxTracks": 10,
+      "key": "A",
+      "scale": "minor",
+      "loop": false,
+      "loopStartBar": 0,
+      "mustChangeTempo": true,
+      "instrumentation": [
+        "pulse",
+        "pwm",
+        "saw",
+        "bass",
+        "drums",
+        "strings",
+        "triangle",
+        "guitar",
+        "pluck",
+        "pad"
+      ]
+    },
+    "originality": {
+      "statement": "Motivo propio de 4 notas (salto de 5ª ascendente y descenso por grados); forma con break y falso final; puente con préstamo dorian del IV; sin citas ni arreglos reconocibles.",
+      "nonNegotiables": [
+        "ninguna melodía, riff o arreglo tomado de una obra existente",
+        "el motivo de la intro debe reconocerse en el estribillo transformado",
+        "cambiar al menos dos dimensiones respecto a la referencia: forma (break + falso final) y color modal (préstamo dorian en el puente)"
+      ],
+      "noDirectQuotes": true
+    },
+    "assumptions": [
+      "El spec folk-metal-espanol está en estado 'tested' (confianza 0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+      "No hay voces ni coros en la app: la función de himno coreable se aproxima con una melodía silábica repetible y una segunda capa a la octava.",
+      "Sin samples de violín, flauta o gaita: la melodía folk se traduce a pulse/pwm y el color de flauta a triangle.",
+      "El spec declara 4/4 como único compás permitido; no se usan métricas impares aunque el contrato de la app las admita.",
+      "La progresión i-VI-III-VII es el esqueleto diatónico que exige el spec; la originalidad se apoya en el motivo, la forma y el ritmo, no en la progresión.",
+      "El spec incluye una contradicción interna: su array 'form' sitúa el estribillo en el compás 13, pero sus 'acceptance' lo sitúan en el 9. Se sigue el array 'form' y se mapean los criterios de aceptación de forma relativa.",
+      "Préstamo dorian (IV mayor) en el puente: una sola aparición documentada; las notas fuera de la escala declarada quedan por debajo del umbral de coherencia del check."
+    ],
+    "notes": "Pieza de prueba del género. Brief A de un lote de dos; validación técnica y escucha humana pendientes.",
+    "deliverables": [
+      "plan",
+      "song",
+      "check",
+      "notes"
+    ],
+    "subgenre": ""
+  },
+  "genre": {
+    "id": "folk-metal-espanol",
+    "name": "Folk Metal español",
+    "family": "metal",
+    "familyName": "Heavy metal y subgéneros",
+    "confidence": 0.62,
+    "status": "tested",
+    "spec": "../dossiers/library/folk-metal-espanol/SPEC.json",
+    "custom": true
+  },
+  "mood": {
+    "id": "joyful",
+    "name": "Alegre / Nostálgico",
+    "valence": 0.48,
+    "energy": 0.57,
+    "tension": 0.22,
+    "warmth": 0.72,
+    "texture": "tema saltarín, bajo activo, percusión brillante · timbres cálidos, reverb media, armonía que se inclina entre mayor y menor",
+    "rhythm": "síncopas, contratiempos, palmas o claps · balanceo suave, arpegios y notas de adorno"
+  },
+  "key": "A",
+  "scale": "minor",
+  "scaleName": "minor",
+  "meter": "4/4",
+  "bars": 60,
+  "loopStart": 0,
+  "tempo": {
+    "base": 128,
+    "range": [
+      120,
+      134
+    ],
+    "map": [
+      {
+        "bar": 21,
+        "bpm": 130
+      },
+      {
+        "bar": 37,
+        "bpm": 120,
+        "ramp": true
+      },
+      {
+        "bar": 45,
+        "bpm": 126,
+        "ramp": true
+      },
+      {
+        "bar": 47,
+        "bpm": 134
+      },
+      {
+        "bar": 56,
+        "bpm": 130
+      }
+    ],
+    "note": "El spec propone 128 típico y una curva 120→128→132; se traslada esa intención al mapa propio: caída en el puente, empuje en el break y máxima velocidad en el estribillo final."
+  },
+  "form": {
+    "id": "song",
+    "sections": [
+      {
+        "name": "Intro folk",
+        "weight": 1,
+        "energy": 0.3,
+        "texture": "melodía sola",
+        "roles": [
+          "lead",
+          "rhythm"
+        ],
+        "bars": 4,
+        "startBar": 0,
+        "density": [
+          4,
+          12
+        ]
+      },
+      {
+        "name": "Estrofa 1",
+        "weight": 2,
+        "energy": 0.6,
+        "texture": "riff y backbeat",
+        "roles": [
+          "lead",
+          "counter",
+          "rhythm",
+          "bass",
+          "drums"
+        ],
+        "bars": 8,
+        "startBar": 4,
+        "density": [
+          28,
+          36
+        ]
+      },
+      {
+        "name": "Estribillo 1",
+        "weight": 2,
+        "energy": 0.9,
+        "texture": "tutti",
+        "roles": [
+          "lead",
+          "counter",
+          "harmony",
+          "rhythm",
+          "bass",
+          "drums",
+          "texture"
+        ],
+        "bars": 8,
+        "startBar": 12,
+        "density": [
+          32,
+          48
+        ]
+      },
+      {
+        "name": "Estrofa 2",
+        "weight": 2,
+        "energy": 0.6,
+        "texture": "variación con flauta",
+        "roles": [
+          "lead",
+          "counter",
+          "rhythm",
+          "bass",
+          "drums"
+        ],
+        "bars": 8,
+        "startBar": 20,
+        "density": [
+          28,
+          36
+        ]
+      },
+      {
+        "name": "Estribillo 2",
+        "weight": 2,
+        "energy": 0.9,
+        "texture": "tutti",
+        "roles": [
+          "lead",
+          "counter",
+          "harmony",
+          "rhythm",
+          "bass",
+          "drums",
+          "texture"
+        ],
+        "bars": 8,
+        "startBar": 28,
+        "density": [
+          32,
+          48
+        ]
+      },
+      {
+        "name": "Puente",
+        "weight": 1,
+        "energy": 0.5,
+        "texture": "solo folk, sin colchón",
+        "roles": [
+          "lead",
+          "bass",
+          "drums",
+          "rhythm"
+        ],
+        "bars": 8,
+        "startBar": 36,
+        "density": [
+          16,
+          28
+        ]
+      },
+      {
+        "name": "Break de batería",
+        "weight": 1,
+        "energy": 0.2,
+        "texture": "dropout total",
+        "roles": [
+          "drums"
+        ],
+        "bars": 2,
+        "startBar": 44,
+        "density": [
+          4,
+          8
+        ]
+      },
+      {
+        "name": "Estribillo final",
+        "weight": 3,
+        "energy": 1,
+        "texture": "clímax",
+        "roles": [
+          "lead",
+          "counter",
+          "harmony",
+          "rhythm",
+          "bass",
+          "drums",
+          "texture"
+        ],
+        "bars": 8,
+        "startBar": 46,
+        "density": [
+          40,
+          52
+        ]
+      },
+      {
+        "name": "Falso final (silencio)",
+        "weight": 1,
+        "energy": 0,
+        "texture": "silencio real",
+        "roles": [],
+        "bars": 1,
+        "startBar": 54,
+        "density": [
+          0,
+          0
+        ]
+      },
+      {
+        "name": "Outro reentrada",
+        "weight": 2,
+        "energy": 0.8,
+        "texture": "riff y crash",
+        "roles": [
+          "lead",
+          "rhythm",
+          "bass",
+          "drums",
+          "rhythm"
+        ],
+        "bars": 4,
+        "startBar": 55,
+        "density": [
+          18,
+          44
+        ]
+      },
+      {
+        "name": "Cierre en tónica",
+        "weight": 1,
+        "energy": 0.6,
+        "texture": "golpe final",
+        "roles": [
+          "lead",
+          "rhythm",
+          "bass",
+          "drums"
+        ],
+        "bars": 1,
+        "startBar": 59,
+        "density": [
+          6,
+          14
+        ]
+      }
+    ]
+  },
+  "harmony": {
+    "progression": [
+      0,
+      5,
+      2,
+      6
+    ],
+    "harmonicRhythm": 1,
+    "description": "i-VI-III-VII (A minor: Am-F-C-G) un compás por acorde, dos ciclos por sección de 8 compases. Estribillo: VI-III-VII-i (F-C-G-Am). Puente: iv-i-VII-VI (Dm-Am-G-F) con préstamo dorian del IV mayor en el séptimo compás."
+  },
+  "motifs": {
+    "lead": [
+      0,
+      7,
+      5,
+      3
+    ],
+    "counter": [
+      0,
+      7,
+      5,
+      3
+    ],
+    "rhythm": [
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        8,
+        8
+      ]
+    ],
+    "description": "Motivo propio de 4 notas: salto de quinta ascendente (La-Mi) y descenso por grados conjuntos (Re-Do). Se declara en la intro, se fragmenta en la estrofa y se abre en el estribillo; el ritmo [negra, corchea, corchea, blanca] lo hace reconocible."
+  },
+  "instrumentation": [
+    {
+      "role": "lead",
+      "instrument": "pulse",
+      "name": "Melodía",
+      "volume": 0.82,
+      "pan": 0,
+      "octave": 5,
+      "fx": {}
+    },
+    {
+      "role": "harmony",
+      "instrument": "pwm",
+      "name": "Armonía",
+      "volume": 0.5,
+      "pan": -0.25,
+      "octave": 4,
+      "fx": {}
+    },
+    {
+      "role": "drums",
+      "instrument": "drums",
+      "name": "Batería",
+      "volume": 0.8,
+      "pan": 0,
+      "octave": 0,
+      "fx": {
+        "reverb": 0.1
+      }
+    },
+    {
+      "role": "bass",
+      "instrument": "bass",
+      "name": "Bajo",
+      "volume": 0.86,
+      "pan": 0,
+      "octave": 2,
+      "fx": {
+        "reverb": 0.2,
+        "drive": 0.35
+      }
+    },
+    {
+      "role": "counter",
+      "instrument": "saw",
+      "name": "Contramelodía",
+      "volume": 0.55,
+      "pan": 0.28,
+      "octave": 4,
+      "fx": {
+        "drive": 0.35,
+        "reverb": 0.2,
+        "delay": 0.05
+      }
+    },
+    {
+      "role": "arp",
+      "instrument": "pluck",
+      "name": "Arpegio",
+      "volume": 0.38,
+      "pan": 0.35,
+      "octave": 6,
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.05
+      }
+    },
+    {
+      "role": "bell",
+      "instrument": "bell",
+      "name": "Brillo",
+      "volume": 0.28,
+      "pan": -0.35,
+      "octave": 7,
+      "fx": {
+        "drive": 0.35,
+        "reverb": 0.2,
+        "delay": 0.05
+      }
+    },
+    {
+      "role": "texture",
+      "instrument": "pad",
+      "name": "Textura",
+      "volume": 0.32,
+      "pan": 0.4,
+      "octave": 4,
+      "fx": {
+        "drive": 0.35,
+        "reverb": 0.32,
+        "delay": 0.05
+      }
+    },
+    {
+      "role": "perc",
+      "instrument": "drums",
+      "name": "Percusión",
+      "volume": 0.45,
+      "pan": -0.4,
+      "octave": 0,
+      "fx": {
+        "drive": 0.35,
+        "reverb": 0.2,
+        "delay": 0.05
+      }
+    }
+  ],
+  "arrangement": [
+    {
+      "section": "Intro",
+      "startBar": 0,
+      "bars": 5,
+      "energy": 0.35,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "perc",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture"
+      ]
+    },
+    {
+      "section": "Verso",
+      "startBar": 5,
+      "bars": 13,
+      "energy": 0.55,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Pre-coro",
+      "startBar": 18,
+      "bars": 5,
+      "energy": 0.7,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "arp",
+        "counter",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Coro",
+      "startBar": 23,
+      "bars": 10,
+      "energy": 0.9,
+      "activeRoles": [
+        "lead",
+        "counter",
+        "harmony",
+        "bass",
+        "drums",
+        "bell",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Verso 2",
+      "startBar": 33,
+      "bars": 7,
+      "energy": 0.6,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Puente",
+      "startBar": 40,
+      "bars": 5,
+      "energy": 0.5,
+      "activeRoles": [
+        "lead",
+        "bass",
+        "perc",
+        "harmony",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture"
+      ]
+    },
+    {
+      "section": "Coro final",
+      "startBar": 45,
+      "bars": 10,
+      "energy": 1,
+      "activeRoles": [
+        "lead",
+        "counter",
+        "harmony",
+        "bass",
+        "drums",
+        "bell",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Outro",
+      "startBar": 55,
+      "bars": 5,
+      "energy": 0.3,
+      "activeRoles": [
+        "harmony",
+        "bass",
+        "bell",
+        "lead",
+        "drums",
+        "counter",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    }
+  ],
+  "originality": {
+    "statement": "Motivo propio de 4 notas (salto de 5ª ascendente y descenso por grados); forma con break y falso final; puente con préstamo dorian del IV; sin citas ni arreglos reconocibles.",
+    "strategies": [
+      "Motivo propio de 3–5 notas con variación",
+      "Cambiar al menos dos dimensiones respecto a la referencia",
+      "Roles e instrumentación según el SPEC del género",
+      "Sin citas: ni melodías, ni riffs, ni progresiones reconocibles",
+      "Contraste de densidad y silencio estructural"
+    ],
+    "referencePolicy": "rasgos abstractos únicamente; sin citas",
+    "nonNegotiables": [
+      "ninguna melodía, riff o arreglo tomado de una obra existente",
+      "el motivo de la intro debe reconocerse en el estribillo transformado",
+      "cambiar al menos dos dimensiones respecto a la referencia: forma (break + falso final) y color modal (préstamo dorian en el puente)"
+    ]
+  },
+  "assumptions": [
+    "Spec en estado 'tested' (0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+    "Sin voces: el himno coreable se aproxima con melodía silábica y doblez a la octava.",
+    "Sin samples de folk: lead=pulse/pwm (violín), triangle (flauta), saw+drive (guitarra distorsionada).",
+    "Solo 4/4, como exige el spec, aunque el contrato admite compases impares.",
+    "La progresión i-VI-III-VII la exige el spec: la originalidad vive en el motivo, la forma y el ritmo.",
+    "El spec contradice su forma con sus acceptance (estribillo en el 13 vs. en el 9); se sigue el array 'form'.",
+    "Préstamo dorian del IV mayor solo en el compás 43; queda bajo el umbral de coherencia del check."
+  ],
+  "warnings": [
+    "Estado del género: tested. Declarar la canción como estimación de folk metal español, no como validación.",
+    "Sin escucha humana todavía: el check técnico no juzga el groove ni la mezcla."
+  ],
+  "dramaturgy": {
+    "map": [
+      {
+        "seccion": "Intro folk",
+        "compases": "1-4",
+        "energia": 0.3,
+        "densidad": "4-12",
+        "capas": "lead + guitarra desde el 3; sin batería",
+        "tempo": 128,
+        "quePasa": "Se oye el motivo completo una vez; entra el rasgueo al final"
+      },
+      {
+        "seccion": "Estrofa 1",
+        "compases": "5-12",
+        "energia": 0.6,
+        "densidad": "28-36",
+        "capas": "+ riff saw, bajo, batería; pwm responde en 7-8 y 11-12",
+        "tempo": 128,
+        "quePasa": "Aparece el backbeat y la progresión i-VI-III-VII"
+      },
+      {
+        "seccion": "Estribillo 1",
+        "compases": "13-20",
+        "energia": 0.9,
+        "densidad": "32-48",
+        "capas": "+ colchón de cuerdas y doblez a la octava; crash en el 13",
+        "tempo": 128,
+        "quePasa": "La melodía se abre y gana peso por el doblez"
+      },
+      {
+        "seccion": "Estrofa 2",
+        "compases": "21-28",
+        "energia": 0.6,
+        "densidad": "28-36",
+        "capas": "salen cuerdas y doblez; entra flauta (triangle)",
+        "tempo": 130,
+        "quePasa": "Misma armonía, color distinto; llamada-respuesta flauta/lead"
+      },
+      {
+        "seccion": "Estribillo 2",
+        "compases": "29-36",
+        "energia": 0.9,
+        "densidad": "32-48",
+        "capas": "vuelven cuerdas y doblez; guitarra acústica añade rasgueo",
+        "tempo": 130,
+        "quePasa": "Confirmación del himno"
+      },
+      {
+        "seccion": "Puente",
+        "compases": "37-44",
+        "energia": 0.5,
+        "densidad": "16-28",
+        "capas": "compás 37 solo lead; sin colchón; flauta y riff entran progresivamente",
+        "tempo": 120,
+        "quePasa": "Contraste y respiración; préstamo dorian en el 43"
+      },
+      {
+        "seccion": "Break",
+        "compases": "45-46",
+        "energia": 0.2,
+        "densidad": "4-8",
+        "capas": "solo batería (toms/snare/kick)",
+        "tempo": 126,
+        "quePasa": "Dropout total antes de la reentrada"
+      },
+      {
+        "seccion": "Estribillo final",
+        "compases": "47-54",
+        "energia": 1,
+        "densidad": "40-52",
+        "capas": "todas; guitarra acústica en rasgueo",
+        "tempo": 134,
+        "quePasa": "Clímax con máxima densidad"
+      },
+      {
+        "seccion": "Falso final",
+        "compases": "55",
+        "energia": 0,
+        "densidad": "0",
+        "capas": "ninguna",
+        "tempo": 134,
+        "quePasa": "Un compás de silencio real"
+      },
+      {
+        "seccion": "Outro reentrada",
+        "compases": "56-59",
+        "energia": 0.8,
+        "densidad": "18-44",
+        "capas": "riff + crash + bajo + batería; lead canta el motivo",
+        "tempo": 130,
+        "quePasa": "Reentrada con riff y crash"
+      },
+      {
+        "seccion": "Cierre",
+        "compases": "60",
+        "energia": 0.6,
+        "densidad": "6-14",
+        "capas": "golpe de banda en tónica",
+        "tempo": 130,
+        "quePasa": "Cierre rítmico en Am, sin fundido"
+      }
+    ],
+    "silencio": [
+      "compás 37: solo lead, sin armonía ni batería (dropout de apertura del puente)",
+      "compases 45-46: solo batería",
+      "compás 55: silencio total (falso final)",
+      "frases del lead con 4-6 pasos de reposo en los compases 5, 8, 12, 16, 20"
+    ],
+    "repite": [
+      "vuelve igual: el riff de corcheas con acentos 3/11, el backbeat, la progresión y el motivo del estribillo",
+      "vuelve variado: la estrofa 2 con flauta, el estribillo 2 con guitarra acústica",
+      "no vuelve: el puente y el break"
+    ],
+    "densidadObjetivo": {
+      "media": "30-36 notas/compás",
+      "tope": 42
+    }
+  }
+}

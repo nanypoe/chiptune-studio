@@ -1,0 +1,754 @@
+{
+  "schema": "chiptune-plan@1",
+  "title": "Faroles en la nieve",
+  "brief": {
+    "title": "Faroles en la nieve",
+    "project": "Demo de validación de género — Chiptune Studio",
+    "premise": "Al caer la tarde en una plaza helada, la gente enciende faroles uno a uno. Empieza con una sola guitarra y una voz; la base de marcha se va acumulando hasta que toda la plaza canta. El final baja hasta quedar la guitarra y una nota sostenida.",
+    "emotions": [
+      "esperanza",
+      "ternura",
+      "catarsis colectiva",
+      "euforia contenida"
+    ],
+    "feel": "frío luminoso, palmas, madera y metal",
+    "function": "canción / himno de festival",
+    "genre": [
+      "indie-folk-rock"
+    ],
+    "influences": [],
+    "references": [],
+    "mustInclude": [
+      "rasgueo de guitarra sincopado en 0,3,6,8,11,14",
+      "marcha de bombo en 0,8 y kick completo 0,4,8,12 en el coro",
+      "crescendo estructural de intro desnuda a tutti",
+      "respuesta de brass o bell al final de frases de 2-4 compases",
+      "dueto armónico en 3ª en los momentos cumbre",
+      "al menos un dropout con silencio real antes de cada coro",
+      "motivo silábico propio de 4 notas con anacrusa"
+    ],
+    "avoid": [
+      "saw, arp y chirp como capas principales",
+      "progresiones cromáticas o disminuidas",
+      "ritmos de trap o hi-hats en 32avos",
+      "métricas impares que rompan la marcha comunitaria",
+      "solos de sintetizador hiperactivos",
+      "frases que llenan todos los pasos",
+      "copia de melodías, riffs o progresiones de obras existentes"
+    ],
+    "technical": {
+      "bpm": 100,
+      "bpmRange": [
+        88,
+        112
+      ],
+      "timeSig": "4/4",
+      "bars": 64,
+      "maxTracks": 10,
+      "key": "C",
+      "scale": "major",
+      "loop": false,
+      "loopStartBar": 0,
+      "mustChangeTempo": true,
+      "instrumentation": [
+        "guitar",
+        "pwm",
+        "pulse",
+        "bass",
+        "drums",
+        "brass",
+        "bell",
+        "strings",
+        "pad",
+        "pluck"
+      ]
+    },
+    "originality": {
+      "statement": "Motivo propio de 4 notas con anacrusa; forma con puente percusivo antes del último coro y pre-coro que desemboca en el puente en vez de en el coro; rasgueo y marcha propios; sin citas ni arreglos reconocibles.",
+      "nonNegotiables": [
+        "ninguna melodía, riff o progresión tomada de una obra existente",
+        "el dueto en 3ª aparece solo en tres momentos, no en toda la pieza",
+        "cambiar al menos dos dimensiones respecto a la referencia: arco de energía (puente tras dos secciones altas) y armonía (giro a la relativa menor en el puente con cadencia plagal al final)"
+      ],
+      "noDirectQuotes": true
+    },
+    "assumptions": [
+      "El spec indie-folk-rock está en estado 'tested' (confianza 0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+      "No hay voces humanas: el dueto se aproxima con pwm+pulse con chorus, mejor aproximación disponible, no réplica.",
+      "Los criterios de aceptación del spec nombran compases de un layout distinto a su array 'form' (dice coro en el 13; su forma lo sitúa en el 21). Se sigue el array 'form' y se mapean los criterios de forma relativa.",
+      "El patrón de rasgueo 0,3,6,8,11,14 es inferencia del spec, no transcripción verificada.",
+      "La saturación de capas en el coro se controla con volúmenes escalonados y saliendo strings/bell de las estrofas.",
+      "Sin métricas impares: el spec las prohíbe explícitamente aunque el contrato de la app las admita."
+    ],
+    "notes": "Pieza de prueba del género. Brief B de un lote de dos; validación técnica y escucha humana pendientes.",
+    "deliverables": [
+      "plan",
+      "song",
+      "check",
+      "notes"
+    ],
+    "subgenre": ""
+  },
+  "genre": {
+    "id": "indie-folk-rock",
+    "name": "Indie Folk-Rock Antémico",
+    "family": "indie-rock",
+    "familyName": "Indie rock",
+    "confidence": 0.62,
+    "status": "tested",
+    "spec": "../dossiers/library/indie-folk-rock/SPEC.json",
+    "custom": true
+  },
+  "mood": {
+    "id": null,
+    "name": "esperanza",
+    "valence": 0.1,
+    "energy": 0.55,
+    "tension": 0.35,
+    "warmth": 0.5,
+    "texture": "",
+    "rhythm": ""
+  },
+  "key": "C",
+  "scale": "major",
+  "scaleName": "major",
+  "meter": "4/4",
+  "bars": 64,
+  "loopStart": 0,
+  "tempo": {
+    "base": 100,
+    "range": [
+      92,
+      108
+    ],
+    "map": [
+      {
+        "bar": 13,
+        "bpm": 102
+      },
+      {
+        "bar": 21,
+        "bpm": 104
+      },
+      {
+        "bar": 29,
+        "bpm": 98
+      },
+      {
+        "bar": 37,
+        "bpm": 104
+      },
+      {
+        "bar": 45,
+        "bpm": 92,
+        "ramp": true
+      },
+      {
+        "bar": 53,
+        "bpm": 108,
+        "ramp": true
+      },
+      {
+        "bar": 61,
+        "bpm": 96,
+        "ramp": true
+      }
+    ],
+    "note": "El spec deja su mapa vacío (88-112, típico 100). Se construye un arco: marcha constante, caída en el puente, salto en el coro final y retirada en el outro."
+  },
+  "form": {
+    "id": "song",
+    "sections": [
+      {
+        "name": "Intro",
+        "weight": 1,
+        "energy": 0.3,
+        "texture": "rasgueo solo",
+        "roles": [
+          "rhythm"
+        ],
+        "bars": 4,
+        "startBar": 0,
+        "density": [
+          12,
+          18
+        ]
+      },
+      {
+        "name": "Verso A",
+        "weight": 2,
+        "energy": 0.4,
+        "texture": "llamada y respuesta",
+        "roles": [
+          "lead",
+          "bass",
+          "drums",
+          "rhythm"
+        ],
+        "bars": 8,
+        "startBar": 4,
+        "density": [
+          20,
+          28
+        ]
+      },
+      {
+        "name": "Pre-coro",
+        "weight": 1,
+        "energy": 0.65,
+        "texture": "crescendo",
+        "roles": [
+          "lead",
+          "bass",
+          "drums",
+          "rhythm",
+          "brass"
+        ],
+        "bars": 8,
+        "startBar": 12,
+        "density": [
+          30,
+          40
+        ]
+      },
+      {
+        "name": "Coro",
+        "weight": 2,
+        "energy": 0.9,
+        "texture": "tutti antémico",
+        "roles": [
+          "lead",
+          "lead2",
+          "bass",
+          "drums",
+          "rhythm",
+          "brass",
+          "cushion",
+          "bell"
+        ],
+        "bars": 8,
+        "startBar": 20,
+        "density": [
+          48,
+          64
+        ]
+      },
+      {
+        "name": "Verso B",
+        "weight": 2,
+        "energy": 0.4,
+        "texture": "bajada de capas",
+        "roles": [
+          "lead",
+          "bass",
+          "drums",
+          "rhythm"
+        ],
+        "bars": 8,
+        "startBar": 28,
+        "density": [
+          20,
+          28
+        ]
+      },
+      {
+        "name": "Pre-coro 2",
+        "weight": 1,
+        "energy": 0.7,
+        "texture": "crescendo con caída final",
+        "roles": [
+          "lead",
+          "bass",
+          "drums",
+          "rhythm",
+          "brass"
+        ],
+        "bars": 8,
+        "startBar": 36,
+        "density": [
+          32,
+          42
+        ]
+      },
+      {
+        "name": "Puente / break",
+        "weight": 1,
+        "energy": 0.5,
+        "texture": "marcha aislada y solo",
+        "roles": [
+          "lead2",
+          "bass",
+          "drums",
+          "rhythm"
+        ],
+        "bars": 8,
+        "startBar": 44,
+        "density": [
+          16,
+          24
+        ]
+      },
+      {
+        "name": "Coro final",
+        "weight": 3,
+        "energy": 1,
+        "texture": "clímax",
+        "roles": [
+          "lead",
+          "lead2",
+          "bass",
+          "drums",
+          "rhythm",
+          "brass",
+          "cushion",
+          "bell",
+          "pad"
+        ],
+        "bars": 8,
+        "startBar": 52,
+        "density": [
+          52,
+          64
+        ]
+      },
+      {
+        "name": "Outro",
+        "weight": 1,
+        "energy": 0.2,
+        "texture": "retirada de capas",
+        "roles": [
+          "rhythm",
+          "cushion",
+          "bass"
+        ],
+        "bars": 4,
+        "startBar": 60,
+        "density": [
+          8,
+          14
+        ]
+      }
+    ]
+  },
+  "harmony": {
+    "progression": [
+      0,
+      4,
+      5,
+      3
+    ],
+    "harmonicRhythm": 1,
+    "description": "I-V-vi-IV (C-G-Am-F) un compás por acorde. Pre-coro: IV-V-vi-V (F-G-Am-G). Puente: vi-V-IV-IV (Am-G-F-F) con cadencia plagal IV-I en el outro."
+  },
+  "motifs": {
+    "lead": [
+      4,
+      2,
+      0,
+      2
+    ],
+    "counter": [
+      4,
+      2,
+      0,
+      2
+    ],
+    "rhythm": [
+      [
+        -2,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        12,
+        4
+      ]
+    ],
+    "description": "Motivo silábico propio de 4 notas con anacrusa en el paso 14 del compás anterior: Sol(4)-Mi(2)-Do(0)-Re(2) sobre C, rango conjunto, con compás de aire en los pasos 12-15."
+  },
+  "instrumentation": [
+    {
+      "role": "lead",
+      "instrument": "guitar",
+      "name": "Melodía",
+      "volume": 0.82,
+      "pan": 0,
+      "octave": 5,
+      "fx": {}
+    },
+    {
+      "role": "harmony",
+      "instrument": "pwm",
+      "name": "Armonía",
+      "volume": 0.5,
+      "pan": -0.25,
+      "octave": 4,
+      "fx": {}
+    },
+    {
+      "role": "drums",
+      "instrument": "drums",
+      "name": "Batería",
+      "volume": 0.8,
+      "pan": 0,
+      "octave": 0,
+      "fx": {
+        "reverb": 0.1
+      }
+    },
+    {
+      "role": "bass",
+      "instrument": "bass",
+      "name": "Bajo",
+      "volume": 0.86,
+      "pan": 0,
+      "octave": 2,
+      "fx": {
+        "reverb": 0.2,
+        "drive": 0
+      }
+    },
+    {
+      "role": "counter",
+      "instrument": "pulse",
+      "name": "Contramelodía",
+      "volume": 0.55,
+      "pan": 0.28,
+      "octave": 4,
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.04
+      }
+    },
+    {
+      "role": "arp",
+      "instrument": "pluck",
+      "name": "Arpegio",
+      "volume": 0.38,
+      "pan": 0.35,
+      "octave": 6,
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.04
+      }
+    },
+    {
+      "role": "bell",
+      "instrument": "bell",
+      "name": "Brillo",
+      "volume": 0.28,
+      "pan": -0.35,
+      "octave": 7,
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.04
+      }
+    },
+    {
+      "role": "texture",
+      "instrument": "pad",
+      "name": "Textura",
+      "volume": 0.32,
+      "pan": 0.4,
+      "octave": 4,
+      "fx": {
+        "reverb": 0.32,
+        "delay": 0.04
+      }
+    },
+    {
+      "role": "perc",
+      "instrument": "drums",
+      "name": "Percusión",
+      "volume": 0.45,
+      "pan": -0.4,
+      "octave": 0,
+      "fx": {
+        "reverb": 0.2,
+        "delay": 0.04
+      }
+    }
+  ],
+  "arrangement": [
+    {
+      "section": "Intro",
+      "startBar": 0,
+      "bars": 5,
+      "energy": 0.35,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "perc",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture"
+      ]
+    },
+    {
+      "section": "Verso",
+      "startBar": 5,
+      "bars": 14,
+      "energy": 0.55,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Pre-coro",
+      "startBar": 19,
+      "bars": 5,
+      "energy": 0.7,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "arp",
+        "counter",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Coro",
+      "startBar": 24,
+      "bars": 11,
+      "energy": 0.9,
+      "activeRoles": [
+        "lead",
+        "counter",
+        "harmony",
+        "bass",
+        "drums",
+        "bell",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Verso 2",
+      "startBar": 35,
+      "bars": 8,
+      "energy": 0.6,
+      "activeRoles": [
+        "lead",
+        "harmony",
+        "bass",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Puente",
+      "startBar": 43,
+      "bars": 5,
+      "energy": 0.5,
+      "activeRoles": [
+        "lead",
+        "bass",
+        "perc",
+        "harmony",
+        "drums",
+        "counter",
+        "arp",
+        "bell",
+        "texture"
+      ]
+    },
+    {
+      "section": "Coro final",
+      "startBar": 48,
+      "bars": 11,
+      "energy": 1,
+      "activeRoles": [
+        "lead",
+        "counter",
+        "harmony",
+        "bass",
+        "drums",
+        "bell",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    },
+    {
+      "section": "Outro",
+      "startBar": 59,
+      "bars": 5,
+      "energy": 0.3,
+      "activeRoles": [
+        "harmony",
+        "bass",
+        "bell",
+        "lead",
+        "drums",
+        "counter",
+        "arp",
+        "texture",
+        "perc"
+      ]
+    }
+  ],
+  "originality": {
+    "statement": "Motivo propio de 4 notas con anacrusa; forma con puente percusivo antes del último coro y pre-coro que desemboca en el puente en vez de en el coro; rasgueo y marcha propios; sin citas ni arreglos reconocibles.",
+    "strategies": [
+      "Motivo propio de 3–5 notas con variación",
+      "Cambiar al menos dos dimensiones respecto a la referencia",
+      "Roles e instrumentación según el SPEC del género",
+      "Sin citas: ni melodías, ni riffs, ni progresiones reconocibles",
+      "Contraste de densidad y silencio estructural"
+    ],
+    "referencePolicy": "rasgos abstractos únicamente; sin citas",
+    "nonNegotiables": [
+      "ninguna melodía, riff o progresión tomada de una obra existente",
+      "el dueto en 3ª aparece solo en tres momentos, no en toda la pieza",
+      "cambiar al menos dos dimensiones respecto a la referencia: arco de energía (puente tras dos secciones altas) y armonía (giro a la relativa menor en el puente con cadencia plagal al final)"
+    ]
+  },
+  "assumptions": [
+    "Spec en estado 'tested' (0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+    "Sin voces: el dueto se aproxima con pwm+pulse con chorus, no es una réplica.",
+    "Los acceptance del spec nombran compases de otro layout (coro en el 13; su forma lo sitúa en el 21); se sigue el array 'form'.",
+    "El patrón de rasgueo 0,3,6,8,11,14 es inferencia del spec, no transcripción verificada.",
+    "Se controla la saturación del coro con volúmenes escalonados: cuerdas y campanas solo en coros.",
+    "Sin métricas impares y sin saw/arp/chirp, como exige el spec."
+  ],
+  "warnings": [
+    "Estado del género: tested. Declarar la canción como estimación de indie folk-rock, no como validación.",
+    "Sin escucha humana todavía: el check técnico no juzga el groove ni la mezcla."
+  ],
+  "dramaturgy": {
+    "map": [
+      {
+        "seccion": "Intro",
+        "compases": "1-4",
+        "energia": 0.3,
+        "densidad": "12-18",
+        "capas": "guitarra sola; shaker desde el 3",
+        "tempo": 100,
+        "quePasa": "Se establece el rasgueo sincopado y la progresión"
+      },
+      {
+        "seccion": "Verso A",
+        "compases": "5-12",
+        "energia": 0.4,
+        "densidad": "20-28",
+        "capas": "+ bajo, kick suave, pwm llama (5-6, 9-10) y pulse responde (7-8, 11-12)",
+        "tempo": 100,
+        "quePasa": "Conversación de dos voces sobre marcha tenue"
+      },
+      {
+        "seccion": "Pre-coro",
+        "compases": "13-20",
+        "energia": 0.65,
+        "densidad": "30-40",
+        "capas": "+ bombo a 4 tiempos, clap en 4/12, brass responde en 15-16 y 19-20",
+        "tempo": 102,
+        "quePasa": "Crescendo; termina en dropout en el paso 8 del compás 20"
+      },
+      {
+        "seccion": "Coro",
+        "compases": "21-28",
+        "energia": 0.9,
+        "densidad": "48-64",
+        "capas": "crash, cuerdas, campanas, dueto en 3ª, kick 0-4-8-12",
+        "tempo": 104,
+        "quePasa": "Salto claro de energía; es la primera vez que suena el tutti"
+      },
+      {
+        "seccion": "Verso B",
+        "compases": "29-36",
+        "energia": 0.4,
+        "densidad": "20-28",
+        "capas": "salen cuerdas, campanas y brass; cambian los papeles de las voces",
+        "tempo": 98,
+        "quePasa": "Contraste: lo que estaba lleno ahora respira"
+      },
+      {
+        "seccion": "Pre-coro 2",
+        "compases": "37-44",
+        "energia": 0.7,
+        "densidad": "32-42",
+        "capas": "como el pre-coro con brass más denso; corte real en el 44",
+        "tempo": 104,
+        "quePasa": "Lleva a un coro que no llega: cae al puente"
+      },
+      {
+        "seccion": "Puente / break",
+        "compases": "45-52",
+        "energia": 0.5,
+        "densidad": "16-24",
+        "capas": "percusión casi total fuera; marcha aislada y solo de pulse; guitarra entra en el 49",
+        "tempo": 92,
+        "quePasa": "Dropout percusivo y contramelodía solista"
+      },
+      {
+        "seccion": "Coro final",
+        "compases": "53-60",
+        "energia": 1,
+        "densidad": "52-64",
+        "capas": "todas, con pad añadido; dueto en 3ª en tres frases",
+        "tempo": 108,
+        "quePasa": "Clímax de máxima densidad"
+      },
+      {
+        "seccion": "Outro",
+        "compases": "61-64",
+        "energia": 0.2,
+        "densidad": "8-14",
+        "capas": "salen capas una a una hasta guitarra sola y tónica sostenida",
+        "tempo": 96,
+        "quePasa": "Decrescendo y cadencia plagal"
+      }
+    ],
+    "silencio": [
+      "compás 20 pasos 8-15: batería y bajo cesan; queda rim seco y acorde de guitarra",
+      "compás 44 pasos 8-15: mismo corte antes del puente",
+      "compases 45-46: solo shaker, kick y contramelodía",
+      "estrofas sin cuerdas ni campanas",
+      "outro: capas salen una a una hasta la guitarra sola"
+    ],
+    "repite": [
+      "vuelve igual: rasgueo 0,3,6,8,11,14, marcha de bombo y progresión I-V-vi-IV",
+      "vuelve variado: el verso B con papeles de voz cambiados y tempo más lento",
+      "no vuelve: el puente"
+    ],
+    "densidadObjetivo": {
+      "media": "28-34 notas/compás",
+      "tope": 42
+    }
+  }
+}

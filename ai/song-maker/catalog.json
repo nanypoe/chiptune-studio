@@ -17,7 +17,7 @@
       "scale": "major",
       "duration": "2:21",
       "tracks": 9,
-      "notes": 2641,
+      "noteCount": 2641,
       "form": "Intro 8 · Verso A 8 · Pre-coro 8 · Coro 8 · Break/solo 8 · Verso A2 8 · Coro final 8 · Outro 8",
       "tempoMap": "104 → 108 → 110 (ramp) → 114 → 108 → 112 → 116 → 100",
       "themes": [
@@ -28,6 +28,60 @@
       "created": "2026-10-22",
       "updated": "2026-10-22",
       "notes": "Validada técnicamente con check (100/100) y check-demo. Escucha humana pendiente."
+    },
+    {
+      "id": "antorcha-sobre-el-rio",
+      "title": "Antorcha sobre el río",
+      "file": "demos/antorcha-sobre-el-rio.json",
+      "genre": "folk-metal-espanol",
+      "genreName": "Folk Metal Español",
+      "genreStatus": "tested",
+      "status": "composed-pending-listen",
+      "bars": 60,
+      "bpm": 128,
+      "timeSig": "4/4",
+      "key": "A",
+      "scale": "minor",
+      "duration": "1:53",
+      "tracks": 9,
+      "noteCount": 1793,
+      "form": "Intro 4 · Estrofa 8 · Estribillo 8 · Estrofa 8 · Estribillo 8 · Puente 8 · Break 2 · Estribillo final 8 · Silencio 1 · Outro 4 · Cierre 1",
+      "tempoMap": "128 → 130 (bar 21) → 120↗ (bar 37) → 126↗ (bar 45) → 134 (bar 47) → 130 (bar 56)",
+      "themes": [
+        "río como testigo",
+        "antorcha y noche",
+        "luz que no se apaga"
+      ],
+      "created": "2026-10-22",
+      "updated": "2026-10-22",
+      "notes": "Estimación: el género está en estado tested, no validated. Validada técnicamente con check (100/100, 0 avisos) y check-demo. Escucha humana pendiente. Precapción dorian en el compás 43 (D mayor prestado)."
+    },
+    {
+      "id": "faroles-en-la-nieve",
+      "title": "Faroles en la nieve",
+      "file": "demos/faroles-en-la-nieve.json",
+      "genre": "indie-folk-rock",
+      "genreName": "Indie Folk-Rock",
+      "genreStatus": "tested",
+      "status": "composed-pending-listen",
+      "bars": 64,
+      "bpm": 100,
+      "timeSig": "4/4",
+      "key": "C",
+      "scale": "major",
+      "duration": "2:33",
+      "tracks": 9,
+      "noteCount": 1961,
+      "form": "Intro 4 · Verso A 8 · Pre-coro 8 · Coro 8 · Verso B 8 · Pre-coro 8 · Puente 8 · Coro final 8 · Outro 4",
+      "tempoMap": "100 → 102 (bar 13) → 104 (bar 21) → 98 (bar 29) → 104 (bar 37) → 92↗ (bar 45) → 108↗ (bar 53) → 96↗ (bar 61)",
+      "themes": [
+        "faroles en la nieve",
+        "luz cálida contra el frío",
+        "andar de noche"
+      ],
+      "created": "2026-10-22",
+      "updated": "2026-10-22",
+      "notes": "Estimación: el género está en estado tested, no validated. Validada técnicamente con check (100/100, 0 avisos) y check-demo. Escucha humana pendiente. Duetos en 3as diatónicas en coros; dropout en compases 20 y 44; puente con guitarra fuera 45-48."
     }
   ]
 }

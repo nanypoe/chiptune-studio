@@ -30,6 +30,7 @@ Si algo no está aquí o en el código de la app, no existe para la IA.
   "key": "D",
   "scale": "minor",
   "loopStart": 0,
+  "sections": [{ "id": "intro", "bar": 1 }, { "id": "chorus", "bar": 9 }],
   "tempo": [{ "bar": 8, "bpm": 150, "ramp": true }],
   "tracks": [
     {
@@ -56,6 +57,13 @@ Si algo no está aquí o en el código de la app, no existe para la IA.
 - `chord`: `M`, `m`, `dim`, `aug`, `7`, `M7`, `m7`, `sus4` o `power`. Suena como acorde arpegiado rápido en un solo canal; no es un acorde sostenido.
 - `step + len` no puede pasar del último paso de la canción.
 
+### Secciones
+
+- `sections` es opcional: `[{ "id": "intro", "bar": 1 }, { "id": "chorus", "bar": 9 }]`.
+- `bar` es **1-based** (compás 1 = primero) y debe caer dentro de la canción. No se confunde con `tempo[].bar`, que es 0-based.
+- `id` es único; al normalizar se descartan duplicados y se ordena por `bar`.
+- La app puede ignorarlas. Las usan las herramientas (`song-summary`, `check-genre`) y el campo `applies` de los patrones de género para verificar la forma sin depender de números de compás fijos.
+
 ### Pistas
 
 - `volume`: 0–1.
@@ -77,6 +85,7 @@ Si algo no está aquí o en el código de la app, no existe para la IA.
 
 - Un solo `timeSig` por canción. Si un género necesita 5/8 y 7/8, se elige uno y se escribe el otro como acento interno; no se puede cambiar la firma a mitad de canción.
 - `tempo` es un mapa por compás. `bar` es 0-based y debe ser ≥ 1.
+- `sections[].bar` es 1-based, a diferencia de `tempo[].bar` (0-based).
 - `ramp: true` llega al BPM indicado gradualmente desde el cambio anterior.
 - El tempo cambia la duración real de las notas, no la rejilla.
 

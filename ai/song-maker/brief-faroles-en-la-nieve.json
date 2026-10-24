@@ -1,0 +1,83 @@
+{
+  "title": "Faroles en la nieve",
+  "project": "Demo de validación de género — Chiptune Studio",
+  "premise": "Al caer la tarde en una plaza helada, la gente enciende faroles uno a uno. Empieza con una sola guitarra y una voz; la base de marcha se va acumulando hasta que toda la plaza canta. El final baja hasta quedar la guitarra y una nota sostenida.",
+  "emotions": [
+    "esperanza",
+    "ternura",
+    "catarsis colectiva",
+    "euforia contenida"
+  ],
+  "feel": "frío luminoso, palmas, madera y metal",
+  "function": "canción / himno de festival",
+  "genre": "indie-folk-rock",
+  "influences": [
+    {
+      "trait": "Rasgueo acústico sincopado sobre marcha de bombo binaria",
+      "use": "Ataques de guitarra en 0,3,6,8,11,14 con acorde completo en 0 y 8; kick en 0 y 8"
+    },
+    {
+      "trait": "Dueto vocal en terceras",
+      "use": "pwm como voz principal y pulse una tercera por debajo en los momentos cumbre"
+    },
+    {
+      "trait": "Respuestas de metales y glockenspiel al final de las frases",
+      "use": "brass en los compases de respuesta y bell en contratiempos del coro"
+    },
+    {
+      "trait": "Crescendo de intro desnuda a tutti orquestal con dropout previo",
+      "use": "Capas que entran sección a sección y corte real de base antes de cada coro"
+    }
+  ],
+  "references": [],
+  "mustInclude": [
+    "rasgueo de guitarra sincopado en 0,3,6,8,11,14",
+    "marcha de bombo en 0,8 y kick completo 0,4,8,12 en el coro",
+    "crescendo estructural de intro desnuda a tutti",
+    "respuesta de brass o bell al final de frases de 2-4 compases",
+    "dueto armónico en 3ª en los momentos cumbre",
+    "al menos un dropout con silencio real antes de cada coro",
+    "motivo silábico propio de 4 notas con anacrusa"
+  ],
+  "avoid": [
+    "saw, arp y chirp como capas principales",
+    "progresiones cromáticas o disminuidas",
+    "ritmos de trap o hi-hats en 32avos",
+    "métricas impares que rompan la marcha comunitaria",
+    "solos de sintetizador hiperactivos",
+    "frases que llenan todos los pasos",
+    "copia de melodías, riffs o progresiones de obras existentes"
+  ],
+  "technical": {
+    "bpm": 100,
+    "bpmRange": [88, 112],
+    "timeSig": "4/4",
+    "bars": 64,
+    "maxTracks": 10,
+    "key": "C",
+    "scale": "major",
+    "loop": false,
+    "loopStartBar": 0,
+    "mustChangeTempo": true,
+    "instrumentation": ["guitar", "pwm", "pulse", "bass", "drums", "brass", "bell", "strings", "pad", "pluck"]
+  },
+  "originality": {
+    "statement": "Motivo propio de 4 notas con anacrusa; forma con puente percusivo antes del último coro y pre-coro que desemboca en el puente en vez de en el coro; rasgueo y marcha propios; sin citas ni arreglos reconocibles.",
+    "nonNegotiables": [
+      "ninguna melodía, riff o progresión tomada de una obra existente",
+      "el dueto en 3ª aparece solo en tres momentos, no en toda la pieza",
+      "cambiar al menos dos dimensiones respecto a la referencia: arco de energía (puente tras dos secciones altas) y armonía (giro a la relativa menor en el puente con cadencia plagal al final)"
+    ],
+    "noDirectQuotes": true
+  },
+  "assumptions": [
+    "El spec indie-folk-rock está en estado 'tested' (confianza 0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+    "No hay voces humanas: el dueto se aproxima con pwm+pulse con chorus, mejor aproximación disponible, no réplica.",
+    "Los criterios de aceptación del spec nombran compases de un layout distinto a su array 'form' (dice coro en el 13; su forma lo sitúa en el 21). Se sigue el array 'form' y se mapean los criterios de forma relativa.",
+    "El patrón de rasgueo 0,3,6,8,11,14 es inferencia del spec, no transcripción verificada.",
+    "La saturación de capas en el coro se controla con volúmenes escalonados y saliendo strings/bell de las estrofas.",
+    "Sin métricas impares: el spec las prohíbe explícitamente aunque el contrato de la app las admita."
+  ],
+  "notes": "Pieza de prueba del género. Brief B de un lote de dos; validación técnica y escucha humana pendientes.",
+  "deliverables": ["plan", "song", "check", "notes"]
+}

@@ -26,6 +26,19 @@ CS.song = {
     }
     if (!s.tracks.length) throw new Error('no hay pistas');
     s.bars = CS.clamp(Math.max(Math.floor(+o.bars || 1), Math.ceil(end / CS.sig(s).spb)), 1, 64); s.loopStart = CS.clamp(Math.floor(+o.loopStart || 0), 0, s.bars - 1);
+    /* Secciones opcionales: [{id, bar}]. "bar" es 1-based (compás 1 = primero) y debe caer dentro de la canción.
+       La app puede ignorarlas; las herramientas las usan para verificar la forma. */
+    if (Array.isArray(o.sections)) {
+      const seen = new Set(), sec = [];
+      for (const e of o.sections) {
+        if (!e || typeof e !== 'object') continue;
+        const id = String(e.id == null ? '' : e.id).trim(), bar = Math.floor(+e.bar);
+        if (!id || !(bar >= 1 && bar <= s.bars) || seen.has(id)) continue;
+        seen.add(id); sec.push({ id, bar });
+      }
+      sec.sort((a, b) => a.bar - b.bar || a.id.localeCompare(b.id));
+      if (sec.length) s.sections = sec;
+    }
     /* Cambios de tempo por compás: [{bar, bpm, ramp?}]. "bar" es 0-based y >= 1; el compás 0 usa s.bpm. */
     const tm = [];
     for (const e of rawT) {
@@ -174,6 +187,7 @@ REGLAS DEL FORMATO
 - bpm 40–240; bars 1–64; hasta 12 pistas; volume 0–1; pan -1 (izquierda) a 1 (derecha).
 - "key" y "scale" son opcionales pero recomendables: declaran la tonalidad/modo. "key" acepta "C", "D", "Eb", "F#" o pc 0–11. "scale" debe ser uno de los ids de la tabla de abajo.
 - loopStart (opcional, compás 0-based; por defecto 0): al llegar al final, la canción vuelve a ese compás. Para un loop sin saltos, el último compás debe enlazar con loopStart.
+- sections (opcional): [{ "id": "intro", "bar": 1 }, { "id": "chorus", "bar": 21 }]. "bar" es 1-based (compás 1 = primero) y debe caer dentro de la canción. Sirve a las herramientas para verificar la forma; la app puede ignorarlo.
 - tempo (opcional): cambios de velocidad por compás. Cada entrada es {"bar":8,"bpm":140} (el compás 9 empieza a 140 BPM de golpe) o {"bar":8,"bpm":140,"ramp":true} (acelera o ritarda poco a poco desde el cambio anterior hasta 140 en el compás 9). "bar" es 0-based y debe ser >= 1; el compás 1 usa "bpm". Los pasos siguen siendo semicorcheas: el tempo cambia su duración real, no la rejilla.
 - len en pasos: 1=1/16, 2=1/8, 4=1/4, 8=1/2, 16=compás en 4/4. step+len <= bars × pasos por compás.
 - pitch: "C4" = Do central; sostenidos con # y bemoles con b. En batería, pitch es una pieza, no una altura.

@@ -1,0 +1,481 @@
+{
+  "schema": "chiptune-genre-spec@1",
+  "id": "indie-folk-rock",
+  "name": "Indie Folk-Rock Antémico",
+  "family": "indie-rock",
+  "status": "tested",
+  "confidence": 0.62,
+  "updated": "2026-10-22",
+  "aliases": [
+    "indie folk anthem",
+    "chamber folk revival",
+    "nu-folk stadium",
+    "nordic indie folk"
+  ],
+  "tags": [
+    "indie",
+    "folk",
+    "anthem",
+    "festival",
+    "stomp",
+    "duet",
+    "2010s"
+  ],
+  "summary": "Indie folk-rock antémico de festival: rasgueo acústico sincopado sobre marcha de bombo, dueto vocal en terceras, respuestas de metales y crescendo de intro desnuda a tutti orquestal.",
+  "context": {
+    "region": "Islandia / Europa del Norte / Norteamérica (ola 2010-2015)",
+    "era": "2010-2015",
+    "function": "Himno de festival, catarsis colectiva, radio pop-rock"
+  },
+  "meter": {
+    "primary": "4/4",
+    "allowed": [
+      "4/4"
+    ],
+    "feel": "Marcha folk de pulso constante (stomp binario); el empuje sincopado lo lleva el rasgueo, no el swing"
+  },
+  "tempo": {
+    "range": [
+      88,
+      112
+    ],
+    "typical": 100,
+    "map": []
+  },
+  "key": {
+    "common": [
+      "C major",
+      "G major",
+      "D major",
+      "A minor"
+    ],
+    "scales": [
+      "major",
+      "mixolydian",
+      "minor"
+    ],
+    "modality": "Mayor diatónica luminosa con giros a la relativa menor en el puente"
+  },
+  "form": [
+    {
+      "id": "intro",
+      "bars": 4,
+      "role": "Rasgueo de guitarra solo o con shaker; se establece el riff y la progresión",
+      "energy": 0.3,
+      "density": [
+        12,
+        18
+      ],
+      "returns": false
+    },
+    {
+      "id": "verse_a",
+      "bars": 8,
+      "role": "Voz principal A (pwm) sobre base tenue; bajo y kick suaves",
+      "energy": 0.4,
+      "density": [
+        20,
+        28
+      ],
+      "returns": true
+    },
+    {
+      "id": "pre_chorus",
+      "bars": 8,
+      "role": "Crescendo: bombo a 4 tiempos, entra brass en respuesta; termina en dropout",
+      "energy": 0.65,
+      "density": [
+        30,
+        40
+      ],
+      "returns": true
+    },
+    {
+      "id": "chorus",
+      "bars": 8,
+      "role": "Tutti antémico: dueto en terceras, bell, strings, crash en el 1",
+      "energy": 0.9,
+      "density": [
+        48,
+        64
+      ],
+      "returns": true
+    },
+    {
+      "id": "bridge_break",
+      "bars": 8,
+      "role": "Dropout percusivo y contramelodía solista sobre marcha aislada",
+      "energy": 0.5,
+      "density": [
+        16,
+        24
+      ],
+      "returns": false
+    },
+    {
+      "id": "chorus_final",
+      "bars": 8,
+      "role": "Clímax de máxima densidad; todas las capas activas",
+      "energy": 1,
+      "density": [
+        52,
+        64
+      ],
+      "returns": false
+    },
+    {
+      "id": "outro",
+      "bars": 4,
+      "role": "Decrescendo rápido hacia guitarra sola y tónica sostenida",
+      "energy": 0.2,
+      "density": [
+        8,
+        14
+      ],
+      "returns": false
+    }
+  ],
+  "rhythm": {
+    "grid": "16th",
+    "patterns": [
+      {
+        "name": "folk_stomp_march",
+        "steps": "Kick 0,8 (0,4,8,12 en coro); snare 4,12; shaker corcheas 0,2,4,6,8,10,12,14",
+        "accents": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "map": {
+          "kick": [
+            0,
+            8
+          ],
+          "snare": [
+            4,
+            12
+          ],
+          "shaker": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14
+          ]
+        },
+        "applies": [
+          "verse_a",
+          "chorus",
+          "chorus_final"
+        ]
+      },
+      {
+        "name": "acoustic_strum_syncopated",
+        "steps": "Ataques en 0,3,6,8,11,14; 0 y 8 con acorde completo, el resto notas altas más suaves",
+        "accents": [
+          0,
+          3,
+          6,
+          8,
+          11,
+          14
+        ],
+        "attacks": [
+          0,
+          3,
+          6,
+          8,
+          11,
+          14
+        ],
+        "instrument": "guitar",
+        "applies": [
+          "intro",
+          "verse_a",
+          "pre_chorus",
+          "chorus",
+          "chorus_final"
+        ]
+      },
+      {
+        "name": "hey_clap_response",
+        "steps": "clap/rim en 4 y 12 como sustituto de interjecciones (Hey!); brass en 12-14 del compás de respuesta",
+        "accents": [
+          4,
+          12
+        ],
+        "map": {
+          "clap": [
+            4,
+            12
+          ]
+        },
+        "applies": [
+          "chorus",
+          "chorus_final"
+        ]
+      }
+    ],
+    "groove": "Straight 16ths; base rígida de marcha en batería y bajo, rasgueo adelantado y sincopado encima",
+    "claves": []
+  },
+  "harmony": {
+    "progressions": [
+      "I - V - vi - IV (en C: C-G-Am-F)",
+      "vi - IV - I - V",
+      "IV - V - vi - V (pre-coro de tensión)",
+      "vi - V - IV - IV (puente melancólico)"
+    ],
+    "cadences": [
+      "IV - V - I",
+      "IV - I (plagal)"
+    ],
+    "borrowed": [],
+    "notes": "Diatónica simple de alto impacto: tónica, dominante y relativa menor. Sin acordes disminuidos ni cromatismos."
+  },
+  "melody": {
+    "range": "C4-E5",
+    "motif": "3-5 notas silábicas de rango conjunto; anacrusa corta en paso 14-15; saltos de 4ª/5ª solo en clímax",
+    "phrasing": "Llamada de pwm en compases 1-2 de la frase; respuesta de brass o pulse en 3-4",
+    "ornaments": [
+      "dueto en terceras o sextas",
+      "interjecciones unísonas (clap/rim/brass)"
+    ],
+    "avoid": [
+      "cromatismos melódicos",
+      "saltos disonantes de 7ª",
+      "frases que llenan todos los pasos"
+    ]
+  },
+  "roles": [
+    {
+      "role": "lead_a",
+      "instruments": [
+        "pwm"
+      ],
+      "range": "C4-C6",
+      "behavior": "Voz principal suave con PWM; melodía silábica con anacrusa"
+    },
+    {
+      "role": "lead_b",
+      "instruments": [
+        "pulse"
+      ],
+      "range": "C4-C6",
+      "behavior": "Segunda voz del dueto en 3ª/6ª o respuesta melódica en el coro"
+    },
+    {
+      "role": "rhythm_guitar",
+      "instruments": [
+        "guitar"
+      ],
+      "range": "C2-C5",
+      "behavior": "Rasgueo percusivo sincopado en 0,3,6,8,11,14 con acordes M/m"
+    },
+    {
+      "role": "brass_section",
+      "instruments": [
+        "brass"
+      ],
+      "range": "C3-C6",
+      "behavior": "Fanfarrias de respuesta al final de frases y stabs en el coro"
+    },
+    {
+      "role": "bass_line",
+      "instruments": [
+        "bass"
+      ],
+      "range": "C1-C3",
+      "behavior": "Raíz del acorde en tiempos fuertes; dobla el kick en el coro"
+    },
+    {
+      "role": "cushion",
+      "instruments": [
+        "strings"
+      ],
+      "range": "C3-C5",
+      "behavior": "Acordes tenidos en bloque solo en coros y clímax"
+    },
+    {
+      "role": "glockenspiel",
+      "instruments": [
+        "bell"
+      ],
+      "range": "C6-C8",
+      "behavior": "Puntos brillantes en contratiempos (2,6,10,14) del coro"
+    },
+    {
+      "role": "percussion",
+      "instruments": [
+        "drums"
+      ],
+      "range": "—",
+      "behavior": "Marcha con kick, snare/rim, clap, shaker y crash; fills de toms en dropouts"
+    }
+  ],
+  "instrumentation": {
+    "required": [
+      "guitar",
+      "pwm",
+      "bass",
+      "drums"
+    ],
+    "optional": [
+      "pulse",
+      "brass",
+      "bell",
+      "strings",
+      "pad",
+      "pluck"
+    ],
+    "avoid": [
+      "saw",
+      "arp",
+      "chirp"
+    ]
+  },
+  "production": {
+    "effects": [
+      "reverb",
+      "drive",
+      "chorus",
+      "delay"
+    ],
+    "texture": "Amplia y orquestal simulada por densidad de capas; cálida, sin crush",
+    "mix": "Bajo y kick firmes al centro; guitarra abierta; brass y bell en respuestas destacadas; dueto con chorus para ensanchar"
+  },
+  "chiptune": {
+    "translation": "Rasgueo acústico simulado con ataques escalonados en guitar, voces por pwm/pulse, fanfarria por brass y brillo por bell sobre marcha de drums",
+    "constraints": [
+      "Sin voces humanas ni coros reales",
+      "Sin cuerda de madera ni respiración vocal",
+      "Sin automatización de volumen ni filtros",
+      "Un solo timeSig: 4/4 estricto"
+    ],
+    "workarounds": [
+      "Rasgueo: acorde completo en 0 y 8, notas altas suaves en 3,6,11,14 con vel decreciente",
+      "Interjecciones Hey!: clap/rim en 4 y 12 + stabs secos de brass",
+      "Bombo legüero: doblar kick con nota breve de bass en C1",
+      "Gang vocal: chorus en pwm+pulse y unísono ocasional en clímax"
+    ]
+  },
+  "silence": {
+    "breaks": [
+      {
+        "section": "pre_chorus_end",
+        "bars": "segunda mitad del último compás de pre-coro (pasos 8-15)",
+        "whatStops": "Batería y bajo cesan; queda un acorde resonante de guitarra o un rim seco en 12"
+      },
+      {
+        "section": "bridge_start",
+        "bars": "compases 1-2 del puente",
+        "whatStops": "Percusión casi total; solo marcha aislada (shaker/kick) y contramelodía"
+      }
+    ],
+    "dropouts": [
+      "Gran parón antes del coro principal",
+      "Capas (strings, bell) desaparecen en estrofas si el lead necesita espacio",
+      "Outro: capas salen una a una hasta guitarra sola"
+    ],
+    "rules": [
+      "Al menos un dropout drástico antes de cada coro",
+      "El silencio es dejar de tocar, no bajar el volumen",
+      "Nunca dos secciones seguidas con la misma densidad e instrumentación"
+    ]
+  },
+  "must": [
+    "Base percusiva de marcha/stomp binario en 4/4 con kick 0,8 (o 0,4,8,12 en coro)",
+    "Rasgueo de guitarra sincopado en 0,3,6,8,11,14",
+    "Crescendo estructural de intro desnuda a tutti del coro",
+    "Respuesta de brass o bell al final de frases de 2-4 compases",
+    "Dueto armónico en 3ª/6ª en los momentos cumbre",
+    "Al menos un dropout con silencio real antes del coro"
+  ],
+  "avoid": [
+    "Solos de sintetizador hiperactivos estilo arcade",
+    "Progresiones cromáticas o disminuidas",
+    "Ritmos de trap o hi-hats en 32avos",
+    "Métricas impares (5/4, 7/8) que rompan la marcha comunitaria",
+    "Saw o arp como capas principales (electrizan el género)",
+    "Copiar melodías, riffs o progresiones exactas de obras existentes"
+  ],
+  "acceptance": [
+    "Intro: se reconoce el rasgueo acústico folclórico sincopado antes de la melodía",
+    "Fin de pre_chorus: el corte de base crea expectativa real, no un fade",
+    "Entrada de chorus: salto claro de energía por crash + brass + bell + strings a la vez",
+    "Primeros compases de chorus: pwm y pulse se distinguen como dos voces en 3ª o 6ª",
+    "Si se quita el rasgueo, falta la célula; si se quita el brass, falta la respuesta antémica"
+  ],
+  "sources": [
+    {
+      "title": "My Head Is an Animal (álbum) — reseña",
+      "author": "Jody Rosen (Rolling Stone)",
+      "year": "2012",
+      "url": "https://www.rollingstone.com/music/music-album-reviews/my-head-is-an-animal-191382/",
+      "type": "Reseña discográfica",
+      "claim": "El sonido combina gestos de folk-pop (guitarras de invierno, imágenes boscosas, estribillos de fogata) con músculo y escala; el sello del subgénero islandés."
+    },
+    {
+      "title": "My Head Is an Animal — reseña (BBC Music)",
+      "author": "Mike Haydock (BBC)",
+      "year": "2012",
+      "url": "https://www.bbc.co.uk/music/reviews/rh8r/",
+      "type": "Reseña discográfica",
+      "claim": "Describe el dueto voz masculina/femenina, metales potentes, gritos de 'HEY!', tambores contundentes y crescendos pop; comparación directa con Mumford & Sons."
+    },
+    {
+      "title": "The Indie-Folk Crossover: Commercials for Our Selves in a Hunger Games World",
+      "author": "Nitsuh Abebe (Vulture/New York)",
+      "year": "2012",
+      "url": "https://www.vulture.com/2012/04/indie-folk-crossover-hunger-games-commercials.html",
+      "type": "Ensayo periodístico",
+      "claim": "Documenta el cruce comercial del indie-folk 2011-2012: dos vocalistas (hombre/mujer), glockenspiel, pasos de coros con cornetas y metales, estribillos de aldea; sitúa a Of Monsters & Men en el centro."
+    },
+    {
+      "title": "Of Monsters and Men Wins Music Experiments (Músíktilraunir 2010)",
+      "author": "Iceland Review",
+      "year": "2010",
+      "url": "https://www.icelandreview.com/news/monsters-and-men-wins-music-experiments/",
+      "type": "Noticia",
+      "claim": "Confirma el origen de la célula: OMAM gana Músíktilraunir en Reikiavik 2010; se autodescribe como 'dreamy folk-music with a touch of pop'."
+    },
+    {
+      "title": "'Nu-Folk': How Britain's Folk-Rock Revival Took Over The World",
+      "author": "Louis Chilton (uDiscover Music)",
+      "year": "2021",
+      "url": "https://www.udiscovermusic.com/stories/british-nu-folk-rock-revival-history/",
+      "type": "Historia periodística",
+      "claim": "Contexto de la ola nu-folk (Mumford & Sons, Laura Marling) y su expansión global; sitúa el debut de OMAM (2011) y The Lumineers (2012) en la misma ola internacional."
+    },
+    {
+      "title": "Indie-Folk™: Vintage Sensibilities in The 21st Century (tesis doctoral)",
+      "author": "Matthew Hsu",
+      "year": "2019",
+      "doi": "10.5204/thesis.eprints.127050",
+      "url": "https://doi.org/10.5204/thesis.eprints.127050",
+      "type": "Académico",
+      "claim": "Marco académico del indie-folk: estética vintage/acústica, adopción masiva en 2000s-2010s, estrato 'stadium' de Mumford/Lumineers frente a la escena más underground."
+    },
+    {
+      "title": "The Structure, Function, and Genesis of the Prechorus",
+      "author": "Jay Summach (Music Theory Online)",
+      "year": "2011",
+      "doi": "10.30535/mto.17.3.2",
+      "url": "https://doi.org/10.30535/mto.17.3.2",
+      "type": "Académico",
+      "claim": "Análisis de la forma verso-precoro-coro y los mecanismos de crescendo del pre-coro; base formal del antémico pop-rock."
+    }
+  ],
+  "openQuestions": [
+    "El inbox original citaba 6 fuentes (Pitchfork Cohen, SOS Senior, JPMS Keenan, Árnason, ChipMusic.org) que no existen o tienen datos incorrectos; se sustituyeron por fuentes reales y la confianza baja a 0.62.",
+    "El tempo 88-112 BPM con típico 100 es inferencia de reseñas (marcha contundente, no balada); falta confirmar con escucha si el test suena lento o rápido.",
+    "El patrón de rasgueo 0,3,6,8,11,14 es una inferencia del folk-rock sincopado, no una transcripción verificada; el inbox lo presentaba como hecho.",
+    "¿chirp o brass para las interjecciones 'Hey!'? El test usa clap+rim+brass; chirp queda como alternativa si brass recarga el clímax.",
+    "La saturación de 8+ pistas en el coro (strings+bell+brass+dueto+guitar+bass+drums) puede saturar la mezcla de la app; el test usa 8 pistas con volúmenes escalonados.",
+    "El dueto vocal es la célula central pero la app no tiene voces: pwm+pulse con chorus es la mejor aproximación disponible, no una réplica."
+  ]
+}

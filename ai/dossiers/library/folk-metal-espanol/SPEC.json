@@ -1,0 +1,576 @@
+{
+  "schema": "chiptune-genre-spec@1",
+  "id": "folk-metal-espanol",
+  "name": "Folk Metal español",
+  "family": "metal",
+  "status": "tested",
+  "confidence": 0.62,
+  "updated": "2026-10-22",
+  "aliases": [
+    "Folk metal celta-ibérico",
+    "Folk metal de estadio en español"
+  ],
+  "tags": [
+    "metal",
+    "folk",
+    "celta",
+    "ibérico",
+    "concierto",
+    "himno",
+    "españa"
+  ],
+  "summary": "Folk metal de base heavy metal con melodía celta (violín/flauta), riff de corcheas y estribillo diatónico coreable; himno de estadio con breaks y dropouts estructurales.",
+  "context": {
+    "region": "España (Madrid), con difusión en Hispanoamérica",
+    "era": "1994–presente (consolidación 1998–2003)",
+    "function": "concierto, himno festivo, identidad cultural"
+  },
+  "meter": {
+    "primary": "4/4",
+    "allowed": [
+      "4/4"
+    ],
+    "feel": "recto y driving, backbeat en 2 y 4, sin swing"
+  },
+  "tempo": {
+    "range": [
+      100,
+      150
+    ],
+    "typical": 128,
+    "map": [
+      {
+        "bar": 4,
+        "bpm": 128
+      },
+      {
+        "bar": 12,
+        "bpm": 128
+      },
+      {
+        "bar": 20,
+        "bpm": 120
+      },
+      {
+        "bar": 28,
+        "bpm": 128
+      },
+      {
+        "bar": 30,
+        "bpm": 132
+      }
+    ]
+  },
+  "key": {
+    "common": [
+      "A minor",
+      "E minor",
+      "D minor"
+    ],
+    "scales": [
+      "minor",
+      "dorian",
+      "mixolydian"
+    ],
+    "modality": "menor natural con préstamos de bVII y bVI; dorian para color folk y mixolydian para celebración"
+  },
+  "form": [
+    {
+      "id": "intro",
+      "bars": 4,
+      "role": "melodía folk; bajo y guitarra acústica entran al final, sin batería",
+      "energy": 0.3,
+      "density": [
+        4,
+        12
+      ],
+      "returns": false
+    },
+    {
+      "id": "estrofa",
+      "bars": 8,
+      "role": "riff de corcheas, bajo, backbeat y melodía simplificada",
+      "energy": 0.6,
+      "density": [
+        28,
+        36
+      ],
+      "returns": true
+    },
+    {
+      "id": "estribillo",
+      "bars": 8,
+      "role": "melodía amplia, riff denso, colchón y batería completa",
+      "energy": 0.9,
+      "density": [
+        32,
+        48
+      ],
+      "returns": true
+    },
+    {
+      "id": "puente",
+      "bars": 8,
+      "role": "solo folk o riff, sin colchón; contraste y respiración",
+      "energy": 0.5,
+      "density": [
+        16,
+        28
+      ],
+      "returns": false
+    },
+    {
+      "id": "break",
+      "bars": 2,
+      "role": "batería sola y dropout total antes de la reentrada",
+      "energy": 0.2,
+      "density": [
+        0,
+        8
+      ],
+      "returns": false
+    },
+    {
+      "id": "outro",
+      "bars": 4,
+      "role": "reentrada con riff y crash; cierre en tónica",
+      "energy": 0.8,
+      "density": [
+        10,
+        44
+      ],
+      "returns": false
+    }
+  ],
+  "rhythm": {
+    "grid": "16th",
+    "patterns": [
+      {
+        "name": "backbeat metal",
+        "steps": "kick:0,4,8,12; snare:4,12; hat:0,2,4,6,8,10,12,14",
+        "accents": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "map": {
+          "kick": [
+            0,
+            4,
+            8,
+            12
+          ],
+          "snare": [
+            4,
+            12
+          ],
+          "hat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14
+          ]
+        },
+        "applies": [
+          "estrofa"
+        ]
+      },
+      {
+        "name": "backbeat intenso",
+        "steps": "kick:0,3,8,11; snare:4,12; hat:0,2,4,6,8,10,12,14",
+        "accents": [
+          0,
+          3,
+          8,
+          11
+        ],
+        "map": {
+          "kick": [
+            0,
+            3,
+            8,
+            11
+          ],
+          "snare": [
+            4,
+            12
+          ],
+          "hat": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14
+          ]
+        },
+        "applies": [
+          "estribillo"
+        ]
+      },
+      {
+        "name": "riff corcheas con síncopa",
+        "steps": "saw:0,2,3,6,8,10,11,14",
+        "accents": [
+          0,
+          3,
+          6,
+          8,
+          11,
+          14
+        ],
+        "attacks": [
+          0,
+          2,
+          3,
+          6,
+          8,
+          10,
+          11,
+          14
+        ],
+        "instrument": "saw",
+        "applies": [
+          "estrofa",
+          "estribillo"
+        ]
+      },
+      {
+        "name": "break de batería",
+        "steps": "snare:4,12; toms:0,2,8,10; kick:0,8",
+        "accents": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "map": {
+          "kick": [
+            0,
+            8
+          ],
+          "snare": [
+            4,
+            12
+          ],
+          "toms": [
+            0,
+            2,
+            8,
+            10
+          ]
+        },
+        "applies": [
+          "break"
+        ]
+      }
+    ],
+    "groove": "recto y driving; el peso está en el backbeat y en los acentos del riff, no en el swing",
+    "claves": []
+  },
+  "harmony": {
+    "progressions": [
+      "i - VI - III - VII (estrofa)",
+      "VI - III - VII - i (estribillo)",
+      "iv - i - VII - VI (puente)"
+    ],
+    "cadences": [
+      "bVII - i",
+      "VI - VII - i",
+      "cierre en tónica con acorde completo"
+    ],
+    "borrowed": [
+      "bVII mayor (color mixolidio)",
+      "bVI mayor (color natural)"
+    ],
+    "notes": "Tríadas predominantes; séptimas solo en el puente. La tensión viene de la densidad y el drive, no de la extensión armónica. Evitar cadencias V-i demasiado clásicas."
+  },
+  "melody": {
+    "range": "C4-C6",
+    "motif": "3–5 notas: salto ascendente de 4ª o 5ª y descenso por grados conjuntos; repetible y diatónico (tónica–4ª–3ª–2ª–tónica como forma, no como melodía fija)",
+    "phrasing": "frases de 4 compases con respiración cada 2; llamada-respuesta entre lead folk y guitarra en intro y puente; estribillo silábico y repetitivo",
+    "ornaments": [
+      "apoyatura rápida de dos semicorcheas",
+      "trino corto en el clímax",
+      "slide ascendente puntual"
+    ],
+    "avoid": [
+      "cromatismo sistemático",
+      "saltos mayores de 6ª en el estribillo",
+      "virtuosismo barroco",
+      "melodía que compita con el riff en el mismo registro"
+    ]
+  },
+  "roles": [
+    {
+      "role": "lead folk",
+      "instruments": [
+        "pulse",
+        "pwm"
+      ],
+      "range": "C4-C6",
+      "behavior": "melodía principal en intro y puente; contramelodía en estrofa y estribillo; pulse para brillo, pwm para expresividad"
+    },
+    {
+      "role": "riff metal",
+      "instruments": [
+        "saw"
+      ],
+      "range": "C3-C5",
+      "behavior": "corcheas con acentos en 3 y 11; drive moderado; sostiene la armonía y deja la melodía al lead folk"
+    },
+    {
+      "role": "doblez metal",
+      "instruments": [
+        "saw"
+      ],
+      "range": "C3-C5",
+      "behavior": "dobla la melodía del estribillo una octava abajo; usa la quinta cuando la octava choca con la raíz del riff"
+    },
+    {
+      "role": "bajo",
+      "instruments": [
+        "bass",
+        "pluck"
+      ],
+      "range": "C2-C3",
+      "behavior": "raíz del acorde en negras; en el estribillo alterna raíz y quinta en corcheas; pluck solo en secciones rápidas"
+    },
+    {
+      "role": "batería",
+      "instruments": [
+        "drums"
+      ],
+      "range": "—",
+      "behavior": "backbeat kick/snare/hat; crash al inicio del estribillo; break de snare/toms antes del cierre"
+    },
+    {
+      "role": "colchón",
+      "instruments": [
+        "strings",
+        "pad"
+      ],
+      "range": "C3-C5",
+      "behavior": "acordes largos (tercera y quinta) en el estribillo; densidad baja para no tapar el riff ni duplicar la raíz"
+    },
+    {
+      "role": "color folk secundario",
+      "instruments": [
+        "triangle",
+        "chirp"
+      ],
+      "range": "C4-C6",
+      "behavior": "contramelodía dulce en estrofa y puente; triangle para flauta, chirp para whistle brillante"
+    },
+    {
+      "role": "arpegios",
+      "instruments": [
+        "arp",
+        "guitar"
+      ],
+      "range": "C4-C6",
+      "behavior": "arpegios de 16 pasos en intro y reentrada; guitar para rasgueo acústico"
+    }
+  ],
+  "instrumentation": {
+    "required": [
+      "pulse",
+      "saw",
+      "bass",
+      "drums"
+    ],
+    "optional": [
+      "pwm",
+      "strings",
+      "triangle",
+      "guitar",
+      "arp",
+      "pluck",
+      "pad"
+    ],
+    "avoid": [
+      "brass como melodía principal",
+      "piano como base folk",
+      "bell como sustituto del violín",
+      "más de dos capas melódicas simultáneas"
+    ]
+  },
+  "production": {
+    "effects": [
+      "drive",
+      "reverb",
+      "delay",
+      "chorus",
+      "crush"
+    ],
+    "texture": "capas diferenciadas: melodía al frente, riff medio con drive, bajo redondo, batería seca y colchón discreto",
+    "mix": "la melodía folk debe ser inteligible; el riff no la tapa; el crash marca el estribillo sin saturar"
+  },
+  "chiptune": {
+    "translation": "violín/flauta a pulse/pwm/triangle; guitarra distorsionada a saw+drive; bajo a bass/pluck; batería a drums; colchón a strings/pad",
+    "constraints": [
+      "sin samples de instrumentos folk",
+      "sin voces ni coros",
+      "sin cambio de compás",
+      "sin microtonalidad ni vibrato por nota",
+      "sin automatización de efectos"
+    ],
+    "workarounds": [
+      "pwm+delay para aproximar el vibrato del violín",
+      "triangle+chorus para flauta dulce",
+      "saw con drive suave para gaita; evitar brass",
+      "guitar/arp para acústica",
+      "pluck para bajo en secciones rápidas"
+    ]
+  },
+  "silence": {
+    "breaks": [
+      {
+        "section": "pre-estribillo final",
+        "bars": "1-2",
+        "whatStops": "todo excepto drums"
+      },
+      {
+        "section": "puente",
+        "bars": "1",
+        "whatStops": "armonía y batería; solo pulse"
+      }
+    ],
+    "dropouts": [
+      "primer compás del puente: solo pulse sin armonía",
+      "un compás de silencio antes de la reentrada final",
+      "falso final tras el estribillo: un compás de silencio y reentrada con riff y crash"
+    ],
+    "rules": [
+      "el silencio es estructural (break, dropout), no textural",
+      "no hay silencios largos en la estrofa",
+      "el último compás cierra en tónica, sin fundido largo"
+    ]
+  },
+  "must": [
+    "backbeat claro con snare en 2 y 4",
+    "riff de corcheas con acentos en los pasos 3 y 11",
+    "melodía diatónica coreable en C4-C6",
+    "progresión i-VI-III-VII en la estrofa",
+    "contraste de densidad entre intro folk y estribillo metal",
+    "break de batería y dropout antes del cierre",
+    "melodía doblada a la octava por una segunda capa de saw en el estribillo (quinta si la octava choca con el riff)"
+  ],
+  "avoid": [
+    "compases irregulares o cambios de compás",
+    "polka/humppa finlandesa sistemática",
+    "blast beats y tremolo picking de black metal",
+    "cromatismo o virtuosismo en la melodía",
+    "brass como lead folk",
+    "crush excesivo en la melodía",
+    "fundidos largos en lugar de cierre rítmico",
+    "copiar riffs, melodías o letras de obras existentes"
+  ],
+  "acceptance": [
+    "Entrada de estrofa (tras la intro): se reconoce el backbeat de metal bajo una melodía diatónica; no suena a balada ni a rock ligero",
+    "Entrada de estribillo: entra con más capas, crash y melodía más amplia; se distingue de la estrofa",
+    "Sección break: hay break de batería y silencio antes de la reentrada; la densidad no es continua",
+    "la melodía folk se puede tararear tras dos escuchas",
+    "la estrofa produce una sensación armónica i-VI-III-VII",
+    "el riff tiene ataque y distorsión (saw+drive); no suena limpio ni a piano",
+    "el estribillo dobla la melodía una octava abajo y produce un peso metal extra; si el doblez tapa la melodía o desafina, falla"
+  ],
+  "sources": [
+    {
+      "title": "Folk metal - Wikipedia, la enciclopedia libre",
+      "author": "Wikipedia (colaboradores)",
+      "year": "2004–2025",
+      "url": "https://es.wikipedia.org/wiki/Folk_metal",
+      "type": "enciclopedia abierta",
+      "claim": "El metal celta se caracteriza por violín, gaita y flauta irlandesa; Mägo de Oz aparece entre las bandas destacadas; temáticas de leyendas, fantasía y taberna.",
+      "confidence": "media",
+      "verified": "2026-10-22"
+    },
+    {
+      "title": "Mägo de Oz @ Electric Ballroom",
+      "author": "SPAIN arts & culture",
+      "year": "s.f. (evento)",
+      "url": "https://spainculturescience.co.uk/event/mago-de-oz-electric-ballroom/",
+      "type": "ficha institucional",
+      "claim": "Mägo de Oz son pioneros del folk metal español; mezclan heavy metal con fuertes influencias celtas e instrumentos como violín y flauta; letras de fantasía y directos teatrales.",
+      "confidence": "media-alta",
+      "verified": "2026-10-22"
+    },
+    {
+      "title": "Figura 3.111. Zanfoña (tesis sobre Folk y Viking Metal)",
+      "author": "Repositorio INAH (México)",
+      "year": "2023",
+      "url": "https://repositorio.inah.gob.mx/_flysystem/fedora/2023-11/tesis_1890.pdf",
+      "type": "tesis académica",
+      "claim": "Las bandas de folk/viking amplían la plantilla con instrumentos tradicionales; el folk metal incorpora violines, flautas, acordeones y zanfonas; Skyclad y Subway to Sally como precursores.",
+      "confidence": "media",
+      "verified": "no verificada en línea en esta sesión"
+    },
+    {
+      "title": "Folk Metal Violin tabs (hilo de foro)",
+      "author": "Metal-Archives forum (usuarios)",
+      "year": "2015",
+      "url": "https://forum.metal-archives.com/viewtopic.php?f=8&t=111736",
+      "type": "foro de practicantes",
+      "claim": "Las melodías de folk metal suelen ser escalas mayores/menores simples y rápidas; muchas bandas adaptan melodías tradicionales; el violín tiene rol protagónico.",
+      "confidence": "baja-media",
+      "verified": "no verificada en línea en esta sesión"
+    },
+    {
+      "title": "Los orígenes del Folk Metal se remontan a la década de los noventa",
+      "author": "BDJC-IIA, UNAM",
+      "year": "s.f.",
+      "url": "http://bdjc.iia.unam.mx/items/show/635",
+      "type": "repositorio académico",
+      "claim": "Mägo de Oz es mencionado como uno de los precursores del folk metal contemporáneo, con primer disco en 1994.",
+      "confidence": "media",
+      "verified": "no verificada en línea en esta sesión"
+    },
+    {
+      "title": "Mägo de Oz - Wikipedia, la enciclopedia libre",
+      "author": "Wikipedia (colaboradores)",
+      "year": "2004–actualidad",
+      "url": "https://es.wikipedia.org/wiki/M%C3%A4go_de_Oz",
+      "type": "enciclopedia abierta",
+      "claim": "Origen en 1988–1989; incorporación temprana de violín y melodías folk; Txus como compositor principal.",
+      "confidence": "media",
+      "verified": "no verificada en línea en esta sesión"
+    },
+    {
+      "title": "Hoy, Mago de Oz regresa a San Luis Potosí",
+      "author": "El Heraldo de San Luis Potosí",
+      "year": "2015",
+      "url": "https://elheraldoslp.com.mx/2015/12/04/hoy-mago-de-oz-regresa-a-san-luis-potosi/",
+      "type": "prensa regional",
+      "claim": "Mägo de Oz mezcla metal/hard rock con música celta y folk; la música celta es la influencia predominante; éxito masivo en España y Latinoamérica.",
+      "confidence": "media-baja",
+      "verified": "no verificada en línea en esta sesión"
+    },
+    {
+      "title": "Getting a Pan flute... (hilo de foro)",
+      "author": "Metal-Archives forum (usuarios)",
+      "year": "s.f.",
+      "url": "https://forum.metal-archives.com/viewtopic.php?p=1099558",
+      "type": "foro de practicantes",
+      "claim": "En folk metal es común el tin whistle irlandés en varias tonalidades, no la flauta andina; la guitarra suele estar en afinación estándar.",
+      "confidence": "baja",
+      "verified": "no verificada en línea en esta sesión"
+    }
+  ],
+  "openQuestions": [
+    "Faltan transcripciones musicales verificables (BPM, compases, progresiones exactas); los valores numéricos de este spec son inferencias razonables.",
+    "No se verificó el peso real de la gaita frente al violín y la flauta en esta célula.",
+    "No hay medición de la diferencia de tempo entre estudio y directo.",
+    "No está documentada la evolución de densidad y armonía entre las etapas de consolidación (1998–2003).",
+    "La afirmación de foro sobre 'escalas mayores/menores simples' es opinión de practicantes, no dato académico.",
+    "La célula es Madrid-céntrica y de estadio; no separa las variantes regionales de folk metal en Galicia, Asturias o Cataluña.",
+    "Sin voces ni letras, la función de himno se aproxima con melodía coreable y estribillo, no con texto."
+  ]
+}

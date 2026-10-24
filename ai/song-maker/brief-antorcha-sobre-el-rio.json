@@ -1,0 +1,87 @@
+{
+  "title": "Antorcha sobre el río",
+  "project": "Demo de validación de género — Chiptune Studio",
+  "premise": "Una comitiva sube la colina del pueblo con antorchas para encender la hoguera de verano. Los primeros compases son una marcha casi fúnebre con una melodía sola; cuando la multitud entra, la misma melodía se convierte en himno de estadio. La canción tiene que sentirse como un pueblo que se vuelve cuerpo.",
+  "emotions": [
+    "orgullo",
+    "hermandad",
+    "fiesta",
+    "euforia",
+    "nostalgia que se vuelve fuerza"
+  ],
+  "feel": "peso, brasa, aire frío sobre el agua",
+  "function": "canción / himno de concierto",
+  "genre": "folk-metal-espanol",
+  "influences": [
+    {
+      "trait": "Melodía de instrumento folk protagonista (violín/flauta) sobre base heavy",
+      "use": "Se traduce a lead de pulse/pwm y color de triangle; el riff va en saw con drive"
+    },
+    {
+      "trait": "Riff de corcheas con síncopa y backbeat recto",
+      "use": "Patrón de 16 pasos con acentos en 3 y 11; snare en 4 y 12"
+    },
+    {
+      "trait": "Estribillo diatónico coreable y melodía doblada a la octava",
+      "use": "Segunda capa de saw una octava abajo solo en el estribillo"
+    },
+    {
+      "trait": "Breaks y dropouts estructurales de himno de estadio",
+      "use": "Break de batería sola y un compás de silencio antes de la reentrada final"
+    }
+  ],
+  "references": [],
+  "mustInclude": [
+    "backbeat claro con snare en 2 y 4",
+    "riff de corcheas con acentos en los pasos 3 y 11",
+    "progresión i-VI-III-VII en la estrofa",
+    "melodía diatónica coreable en C4-C6",
+    "contraste de densidad entre intro folk y estribillo metal",
+    "break de batería sola y dropout antes del cierre",
+    "melodía doblada una octava abajo por una segunda capa de saw en el estribillo",
+    "motivo propio de 4 notas reconocible en la intro"
+  ],
+  "avoid": [
+    "compases irregulares o cambios de compás",
+    "blast beats y tremolo picking",
+    "polka o ritmos de cabra escandinava",
+    "cromatismo o virtuosismo en la melodía",
+    "brass como melodía principal",
+    "crush excesivo en la melodía",
+    "fundidos largos en lugar de cierre rítmico",
+    "copia de riffs, melodías o progresiones de obras existentes"
+  ],
+  "technical": {
+    "bpm": 128,
+    "bpmRange": [100, 150],
+    "timeSig": "4/4",
+    "bars": 60,
+    "maxTracks": 10,
+    "key": "A",
+    "scale": "minor",
+    "loop": false,
+    "loopStartBar": 0,
+    "mustChangeTempo": true,
+    "instrumentation": ["pulse", "pwm", "saw", "bass", "drums", "strings", "triangle", "guitar", "pluck", "pad"]
+  },
+  "originality": {
+    "statement": "Motivo propio de 4 notas (salto de 5ª ascendente y descenso por grados); forma con break y falso final; puente con préstamo dorian del IV; sin citas ni arreglos reconocibles.",
+    "nonNegotiables": [
+      "ninguna melodía, riff o arreglo tomado de una obra existente",
+      "el motivo de la intro debe reconocerse en el estribillo transformado",
+      "cambiar al menos dos dimensiones respecto a la referencia: forma (break + falso final) y color modal (préstamo dorian en el puente)"
+    ],
+    "noDirectQuotes": true
+  },
+  "assumptions": [
+    "El spec folk-metal-espanol está en estado 'tested' (confianza 0.62): la canción es una estimación del género, no una afirmación de autenticidad.",
+    "No hay voces ni coros en la app: la función de himno coreable se aproxima con una melodía silábica repetible y una segunda capa a la octava.",
+    "Sin samples de violín, flauta o gaita: la melodía folk se traduce a pulse/pwm y el color de flauta a triangle.",
+    "El spec declara 4/4 como único compás permitido; no se usan métricas impares aunque el contrato de la app las admita.",
+    "La progresión i-VI-III-VII es el esqueleto diatónico que exige el spec; la originalidad se apoya en el motivo, la forma y el ritmo, no en la progresión.",
+    "El spec incluye una contradicción interna: su array 'form' sitúa el estribillo en el compás 13, pero sus 'acceptance' lo sitúan en el 9. Se sigue el array 'form' y se mapean los criterios de aceptación de forma relativa.",
+    "Préstamo dorian (IV mayor) en el puente: una sola aparición documentada; las notas fuera de la escala declarada quedan por debajo del umbral de coherencia del check."
+  ],
+  "notes": "Pieza de prueba del género. Brief A de un lote de dos; validación técnica y escucha humana pendientes.",
+  "deliverables": ["plan", "song", "check", "notes"]
+}

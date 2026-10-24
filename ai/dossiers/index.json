@@ -13,6 +13,28 @@
       "dossier": "library/city-pop/DOSSIER.md",
       "spec": "library/city-pop/SPEC.json",
       "test": "library/city-pop/TEST.json"
+    },
+    {
+      "id": "folk-metal-espanol",
+      "name": "Folk Metal español",
+      "family": "metal",
+      "status": "tested",
+      "confidence": 0.62,
+      "updated": "2026-10-22",
+      "dossier": "library/folk-metal-espanol/DOSSIER.md",
+      "spec": "library/folk-metal-espanol/SPEC.json",
+      "test": "library/folk-metal-espanol/TEST.json"
+    },
+    {
+      "id": "indie-folk-rock",
+      "name": "Indie Folk-Rock Antémico",
+      "family": "indie-rock",
+      "status": "tested",
+      "confidence": 0.62,
+      "updated": "2026-10-22",
+      "dossier": "library/indie-folk-rock/DOSSIER.md",
+      "spec": "library/indie-folk-rock/SPEC.json",
+      "test": "library/indie-folk-rock/TEST.json"
     }
   ]
 }

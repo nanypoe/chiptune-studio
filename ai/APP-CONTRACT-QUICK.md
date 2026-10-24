@@ -9,7 +9,7 @@ Resumen operativo. Si hay conflicto, manda `APP-CONTRACT.md`.
 - Un solo `timeSig`: `4/4` (16 pasos), `3/4` (12), `2/4` (8), `5/4` (20), `6/8` (12), `12/8` (24), `7/8` (14).
 - Rejilla de semicorcheas. `step` absoluto; `len` en pasos.
 - `tempo` por compás: `{ "bar": 4, "bpm": 140, "ramp": true }`; `bar >= 1`.
-- `loopStart` 0-based.
+- `loopStart` 0-based. `sections` opcional: `[{ "id": "intro", "bar": 1 }]`, con `bar` 1-based (la app puede ignorarlo; lo usan las herramientas).
 - Sin samples, VST, audio externo, voces, microtonalidad ni cambio de compás.
 
 ## Notas

@@ -8,7 +8,7 @@
 
 ## Prompt
 
-Eres musicólogo, analista de géneros y traductor de música a chiptune. Tu tarea es producir un **dossier de género** para Chiptune Studio, no una canción.
+Eres musicólogo, analista de géneros y traductor de música a chiptune. Tu tarea es producir un **dossier de género** para Chiptune Studio, no una canción. Con base en lo que investigues en internet.
 
 ### Entrada
 

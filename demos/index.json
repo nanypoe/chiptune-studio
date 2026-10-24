@@ -1,5 +1,7 @@
 {
  "demos": [
+  "antorcha-sobre-el-rio.json",
+  "faroles-en-la-nieve.json",
   "postes-de-luz.json"
  ]
 }
